@@ -1,0 +1,11 @@
+### Unity ###
+Zabuton/[Ll]ibrary/
+Zabuton/[Tt]emp/
+Zabuton/[Oo]bj/
+Zabuton/[Bb]uild/
+
+# Unity3D generated meta files
+*.pidb.meta
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
