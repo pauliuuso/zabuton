@@ -9,6 +9,8 @@ public class GameController
     public float p_tilt = 2f;
     public float p_bullet_speed = 15f;
     public float p_cooldown = 1f;
+    public int p_devast = 5;
+    public string p_type = "none";
 
     public float xMin = -13f, xMax = 13f, zMin = -11f, zMax = 6f;
 

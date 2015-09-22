@@ -16,8 +16,11 @@ public class PlayerShip : MonoBehaviour
     {
         if(Input.GetButton("Fire1") && Time.time > nextFire) // Jei paspaustas sovimo mygtukas ir cooldown baiges
         {
+            Bolt.GetComponent<Bullet>().devast = settings.p_devast;
+            Bolt.GetComponent<Bullet>().type = settings.p_type;
             nextFire = Time.time + settings.p_cooldown;
             Instantiate(Bolt, BulletSpawn.position, BulletSpawn.rotation); // Instantiate ikelia objekta, antras parametras pozicija, trecias rotation
+            
             //GameObject clone = Instantiate(Bolt, BulletSpawn.position, BulletSpawn.rotation) as GameObject; - cia jei reiktu tureti reference i naujai ideta obekta
         }
     }
