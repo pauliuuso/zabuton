@@ -1,17 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
-public class GameController
+public class GameController : MonoBehaviour
 {
-    // Player settings
-    public float p_speed = 12f;
-    public float p_tilt = 2f;
-    public float p_bullet_speed = 15f;
-    public float p_cooldown = 1f;
-    public int p_devast = 5;
-    public string p_type = "none";
 
-    public float xMin = -13f, xMax = 13f, zMin = -11f, zMax = 6f;
+    // References
+    public GameObject Asteroid1;
+
+    private float startWait = 3f;
+    private float nextWait = 2f;
+    private float ObjectScale = 1;
+
+    private string[] currentLevel;
+    private string[] level1 = {"ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1"};
+
+    void Start()
+    {
+        StartCoroutine (spawnEnemies());
+        if (Settings.current_level == 1) currentLevel = level1;
+        randomScale();
+    }
+
+    IEnumerator spawnEnemies()
+    {
+        yield return new WaitForSeconds(startWait);
+
+        for(int i = 0; i < level1.Length; i++)
+        {
+            Vector3 spawnPosition = new Vector3(Random.Range(-12, 12), 0.0f, 18); //Pozicijos, x lokacija parenkama random
+            Quaternion spawnRotation = Quaternion.identity; // Rotation bus 0, identity reiskia kad nebus jokios rotacijos
+
+            if(currentLevel[i] == "ast1")
+            {
+                Instantiate(Asteroid1, spawnPosition, spawnRotation);
+                Asteroid1.transform.localScale = new Vector3(ObjectScale, ObjectScale, ObjectScale);
+                randomScale();
+            }
+
+            yield return new WaitForSeconds(nextWait);
+        }
+    }
+
+    private void randomScale()
+    {
+        ObjectScale = Random.Range(0.6f, 1.2f);
+    }
 
 }

@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11458368}
   - 114: {fileID: 11445048}
   - 114: {fileID: 11462296}
+  - 114: {fileID: 11483758}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Asteroid
@@ -46,7 +47,7 @@ Transform:
   m_GameObject: {fileID: 107372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .734261811, y: .734261811, z: .734261811}
   m_Children:
   - {fileID: 485668}
   m_Father: {fileID: 0}
@@ -137,6 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433e3f3a959d8c34d9be4be34ac676af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion1: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 2}
 --- !u!114 &11458368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,8 +163,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  devast: 15
   resistance: none
   resistanceStrength: 0
+--- !u!114 &11483758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f0bdddbb5f47334faa7a1a5454685f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &13575338
 SphereCollider:
   m_ObjectHideFlags: 1

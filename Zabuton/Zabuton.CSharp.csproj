@@ -78,15 +78,18 @@
     <Compile Include="Assets\Done\Done_Scripts\Done_PlayerController.cs" />
     <Compile Include="Assets\Done\Done_Scripts\Done_RandomRotator.cs" />
     <Compile Include="Assets\Done\Done_Scripts\Done_WeaponController.cs" />
-    <Compile Include="Assets\_Scripts\Asteroid.cs" />
+    <Compile Include="Assets\_Scripts\AsteroidMover.cs" />
     <Compile Include="Assets\_Scripts\Bullet.cs" />
     <Compile Include="Assets\_Scripts\BulletMover.cs" />
     <Compile Include="Assets\_Scripts\Colisions.cs" />
     <Compile Include="Assets\_Scripts\DamageCounter.cs" />
+    <Compile Include="Assets\_Scripts\DestroyByTime.cs" />
     <Compile Include="Assets\_Scripts\Destroyer.cs" />
     <Compile Include="Assets\_Scripts\GameController.cs" />
     <Compile Include="Assets\_Scripts\PlayerShip.cs" />
     <Compile Include="Assets\_Scripts\RandomRotation.cs" />
+    <Compile Include="Assets\_Scripts\Settings.cs" />
+    <Compile Include="Assets\_Scripts\Soul.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

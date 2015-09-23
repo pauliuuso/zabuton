@@ -220,6 +220,10 @@ Prefab:
       propertyPath: m_UseLightProbes
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cd880213783f18b4199fbf72d693c76e, type: 3}
+      propertyPath: m_TagString
+      value: Player_ship
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd880213783f18b4199fbf72d693c76e, type: 3}
   m_IsPrefabParent: 0
@@ -369,6 +373,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &1106834562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1106834564}
+  - 114: {fileID: 1106834563}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1106834563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106834562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14341507eb3cf834bb4c103faf7edc75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Asteroid1: {fileID: 107372, guid: c3913b1c798485d4d81d37015c74745d, type: 2}
+--- !u!4 &1106834564
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106834562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &1225256513
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +633,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1989562559}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 1.01999998
   m_Height: 3.75
   m_Direction: 2
@@ -607,6 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletSpawn: {fileID: 2074136077}
   Bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
+  playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
 --- !u!1 &2074136076
 GameObject:
   m_ObjectHideFlags: 0
