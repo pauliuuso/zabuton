@@ -10,16 +10,19 @@ public class PlayerShip : MonoBehaviour
     public Transform BulletSpawn; // reference i bulletspawn objekta, pagal jo koordinates ikelsim bullet
     public GameObject Bolt; // reference i bullet objekta
     public GameObject playerExplosion; // reference i player explosion
+    public AudioClip fireShot1;
+
+    private AudioClip shot;
 
     void Update() // Naudojama viskam kas nesusiije su fizika, pvz soviniai kurie juda ne fizikos pagalba
     {
         if(Input.GetButton("Fire1") && Time.time > nextFire) // Jei paspaustas sovimo mygtukas ir cooldown baiges
         {
-            Bolt.GetComponent<Bullet>().devast = Settings.p_devast;
-            Bolt.GetComponent<Bullet>().type = Settings.p_type;
+            Bolt.GetComponent<Bullet>().devast = Settings.p_devast; // Soviniui suteikiama damage
+            Bolt.GetComponent<Bullet>().type = Settings.p_type; // Sovinio tipas
             nextFire = Time.time + Settings.p_cooldown;
             Instantiate(Bolt, BulletSpawn.position, BulletSpawn.rotation); // Instantiate ikelia objekta, antras parametras pozicija, trecias rotation
-            
+            PlaySound();
             //GameObject clone = Instantiate(Bolt, BulletSpawn.position, BulletSpawn.rotation) as GameObject; - cia jei reiktu tureti reference i naujai ideta obekta
         }
     }
@@ -61,6 +64,13 @@ public class PlayerShip : MonoBehaviour
             Destroy(gameObject);
             Instantiate(playerExplosion, transform.position, transform.rotation);
         }
+    }
+
+    private void PlaySound()
+    {
+        if (Settings.p_type == "fire" && Settings.p_devast <= 15) shot = fireShot1;
+
+        AudioSource.PlayClipAtPoint(shot, transform.position, Random.Range(1f, 2f)); // Garso efektas
     }
 
 

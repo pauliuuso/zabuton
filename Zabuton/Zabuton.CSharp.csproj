@@ -86,6 +86,7 @@
     <Compile Include="Assets\_Scripts\DestroyByTime.cs" />
     <Compile Include="Assets\_Scripts\Destroyer.cs" />
     <Compile Include="Assets\_Scripts\GameController.cs" />
+    <Compile Include="Assets\_Scripts\MusicManager.cs" />
     <Compile Include="Assets\_Scripts\PlayerShip.cs" />
     <Compile Include="Assets\_Scripts\RandomRotation.cs" />
     <Compile Include="Assets\_Scripts\Settings.cs" />

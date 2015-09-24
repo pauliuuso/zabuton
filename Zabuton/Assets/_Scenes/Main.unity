@@ -162,7 +162,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd880213783f18b4199fbf72d693c76e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd880213783f18b4199fbf72d693c76e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -287,6 +287,120 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1970959220}
   m_RootOrder: 2
+--- !u!1 &814399752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 814399754}
+  - 82: {fileID: 814399753}
+  - 114: {fileID: 814399755}
+  m_Layer: 0
+  m_Name: MusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &814399753
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814399752}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: .5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!4 &814399754
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814399752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22.8199997, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+--- !u!114 &814399755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814399752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdd956ec08a08b4faace753580e1bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  melodies:
+  - {fileID: 8300000, guid: 7b04c59dd84f14039b601e1abbe7b884, type: 3}
+  - {fileID: 8300000, guid: 7b04c59dd84f14039b601e1abbe7b884, type: 3}
+  audio: {fileID: 0}
 --- !u!1 &991050558
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,8 +460,8 @@ Camera:
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 85.0999985
-  orthographic: 0
-  orthographic size: 6.4000001
+  orthographic: 1
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -367,7 +481,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 991050558}
-  m_LocalRotation: {x: .675590277, y: 0, z: 0, w: .737277269}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
   m_LocalPosition: {x: 0, y: 13.4099998, z: -1.71000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -401,6 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Asteroid1: {fileID: 107372, guid: c3913b1c798485d4d81d37015c74745d, type: 2}
+  musicManager: {fileID: 814399752}
 --- !u!4 &1106834564
 Transform:
   m_ObjectHideFlags: 0
@@ -652,6 +767,7 @@ MonoBehaviour:
   BulletSpawn: {fileID: 2074136077}
   Bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
+  fireShot1: {fileID: 8300000, guid: bf75b984df8a84987bcf3a8bf6e2862d, type: 3}
 --- !u!1 &2074136076
 GameObject:
   m_ObjectHideFlags: 0

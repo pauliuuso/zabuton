@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 14341507eb3cf834bb4c103faf7edc75
-timeCreated: 1443028326
+timeCreated: 1443099011
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Asteroid1: {instanceID: 0}
+  - levelMusic1: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
