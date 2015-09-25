@@ -3,9 +3,9 @@ using System.Collections;
 
 public class AsteroidMover : MonoBehaviour
 {
-    private float asteroidSpeed = Random.value * 10 + 5;
+    private float asteroidSpeed = Random.value * 8 + 5;
 
-    void Start()
+    void Awake()
     {
         GetComponent<Rigidbody>().velocity = transform.forward * -asteroidSpeed;
     }

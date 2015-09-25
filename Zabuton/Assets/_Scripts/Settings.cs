@@ -16,9 +16,10 @@ public class Settings
     public static string p_secondary = "none";
     public static int current_level = 1;
 
-    public static float xMin = -19f, xMax = 19f, zMin = -16f, zMax = 6f;
+    public static float xMin = -20f, xMax = 20f, zMin = -14f, zMax = 6f;
 
-    public static float music_volume = 0.2f;
+    public static float music_volume = 0.1f;
+    public static float sound_volume = 0.25f;
 
 }
 

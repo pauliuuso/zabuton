@@ -10,9 +10,14 @@ public class PlayerShip : MonoBehaviour
     public Transform BulletSpawn; // reference i bulletspawn objekta, pagal jo koordinates ikelsim bullet
     public GameObject Bolt; // reference i bullet objekta
     public GameObject playerExplosion; // reference i player explosion
-    public AudioClip fireShot1;
 
-    private AudioClip shot;
+    public new AudioSource audio;
+    public AudioClip[] shots;
+
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
 
     void Update() // Naudojama viskam kas nesusiije su fizika, pvz soviniai kurie juda ne fizikos pagalba
     {
@@ -37,8 +42,8 @@ public class PlayerShip : MonoBehaviour
 
         if (horizontalMovement < 0 && movingSideways > -10) movingSideways--; // Cia reikalinga del pasisukimo kai judama i kuria nors puse
         else if (horizontalMovement > 0 && movingSideways < 10) movingSideways++;
-        else if (movingSideways < 0) movingSideways++;
-        else if (movingSideways > 0) movingSideways--;
+        else if (movingSideways < 0 && horizontalMovement == 0) movingSideways++;
+        else if (movingSideways > 0 && horizontalMovement == 0) movingSideways--;
 
 
         Vector3 movement = new Vector3 (horizontalMovement, 0.0f, verticalMovement); // Vector3(x, y, z); Nustatoma kuria kryptimi juda
@@ -68,9 +73,10 @@ public class PlayerShip : MonoBehaviour
 
     private void PlaySound()
     {
-        if (Settings.p_type == "fire" && Settings.p_devast <= 15) shot = fireShot1;
+        if (Settings.p_type == "fire" && Settings.p_devast <= 15) audio.clip = shots[0];
 
-        AudioSource.PlayClipAtPoint(shot, transform.position, Random.Range(1f, 2f)); // Garso efektas
+        audio.volume = Settings.sound_volume;
+        audio.Play(); // Garso efektas
     }
 
 

@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     private float ObjectScale = 1;
 
     private string[] currentLevel;
-    private string[] level1 = {"ast1", "ast1", "ast1", "ast1", "ast1","wait" ,"wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1" };
+    private string[] level1 = {"ast1", "ast1", "ast1", "ast1", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1"};
 
     // Game music
 
