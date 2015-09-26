@@ -7,6 +7,15 @@ public class Colisions : MonoBehaviour
     public GameObject explosion1;
 
     private GameObject explosion;
+    private GameController gameController;
+
+    void Start()
+    {
+        GameObject gameControllerObject = GameObject.FindGameObjectWithTag("GameController");
+        if (gameControllerObject != null) gameController = gameControllerObject.GetComponent<GameController>();
+        else Debug.Log("Collisions can't find GameController script");
+    }
+
 
     void OnTriggerEnter(Collider other) // Jei susiduria objektas kuriam yra priskirtas sitas scriptas ir koks nors kitas objektas
     {
@@ -38,6 +47,8 @@ public class Colisions : MonoBehaviour
         {
             Destroy(gameObject); // Kai baigiasi gyvybes asteroidas sunaikinamas
             Instantiate(explosion, transform.position, transform.rotation);
+            Settings.p_gold += gameObject.GetComponent<Soul>().reward;
+            gameController.updateScore();
         }
  
     }

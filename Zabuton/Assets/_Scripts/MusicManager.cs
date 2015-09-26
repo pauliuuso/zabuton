@@ -10,11 +10,12 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         audio = GetComponent<AudioSource>();
+        if (Settings.current_level == 1) playMusic("level1", true);
     }
 
-    public void playMusic(string title = "firstLevel", bool looping = true)
+    public void playMusic(string title = "level1", bool looping = true)
     {
-        if(title == "firstLevel")
+        if(title == "level1")
         {
             audio.clip = melodies[0];
         }

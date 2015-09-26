@@ -32,9 +32,10 @@ GameObject:
   - 33: {fileID: 3310100}
   - 23: {fileID: 2339830}
   - 95: {fileID: 9591192}
+  - 114: {fileID: 11406406}
   m_Layer: 0
   m_Name: asteroid1
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +48,7 @@ Transform:
   m_GameObject: {fileID: 107372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.03977585, y: 1.03977585, z: 1.03977585}
+  m_LocalScale: {x: 1.05903614, y: 1.05903614, z: 1.05903614}
   m_Children:
   - {fileID: 485668}
   m_Father: {fileID: 0}
@@ -127,6 +128,29 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11406406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6cd5d9a9fb530c478b2b794136fd739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 57414fed41eba1b4f8272f7fd21eff39, type: 2}
+  - {fileID: 2100000, guid: 8327a23b34b6faf47bdbfc7422c35022, type: 2}
+  - {fileID: 2100000, guid: 7e726484fd2bdf2429ecb263cf30fa3a, type: 2}
+  - {fileID: 2100000, guid: d6b13c856d12d3144b16b73cd9c37c64, type: 2}
+  - {fileID: 2100000, guid: df22772233d808f46842236fb588bef5, type: 2}
+  meshes:
+  - {fileID: 4300000, guid: 17547198936592b4bb179de9ca3c1656, type: 3}
+  - {fileID: 4300000, guid: 0ed53c604e40d0b4d8cf45ed54a16d88, type: 3}
+  - {fileID: 4300000, guid: 17547198936592b4bb179de9ca3c1656, type: 3}
+  - {fileID: 4300000, guid: e01e74cda40869c42ba38e5f0c2dee27, type: 3}
+  - {fileID: 4300000, guid: 9efd3b0bbcb1ff5419e90758081527de, type: 3}
 --- !u!114 &11445048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -164,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   devast: 12
+  reward: 10
   resistance: none
   resistanceStrength: 0
 --- !u!114 &11483758
@@ -196,6 +221,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: meshes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Asteroid
@@ -232,6 +265,54 @@ Prefab:
       propertyPath: resistanceStrength
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 57414fed41eba1b4f8272f7fd21eff39, type: 2}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8327a23b34b6faf47bdbfc7422c35022, type: 2}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e726484fd2bdf2429ecb263cf30fa3a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: d6b13c856d12d3144b16b73cd9c37c64, type: 2}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: df22772233d808f46842236fb588bef5, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: meshes.Array.data[0]
+      value: 
+      objectReference: {fileID: 4300000, guid: 17547198936592b4bb179de9ca3c1656, type: 3}
+    - target: {fileID: 0}
+      propertyPath: meshes.Array.data[1]
+      value: 
+      objectReference: {fileID: 4300000, guid: 0ed53c604e40d0b4d8cf45ed54a16d88, type: 3}
+    - target: {fileID: 0}
+      propertyPath: meshes.Array.data[2]
+      value: 
+      objectReference: {fileID: 4300000, guid: 17547198936592b4bb179de9ca3c1656, type: 3}
+    - target: {fileID: 0}
+      propertyPath: meshes.Array.data[3]
+      value: 
+      objectReference: {fileID: 4300000, guid: e01e74cda40869c42ba38e5f0c2dee27, type: 3}
+    - target: {fileID: 0}
+      propertyPath: meshes.Array.data[4]
+      value: 
+      objectReference: {fileID: 4300000, guid: 9efd3b0bbcb1ff5419e90758081527de, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 107372}
