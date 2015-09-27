@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Colisions : MonoBehaviour
 {
 
     public GameObject explosion1;
+    public TextMesh stageText;
 
     private GameObject explosion;
     private GameController gameController;
@@ -45,10 +47,14 @@ public class Colisions : MonoBehaviour
     {
         if (gameObject.GetComponent<Soul>().health <= 0)
         {
+            stageText.text = "+" + gameObject.GetComponent<Soul>().reward + " gold";
+            Instantiate(stageText, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+            Settings.p_gold += gameObject.GetComponent<Soul>().reward;
+            Settings.p_score += gameObject.GetComponent<Soul>().reward * 2;
+            gameController.updateScore();
+
             Destroy(gameObject); // Kai baigiasi gyvybes asteroidas sunaikinamas
             Instantiate(explosion, transform.position, transform.rotation);
-            Settings.p_gold += gameObject.GetComponent<Soul>().reward;
-            gameController.updateScore();
         }
  
     }

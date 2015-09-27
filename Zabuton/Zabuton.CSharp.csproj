@@ -91,6 +91,7 @@
     <Compile Include="Assets\_Scripts\RandomRotation.cs" />
     <Compile Include="Assets\_Scripts\Settings.cs" />
     <Compile Include="Assets\_Scripts\Soul.cs" />
+    <Compile Include="Assets\_Scripts\StageTextMover.cs" />
     <Compile Include="Assets\_Scripts\Texturer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

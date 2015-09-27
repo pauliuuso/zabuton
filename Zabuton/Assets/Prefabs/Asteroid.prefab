@@ -48,7 +48,7 @@ Transform:
   m_GameObject: {fileID: 107372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.05903614, y: 1.05903614, z: 1.05903614}
+  m_LocalScale: {x: 1.08009517, y: 1.08009517, z: 1.08009517}
   m_Children:
   - {fileID: 485668}
   m_Father: {fileID: 0}
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion1: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 2}
+  stageText: {fileID: 10220098, guid: 147a4559a4538f84bae1a332864af7e3, type: 2}
 --- !u!114 &11458368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   devast: 12
-  reward: 10
+  reward: 11
   resistance: none
   resistanceStrength: 0
 --- !u!114 &11483758
@@ -313,6 +314,11 @@ Prefab:
       propertyPath: meshes.Array.data[4]
       value: 
       objectReference: {fileID: 4300000, guid: 9efd3b0bbcb1ff5419e90758081527de, type: 3}
+    - target: {fileID: 0}
+      propertyPath: stageText
+      value: 
+      objectReference: {fileID: 10220098, guid: 147a4559a4538f84bae1a332864af7e3,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 107372}
