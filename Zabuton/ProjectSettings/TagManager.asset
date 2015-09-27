@@ -9,6 +9,7 @@ TagManager:
   - Bolt
   - Player_ship
   - Enemy
+  - Asteroid2
   layers:
   - Default
   - TransparentFX

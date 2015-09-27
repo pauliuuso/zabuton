@@ -48,7 +48,7 @@ Transform:
   m_GameObject: {fileID: 107372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.08009517, y: 1.08009517, z: 1.08009517}
+  m_LocalScale: {x: 1.031497, y: 1.031497, z: 1.031497}
   m_Children:
   - {fileID: 485668}
   m_Father: {fileID: 0}
@@ -319,6 +319,26 @@ Prefab:
       value: 
       objectReference: {fileID: 10220098, guid: 147a4559a4538f84bae1a332864af7e3,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: meshes.Array.data[5]
+      value: 
+      objectReference: {fileID: 4300000, guid: 0c8d8ebdb8ae5a14fbdc36b6d3ae5b23, type: 3}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7cb33963fb7fd4a44881a9369ec19750, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 1.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 1.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 1.20000005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 107372}

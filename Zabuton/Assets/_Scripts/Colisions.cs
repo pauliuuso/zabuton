@@ -22,7 +22,7 @@ public class Colisions : MonoBehaviour
     void OnTriggerEnter(Collider other) // Jei susiduria objektas kuriam yra priskirtas sitas scriptas ir koks nors kitas objektas
     {
 
-        if(gameObject.tag == "Asteroid")
+        if(gameObject.tag == "Asteroid" || gameObject.tag == "Asteroid2")
         {
             explosion = explosion1;
         }

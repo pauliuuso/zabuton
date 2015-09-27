@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 
     // References
     public GameObject Asteroid1;
+    public GameObject Asteroid2;
     public GameObject musicManager;
     public GameObject background;
     public GameObject boundary;
@@ -25,7 +26,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"ast1", "ast1", "ast1", "ast1", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1"};
+    private string[] level1 = {"ast1", "ast2", "ast1", "ast1", "ast2","wait" ,"ast1", "wait", "ast1", "ast2", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "wait", "wait", "wait", "ast2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "ast2", "ast1", "ast1"};
 
     // Game music
 
@@ -60,6 +61,24 @@ public class GameController : MonoBehaviour
                     Asteroid1.GetComponent<Soul>().health = 10;
                     Asteroid1.GetComponent<Soul>().devast = 12;
                     Asteroid1.GetComponent<Soul>().reward = (int)Random.Range(8, 12);
+                }
+                randomScale();
+            }
+            if (currentLevel[i] == "ast2")
+            {
+                Instantiate(Asteroid2, spawnPosition, spawnRotation);
+                Asteroid2.transform.localScale = new Vector3(ObjectScale, ObjectScale, ObjectScale);
+                if (ObjectScale < 0.9f)
+                {
+                    Asteroid2.GetComponent<Soul>().health = 9;
+                    Asteroid2.GetComponent<Soul>().devast = 10;
+                    Asteroid2.GetComponent<Soul>().reward = (int)Random.Range(8, 12);
+                }
+                else
+                {
+                    Asteroid2.GetComponent<Soul>().health = 16;
+                    Asteroid2.GetComponent<Soul>().devast = 15;
+                    Asteroid2.GetComponent<Soul>().reward = (int)Random.Range(15, 21);
                 }
                 randomScale();
             }
