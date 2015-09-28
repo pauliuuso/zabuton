@@ -35,6 +35,16 @@ public class GameController : MonoBehaviour
     void Start()
     {
         startImage.GetComponent<Button>().onClick.AddListener(() => { startMission(); });
+        updateScore();
+    }
+
+    void Update()
+    {
+        if (!Settings.p_alive)
+        {
+            StartCoroutine(reloadLevel(2.0f));
+            Settings.p_alive = true;
+        }
     }
 
     IEnumerator spawnEnemies()
@@ -126,6 +136,12 @@ public class GameController : MonoBehaviour
     private void RemoveUI()
     {
 
+    }
+
+    IEnumerator reloadLevel(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Application.LoadLevel(Application.loadedLevel);
     }
 
 }

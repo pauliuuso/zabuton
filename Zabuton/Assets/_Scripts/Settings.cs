@@ -17,6 +17,9 @@ public class Settings
     public static int current_level = 1;
     public static int p_gold = 0;
     public static int p_score = 0;
+    public static int p_previous_gold = 0;
+    public static int p_previous_score = 0;
+    public static bool p_alive = true;
 
     public static float xMin = -20f, xMax = 20f, zMin = -14f, zMax = 6f;
 
