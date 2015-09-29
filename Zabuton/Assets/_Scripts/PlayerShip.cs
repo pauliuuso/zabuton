@@ -67,8 +67,6 @@ public class PlayerShip : MonoBehaviour
         if (Settings.p_health <= 0)
         {
             Settings.p_alive = false;
-            Settings.p_gold = Settings.p_previous_gold;
-            Settings.p_score = Settings.p_previous_score;
             Destroy(gameObject);
             Instantiate(playerExplosion, transform.position, transform.rotation);
         }

@@ -6,6 +6,7 @@ public class Settings
 {
     // Player settings
     public static int p_health = 30;
+    public static int p_health_max = 30;
     public static int p_speed = 12;
     public static int p_tilt = 4;
     public static int p_bullet_speed = 15;
@@ -15,11 +16,12 @@ public class Settings
     public static string p_primary = "fire";
     public static string p_secondary = "none";
     public static int current_level = 1;
-    public static int p_gold = 0;
+    public static int p_gold = 200;
     public static int p_score = 0;
     public static int p_previous_gold = 0;
     public static int p_previous_score = 0;
     public static bool p_alive = true;
+    public static int p_ship_level = 1;
 
     public static float xMin = -20f, xMax = 20f, zMin = -14f, zMax = 6f;
 

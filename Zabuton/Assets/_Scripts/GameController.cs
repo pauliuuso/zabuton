@@ -12,12 +12,20 @@ public class GameController : MonoBehaviour
     public GameObject background;
     public GameObject boundary;
     public GameObject player;
+    public GameObject playerShip;
     public Canvas mainCanvas;
+    public GameObject shop;
     public Text goldText;
     public Text scoreText;
     public Image startImage;
+    public Image quitImage;
     public Image title;
     public GameObject displayShip;
+    public GameObject displayShipGraphic;
+    public Button upgradeShipButton;
+    public Text upgradeShipCost;
+    public Material[] playerShipMaterials;
+
 
     private float startWait = 3f;
     private float nextWait = 2f;
@@ -35,8 +43,13 @@ public class GameController : MonoBehaviour
     void Start()
     {
         startImage.GetComponent<Button>().onClick.AddListener(() => { startMission(); });
+        quitImage.GetComponent<Button>().onClick.AddListener(() => { quitGame(); });
+        upgradeShipButton.onClick.AddListener(() => { upgradeShip(); });
         updateScore();
+        updateCosts();
+        updatePlayerShip();
     }
+
 
     void Update()
     {
@@ -120,11 +133,7 @@ public class GameController : MonoBehaviour
 
     private void startMission()
     {
-        startImage.GetComponent<Button>().onClick.RemoveListener(() => { startMission(); });
-        Destroy(startImage);
-        Destroy(title);
-        Destroy(displayShip);
-        BuildLevel();
+        removeListeners();
     }
 
     public void updateScore()
@@ -135,13 +144,64 @@ public class GameController : MonoBehaviour
 
     private void RemoveUI()
     {
-
+        Destroy(startImage);
+        Destroy(quitImage);
+        Destroy(title);
+        Destroy(displayShip);
+        Destroy(shop);
+        BuildLevel();
     }
 
     IEnumerator reloadLevel(float time)
     {
         yield return new WaitForSeconds(time);
         Application.LoadLevel(Application.loadedLevel);
+        reloadPoints();
+    }
+
+    private void reloadPoints()
+    {
+        Settings.p_gold = Settings.p_previous_gold;
+        Settings.p_score = Settings.p_previous_score;
+        Settings.p_health = Settings.p_health_max;
+    }
+
+    private void quitGame()
+    {
+        Application.Quit();
+    }
+
+    private void removeListeners()
+    {
+        startImage.GetComponent<Button>().onClick.RemoveListener(() => { startMission(); });
+        quitImage.GetComponent<Button>().onClick.RemoveListener(() => { quitGame(); });
+        upgradeShipButton.onClick.RemoveListener(() => { upgradeShip(); });
+        RemoveUI();
+    }
+
+    private void updateCosts()
+    {
+        if (Settings.p_ship_level == 1) upgradeShipCost.text = "150 gold";
+        else if (Settings.p_ship_level == 2) upgradeShipCost.text = "450 gold";
+
+        displayShipGraphic.GetComponent<displayShip>().updateShip();
+    }
+
+    private void upgradeShip()
+    {
+        if(Settings.p_ship_level == 1 && Settings.p_gold >= 150)
+        {
+            Settings.p_gold -= 150;
+            Settings.p_ship_level++;
+            Settings.p_health_max += 5;
+            Settings.p_health += 5;
+            updateCosts();
+        }
+    }
+
+    private void updatePlayerShip()
+    {
+        playerShip.GetComponent<Renderer>().sharedMaterial = playerShipMaterials[0];
     }
 
 }
