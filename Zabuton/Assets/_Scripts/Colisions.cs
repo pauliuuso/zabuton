@@ -35,10 +35,16 @@ public class Colisions : MonoBehaviour
         }
         else if(other.tag == "Player_ship") // jei kitas objektas yra zaidejo laivas
         {
+
+            stageText.text = "-" + gameObject.GetComponent<Soul>().devast;
+            stageText.color = Color.red;
+            Instantiate(stageText, other.transform.position, Quaternion.Euler(90, 0, 0));
+
             gameObject.GetComponent<Soul>().damage(Settings.p_health, "none"); //Nuimama objektui tiek kiek zaidejas turi gyvybiu
             Settings.p_health -= gameObject.GetComponent<Soul>().devast; // Zaidejui nuimama tiek kiek gali nuimt objektas kai susiduria
             checkLife();
             other.GetComponent<PlayerShip>().checkLife(); // Sita funkcija yra playership scripte ir tikrina kiek gyvybiu liko zaidejui
+            gameController.updateHealth();
         }
 
     }
@@ -48,6 +54,7 @@ public class Colisions : MonoBehaviour
         if (gameObject.GetComponent<Soul>().health <= 0)
         {
             stageText.text = "+" + gameObject.GetComponent<Soul>().reward + " gold";
+            stageText.color = new Color (1.0f, 0.8f, 0.0f);
             Instantiate(stageText, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
             Settings.p_gold += gameObject.GetComponent<Soul>().reward;
             Settings.p_score += gameObject.GetComponent<Soul>().reward * 2;

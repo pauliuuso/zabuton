@@ -24,7 +24,11 @@ public class GameController : MonoBehaviour
     public GameObject displayShipGraphic;
     public Button upgradeShipButton;
     public Text upgradeShipCost;
+    public Image healthBar;
+    public GameObject playerHealth;
+    public Text healthLeft;
     public Material[] playerShipMaterials;
+
 
 
     private float startWait = 3f;
@@ -47,7 +51,7 @@ public class GameController : MonoBehaviour
         upgradeShipButton.onClick.AddListener(() => { upgradeShip(); });
         updateScore();
         updateCosts();
-        updatePlayerShip();
+        playerHealth.SetActive(false);
     }
 
 
@@ -64,7 +68,7 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(startWait);
 
-        for(int i = 0; i < level1.Length; i++)
+        for (int i = 0; i < level1.Length; i++)
         {
             Vector3 spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), 0.0f, 20); //Pozicijos, x lokacija parenkama random
             Quaternion spawnRotation = Quaternion.identity; // Rotation bus 0, identity reiskia kad nebus jokios rotacijos
@@ -124,6 +128,8 @@ public class GameController : MonoBehaviour
         if (Settings.current_level == 1) currentLevel = level1;
         randomScale();
         updateScore();
+        playerHealth.SetActive(true);
+        updateHealth();
 
         Instantiate(background, new Vector3(0.0f, -12f, 0.0f), transform.rotation);
         Instantiate(boundary, new Vector3(0.0f, 0.0f, 0.0f), transform.rotation);
@@ -140,6 +146,12 @@ public class GameController : MonoBehaviour
     {
         goldText.text = "Gold: " + Settings.p_gold;
         scoreText.text = "Score: " + Settings.p_score;
+    }
+
+    public void updateHealth()
+    {
+        healthBar.fillAmount = (float)Settings.p_health / (float)Settings.p_health_max;
+        healthLeft.text = Settings.p_health + " / " + Settings.p_health_max;
     }
 
     private void RemoveUI()
@@ -168,7 +180,7 @@ public class GameController : MonoBehaviour
 
     private void quitGame()
     {
-        Application.Quit();
+        //Application.Quit();
     }
 
     private void removeListeners()
@@ -196,12 +208,9 @@ public class GameController : MonoBehaviour
             Settings.p_health_max += 5;
             Settings.p_health += 5;
             updateCosts();
+            updateScore();
         }
     }
 
-    private void updatePlayerShip()
-    {
-        playerShip.GetComponent<Renderer>().sharedMaterial = playerShipMaterials[0];
-    }
 
 }

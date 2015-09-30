@@ -46,6 +46,7 @@ GameObject:
   - 23: {fileID: 2330080}
   - 95: {fileID: 9564572}
   - 65: {fileID: 6506982}
+  - 114: {fileID: 11486550}
   m_Layer: 0
   m_Name: player_ship1
   m_TagString: Untagged
@@ -277,7 +278,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 32bad79ac1e772e44aa96e4e16b90f0f, type: 2}
+  - {fileID: 2100000, guid: 961ae34af4d7f6948a6f819576706f1a, type: 2}
   - {fileID: 2100000, guid: 009fc31e0586c3a449b46fb655d0333e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
@@ -430,6 +431,23 @@ MonoBehaviour:
   audio: {fileID: 0}
   shots:
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
+  - {fileID: 0}
+--- !u!114 &11486550
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3dd947642cb464bb3cb393ad12e8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 961ae34af4d7f6948a6f819576706f1a, type: 2}
+  - {fileID: 2100000, guid: 32bad79ac1e772e44aa96e4e16b90f0f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!136 &13606008
 CapsuleCollider:
@@ -4726,7 +4744,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: materials.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 961ae34af4d7f6948a6f819576706f1a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 32bad79ac1e772e44aa96e4e16b90f0f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 119732}
