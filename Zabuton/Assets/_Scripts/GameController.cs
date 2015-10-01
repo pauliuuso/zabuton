@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
     public Image healthBar;
     public GameObject playerHealth;
     public Text healthLeft;
+    public Text missionComplete;
     public Material[] playerShipMaterials;
 
 
@@ -38,7 +39,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"ast1", "ast2", "ast1", "ast1", "ast2","wait" ,"ast1", "wait", "ast1", "ast2", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "wait", "wait", "wait", "ast2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "ast2", "ast1", "ast1"};
+    private string[] level1 = {"ast1", "ast1", "ast1", "ast1", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "end"};
 
     // Game music
 
@@ -91,7 +92,7 @@ public class GameController : MonoBehaviour
                 }
                 randomScale();
             }
-            if (currentLevel[i] == "ast2")
+            else if (currentLevel[i] == "ast2")
             {
                 Instantiate(Asteroid2, spawnPosition, spawnRotation);
                 Asteroid2.transform.localScale = new Vector3(ObjectScale, ObjectScale, ObjectScale);
@@ -111,6 +112,11 @@ public class GameController : MonoBehaviour
             }
             else if(currentLevel[i] == "wait")
             {
+            }
+            else if(currentLevel[i] == "end")
+            {
+                StartCoroutine(finishLevel(5.0f));
+                missionComplete.text = "Mission complete!";
             }
 
             yield return new WaitForSeconds(nextWait);
@@ -171,10 +177,25 @@ public class GameController : MonoBehaviour
         reloadPoints();
     }
 
+    IEnumerator finishLevel(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Application.LoadLevel(Application.loadedLevel);
+        savePoints();
+        missionComplete.text = "";
+    }
+
     private void reloadPoints()
     {
         Settings.p_gold = Settings.p_previous_gold;
         Settings.p_score = Settings.p_previous_score;
+        Settings.p_health = Settings.p_health_max;
+    }
+
+    private void savePoints()
+    {
+        Settings.p_previous_gold = Settings.p_gold;
+        Settings.p_previous_score = Settings.p_score;
         Settings.p_health = Settings.p_health_max;
     }
 
