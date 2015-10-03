@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion1: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 2}
+  fireBoom: {fileID: 105142, guid: ffd1e8608a9d31c4393351d8f6d1a488, type: 2}
   stageText: {fileID: 10220098, guid: 147a4559a4538f84bae1a332864af7e3, type: 2}
 --- !u!135 &13565526
 SphereCollider:

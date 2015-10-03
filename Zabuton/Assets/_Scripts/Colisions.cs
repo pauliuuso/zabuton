@@ -6,6 +6,7 @@ public class Colisions : MonoBehaviour
 {
 
     public GameObject explosion1;
+    public GameObject fireBoom;
     public TextMesh stageText;
 
     private GameObject explosion;
@@ -30,6 +31,7 @@ public class Colisions : MonoBehaviour
         if (other.tag == "Bolt") // Jei kitas objektas yra zaidejo suvis
         {
             gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type); // Asteroidas turi savo klase kurioje yra jo gyvybes ir t.t tai i sita klase siunciama sovinio damage ir atakos tipas
+            if (other.gameObject.GetComponent<Bullet>().type == "fire") Instantiate(fireBoom, new Vector3(other.transform.position.x, other.transform.position.y + 5, other.transform.position.z + 0.2f), other.transform.rotation);
             Destroy(other.gameObject); // Sunaikinamas sovinys
             checkLife();
         }
