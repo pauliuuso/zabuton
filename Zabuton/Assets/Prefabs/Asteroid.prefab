@@ -48,7 +48,7 @@ Transform:
   m_GameObject: {fileID: 107372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .601081073, y: .601081073, z: .601081073}
+  m_LocalScale: {x: .765997648, y: .765997648, z: .765997648}
   m_Children:
   - {fileID: 485668}
   m_Father: {fileID: 0}
@@ -151,6 +151,7 @@ MonoBehaviour:
   - {fileID: 4300000, guid: 17547198936592b4bb179de9ca3c1656, type: 3}
   - {fileID: 4300000, guid: e01e74cda40869c42ba38e5f0c2dee27, type: 3}
   - {fileID: 4300000, guid: 9efd3b0bbcb1ff5419e90758081527de, type: 3}
+  asteroids: []
 --- !u!114 &11445048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   devast: 6
-  reward: 5
+  reward: 2
   resistance: none
   resistanceStrength: 0
 --- !u!114 &11483758

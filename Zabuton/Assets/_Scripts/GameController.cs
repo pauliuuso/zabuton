@@ -24,6 +24,10 @@ public class GameController : MonoBehaviour
     public GameObject displayShipGraphic;
     public Button upgradeShipButton;
     public Text upgradeShipCost;
+    public Button upgradeReloadButton;
+    public Text upgradeReloadCost;
+    public Text allStatus;
+    public GameObject statusPanel;
     public Image healthBar;
     public GameObject playerHealth;
     public Text healthLeft;
@@ -34,12 +38,13 @@ public class GameController : MonoBehaviour
 
     private float startWait = 3f;
     private float nextWait = 2f;
+    private float defaultWait = 2f;
     private float ObjectScale = 1;
 
 
 
     private string[] currentLevel;
-    private string[] level1 = {"ast1", "ast1", "ast1", "ast1", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "end"};
+    private string[] level1 = {"ast1", "ast1", "ast1", "ast1", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "endSpeed", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "end"};
 
     // Game music
 
@@ -50,8 +55,10 @@ public class GameController : MonoBehaviour
         startImage.GetComponent<Button>().onClick.AddListener(() => { startMission(); });
         quitImage.GetComponent<Button>().onClick.AddListener(() => { quitGame(); });
         upgradeShipButton.onClick.AddListener(() => { upgradeShip(); });
+        upgradeReloadButton.onClick.AddListener(() => { upgradeReload(); });
         updateScore();
         updateCosts();
+        updateStatus();
         playerHealth.SetActive(false);
     }
 
@@ -71,7 +78,7 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < level1.Length; i++)
         {
-            Vector3 spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), 0.0f, 20); //Pozicijos, x lokacija parenkama random
+            Vector3 spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), 0.0f, 12); //Pozicijos, x lokacija parenkama random
             Quaternion spawnRotation = Quaternion.identity; // Rotation bus 0, identity reiskia kad nebus jokios rotacijos
 
             if(currentLevel[i] == "ast1")
@@ -98,20 +105,28 @@ public class GameController : MonoBehaviour
                 Asteroid2.transform.localScale = new Vector3(ObjectScale, ObjectScale, ObjectScale);
                 if (ObjectScale < 0.9f)
                 {
-                    Asteroid2.GetComponent<Soul>().health = 9;
-                    Asteroid2.GetComponent<Soul>().devast = 10;
-                    Asteroid2.GetComponent<Soul>().reward = (int)Random.Range(8, 12);
+                    Asteroid2.GetComponent<Soul>().health = 10;
+                    Asteroid2.GetComponent<Soul>().devast = 15;
+                    Asteroid2.GetComponent<Soul>().reward = (int)Random.Range(10, 15);
                 }
                 else
                 {
-                    Asteroid2.GetComponent<Soul>().health = 16;
-                    Asteroid2.GetComponent<Soul>().devast = 15;
-                    Asteroid2.GetComponent<Soul>().reward = (int)Random.Range(15, 21);
+                    Asteroid2.GetComponent<Soul>().health = 20;
+                    Asteroid2.GetComponent<Soul>().devast = 26;
+                    Asteroid2.GetComponent<Soul>().reward = (int)Random.Range(20, 26);
                 }
                 randomScale();
             }
             else if(currentLevel[i] == "wait")
             {
+            }
+            else if(currentLevel[i] == "speed3")
+            {
+                nextWait = 1f;
+            }
+            else if(currentLevel[i] == "endSpeed")
+            {
+                nextWait = defaultWait;
             }
             else if(currentLevel[i] == "end")
             {
@@ -130,6 +145,7 @@ public class GameController : MonoBehaviour
 
     private void BuildLevel()
     {
+        savePoints();
         StartCoroutine(spawnEnemies());
         if (Settings.current_level == 1) currentLevel = level1;
         randomScale();
@@ -167,6 +183,7 @@ public class GameController : MonoBehaviour
         Destroy(title);
         Destroy(displayShip);
         Destroy(shop);
+        Destroy(statusPanel);
         BuildLevel();
     }
 
@@ -181,7 +198,6 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         Application.LoadLevel(Application.loadedLevel);
-        savePoints();
         missionComplete.text = "";
     }
 
@@ -217,7 +233,16 @@ public class GameController : MonoBehaviour
         if (Settings.p_ship_level == 1) upgradeShipCost.text = "150 gold";
         else if (Settings.p_ship_level == 2) upgradeShipCost.text = "450 gold";
 
+        if (Settings.p_cooldown == 1f) upgradeReloadCost.text = "100 gold";
+        else if (Settings.p_cooldown == 0.9f) upgradeReloadCost.text = "240 gold";
+
         displayShipGraphic.GetComponent<displayShip>().updateShip();
+        updateStatus();
+    }
+
+    private void updateStatus()
+    {
+        allStatus.text = "Ship level (<b><color=#FFDD00>" + Settings.p_ship_level + "</color></b>)\nReload time (<b><color=#FFDD00>" + Settings.p_cooldown + "s</color></b>)\nShip speed (<b><color=#FFDD00>" + Settings.p_speed * 2 + " km/h</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * 15 + " km/h</color></b>)\nShip health (<b><color=#FFDD00>" + Settings.p_health + "</color></b>)\nDamage (<b><color=#FFDD00>" + Settings.p_devast + "</color></b>)";
     }
 
     private void upgradeShip()
@@ -228,6 +253,17 @@ public class GameController : MonoBehaviour
             Settings.p_ship_level++;
             Settings.p_health_max += 5;
             Settings.p_health += 5;
+            updateCosts();
+            updateScore();
+        }
+    }
+
+    private void upgradeReload()
+    {
+        if(Settings.p_cooldown == 1f && Settings.p_gold >= 100)
+        {
+            Settings.p_gold -= 100;
+            Settings.p_cooldown = 0.9f;
             updateCosts();
             updateScore();
         }
