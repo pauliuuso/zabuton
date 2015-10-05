@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"ast1", "ast1", "ast1", "ast1", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "endSpeed", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "end"};
+    private string[] level1 = {"ast2", "ast2", "ast2", "ast2", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "endSpeed", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "end"};
 
     // Game music
 
