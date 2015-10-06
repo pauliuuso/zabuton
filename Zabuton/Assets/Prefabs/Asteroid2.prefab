@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 147010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.05861592, y: 1.05861592, z: 1.05861592}
+  m_LocalScale: {x: 1.07062554, y: 1.07062554, z: 1.07062554}
   m_Children:
   - {fileID: 468894}
   m_Father: {fileID: 0}
@@ -153,11 +153,13 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 4c2c5852cfab8df4a991e2cc95e8ab03, type: 2}
   - {fileID: 2100000, guid: b3acffbef2b8d8c4ba1a6202ba37a96a, type: 2}
-  - {fileID: 2100000, guid: a247f35230dec7e49a9b5a6d88cc19f2, type: 2}
+  - {fileID: 2100000, guid: d405780644892d04880ac4206b9faf85, type: 2}
+  - {fileID: 2100000, guid: d405780644892d04880ac4206b9faf85, type: 2}
   meshes:
   - {fileID: 4300000, guid: 0c8d8ebdb8ae5a14fbdc36b6d3ae5b23, type: 3}
   - {fileID: 4300000, guid: 5f971899112e370418bd64dcaf6bbdb3, type: 3}
   - {fileID: 4300000, guid: b375c968d0835b34cad942c1075822e0, type: 3}
+  - {fileID: 4300000, guid: 02460872f5dd7504595d91e56f48866f, type: 3}
   asteroids: []
 --- !u!114 &11433382
 MonoBehaviour:
@@ -172,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   devast: 26
-  reward: 20
+  reward: 24
   resistance: none
   resistanceStrength: 0
 --- !u!114 &11482448
@@ -222,11 +224,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: meshes.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: materials.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: meshes.Array.data[1]
@@ -239,7 +241,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: meshes.Array.data[3]
       value: 
-      objectReference: {fileID: 4300000, guid: e01e74cda40869c42ba38e5f0c2dee27, type: 3}
+      objectReference: {fileID: 4300000, guid: 02460872f5dd7504595d91e56f48866f, type: 3}
     - target: {fileID: 0}
       propertyPath: meshes.Array.data[4]
       value: 
@@ -255,7 +257,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: a247f35230dec7e49a9b5a6d88cc19f2, type: 2}
+      objectReference: {fileID: 2100000, guid: d405780644892d04880ac4206b9faf85, type: 2}
     - target: {fileID: 0}
       propertyPath: materials.Array.data[3]
       value: 

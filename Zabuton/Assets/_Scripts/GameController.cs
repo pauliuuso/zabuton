@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"ast2", "ast2", "ast2", "ast2", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "endSpeed", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "end"};
+    private string[] level1 = {"ast1", "ast1", "ast1", "ast1", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "endSpeed", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "end"};
 
     // Game music
 
@@ -251,8 +251,8 @@ public class GameController : MonoBehaviour
         {
             Settings.p_gold -= 150;
             Settings.p_ship_level++;
-            Settings.p_health_max += 5;
-            Settings.p_health += 5;
+            Settings.p_health_max += 15;
+            Settings.p_health += 15;
             updateCosts();
             updateScore();
         }
@@ -263,7 +263,7 @@ public class GameController : MonoBehaviour
         if(Settings.p_cooldown == 1f && Settings.p_gold >= 100)
         {
             Settings.p_gold -= 100;
-            Settings.p_cooldown = 0.9f;
+            Settings.p_cooldown = 0.8f;
             updateCosts();
             updateScore();
         }
