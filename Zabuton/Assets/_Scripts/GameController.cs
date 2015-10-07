@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour
     public GameObject playerHealth;
     public Text healthLeft;
     public Text missionComplete;
+    public GameObject smoke;
     public Material[] playerShipMaterials;
 
 
@@ -157,6 +158,7 @@ public class GameController : MonoBehaviour
         Instantiate(boundary, new Vector3(0.0f, 0.0f, 0.0f), transform.rotation);
         Instantiate(player, new Vector3(0.0f, 0.0f, -10f), transform.rotation);
         Instantiate(musicManager, new Vector3(0.0f, 20f, -3.4f), transform.rotation);
+        Instantiate(smoke, smoke.transform.position, smoke.transform.rotation);
     }
 
     private void startMission()
@@ -199,6 +201,7 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(time);
         Application.LoadLevel(Application.loadedLevel);
         missionComplete.text = "";
+        savePoints();
     }
 
     private void reloadPoints()
@@ -234,7 +237,7 @@ public class GameController : MonoBehaviour
         else if (Settings.p_ship_level == 2) upgradeShipCost.text = "450 gold";
 
         if (Settings.p_cooldown == 1f) upgradeReloadCost.text = "100 gold";
-        else if (Settings.p_cooldown == 0.9f) upgradeReloadCost.text = "240 gold";
+        else if (Settings.p_cooldown == 0.8f) upgradeReloadCost.text = "500 gold";
 
         displayShipGraphic.GetComponent<displayShip>().updateShip();
         updateStatus();

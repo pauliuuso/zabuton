@@ -1985,6 +1985,7 @@ MonoBehaviour:
   playerHealth: {fileID: 1627975440}
   healthLeft: {fileID: 756986894}
   missionComplete: {fileID: 1913023131}
+  smoke: {fileID: 172298, guid: 6c46e22393a8eb74ca1e3c97a825bb75, type: 2}
   playerShipMaterials:
   - {fileID: 2100000, guid: 961ae34af4d7f6948a6f819576706f1a, type: 2}
   - {fileID: 2100000, guid: 32bad79ac1e772e44aa96e4e16b90f0f, type: 2}
