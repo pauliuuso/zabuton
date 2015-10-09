@@ -16,7 +16,7 @@ public class Settings
     public static string p_primary = "fire";
     public static string p_secondary = "none";
     public static int current_level = 1;
-    public static int p_gold = 0;
+    public static int p_gold = 1000;
     public static int p_score = 0;
     public static int p_previous_gold = 0;
     public static int p_previous_score = 0;

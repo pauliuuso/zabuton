@@ -12,7 +12,8 @@ public class GameController : MonoBehaviour
     public GameObject background;
     public GameObject boundary;
     public GameObject player;
-    public GameObject playerShip;
+    public GameObject playerShip1;
+    public GameObject playerShip2;
     public Canvas mainCanvas;
     public GameObject shop;
     public Text goldText;
@@ -33,7 +34,6 @@ public class GameController : MonoBehaviour
     public Text healthLeft;
     public Text missionComplete;
     public GameObject smoke;
-    public Material[] playerShipMaterials;
 
 
 
@@ -53,6 +53,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+
         startImage.GetComponent<Button>().onClick.AddListener(() => { startMission(); });
         quitImage.GetComponent<Button>().onClick.AddListener(() => { quitGame(); });
         upgradeShipButton.onClick.AddListener(() => { upgradeShip(); });
@@ -154,6 +155,9 @@ public class GameController : MonoBehaviour
         playerHealth.SetActive(true);
         updateHealth();
 
+        if (Settings.p_ship_level < 3) player = playerShip1;
+        else if (Settings.p_ship_level == 3) player = playerShip2;
+
         Instantiate(background, new Vector3(0.0f, -12f, 0.0f), transform.rotation);
         Instantiate(boundary, new Vector3(0.0f, 0.0f, 0.0f), transform.rotation);
         Instantiate(player, new Vector3(0.0f, 0.0f, -10f), transform.rotation);
@@ -235,9 +239,11 @@ public class GameController : MonoBehaviour
     {
         if (Settings.p_ship_level == 1) upgradeShipCost.text = "150 gold";
         else if (Settings.p_ship_level == 2) upgradeShipCost.text = "450 gold";
+        else if (Settings.p_ship_level == 3) upgradeShipCost.text = "1150 gold";
 
         if (Settings.p_cooldown == 1f) upgradeReloadCost.text = "100 gold";
         else if (Settings.p_cooldown == 0.8f) upgradeReloadCost.text = "500 gold";
+        else if (Settings.p_cooldown == 0.6f) upgradeReloadCost.text = "1500 gold";
 
         displayShipGraphic.GetComponent<displayShip>().updateShip();
         updateStatus();
@@ -259,6 +265,15 @@ public class GameController : MonoBehaviour
             updateCosts();
             updateScore();
         }
+        else if (Settings.p_ship_level == 2 && Settings.p_gold >= 450)
+        {
+            Settings.p_gold -= 450;
+            Settings.p_ship_level++;
+            Settings.p_health_max += 30;
+            Settings.p_health += 30;
+            updateCosts();
+            updateScore();
+        }
     }
 
     private void upgradeReload()
@@ -267,6 +282,13 @@ public class GameController : MonoBehaviour
         {
             Settings.p_gold -= 100;
             Settings.p_cooldown = 0.8f;
+            updateCosts();
+            updateScore();
+        }
+        else if (Settings.p_cooldown == 0.8f && Settings.p_gold >= 500)
+        {
+            Settings.p_gold -= 500;
+            Settings.p_cooldown = 0.6f;
             updateCosts();
             updateScore();
         }

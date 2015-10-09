@@ -385,9 +385,11 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 961ae34af4d7f6948a6f819576706f1a, type: 2}
   - {fileID: 2100000, guid: 32bad79ac1e772e44aa96e4e16b90f0f, type: 2}
+  - {fileID: 2100000, guid: 045f0620f3f22f04bad75c6326abc1c2, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  meshes:
+  - {fileID: 4300000, guid: 77193ebe9f5a1e14c81fe6b7baca4948, type: 3}
 --- !u!1 &341262684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,8 +1966,9 @@ MonoBehaviour:
   musicManager: {fileID: 132528, guid: 1acb22692ba3f6143bdf491d2500c201, type: 2}
   background: {fileID: 180200, guid: ac7eea60fe36dbf4baae41a30452749a, type: 2}
   boundary: {fileID: 196422, guid: a5126b30b4181ee4aae11d815e4f484c, type: 2}
-  player: {fileID: 119732, guid: f1a3fc9ab7cf21341be7dd0868764d17, type: 2}
-  playerShip: {fileID: 131806, guid: f1a3fc9ab7cf21341be7dd0868764d17, type: 2}
+  player: {fileID: 0}
+  playerShip1: {fileID: 119732, guid: f1a3fc9ab7cf21341be7dd0868764d17, type: 2}
+  playerShip2: {fileID: 198896, guid: 7e808949e28a25d4aaed060b68184f44, type: 2}
   mainCanvas: {fileID: 860922538}
   shop: {fileID: 1482260943}
   goldText: {fileID: 1052592000}
@@ -1986,12 +1989,6 @@ MonoBehaviour:
   healthLeft: {fileID: 756986894}
   missionComplete: {fileID: 1913023131}
   smoke: {fileID: 172298, guid: 6c46e22393a8eb74ca1e3c97a825bb75, type: 2}
-  playerShipMaterials:
-  - {fileID: 2100000, guid: 961ae34af4d7f6948a6f819576706f1a, type: 2}
-  - {fileID: 2100000, guid: 32bad79ac1e772e44aa96e4e16b90f0f, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &1681052878
 Transform:
   m_ObjectHideFlags: 0
