@@ -427,11 +427,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletSpawn: {fileID: 472850}
   Bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
+  boltFire:
+  - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+  - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  boltIce:
+  - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
+  - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  boltPoison:
+  - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
+  - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
   audio: {fileID: 0}
-  shots:
+  fireShots:
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
+  iceShots:
+  - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
+  - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
+  poisonShots:
+  - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
+  - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
 --- !u!114 &11478234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4752,7 +4776,39 @@ Prefab:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+      propertyPath: boltIce.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boltFire.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: iceShots.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: materials.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fireShots.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boltMeshes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boltPoison.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: poisonShots.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boltMaterials.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
@@ -4767,6 +4823,58 @@ Prefab:
       propertyPath: displayShip
       value: 
       objectReference: {fileID: 131806}
+    - target: {fileID: 0}
+      propertyPath: boltMaterials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltFire.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltFire.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltIce.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltIce.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltPoison.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltPoison.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
+    - target: {fileID: 0}
+      propertyPath: fireShots.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
+    - target: {fileID: 0}
+      propertyPath: fireShots.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
+    - target: {fileID: 0}
+      propertyPath: iceShots.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
+    - target: {fileID: 0}
+      propertyPath: iceShots.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
+    - target: {fileID: 0}
+      propertyPath: poisonShots.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
+    - target: {fileID: 0}
+      propertyPath: poisonShots.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 119732}

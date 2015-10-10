@@ -9,10 +9,15 @@ public class PlayerShip : MonoBehaviour
 
     public Transform BulletSpawn; // reference i bulletspawn objekta, pagal jo koordinates ikelsim bullet
     public GameObject Bolt; // reference i bullet objekta
+    public Material[] boltFire;
+    public Material[] boltIce;
+    public Material[] boltPoison;
     public GameObject playerExplosion; // reference i player explosion
 
     public new AudioSource audio;
-    public AudioClip[] shots;
+    public AudioClip[] fireShots;
+    public AudioClip[] iceShots;
+    public AudioClip[] poisonShots;
 
     void Start()
     {
@@ -21,13 +26,32 @@ public class PlayerShip : MonoBehaviour
 
     void Update() // Naudojama viskam kas nesusiije su fizika, pvz soviniai kurie juda ne fizikos pagalba
     {
-        if(Input.GetButton("Fire1") && Time.time > nextFire) // Jei paspaustas sovimo mygtukas ir cooldown baiges
+        if((Input.GetButton("Fire1") || Input.GetButton("Fire2") || Input.GetButton("Fire3")) && Time.time > nextFire) // Jei paspaustas sovimo mygtukas ir cooldown baiges
         {
+            if(Input.GetButton("Fire1"))
+            {
+                Settings.p_devast = Settings.p_fire_devast;
+                Settings.p_type = Settings.p_fire;
+                Bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltFire[Settings.p_fire_level];
+            }
+            else if (Input.GetButton("Fire2"))
+            {
+                Settings.p_devast = Settings.p_ice_devast;
+                Settings.p_type = Settings.p_ice;
+                Bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltIce[Settings.p_ice_level];
+            }
+            else if (Input.GetButton("Fire3"))
+            {
+                Settings.p_devast = Settings.p_poison_devast;
+                Settings.p_type = Settings.p_poison;
+                Bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltPoison[Settings.p_poison_level];
+            }
+
             Bolt.GetComponent<Bullet>().devast = Settings.p_devast; // Soviniui suteikiama damage
             Bolt.GetComponent<Bullet>().type = Settings.p_type; // Sovinio tipas
             nextFire = Time.time + Settings.p_cooldown;
             Instantiate(Bolt, BulletSpawn.position, BulletSpawn.rotation); // Instantiate ikelia objekta, antras parametras pozicija, trecias rotation
-            PlaySound();
+            PlaySound(Settings.p_type);
             //GameObject clone = Instantiate(Bolt, BulletSpawn.position, BulletSpawn.rotation) as GameObject; - cia jei reiktu tureti reference i naujai ideta obekta
         }
     }
@@ -72,9 +96,20 @@ public class PlayerShip : MonoBehaviour
         }
     }
 
-    private void PlaySound()
+    private void PlaySound(string type)
     {
-        if (Settings.p_type == "fire" && Settings.p_devast <= 15) audio.clip = shots[0];
+        if (type == "fire")
+        {
+            audio.clip = fireShots[Settings.p_fire_level];
+        }
+        else if (type == "ice")
+        {
+            audio.clip = iceShots[Settings.p_ice_level];
+        }
+        else if (type == "poison")
+        {
+            audio.clip = poisonShots[Settings.p_poison_level];
+        }
 
         audio.volume = Settings.sound_volume;
         audio.Play(); // Garso efektas

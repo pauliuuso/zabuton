@@ -22,6 +22,7 @@ public class displayShip : MonoBehaviour
         {
             GetComponent<MeshFilter>().sharedMesh = meshes[0];
             render.sharedMaterial = materials[2];
+            gameObject.transform.position = new Vector3(-5f, 0f, -8f);
         }
     }
 }
