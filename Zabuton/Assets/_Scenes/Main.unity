@@ -358,7 +358,7 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 311043231}
-  m_Mesh: {fileID: 4300000, guid: 6a8bd406dd4eccb4bbea375cbf272dca, type: 3}
+  m_Mesh: {fileID: 4300000, guid: ad5f0c8693df1124eb1da35b9e3945e1, type: 3}
 --- !u!4 &311043234
 Transform:
   m_ObjectHideFlags: 0
@@ -2224,7 +2224,7 @@ MonoBehaviour:
   background: {fileID: 180200, guid: ac7eea60fe36dbf4baae41a30452749a, type: 2}
   boundary: {fileID: 196422, guid: a5126b30b4181ee4aae11d815e4f484c, type: 2}
   player: {fileID: 0}
-  playerShip1: {fileID: 119732, guid: f1a3fc9ab7cf21341be7dd0868764d17, type: 2}
+  playerShip1: {fileID: 122776, guid: 835da4ce693c7af4f860b8c13f0f99ce, type: 2}
   playerShip2: {fileID: 198896, guid: 7e808949e28a25d4aaed060b68184f44, type: 2}
   mainCanvas: {fileID: 860922538}
   shop: {fileID: 1482260943}
