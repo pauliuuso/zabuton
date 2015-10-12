@@ -6,6 +6,7 @@ public class PlayerShip : MonoBehaviour
 
     float movingSideways = 0f;
     float nextFire = 0.0f;
+    int fireCount = 1;
 
     public Transform BulletSpawn; // reference i bulletspawn objekta, pagal jo koordinates ikelsim bullet
     public GameObject Bolt; // reference i bullet objekta
@@ -28,29 +29,51 @@ public class PlayerShip : MonoBehaviour
     {
         if((Input.GetButton("Fire1") || Input.GetButton("Fire2") || Input.GetButton("Fire3")) && Time.time > nextFire) // Jei paspaustas sovimo mygtukas ir cooldown baiges
         {
+            fireCount = 1;
             if(Input.GetButton("Fire1"))
             {
                 Settings.p_devast = Settings.p_fire_devast;
                 Settings.p_type = Settings.p_fire;
                 Bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltFire[Settings.p_fire_level];
+                if (Settings.p_fire_level == 1) Bolt.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                else if (Settings.p_fire_level == 2) Bolt.transform.localScale = new Vector3(3f, 2f, 2f);
             }
             else if (Input.GetButton("Fire2"))
             {
                 Settings.p_devast = Settings.p_ice_devast;
                 Settings.p_type = Settings.p_ice;
                 Bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltIce[Settings.p_ice_level];
+                if (Settings.p_ice_level == 1) Bolt.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                else if (Settings.p_ice_level == 2)
+                {
+                    Bolt.transform.localScale = new Vector3(2f, 2f, 2f);
+                    fireCount = 2;
+                }
+
             }
             else if (Input.GetButton("Fire3"))
             {
                 Settings.p_devast = Settings.p_poison_devast;
                 Settings.p_type = Settings.p_poison;
                 Bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltPoison[Settings.p_poison_level];
+                if (Settings.p_poison_level == 1) Bolt.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+
             }
 
             Bolt.GetComponent<Bullet>().devast = Settings.p_devast; // Soviniui suteikiama damage
             Bolt.GetComponent<Bullet>().type = Settings.p_type; // Sovinio tipas
             nextFire = Time.time + Settings.p_cooldown;
-            Instantiate(Bolt, BulletSpawn.position, BulletSpawn.rotation); // Instantiate ikelia objekta, antras parametras pozicija, trecias rotation
+
+            if (fireCount == 1)
+            {
+                Instantiate(Bolt, BulletSpawn.position, BulletSpawn.rotation); // Instantiate ikelia objekta, antras parametras pozicija, trecias rotation
+            }
+            else if (fireCount == 2)
+            {
+                Instantiate(Bolt, BulletSpawn.position, Quaternion.Euler(0f, 15f, 0f)); // Instantiate ikelia objekta, antras parametras pozicija, trecias rotation
+                Instantiate(Bolt, BulletSpawn.position, Quaternion.Euler(0f, -15f, 0f));
+            }
+
             PlaySound(Settings.p_type);
             //GameObject clone = Instantiate(Bolt, BulletSpawn.position, BulletSpawn.rotation) as GameObject; - cia jei reiktu tureti reference i naujai ideta obekta
         }

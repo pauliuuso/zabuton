@@ -27,6 +27,10 @@ public class GameController : MonoBehaviour
     public Text upgradeShipCost;
     public Button upgradeReloadButton;
     public Text upgradeReloadCost;
+    public Button upgradeFireButton;
+    public Text upgradeFireCost;
+    public Button upgradeIceButton;
+    public Text upgradeIceCost;
     public Text allStatus;
     public GameObject statusPanel;
     public Image healthBar;
@@ -58,6 +62,8 @@ public class GameController : MonoBehaviour
         quitImage.GetComponent<Button>().onClick.AddListener(() => { quitGame(); });
         upgradeShipButton.onClick.AddListener(() => { upgradeShip(); });
         upgradeReloadButton.onClick.AddListener(() => { upgradeReload(); });
+        upgradeFireButton.onClick.AddListener(() => { upgradeFire(); });
+        upgradeIceButton.onClick.AddListener(() => { upgradeIce(); });
         updateScore();
         updateCosts();
         updateStatus();
@@ -232,6 +238,9 @@ public class GameController : MonoBehaviour
         startImage.GetComponent<Button>().onClick.RemoveListener(() => { startMission(); });
         quitImage.GetComponent<Button>().onClick.RemoveListener(() => { quitGame(); });
         upgradeShipButton.onClick.RemoveListener(() => { upgradeShip(); });
+        upgradeReloadButton.onClick.RemoveListener(() => { upgradeReload(); });
+        upgradeFireButton.onClick.RemoveListener(() => { upgradeFire(); });
+        upgradeIceButton.onClick.RemoveListener(() => { upgradeIce(); });
         RemoveUI();
     }
 
@@ -245,13 +254,21 @@ public class GameController : MonoBehaviour
         else if (Settings.p_cooldown == 0.8f) upgradeReloadCost.text = "500 gold";
         else if (Settings.p_cooldown == 0.6f) upgradeReloadCost.text = "1500 gold";
 
+        if (Settings.p_fire_level == 1) upgradeFireCost.text = "120 gold";
+        else if (Settings.p_fire_level == 2) upgradeFireCost.text = "440 gold";
+        else if (Settings.p_fire_level == 3) upgradeFireCost.text = "1200 gold";
+
+        if (Settings.p_ice_level == 1) upgradeIceCost.text = "120 gold";
+        else if (Settings.p_ice_level == 2) upgradeIceCost.text = "400 gold";
+        else if (Settings.p_ice_level == 3) upgradeIceCost.text = "1000 gold";
+
         displayShipGraphic.GetComponent<displayShip>().updateShip();
         updateStatus();
     }
 
     private void updateStatus()
     {
-        allStatus.text = "Ship level (<b><color=#FFDD00>" + Settings.p_ship_level + "</color></b>)\nReload time (<b><color=#FFDD00>" + Settings.p_cooldown + "s</color></b>)\nShip speed (<b><color=#FFDD00>" + Settings.p_speed * 2 + " km/h</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * 15 + " km/h</color></b>)\nShip health (<b><color=#FFDD00>" + Settings.p_health + "</color></b>)\nFire damage (<b><color=#FFDD00>" + Settings.p_devast + "</color></b>)";
+        allStatus.text = "Ship level (<b><color=#FFDD00>" + Settings.p_ship_level + "</color></b>)\nReload time (<b><color=#FFDD00>" + Settings.p_cooldown + "s</color></b>)\nShip speed (<b><color=#FFDD00>" + Settings.p_speed * 2 + " km/h</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * 15 + " km/h</color></b>)\nShip health (<b><color=#FFDD00>" + Settings.p_health + "</color></b>)\nFire damage (<b><color=#FFDD00>" + Settings.p_fire_devast + "</color></b>)\nIce damage (<b><color=#FFDD00>" + Settings.p_ice_devast + "</color></b>)\nPoison damage (<b><color=#FFDD00>" + Settings.p_poison_devast + "</color></b>)";
     }
 
     private void upgradeShip()
@@ -289,6 +306,46 @@ public class GameController : MonoBehaviour
         {
             Settings.p_gold -= 500;
             Settings.p_cooldown = 0.6f;
+            updateCosts();
+            updateScore();
+        }
+    }
+
+    private void upgradeFire()
+    {
+        if (Settings.p_fire_level == 1 && Settings.p_gold >= 120)
+        {
+            Settings.p_gold -= 120;
+            Settings.p_fire_level++;
+            Settings.p_fire_devast += 10;
+            updateCosts();
+            updateScore();
+        }
+        else if (Settings.p_fire_level == 2 && Settings.p_gold >= 440)
+        {
+            Settings.p_gold -= 440;
+            Settings.p_fire_level++;
+            Settings.p_fire_devast += 22;
+            updateCosts();
+            updateScore();
+        }
+    }
+
+    private void upgradeIce()
+    {
+        if (Settings.p_ice_level == 1 && Settings.p_gold >= 120)
+        {
+            Settings.p_gold -= 120;
+            Settings.p_ice_level++;
+            Settings.p_ice_devast += 5;
+            updateCosts();
+            updateScore();
+        }
+        else if (Settings.p_ice_level == 2 && Settings.p_gold >= 400)
+        {
+            Settings.p_gold -= 400;
+            Settings.p_ice_level++;
+            Settings.p_ice_devast += 12;
             updateCosts();
             updateScore();
         }

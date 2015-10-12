@@ -430,13 +430,13 @@ MonoBehaviour:
   boltFire:
   - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
   - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   boltIce:
   - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
   - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   boltPoison:
@@ -450,7 +450,9 @@ MonoBehaviour:
   fireShots:
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
+  - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   iceShots:
+  - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   poisonShots:
@@ -4785,7 +4787,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: iceShots.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: materials.Array.size
@@ -4793,7 +4795,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: fireShots.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: boltMeshes.Array.size
@@ -4875,6 +4877,14 @@ Prefab:
       propertyPath: poisonShots.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
+    - target: {fileID: 0}
+      propertyPath: boltFire.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltIce.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 119732}
