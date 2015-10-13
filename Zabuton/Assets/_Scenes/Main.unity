@@ -307,89 +307,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 303914934}
---- !u!1 &311043231
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 178890, guid: e084cb5c144b0a64aa0dd77cc80b159e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 311043234}
-  - 33: {fileID: 311043233}
-  - 23: {fileID: 311043232}
-  - 114: {fileID: 311043235}
-  m_Layer: 0
-  m_Name: player_ship1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &311043232
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2370728, guid: e084cb5c144b0a64aa0dd77cc80b159e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 311043231}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 961ae34af4d7f6948a6f819576706f1a, type: 2}
-  - {fileID: 2100000, guid: 009fc31e0586c3a449b46fb655d0333e, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &311043233
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3302810, guid: e084cb5c144b0a64aa0dd77cc80b159e,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 311043231}
-  m_Mesh: {fileID: 4300000, guid: ad5f0c8693df1124eb1da35b9e3945e1, type: 3}
---- !u!4 &311043234
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 406978, guid: e084cb5c144b0a64aa0dd77cc80b159e, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 311043231}
-  m_LocalRotation: {x: -.5, y: .5, z: .500000119, w: .49999994}
-  m_LocalPosition: {x: .129025251, y: 1.08334315, z: -1.65573776}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1761244966}
-  m_RootOrder: 0
---- !u!114 &311043235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 311043231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e3dd947642cb464bb3cb393ad12e8f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materials:
-  - {fileID: 2100000, guid: 961ae34af4d7f6948a6f819576706f1a, type: 2}
-  - {fileID: 2100000, guid: 32bad79ac1e772e44aa96e4e16b90f0f, type: 2}
-  - {fileID: 2100000, guid: 045f0620f3f22f04bad75c6326abc1c2, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  meshes:
-  - {fileID: 4300000, guid: 77193ebe9f5a1e14c81fe6b7baca4948, type: 3}
 --- !u!1 &341262684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,9 +2140,10 @@ MonoBehaviour:
   musicManager: {fileID: 132528, guid: 1acb22692ba3f6143bdf491d2500c201, type: 2}
   background: {fileID: 180200, guid: ac7eea60fe36dbf4baae41a30452749a, type: 2}
   boundary: {fileID: 196422, guid: a5126b30b4181ee4aae11d815e4f484c, type: 2}
-  player: {fileID: 0}
-  playerShip1: {fileID: 122776, guid: 835da4ce693c7af4f860b8c13f0f99ce, type: 2}
-  playerShip2: {fileID: 198896, guid: 7e808949e28a25d4aaed060b68184f44, type: 2}
+  player: {fileID: 180562, guid: 835da4ce693c7af4f860b8c13f0f99ce, type: 2}
+  playerShip1: {fileID: 101040, guid: 4215dc8936c7fc64b94896bf48aa6bac, type: 2}
+  playerShip2: {fileID: 186894, guid: 251f2b1209de759469b078e98c8cc7b9, type: 2}
+  playerShip3: {fileID: 186894, guid: 251f2b1209de759469b078e98c8cc7b9, type: 2}
   mainCanvas: {fileID: 860922538}
   shop: {fileID: 1482260943}
   goldText: {fileID: 1052592000}
@@ -2234,7 +2152,7 @@ MonoBehaviour:
   quitImage: {fileID: 1456766899}
   title: {fileID: 1575830357}
   displayShip: {fileID: 1761244965}
-  displayShipGraphic: {fileID: 311043231}
+  displayShipGraphic: {fileID: 1761244965}
   upgradeShipButton: {fileID: 931890486}
   upgradeShipCost: {fileID: 1134590112}
   upgradeReloadButton: {fileID: 1835190739}
@@ -2343,6 +2261,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1761244966}
   - 54: {fileID: 1761244967}
+  - 114: {fileID: 1761244968}
   m_Layer: 0
   m_Name: DisplayShip
   m_TagString: Untagged
@@ -2356,11 +2275,10 @@ Transform:
   m_PrefabParentObject: {fileID: 420010, guid: e084cb5c144b0a64aa0dd77cc80b159e, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1761244965}
-  m_LocalRotation: {x: .380938321, y: -.706097841, z: -.131985381, w: .582144141}
-  m_LocalPosition: {x: -3, y: 0, z: -8}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_Children:
-  - {fileID: 311043234}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15, y: 0, z: -8}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!54 &1761244967
@@ -2379,6 +2297,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1761244968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1761244965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3dd947642cb464bb3cb393ad12e8f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ships:
+  - {fileID: 100000, guid: ad5f0c8693df1124eb1da35b9e3945e1, type: 3}
+  - {fileID: 100000, guid: ad5f0c8693df1124eb1da35b9e3945e1, type: 3}
+  - {fileID: 100000, guid: 77193ebe9f5a1e14c81fe6b7baca4948, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1788351677
 GameObject:
   m_ObjectHideFlags: 0

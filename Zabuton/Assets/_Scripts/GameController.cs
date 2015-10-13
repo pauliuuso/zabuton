@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameObject playerShip1;
     public GameObject playerShip2;
+    public GameObject playerShip3;
     public Canvas mainCanvas;
     public GameObject shop;
     public Text goldText;
@@ -161,14 +162,24 @@ public class GameController : MonoBehaviour
         playerHealth.SetActive(true);
         updateHealth();
 
-        if (Settings.p_ship_level < 3) player = playerShip1;
-        else if (Settings.p_ship_level == 3) player = playerShip2;
-
         Instantiate(background, new Vector3(0.0f, -12f, 0.0f), transform.rotation);
         Instantiate(boundary, new Vector3(0.0f, 0.0f, 0.0f), transform.rotation);
-        Instantiate(player, new Vector3(0.0f, 0.0f, -10f), transform.rotation);
+        GameObject playerShip = Instantiate(player, new Vector3(0.0f, 0.0f, -10f), transform.rotation) as GameObject;
         Instantiate(musicManager, new Vector3(0.0f, 20f, -3.4f), transform.rotation);
         Instantiate(smoke, smoke.transform.position, smoke.transform.rotation);
+
+        if (Settings.p_ship_level == 1)
+        {
+            var currentShip = Instantiate(playerShip1, playerShip.transform.position, playerShip1.transform.rotation) as GameObject;
+            currentShip.transform.parent = playerShip.transform;
+        }
+
+        else if (Settings.p_ship_level == 3)
+        {
+            var currentShip = Instantiate(playerShip3, playerShip.transform.position, playerShip3.transform.rotation) as GameObject;
+            currentShip.transform.parent = playerShip.transform;
+        }
+
     }
 
     private void startMission()
