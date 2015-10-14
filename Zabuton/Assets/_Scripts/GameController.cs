@@ -170,13 +170,13 @@ public class GameController : MonoBehaviour
 
         if (Settings.p_ship_level == 1)
         {
-            var currentShip = Instantiate(playerShip1, playerShip.transform.position, playerShip1.transform.rotation) as GameObject;
+            var currentShip = Instantiate(playerShip1, playerShip.transform.position, Quaternion.Euler(-90f, 0.0f, 180f)) as GameObject;
             currentShip.transform.parent = playerShip.transform;
         }
 
         else if (Settings.p_ship_level == 3)
         {
-            var currentShip = Instantiate(playerShip3, playerShip.transform.position, playerShip3.transform.rotation) as GameObject;
+            var currentShip = Instantiate(playerShip3, playerShip.transform.position, Quaternion.Euler(-90f, 0.0f, 180f)) as GameObject;
             currentShip.transform.parent = playerShip.transform;
         }
 

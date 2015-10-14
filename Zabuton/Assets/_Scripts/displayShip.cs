@@ -22,7 +22,8 @@ public class displayShip : MonoBehaviour
             gameObject.transform.position = new Vector3(-5f, 0f, -8f);
         }
         */
-        GameObject currentShip = Instantiate(ships[Settings.p_ship_level - 1], ships[Settings.p_ship_level - 1].transform.position, ships[Settings.p_ship_level - 1].transform.rotation) as GameObject;
+        GameObject currentShip = Instantiate(ships[Settings.p_ship_level - 1], gameObject.transform.position, Quaternion.Euler(330f, 12f, 40f)) as GameObject;
+        currentShip.transform.localScale = new Vector3(2f, 2f, 2f);
         currentShip.transform.parent = gameObject.transform;
         if(transform.childCount > 1) Destroy(transform.GetChild(0).gameObject);
     }
