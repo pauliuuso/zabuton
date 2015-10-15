@@ -89,6 +89,7 @@
     <Compile Include="Assets\_Scripts\MusicManager.cs" />
     <Compile Include="Assets\_Scripts\PlayerShip.cs" />
     <Compile Include="Assets\_Scripts\RandomRotation.cs" />
+    <Compile Include="Assets\_Scripts\Rotator.cs" />
     <Compile Include="Assets\_Scripts\Settings.cs" />
     <Compile Include="Assets\_Scripts\Soul.cs" />
     <Compile Include="Assets\_Scripts\StageTextMover.cs" />

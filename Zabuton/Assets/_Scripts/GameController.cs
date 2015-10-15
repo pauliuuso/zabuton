@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     // References
     public GameObject Asteroid1;
     public GameObject Asteroid2;
+    public GameObject Saturn;
     public GameObject musicManager;
     public GameObject background;
     public GameObject boundary;
@@ -50,7 +51,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"ast1", "ast1", "ast1", "ast1", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "endSpeed", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "end"};
+    private string[] level1 = {"ast1", "ast1", "sat", "ast1", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "endSpeed", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "end"};
 
     // Game music
 
@@ -126,6 +127,11 @@ public class GameController : MonoBehaviour
                 }
                 randomScale();
             }
+            else if(currentLevel[i] == "sat")
+            {
+                spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), -10, 16);
+                Instantiate(Saturn, spawnPosition, Saturn.transform.rotation);
+            }
             else if(currentLevel[i] == "wait")
             {
             }
@@ -162,7 +168,7 @@ public class GameController : MonoBehaviour
         playerHealth.SetActive(true);
         updateHealth();
 
-        Instantiate(background, new Vector3(0.0f, -12f, 0.0f), transform.rotation);
+        Instantiate(background, background.transform.position, transform.rotation);
         Instantiate(boundary, new Vector3(0.0f, 0.0f, 0.0f), transform.rotation);
         GameObject playerShip = Instantiate(player, new Vector3(0.0f, 0.0f, -10f), transform.rotation) as GameObject;
         Instantiate(musicManager, new Vector3(0.0f, 20f, -3.4f), transform.rotation);
