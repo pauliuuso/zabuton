@@ -2143,8 +2143,8 @@ MonoBehaviour:
   boundary: {fileID: 196422, guid: a5126b30b4181ee4aae11d815e4f484c, type: 2}
   player: {fileID: 180562, guid: 835da4ce693c7af4f860b8c13f0f99ce, type: 2}
   playerShip1: {fileID: 191454, guid: 4215dc8936c7fc64b94896bf48aa6bac, type: 2}
-  playerShip2: {fileID: 101040, guid: 4215dc8936c7fc64b94896bf48aa6bac, type: 2}
-  playerShip3: {fileID: 183148, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
+  playerShip2: {fileID: 199822, guid: f4eed1e88c6467742abd693c5eb87074, type: 2}
+  playerShip3: {fileID: 187276, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
   mainCanvas: {fileID: 860922538}
   shop: {fileID: 1482260943}
   goldText: {fileID: 1052592000}
@@ -2311,8 +2311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ships:
   - {fileID: 191454, guid: 4215dc8936c7fc64b94896bf48aa6bac, type: 2}
-  - {fileID: 100000, guid: ad5f0c8693df1124eb1da35b9e3945e1, type: 3}
-  - {fileID: 183148, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
+  - {fileID: 199822, guid: f4eed1e88c6467742abd693c5eb87074, type: 2}
+  - {fileID: 187276, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!1 &1788351677

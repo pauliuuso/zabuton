@@ -243,7 +243,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .561999977
+        second: 1
       data:
         first:
           name: _BumpScale
@@ -267,7 +267,7 @@ Material:
       data:
         first:
           name: _Metallic
-        second: 0
+        second: .061999999
       data:
         first:
           name: _InvFade
@@ -456,7 +456,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .115999997, g: .656000018, b: .936999977, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _SpecColor

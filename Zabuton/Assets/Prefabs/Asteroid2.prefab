@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 147010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .926534474, y: .926534474, z: .926534474}
+  m_LocalScale: {x: .605703652, y: .605703652, z: .605703652}
   m_Children:
   - {fileID: 468894}
   m_Father: {fileID: 0}
@@ -173,9 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e39abf7b96a0b459d0d0b0ddf4bebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  devast: 26
-  reward: 24
+  health: 10
+  devast: 15
+  reward: 12
   resistance: none
   resistanceStrength: 0
 --- !u!114 &11482448

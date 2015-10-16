@@ -180,6 +180,12 @@ public class GameController : MonoBehaviour
             currentShip.transform.parent = playerShip.transform;
         }
 
+		if (Settings.p_ship_level == 2)
+		{
+			var currentShip = Instantiate(playerShip2, playerShip.transform.position + new Vector3(0.5f, -1.5f, -1.5f), Quaternion.Euler(-90f, 0.0f, 180f)) as GameObject;
+			currentShip.transform.parent = playerShip.transform;
+		}
+
         else if (Settings.p_ship_level == 3)
         {
             var currentShip = Instantiate(playerShip3, playerShip.transform.position, Quaternion.Euler(-90f, 0.0f, 180f)) as GameObject;
