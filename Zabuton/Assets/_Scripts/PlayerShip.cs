@@ -115,7 +115,7 @@ public class PlayerShip : MonoBehaviour
         {
             Settings.p_alive = false;
             Destroy(gameObject);
-            Instantiate(playerExplosion, transform.position, transform.rotation);
+            Instantiate(playerExplosion, transform.position, playerExplosion.transform.rotation);
         }
     }
 

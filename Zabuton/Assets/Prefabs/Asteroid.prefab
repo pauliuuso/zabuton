@@ -48,7 +48,7 @@ Transform:
   m_GameObject: {fileID: 107372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .627201021, y: .627201021, z: .627201021}
+  m_LocalScale: {x: .694050431, y: .694050431, z: .694050431}
   m_Children:
   - {fileID: 485668}
   m_Father: {fileID: 0}
@@ -164,24 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion1: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 2}
-  fireBooms:
-  - {fileID: 105142, guid: ffd1e8608a9d31c4393351d8f6d1a488, type: 2}
-  - {fileID: 105142, guid: ffd1e8608a9d31c4393351d8f6d1a488, type: 2}
-  - {fileID: 105142, guid: a2256f237399957419d896a7435f25fb, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  iceBooms:
-  - {fileID: 105142, guid: f3e3afd3a76ccb44aac7ba5d282d0d94, type: 2}
-  - {fileID: 105142, guid: f3e3afd3a76ccb44aac7ba5d282d0d94, type: 2}
-  - {fileID: 163726, guid: dea27dddc476721459d6ef4b4d7e1287, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  poisonBooms:
-  - {fileID: 105142, guid: 27d4ad46b1c0d3a40977d1cd6a1669ce, type: 2}
-  - {fileID: 105142, guid: 27d4ad46b1c0d3a40977d1cd6a1669ce, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   stageText: {fileID: 10220098, guid: 147a4559a4538f84bae1a332864af7e3, type: 2}
 --- !u!114 &11458368
 MonoBehaviour:
@@ -208,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   devast: 6
-  reward: 2
+  reward: 5
   resistance: none
   resistanceStrength: 0
 --- !u!114 &11483758

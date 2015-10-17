@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xRotate: 0
   yRotate: 0
-  zRotate: 40
+  zRotate: 50
   startRotation: 1
 --- !u!1001 &100100000
 Prefab:
@@ -130,7 +130,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: zRotate
-      value: 40
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: startRotation

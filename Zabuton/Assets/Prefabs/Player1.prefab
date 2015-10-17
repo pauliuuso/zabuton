@@ -351,7 +351,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
+  playerExplosion: {fileID: 116600, guid: 4db53c1df410d84438f9cae1f0b7a8e5, type: 2}
   audio: {fileID: 0}
   fireShots:
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
@@ -4696,6 +4696,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playerExplosion
+      value: 
+      objectReference: {fileID: 116600, guid: 4db53c1df410d84438f9cae1f0b7a8e5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 180562}
