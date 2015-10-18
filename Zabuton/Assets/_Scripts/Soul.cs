@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Soul : MonoBehaviour
 {
-
+    public int speed = 5;
+    public int tilt = 5;
     public int health = 10;
     public int devast = 12;
     public int reward = 5;

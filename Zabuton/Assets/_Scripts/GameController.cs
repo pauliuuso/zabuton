@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
     // References
     public GameObject Asteroid1;
     public GameObject Asteroid2;
+    public GameObject Enemy1;
     public GameObject Saturn;
     public GameObject musicManager;
     public GameObject background;
@@ -51,7 +52,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"ast1", "ast1", "sat", "ast1", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "endSpeed", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "end"};
+    private string[] level1 = {"ast1", "en1", "sat", "ast1", "ast1","wait" ,"ast1", "wait", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "endSpeed", "ast1", "ast1", "ast1", "ast1", "ast1", "ast1", "wait", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "end"};
 
     // Game music
 
@@ -126,6 +127,14 @@ public class GameController : MonoBehaviour
                     Asteroid2.GetComponent<Soul>().reward = (int)Random.Range(20, 26);
                 }
                 randomScale();
+            }
+            else if (currentLevel[i] == "en1")
+            {
+                Instantiate(Enemy1, spawnPosition, Enemy1.transform.rotation);
+
+                Enemy1.GetComponent<Soul>().health = 30;
+                Enemy1.GetComponent<Soul>().devast = 25;
+                Enemy1.GetComponent<Soul>().reward = (int)Random.Range(35, 50);
             }
             else if(currentLevel[i] == "sat")
             {

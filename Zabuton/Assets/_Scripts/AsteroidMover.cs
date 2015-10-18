@@ -11,6 +11,7 @@ public class AsteroidMover : MonoBehaviour
         asteroidSpeed = Random.value * 8 + 5;
         GetComponent<Rigidbody>().velocity = transform.forward * -asteroidSpeed;
         if (gameObject.tag == "Saturn") GetComponent<Rigidbody>().velocity = transform.up * fixedSpeed;
+        else if (fixedSpeed != 0) GetComponent<Rigidbody>().velocity = transform.forward * fixedSpeed;
     }
 
 }
