@@ -117,7 +117,7 @@ MonoBehaviour:
   tilt: 5
   health: 30
   devast: 25
-  reward: 46
+  reward: 49
   resistance: none
   resistanceStrength: 0
 --- !u!1001 &100100000

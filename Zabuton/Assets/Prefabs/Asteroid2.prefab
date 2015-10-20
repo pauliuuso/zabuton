@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 147010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .653149188, y: .653149188, z: .653149188}
+  m_LocalScale: {x: 1.07104456, y: 1.07104456, z: 1.07104456}
   m_Children:
   - {fileID: 468894}
   m_Father: {fileID: 0}
@@ -175,9 +175,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   tilt: 5
-  health: 10
-  devast: 15
-  reward: 14
+  health: 20
+  devast: 26
+  reward: 21
   resistance: none
   resistanceStrength: 0
 --- !u!114 &11482448

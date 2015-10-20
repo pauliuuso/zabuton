@@ -48,7 +48,7 @@ Transform:
   m_GameObject: {fileID: 107372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.14168453, y: 1.14168453, z: 1.14168453}
+  m_LocalScale: {x: .744151294, y: .744151294, z: .744151294}
   m_Children:
   - {fileID: 485668}
   m_Father: {fileID: 0}
@@ -190,9 +190,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   tilt: 5
-  health: 10
-  devast: 12
-  reward: 8
+  health: 5
+  devast: 6
+  reward: 2
   resistance: none
   resistanceStrength: 0
 --- !u!114 &11483758
@@ -387,6 +387,10 @@ Prefab:
       propertyPath: iceBooms.Array.data[2]
       value: 
       objectReference: {fileID: 163726, guid: dea27dddc476721459d6ef4b4d7e1287, type: 2}
+    - target: {fileID: 0}
+      propertyPath: fixedSpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 107372}

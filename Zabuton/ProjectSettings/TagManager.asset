@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Asteroid2
   - Saturn
+  - asteroidas
   layers:
   - Default
   - TransparentFX

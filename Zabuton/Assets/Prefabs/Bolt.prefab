@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 181274}
   m_LocalRotation: {x: .5, y: .5, z: -.500000119, w: .49999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 425408}
   m_Father: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0acb3b44be6b14d82fd68a92c618ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  devast: 15
+  devast: 5
   type: fire
   addBoom: 1
   fireBooms:

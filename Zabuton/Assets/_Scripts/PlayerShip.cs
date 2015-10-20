@@ -29,7 +29,7 @@ public class PlayerShip : MonoBehaviour
     {
         if((Input.GetButton("Fire1") || Input.GetButton("Fire2") || Input.GetButton("Fire3")) && Time.time > nextFire) // Jei paspaustas sovimo mygtukas ir cooldown baiges
         {
-            fireCount = 1;
+            fireCount = 1; // jei bus issaunama daugiau nei vienas sovinys
             if(Input.GetButton("Fire1"))
             {
                 Settings.p_devast = Settings.p_fire_devast;
