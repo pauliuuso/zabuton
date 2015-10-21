@@ -108,6 +108,7 @@ GameObject:
   - 54: {fileID: 5425966}
   - 136: {fileID: 13633554}
   - 82: {fileID: 8285620}
+  - 114: {fileID: 11497420}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player_ship
@@ -364,6 +365,18 @@ MonoBehaviour:
   poisonShots:
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
+--- !u!114 &11497420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433e3f3a959d8c34d9be4be34ac676af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageText: {fileID: 10220098, guid: 147a4559a4538f84bae1a332864af7e3, type: 2}
 --- !u!136 &13633554
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -4700,6 +4713,10 @@ Prefab:
       propertyPath: playerExplosion
       value: 
       objectReference: {fileID: 116600, guid: 4db53c1df410d84438f9cae1f0b7a8e5, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: .5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 180562}

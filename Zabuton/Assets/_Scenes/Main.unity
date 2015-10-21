@@ -158,7 +158,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &233919288
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +791,7 @@ RectTransform:
   - {fileID: 1913023130}
   - {fileID: 2070035781}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2137,7 +2137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Asteroid1: {fileID: 107372, guid: c3913b1c798485d4d81d37015c74745d, type: 2}
   Asteroid2: {fileID: 147010, guid: 8fa5c4aea734f8244b469856c66efebd, type: 2}
-  Enemy1: {fileID: 151892, guid: fb86905a660f0a94398d45560ee53be0, type: 2}
+  Enemy1: {fileID: 177452, guid: fb86905a660f0a94398d45560ee53be0, type: 2}
   Saturn: {fileID: 193192, guid: 621278ad74929d8499011980e009e7e9, type: 2}
   musicManager: {fileID: 132528, guid: 1acb22692ba3f6143bdf491d2500c201, type: 2}
   background: {fileID: 180200, guid: ac7eea60fe36dbf4baae41a30452749a, type: 2}
@@ -2282,7 +2282,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
 --- !u!54 &1761244967
 Rigidbody:
   m_ObjectHideFlags: 0

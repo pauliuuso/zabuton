@@ -101,7 +101,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.94000006, y: 1.73000002, z: 2.3107307}
+  m_Size: {x: 6.94000006, y: 1.73000002, z: 5}
   m_Center: {x: 0, y: -3.1400001, z: .512185454}
 --- !u!198 &19820286
 ParticleSystem:
@@ -1222,6 +1222,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Player_ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.z
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

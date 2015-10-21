@@ -62,6 +62,8 @@ public class PlayerShip : MonoBehaviour
 
             Bolt.GetComponent<Bullet>().devast = Settings.p_devast; // Soviniui suteikiama damage
             Bolt.GetComponent<Bullet>().type = Settings.p_type; // Sovinio tipas
+            Bolt.GetComponent<Bullet>().owner = "player";
+            Bolt.GetComponent<BulletMover>().speed = Settings.p_bullet_speed;
             nextFire = Time.time + Settings.p_cooldown;
 
             if (fireCount == 1)

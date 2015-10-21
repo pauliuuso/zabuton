@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 147010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.07104456, y: 1.07104456, z: 1.07104456}
+  m_LocalScale: {x: 1.03410625, y: 1.03410625, z: 1.03410625}
   m_Children:
   - {fileID: 468894}
   m_Father: {fileID: 0}
@@ -177,9 +177,12 @@ MonoBehaviour:
   tilt: 5
   health: 20
   devast: 26
-  reward: 21
+  reward: 20
   resistance: none
   resistanceStrength: 0
+  explosion: {fileID: 156802, guid: 147aa013e3b424c4fab17f2212854031, type: 2}
+  addBoom: 0
+  lastHitBy: 
 --- !u!114 &11482448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,7 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433e3f3a959d8c34d9be4be34ac676af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion1: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 2}
   stageText: {fileID: 10220098, guid: 147a4559a4538f84bae1a332864af7e3, type: 2}
 --- !u!135 &13565526
 SphereCollider:
@@ -316,6 +318,14 @@ Prefab:
       propertyPath: iceBooms.Array.data[2]
       value: 
       objectReference: {fileID: 163726, guid: dea27dddc476721459d6ef4b4d7e1287, type: 2}
+    - target: {fileID: 0}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 156802, guid: 147aa013e3b424c4fab17f2212854031, type: 2}
+    - target: {fileID: 0}
+      propertyPath: addBoom
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147010}

@@ -16,39 +16,63 @@ public class Enemy1 : MonoBehaviour
     Vector3 newPosition;
     float randomas = 2;
     float nextMove = 2;
+    float currentTime;
+    float fightingTime;
     Ray downRay;
     Ray leftRay;
     Ray upRay;
     Ray rightRay;
     RaycastHit hit;
-    int sightDown = -15;
-    int sightLeft = -10;
-    int sightUp = 10;
+    int sightDown = 10;
+    int sightLeft = 10;
+    int sightUp = 15;
     int sightRight = 10;
     bool dodging = false;
-    int threatNumber; // 0 - bottom, 1 -left, 2 -up, 3 - right;
+    bool retreating = false;
+    bool leftThreat = false;
+    bool upThreat = false;
+    bool rightThreat = false;
+    bool downThreat = false;
+    Color rayColorLeft = Color.green;
+    Color rayColorRight = Color.green;
+    Color rayColorUp = Color.green;
+    Color rayColorDown = Color.green;
+    public GameObject canon1;
+    public GameObject canon2;
+    public GameObject bolt;
+    public Material boltMaterial;
 
 	void Start () 
     {
         speed = gameObject.GetComponent<Soul>().speed;
         tilt = gameObject.GetComponent<Soul>().tilt;
         setPosition();
-        downRay = new Ray(gameObject.transform.position, Vector3.down * 15);
-        leftRay = new Ray(gameObject.transform.position, Vector3.left * 10);
-        upRay = new Ray(gameObject.transform.position, Vector3.up * 10);
-        rightRay = new Ray(gameObject.transform.position, Vector3.right * 10);
-        //movingDown = true;
+        fightingTime = Random.Range(10, 30);
 	}
 
 	void FixedUpdate () 
     {
-        //Debug.DrawRay(gameObject.transform.position, new Vector3(0.0f, 0.0f, sightDown), Color.green);
-        Debug.DrawRay(gameObject.transform.position, Vector3.left * 10, Color.green);
-        //Debug.DrawRay(gameObject.transform.position, new Vector3(0.0f, 0.0f, sightUp), Color.green);
-        //Debug.DrawRay(gameObject.transform.position, new Vector3(sightRight, 0.0f, 0.0f), Color.green);
+        Debug.DrawRay(gameObject.transform.position, Vector3.forward * -sightDown, rayColorDown);
+        Debug.DrawRay(gameObject.transform.position, Vector3.left * sightLeft, rayColorLeft);
+        Debug.DrawRay(gameObject.transform.position, Vector3.forward * sightUp, rayColorUp);
+        Debug.DrawRay(gameObject.transform.position, Vector3.right * sightRight, rayColorRight);
+
+        currentTime += Time.deltaTime;
+
+        downRay = new Ray(gameObject.transform.position, Vector3.forward * -sightDown);
+        leftRay = new Ray(gameObject.transform.position, Vector3.left * sightLeft);
+        upRay = new Ray(gameObject.transform.position, Vector3.forward * sightUp);
+        rightRay = new Ray(gameObject.transform.position, Vector3.right * sightRight);
         
         Vector3 movement = new Vector3(horizontalMovement, 0.0f, verticalMovement); // Vector3(x, y, z); Nustatoma kuria kryptimi juda
         GetComponent<Rigidbody>().velocity = movement * speed; // Cia vyksta pats judejimas
+
+        if(currentTime > fightingTime)
+        {
+            retreating = true;
+            fightingTime += currentTime;
+            setPosition();
+        }
 
         if (gameObject.transform.position.z < Settings.zMax && !initialized)
         {
@@ -56,46 +80,66 @@ public class Enemy1 : MonoBehaviour
             movingDown = false;
         }
 
-        /*if (Physics.Raycast(downRay, out hit, 10))
+        if (Physics.Raycast(downRay, out hit, sightDown))
         {
             if(hit.collider.tag != "Untagged")
             {
+                rayColorDown = Color.red;
                 dodging = true;
-                threatNumber = 0;
-                //print("down");
-            }
-        }*/
-        if (Physics.Raycast(leftRay, out hit, 10))
-        {
-            if(hit.collider.tag != "Untagged")
-            {
-                dodging = true;
-                threatNumber = 1;
-                print("left");
+                downThreat = true;
             }
         }
-        /*if (Physics.Raycast(upRay, out hit, 10))
+        else if (!Physics.Raycast(downRay, out hit, sightDown))
+        {
+            downThreat = false;
+            rayColorDown = Color.green;
+        }
+        if (Physics.Raycast(leftRay, out hit, sightLeft))
+        {
+            if(hit.collider.tag != "Untagged")
+            {
+                rayColorLeft = Color.red;
+                dodging = true;
+                leftThreat = true;
+            }
+        }
+        else if (!Physics.Raycast(leftRay, out hit, sightLeft))
+        {
+            leftThreat = false;
+            rayColorLeft = Color.green;
+        }
+        if (Physics.Raycast(upRay, out hit, sightUp))
         {
             if (hit.collider.tag != "Untagged")
             {
+                rayColorUp = Color.red;
                 dodging = true;
-                threatNumber = 2;
-                //print("up");
+                upThreat = true;
             }
-        }*/
-        /*if (Physics.Raycast(rightRay, out hit, 10))
+        }
+        if (!Physics.Raycast(upRay, out hit, sightUp))
+        {
+            upThreat = false;
+            rayColorUp = Color.green;
+        }
+        if (Physics.Raycast(rightRay, out hit, sightRight))
         {
             if (hit.collider.tag != "Untagged")
             {
+                rayColorRight = Color.red;
                 dodging = true;
-                threatNumber = 3;
-                print("right");
+                rightThreat = true;
             }
-        }*/
-        else if(dodging)
+        }
+        else if (!Physics.Raycast(rightRay, out hit, sightRight))
+        {
+            rightThreat = false;
+            rayColorRight = Color.green;
+        }
+
+        if (!Physics.Raycast(leftRay, out hit, sightLeft) && !Physics.Raycast(rightRay, out hit, sightRight) && !Physics.Raycast(upRay, out hit, sightUp) && !Physics.Raycast(downRay, out hit, sightDown) && dodging)
         {
             dodging = false;
-            threatNumber = 4;
         }
 
         if (movingLeft && horizontalMovement >= -1f) horizontalMovement -= 0.1f;
@@ -116,12 +160,16 @@ public class Enemy1 : MonoBehaviour
 
         if (initialized && !dodging)
         {
-            GetComponent<Rigidbody>().position = new Vector3 // Cia yra nustatomos ribos, kad negaletu isskristi uz ekrano
-            (
-                Mathf.Clamp(GetComponent<Rigidbody>().position.x, Settings.xMin, Settings.xMax), // Nustato kad laivas negaletu palikt ribu
-                0.0f,
-                Mathf.Clamp(GetComponent<Rigidbody>().position.z, Settings.zMin, Settings.zMax)
-            );
+            if(!retreating)
+            {
+                GetComponent<Rigidbody>().position = new Vector3 // Cia yra nustatomos ribos, kad negaletu isskristi uz ekrano
+                (
+                    Mathf.Clamp(GetComponent<Rigidbody>().position.x, Settings.xMin, Settings.xMax), // Nustato kad laivas negaletu palikt ribu
+                    0.0f,
+                    Mathf.Clamp(GetComponent<Rigidbody>().position.z, Settings.zMin, Settings.zMax)
+                );
+            }
+
 
             if (newPosition.x > gameObject.transform.position.x) movingRight = true;
             else movingRight = false;
@@ -136,18 +184,118 @@ public class Enemy1 : MonoBehaviour
             {
                 setPosition();
                 nextMove = Time.time + randomas;
+                fire();
             }
         }
-        else if(dodging)
+        else if(initialized && (dodging || retreating))
         {
-            if (threatNumber == 0) movingRight = true;
-            else movingRight = false;
-            if (threatNumber == 1) movingDown = true;
-            else movingDown = false;
-            if (threatNumber == 2) movingLeft = true;
-            else movingLeft = false;
-            if (threatNumber == 3) movingUp = true;
-            else movingUp = false;
+
+            if(!retreating)
+            {
+                GetComponent<Rigidbody>().position = new Vector3 // Cia yra nustatomos ribos, kad negaletu isskristi uz ekrano
+                (
+                    Mathf.Clamp(GetComponent<Rigidbody>().position.x, Settings.xMin, Settings.xMax), // Nustato kad laivas negaletu palikt ribu
+                    0.0f,
+                    Mathf.Clamp(GetComponent<Rigidbody>().position.z, Settings.zMin, Settings.zMax)
+                );
+            }
+            else if (retreating)
+            {
+                GetComponent<Rigidbody>().position = new Vector3 // Cia yra nustatomos ribos, kad negaletu isskristi uz ekrano
+                (
+                    Mathf.Clamp(GetComponent<Rigidbody>().position.x, Settings.xMin, Settings.xMax), // Nustato kad laivas negaletu palikt ribu
+                    0.0f,
+                    Mathf.Clamp(GetComponent<Rigidbody>().position.z, -40, Settings.zMax)
+                );
+            }
+
+            if (rightThreat && leftThreat && upThreat && !retreating)
+            {
+                if (!downThreat)
+                {
+                    movingRight = false;
+                    movingUp = false;
+                    movingLeft = false;
+                    movingDown = true;
+                }
+            }
+            else if (rightThreat && leftThreat && !retreating)
+            {
+                if (!upThreat)
+                {
+                    movingRight = false;
+                    movingUp = true;
+                    movingLeft = false;
+                    movingDown = false;
+                }
+                else if (!downThreat)
+                {
+                    movingRight = false;
+                    movingUp = false;
+                    movingLeft = false;
+                    movingDown = true;
+                }
+            }
+            else if ((upThreat || downThreat) && (!leftThreat || !rightThreat) && !retreating)
+            {
+                if(Random.Range(0f, 1f) > 0.5f)
+                {
+                    if (!leftThreat)
+                    {
+                        movingRight = true;
+                        movingUp = false;
+                        movingLeft = false;
+                        movingDown = false;
+                    }
+                    else if (!rightThreat)
+                    {
+                        movingRight = false;
+                        movingUp = false;
+                        movingLeft = true;
+                        movingDown = false;
+                    }
+                }
+                else if(Random.Range(0f, 1f) <= 0.5f)
+                {
+                    if (!rightThreat)
+                    {
+                        movingRight = false;
+                        movingUp = false;
+                        movingLeft = true;
+                        movingDown = false;
+                    }
+                    else if (!leftThreat)
+                    {
+                        movingRight = true;
+                        movingUp = false;
+                        movingLeft = false;
+                        movingDown = false;
+                    }
+                }
+
+            }
+            else if (leftThreat) 
+            {
+                if(!rightThreat) 
+                {
+                    movingRight = true;
+                    movingUp = false;
+                    movingLeft = false;
+                    movingDown = false;
+                }
+            }
+            else if (rightThreat)
+            {
+                if (!leftThreat)
+                {
+                    movingRight = false;
+                    movingUp = false;
+                    movingLeft = true;
+                    movingDown = false;
+                }
+            }
+
+
         }
 
 
@@ -155,8 +303,37 @@ public class Enemy1 : MonoBehaviour
 
     void setPosition()
     {
-        newPosition = new Vector3(Random.Range(Settings.xMin, Settings.zMax), 0.0f, Random.Range(-4, Settings.zMax));
+        if(!retreating) newPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), 0.0f, Random.Range(0, Settings.zMax));
+        else newPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), 0.0f, Random.Range(-30f, -31f));
         randomas = Random.Range(1f, 4f);
+    }
+
+    void notMoving()
+    {
+        movingLeft = false;
+        movingUp = false;
+        movingRight = false;
+        movingDown = false;
+    }
+
+    void fire()
+    {
+        bolt.GetComponent<BulletMover>().speed = -10f;
+        bolt.GetComponent<Bullet>().devast = 20;
+        bolt.GetComponent<Bullet>().owner = "enemy";
+        bolt.GetComponent<Bullet>().type = "fire";
+        bolt.GetComponent<Bullet>().fireLevel = 2;
+        bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltMaterial;
+        if (Random.Range(0f, 1f) > 0.5f)
+        {
+
+            Instantiate(bolt, canon1.transform.position, Quaternion.Euler(0f, 0f, 0f));
+        }
+        else
+        {
+            Instantiate(bolt, canon2.transform.position, Quaternion.Euler(0f, 0f, 0f));
+        }
+
     }
 
 }
