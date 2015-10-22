@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour
     public Text upgradeShipCost;
     public Button upgradeReloadButton;
     public Text upgradeReloadCost;
+    public Button upgradeBulletSpeedButton;
+    public Text upgradeBulletSpeedCost;
     public Button upgradeFireButton;
     public Text upgradeFireCost;
     public Button upgradeIceButton;
@@ -67,6 +69,7 @@ public class GameController : MonoBehaviour
         upgradeReloadButton.onClick.AddListener(() => { upgradeReload(); });
         upgradeFireButton.onClick.AddListener(() => { upgradeFire(); });
         upgradeIceButton.onClick.AddListener(() => { upgradeIce(); });
+        upgradeBulletSpeedButton.onClick.AddListener(() => { upgradeBulletSpeed(); });
         updateScore();
         updateCosts();
         updateStatus();
@@ -273,26 +276,26 @@ public class GameController : MonoBehaviour
         upgradeReloadButton.onClick.RemoveListener(() => { upgradeReload(); });
         upgradeFireButton.onClick.RemoveListener(() => { upgradeFire(); });
         upgradeIceButton.onClick.RemoveListener(() => { upgradeIce(); });
+        upgradeBulletSpeedButton.onClick.RemoveListener(() => { upgradeBulletSpeed(); });
         RemoveUI();
     }
 
     private void updateCosts()
     {
-        if (Settings.p_ship_level == 1) upgradeShipCost.text = "150 gold";
-        else if (Settings.p_ship_level == 2) upgradeShipCost.text = "450 gold";
-        else if (Settings.p_ship_level == 3) upgradeShipCost.text = "1150 gold";
+        upgradeShipCost.text = Settings.shipCosts[Settings.p_ship_level - 1].ToString();
+        upgradeShipCost.text += " gold";
 
-        if (Settings.p_cooldown == 1f) upgradeReloadCost.text = "100 gold";
-        else if (Settings.p_cooldown == 0.8f) upgradeReloadCost.text = "500 gold";
-        else if (Settings.p_cooldown == 0.6f) upgradeReloadCost.text = "1500 gold";
+        upgradeReloadCost.text = Settings.reloadCosts[Settings.p_cooldown_level - 1].ToString();
+        upgradeReloadCost.text += " gold";
+        
+        upgradeFireCost.text = Settings.fireCosts[Settings.p_fire_level - 1].ToString();
+        upgradeFireCost.text += " gold";
 
-        if (Settings.p_fire_level == 1) upgradeFireCost.text = "120 gold";
-        else if (Settings.p_fire_level == 2) upgradeFireCost.text = "440 gold";
-        else if (Settings.p_fire_level == 3) upgradeFireCost.text = "1200 gold";
+        upgradeIceCost.text = Settings.iceCosts[Settings.p_ice_level - 1].ToString();
+        upgradeIceCost.text += " gold";
 
-        if (Settings.p_ice_level == 1) upgradeIceCost.text = "120 gold";
-        else if (Settings.p_ice_level == 2) upgradeIceCost.text = "400 gold";
-        else if (Settings.p_ice_level == 3) upgradeIceCost.text = "1000 gold";
+        upgradeBulletSpeedCost.text = Settings.bulletSpeedCosts[Settings.p_bullet_speed_level - 1].ToString();
+        upgradeBulletSpeedCost.text += " gold";
 
         displayShipGraphic.GetComponent<displayShip>().updateShip();
         updateStatus();
@@ -300,44 +303,29 @@ public class GameController : MonoBehaviour
 
     private void updateStatus()
     {
-        allStatus.text = "Ship level (<b><color=#FFDD00>" + Settings.p_ship_level + "</color></b>)\nReload time (<b><color=#FFDD00>" + Settings.p_cooldown + "s</color></b>)\nShip speed (<b><color=#FFDD00>" + Settings.p_speed * 2 + " km/h</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * 15 + " km/h</color></b>)\nShip health (<b><color=#FFDD00>" + Settings.p_health + "</color></b>)\nFire damage (<b><color=#FFDD00>" + Settings.p_fire_devast + "</color></b>)\nIce damage (<b><color=#FFDD00>" + Settings.p_ice_devast + "</color></b>)\nPoison damage (<b><color=#FFDD00>" + Settings.p_poison_devast + "</color></b>)";
+        allStatus.text = "Ship level (<b><color=#FFDD00>" + Settings.p_ship_level + "</color></b>)\nReload time (<b><color=#FFDD00>" + Settings.p_cooldown + "s</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * Settings.p_bullet_speed * 3 + " km/h</color></b>)\nShip speed (<b><color=#FFDD00>" + Settings.p_speed * Settings.p_speed / 2 + " km/h</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * 15 + " km/h</color></b>)\nShip health (<b><color=#FFDD00>" + Settings.p_health + "</color></b>)\nFire damage (<b><color=#FFDD00>" + Settings.p_fire_devast + "</color></b>)\nIce damage (<b><color=#FFDD00>" + Settings.p_ice_devast + "</color></b>)\nPoison damage (<b><color=#FFDD00>" + Settings.p_poison_devast + "</color></b>)";
     }
 
     private void upgradeShip()
     {
-        if(Settings.p_ship_level == 1 && Settings.p_gold >= 150)
+        if(Settings.p_gold >= Settings.shipCosts[Settings.p_ship_level -1])
         {
-            Settings.p_gold -= 150;
+            Settings.p_gold -= Settings.shipCosts[Settings.p_ship_level - 1];
             Settings.p_ship_level++;
-            Settings.p_health_max += 15;
-            Settings.p_health += 15;
+            updateShipSettings();
             updateCosts();
             updateScore();
         }
-        else if (Settings.p_ship_level == 2 && Settings.p_gold >= 450)
-        {
-            Settings.p_gold -= 450;
-            Settings.p_ship_level++;
-            Settings.p_health_max += 30;
-            Settings.p_health += 30;
-            updateCosts();
-            updateScore();
-        }
+
     }
 
     private void upgradeReload()
     {
-        if(Settings.p_cooldown == 1f && Settings.p_gold >= 100)
+        if (Settings.p_gold >= Settings.reloadCosts[Settings.p_cooldown_level - 1])
         {
-            Settings.p_gold -= 100;
-            Settings.p_cooldown = 0.8f;
-            updateCosts();
-            updateScore();
-        }
-        else if (Settings.p_cooldown == 0.8f && Settings.p_gold >= 500)
-        {
-            Settings.p_gold -= 500;
-            Settings.p_cooldown = 0.6f;
+            Settings.p_gold -= Settings.reloadCosts[Settings.p_cooldown_level - 1];
+            Settings.p_cooldown_level++;
+            updateShipSettings();
             updateCosts();
             updateScore();
         }
@@ -345,19 +333,11 @@ public class GameController : MonoBehaviour
 
     private void upgradeFire()
     {
-        if (Settings.p_fire_level == 1 && Settings.p_gold >= 120)
+        if (Settings.p_gold >= Settings.fireCosts[Settings.p_fire_level - 1])
         {
-            Settings.p_gold -= 120;
+            Settings.p_gold -= Settings.fireCosts[Settings.p_fire_level - 1];
             Settings.p_fire_level++;
-            Settings.p_fire_devast += 10;
-            updateCosts();
-            updateScore();
-        }
-        else if (Settings.p_fire_level == 2 && Settings.p_gold >= 440)
-        {
-            Settings.p_gold -= 440;
-            Settings.p_fire_level++;
-            Settings.p_fire_devast += 22;
+            updateShipSettings();
             updateCosts();
             updateScore();
         }
@@ -365,22 +345,38 @@ public class GameController : MonoBehaviour
 
     private void upgradeIce()
     {
-        if (Settings.p_ice_level == 1 && Settings.p_gold >= 120)
+        if (Settings.p_gold >= Settings.iceCosts[Settings.p_ice_level - 1])
         {
-            Settings.p_gold -= 120;
+            Settings.p_gold -= Settings.iceCosts[Settings.p_ice_level - 1];
             Settings.p_ice_level++;
-            Settings.p_ice_devast += 5;
+            updateShipSettings();
             updateCosts();
             updateScore();
         }
-        else if (Settings.p_ice_level == 2 && Settings.p_gold >= 400)
+
+    }
+
+    private void upgradeBulletSpeed()
+    {
+        if (Settings.p_gold >= Settings.bulletSpeedCosts[Settings.p_bullet_speed_level - 1])
         {
-            Settings.p_gold -= 400;
-            Settings.p_ice_level++;
-            Settings.p_ice_devast += 12;
+            Settings.p_gold -= Settings.bulletSpeedCosts[Settings.p_bullet_speed_level - 1];
+            Settings.p_bullet_speed_level++;
+            updateShipSettings();
             updateCosts();
             updateScore();
         }
+    }
+
+    public void updateShipSettings()
+    {
+        Settings.p_bullet_speed = Settings.shipBulletSpeeds[Settings.p_bullet_speed_level - 1];
+        Settings.p_ice_devast = Settings.iceCosts[Settings.p_ice_level - 1];
+        Settings.p_fire_devast = Settings.shipFireDamages[Settings.p_fire_level - 1];
+        Settings.p_cooldown = Settings.shipCooldowns[Settings.p_cooldown_level - 1];
+        Settings.p_health_max = Settings.shipHps[Settings.p_ship_level - 1];
+        Settings.p_health = Settings.shipHps[Settings.p_ship_level - 1];
+        Settings.p_speed = Settings.shipSpeeds[Settings.p_ship_level - 1];
     }
 
 

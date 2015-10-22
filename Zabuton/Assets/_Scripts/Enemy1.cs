@@ -324,6 +324,7 @@ public class Enemy1 : MonoBehaviour
         bolt.GetComponent<Bullet>().type = "fire";
         bolt.GetComponent<Bullet>().fireLevel = 2;
         bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltMaterial;
+        bolt.transform.localScale = new Vector3(3f, 2f, 2f);
         if (Random.Range(0f, 1f) > 0.5f)
         {
 

@@ -15,7 +15,119 @@ Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.UI.d
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.061 seconds
+- Completed reload, in  0.052 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: ed4 -> priority: 1 
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 6.387438 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 619.
+Total: 1.274750 ms (FindLiveObjects: 0.099636 ms CreateObjectMapping: 0.056018 ms MarkObjects: 1.096003 ms  DeleteObjects: 0.020953 ms)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+

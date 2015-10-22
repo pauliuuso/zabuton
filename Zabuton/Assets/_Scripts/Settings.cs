@@ -22,8 +22,10 @@ public class Settings
     public static int p_fire_level = 1;
     public static int p_ice_level = 1;
     public static int p_poison_level = 1;
-    public static int current_level = 1;
-    public static int p_gold = 1000;
+    public static int p_cooldown_level = 1;
+    public static int p_bullet_speed_level = 1;
+    public static int current_level = 1; // Sales levelis
+    public static int p_gold = 90000;
     public static int p_score = 0;
     public static int p_previous_gold = 0;
     public static int p_previous_score = 0;
@@ -35,6 +37,24 @@ public class Settings
     public static float music_volume = 0.1f;
     public static float sound_volume = 0.25f;
 
+
+    // upgrade costs
+    public static int[] shipCosts = new int[] {150, 450, 1150};
+    public static int[] reloadCosts = new int[] { 100, 500, 1500, 3250, 6750, 10450, 14500 };
+    public static int[] fireCosts = new int[] { 120, 440, 1200 };
+    public static int[] iceCosts = new int[] { 150, 510, 1400 };
+    public static int[] poisonCosts = new int[] { 100, 360, 1000 };
+    public static int[] bulletSpeedCosts = new int[] { 80, 350, 850, 2200, 3400, 5200, 6400 };
+
+
+    // upgrade parameters
+    public static int[] shipHps = new int[] { 30, 45, 70 };
+    public static int[] shipSpeeds = new int[] { 12, 13, 15, 17 };
+    public static float[] shipCooldowns = new float[] { 1, 0.8f, 0.6f, 0.4f, 0.2f, 0.1f, 0.05f};
+    public static int[] shipBulletSpeeds = new int[] { 15, 17, 20, 23, 26, 30, 33, 36, 40 };
+    public static int[] shipFireDamages = new int[] { 5, 17, 40 };
+    public static int[] shipIceDamages = new int[] { 5, 10, 25 };
+    public static int[] shipPoisonDamages = new int[] { 5, 12, 30 };
 }
 
 // Devast 0-15 alpha-force, 16-25 beta-force, 26-35 ceta-force
