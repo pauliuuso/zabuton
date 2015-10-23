@@ -44,7 +44,7 @@ public class Settings
     public static int[] fireCosts = new int[] { 120, 440, 1200 };
     public static int[] iceCosts = new int[] { 150, 510, 1400 };
     public static int[] poisonCosts = new int[] { 100, 360, 1000 };
-    public static int[] bulletSpeedCosts = new int[] { 80, 350, 850, 2200, 3400, 5200, 6400 };
+    public static int[] bulletSpeedCosts = new int[] { 80, 350, 850, 2200, 3400, 5200, 6400, 8000, 10000 };
 
 
     // upgrade parameters
