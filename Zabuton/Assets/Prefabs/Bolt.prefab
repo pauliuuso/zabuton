@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 181274}
   m_LocalRotation: {x: .5, y: .5, z: -.500000119, w: .49999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 2, z: 2}
   m_Children:
   - {fileID: 425408}
   m_Father: {fileID: 0}
@@ -71,7 +71,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
+  - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0acb3b44be6b14d82fd68a92c618ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  devast: 10
-  type: ice
+  devast: 17
+  type: fire
   owner: player
   addBoom: 0
   fireLevel: 2
@@ -140,7 +140,7 @@ MonoBehaviour:
   poisonBooms:
   - {fileID: 105142, guid: 27d4ad46b1c0d3a40977d1cd6a1669ce, type: 2}
   - {fileID: 105142, guid: 27d4ad46b1c0d3a40977d1cd6a1669ce, type: 2}
-  - {fileID: 0}
+  - {fileID: 184844, guid: f94e59313d1e93a4da70694267ba11f2, type: 2}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &11468606
@@ -271,6 +271,10 @@ Prefab:
       propertyPath: addBoom
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: poisonBooms.Array.data[2]
+      value: 
+      objectReference: {fileID: 184844, guid: f94e59313d1e93a4da70694267ba11f2, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 181274}

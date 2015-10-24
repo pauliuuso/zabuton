@@ -36,6 +36,8 @@ public class GameController : MonoBehaviour
     public Text upgradeFireCost;
     public Button upgradeIceButton;
     public Text upgradeIceCost;
+    public Button upgradePoisonButton;
+    public Text upgradePoisonCost;
     public Text allStatus;
     public GameObject statusPanel;
     public Image healthBar;
@@ -69,6 +71,7 @@ public class GameController : MonoBehaviour
         upgradeReloadButton.onClick.AddListener(() => { upgradeReload(); });
         upgradeFireButton.onClick.AddListener(() => { upgradeFire(); });
         upgradeIceButton.onClick.AddListener(() => { upgradeIce(); });
+        upgradePoisonButton.onClick.AddListener(() => { upgradePoison(); });
         upgradeBulletSpeedButton.onClick.AddListener(() => { upgradeBulletSpeed(); });
         updateScore();
         updateCosts();
@@ -276,6 +279,7 @@ public class GameController : MonoBehaviour
         upgradeReloadButton.onClick.RemoveListener(() => { upgradeReload(); });
         upgradeFireButton.onClick.RemoveListener(() => { upgradeFire(); });
         upgradeIceButton.onClick.RemoveListener(() => { upgradeIce(); });
+        upgradePoisonButton.onClick.RemoveListener(() => { upgradePoison(); });
         upgradeBulletSpeedButton.onClick.RemoveListener(() => { upgradeBulletSpeed(); });
         RemoveUI();
     }
@@ -297,6 +301,10 @@ public class GameController : MonoBehaviour
         upgradeIceCost.text = Settings.iceCosts[Settings.p_ice_level - 1].ToString();
         upgradeIceCost.text += " gold";
         if (Settings.p_ice_level == Settings.shipIceDamages.Length) upgradeIceCost.text = "Full";
+
+        upgradePoisonCost.text = Settings.poisonCosts[Settings.p_poison_level - 1].ToString();
+        upgradePoisonCost.text += " gold";
+        if (Settings.p_poison_level == Settings.shipPoisonDamages.Length) upgradePoisonCost.text = "Full";
 
         upgradeBulletSpeedCost.text = Settings.bulletSpeedCosts[Settings.p_bullet_speed_level - 1].ToString();
         upgradeBulletSpeedCost.text += " gold";
@@ -361,6 +369,19 @@ public class GameController : MonoBehaviour
 
     }
 
+    private void upgradePoison()
+    {
+        if (Settings.p_gold >= Settings.poisonCosts[Settings.p_poison_level - 1] && Settings.p_poison_level < Settings.shipPoisonDamages.Length)
+        {
+            Settings.p_gold -= Settings.poisonCosts[Settings.p_poison_level - 1];
+            Settings.p_poison_level++;
+            updateShipSettings();
+            updateCosts();
+            updateScore();
+        }
+
+    }
+
     private void upgradeBulletSpeed()
     {
         if (Settings.p_gold >= Settings.bulletSpeedCosts[Settings.p_bullet_speed_level - 1] && Settings.p_bullet_speed_level < Settings.shipBulletSpeeds.Length)
@@ -378,6 +399,7 @@ public class GameController : MonoBehaviour
         Settings.p_bullet_speed = Settings.shipBulletSpeeds[Settings.p_bullet_speed_level - 1];
         Settings.p_ice_devast = Settings.shipIceDamages[Settings.p_ice_level - 1];
         Settings.p_fire_devast = Settings.shipFireDamages[Settings.p_fire_level - 1];
+        Settings.p_poison_devast = Settings.shipPoisonDamages[Settings.p_poison_level - 1];
         Settings.p_cooldown = Settings.shipCooldowns[Settings.p_cooldown_level - 1];
         Settings.p_health_max = Settings.shipHps[Settings.p_ship_level - 1];
         Settings.p_health = Settings.shipHps[Settings.p_ship_level - 1];

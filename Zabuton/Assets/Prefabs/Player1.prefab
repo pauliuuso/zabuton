@@ -349,7 +349,7 @@ MonoBehaviour:
   boltPoison:
   - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
   - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   playerExplosion: {fileID: 116600, guid: 4db53c1df410d84438f9cae1f0b7a8e5, type: 2}
@@ -363,6 +363,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   poisonShots:
+  - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
 --- !u!114 &11497420
@@ -4674,6 +4675,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: poisonShots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Center.z
       value: .0599999987
       objectReference: {fileID: 0}
@@ -4717,6 +4722,10 @@ Prefab:
       propertyPath: m_Radius
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boltPoison.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 180562}

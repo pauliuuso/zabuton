@@ -57,6 +57,10 @@ public class PlayerShip : MonoBehaviour
                 Settings.p_type = Settings.p_poison;
                 Bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltPoison[Settings.p_poison_level];
                 if (Settings.p_poison_level == 1) Bolt.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                else if (Settings.p_poison_level == 2)
+                {
+                    Bolt.transform.localScale = new Vector3(2f, 2f, 2f);
+                }
 
             }
 
