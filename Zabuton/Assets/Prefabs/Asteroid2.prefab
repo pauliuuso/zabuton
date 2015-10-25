@@ -33,6 +33,7 @@ GameObject:
   - 114: {fileID: 11497834}
   - 114: {fileID: 11433382}
   - 114: {fileID: 11417048}
+  - 114: {fileID: 11497968}
   m_Layer: 0
   m_Name: Asteroid2
   m_TagString: Asteroid2
@@ -60,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 147010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.00452769, y: 1.00452769, z: 1.00452769}
+  m_LocalScale: {x: .963620186, y: .963620186, z: .963620186}
   m_Children:
   - {fileID: 468894}
   m_Father: {fileID: 0}
@@ -178,8 +179,7 @@ MonoBehaviour:
   health: 20
   devast: 26
   reward: 24
-  resistance: none
-  resistanceStrength: 0
+  resistanceStrength: 000000000000000000000000
   explosion: {fileID: 156802, guid: 147aa013e3b424c4fab17f2212854031, type: 2}
   addBoom: 0
   lastHitBy: 
@@ -207,6 +207,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageText: {fileID: 10220098, guid: 147a4559a4538f84bae1a332864af7e3, type: 2}
+--- !u!114 &11497968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148f1722a7cb4394c9181f0e6ff555dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poisoned1: 0
+  poisoned1Steps: 0
+  poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
 --- !u!135 &13565526
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -245,6 +259,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: poisonBooms.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: resistanceStrength.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: meshes.Array.data[1]

@@ -31,6 +31,8 @@ public class Settings
     public static int p_previous_score = 0;
     public static bool p_alive = true;
     public static int p_ship_level = 1;
+    public static string[] p_resistance = { "fire", "ice", "poison" };
+    public static int[] p_resistanceStrength = { 0, 0, 0 };
 
     public static float xMin = -20f, xMax = 20f, zMin = -14f, zMax = 6f;
 

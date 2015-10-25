@@ -30,6 +30,7 @@ GameObject:
   - 114: {fileID: 11470604}
   - 114: {fileID: 11495502}
   - 64: {fileID: 6473290}
+  - 114: {fileID: 11475394}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -163,6 +164,20 @@ MonoBehaviour:
   canon2: {fileID: 190306}
   bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
   boltMaterial: {fileID: 2100000, guid: aa8322a3767a344b98d51048b8fe505a, type: 2}
+--- !u!114 &11475394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148f1722a7cb4394c9181f0e6ff555dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poisoned1: 0
+  poisoned1Steps: 0
+  poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
 --- !u!114 &11495502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,11 +205,15 @@ MonoBehaviour:
   tilt: 5
   health: 30
   devast: 25
-  reward: 35
-  resistance: none
-  resistanceStrength: 0
+  reward: 46
+  resistance:
+  - fire
+  - ice
+  - poison
+  resistanceStrength: 000000000000000000000000
   explosion: {fileID: 127486, guid: f7132142450831e4ba688f3aa3ed7ca2, type: 2}
   addBoom: 0
+  lastHitBy: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -202,6 +221,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: resistance.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: resistanceStrength.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: canon1
       value: 
@@ -218,6 +245,22 @@ Prefab:
       propertyPath: boltMaterial
       value: 
       objectReference: {fileID: 2100000, guid: aa8322a3767a344b98d51048b8fe505a, type: 2}
+    - target: {fileID: 0}
+      propertyPath: poisoned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: resistance.Array.data[0]
+      value: fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: resistance.Array.data[1]
+      value: ice
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: resistance.Array.data[2]
+      value: poison
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 177452}

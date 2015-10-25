@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Bullet : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Bullet : MonoBehaviour
     public int fireLevel;
     public int iceLevel;
     public int poisonLevel;
+    public List<string> effects;
     public GameObject[] fireBooms;
     public GameObject[] iceBooms;
     public GameObject[] poisonBooms;

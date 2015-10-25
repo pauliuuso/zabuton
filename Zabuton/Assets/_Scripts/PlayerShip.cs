@@ -13,7 +13,7 @@ public class PlayerShip : MonoBehaviour
     public Material[] boltFire;
     public Material[] boltIce;
     public Material[] boltPoison;
-    public GameObject playerExplosion; // reference i player explosion
+    //public GameObject playerExplosion; // reference i player explosion
 
     public new AudioSource audio;
     public AudioClip[] fireShots;
@@ -30,6 +30,7 @@ public class PlayerShip : MonoBehaviour
         if((Input.GetButton("Fire1") || Input.GetButton("Fire2") || Input.GetButton("Fire3")) && Time.time > nextFire) // Jei paspaustas sovimo mygtukas ir cooldown baiges
         {
             fireCount = 1; // jei bus issaunama daugiau nei vienas sovinys
+            Bolt.GetComponent<Bullet>().effects.Clear(); // pirma isvalom effektu lista
             if(Input.GetButton("Fire1"))
             {
                 Settings.p_devast = Settings.p_fire_devast;
@@ -60,6 +61,7 @@ public class PlayerShip : MonoBehaviour
                 else if (Settings.p_poison_level == 2)
                 {
                     Bolt.transform.localScale = new Vector3(2f, 2f, 2f);
+                    Bolt.GetComponent<Bullet>().effects.Add("Poison1");
                 }
 
             }
@@ -120,8 +122,9 @@ public class PlayerShip : MonoBehaviour
         if (Settings.p_health <= 0)
         {
             Settings.p_alive = false;
+            gameObject.GetComponent<Soul>().addBoom = true;
             Destroy(gameObject);
-            Instantiate(playerExplosion, transform.position, playerExplosion.transform.rotation);
+            //Instantiate(playerExplosion, transform.position, playerExplosion.transform.rotation);
         }
     }
 

@@ -319,12 +319,14 @@ public class Enemy1 : MonoBehaviour
     void fire()
     {
         bolt.GetComponent<BulletMover>().speed = -10f;
+        bolt.GetComponent<Bullet>().effects.Clear(); // pirma isvalom effektu lista
         bolt.GetComponent<Bullet>().devast = 20;
         bolt.GetComponent<Bullet>().owner = "enemy";
         bolt.GetComponent<Bullet>().type = "fire";
         bolt.GetComponent<Bullet>().fireLevel = 2;
         bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltMaterial;
         bolt.transform.localScale = new Vector3(3f, 2f, 2f);
+
         if (Random.Range(0f, 1f) > 0.5f)
         {
 

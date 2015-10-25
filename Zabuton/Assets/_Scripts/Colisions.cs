@@ -22,7 +22,7 @@ public class Colisions : MonoBehaviour
         {
             if (gameObject.tag != "Player_ship" && !(gameObject.tag == "Enemy" && other.GetComponent<Bullet>().owner == "enemy"))
             {
-                gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type); // Asteroidas turi savo klase kurioje yra jo gyvybes ir t.t tai i sita klase siunciama sovinio damage ir atakos tipas
+                gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); // Asteroidas turi savo klase kurioje yra jo gyvybes ir t.t tai i sita klase siunciama sovinio damage ir atakos tipas
                 gameObject.GetComponent<Soul>().lastHitBy = other.GetComponent<Bullet>().owner;
                 other.gameObject.GetComponent<Bullet>().addBoom = true;
                 Destroy(other.gameObject); // Sunaikinamas sovinys
@@ -33,10 +33,9 @@ public class Colisions : MonoBehaviour
                 stageText.text = "-" + other.GetComponent<Bullet>().devast;
                 stageText.color = Color.red;
                 Instantiate(stageText, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
-                Settings.p_health -= other.GetComponent<Bullet>().devast; // Zaidejui nuimama tiek kiek gali nuimt objektas kai susiduria
+                gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); // Zaidejui nuimama tiek kiek gali nuimt objektas kai susiduria
                 gameObject.GetComponent<PlayerShip>().checkLife(); // Sita funkcija yra playership scripte ir tikrina kiek gyvybiu liko zaidejui
                 gameController.updateHealth();
-
                 other.gameObject.GetComponent<Bullet>().addBoom = true;
                 Destroy(other.gameObject); // Sunaikinamas sovinys
             }

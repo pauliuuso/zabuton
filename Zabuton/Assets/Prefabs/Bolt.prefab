@@ -71,7 +71,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+  - {fileID: 2100000, guid: aa8322a3767a344b98d51048b8fe505a, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -118,13 +118,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0acb3b44be6b14d82fd68a92c618ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  devast: 17
+  devast: 20
   type: fire
-  owner: player
+  owner: enemy
   addBoom: 0
   fireLevel: 2
   iceLevel: 0
   poisonLevel: 0
+  effects:
+  - Poison1
   fireBooms:
   - {fileID: 105142, guid: ffd1e8608a9d31c4393351d8f6d1a488, type: 2}
   - {fileID: 105142, guid: ffd1e8608a9d31c4393351d8f6d1a488, type: 2}
@@ -154,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c070cecbbd9846340a8a3f8f8e61e927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: -10
 --- !u!136 &13662852
 CapsuleCollider:
   m_ObjectHideFlags: 1
