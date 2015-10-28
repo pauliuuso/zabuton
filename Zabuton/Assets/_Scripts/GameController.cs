@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     public GameObject playerShip1;
     public GameObject playerShip2;
     public GameObject playerShip3;
+    public GameObject playerShip4;
     public Canvas mainCanvas;
     public GameObject shop;
     public Text goldText;
@@ -204,6 +205,12 @@ public class GameController : MonoBehaviour
         else if (Settings.p_ship_level == 3)
         {
             var currentShip = Instantiate(playerShip3, playerShip.transform.position, Quaternion.Euler(-90f, 0.0f, 180f)) as GameObject;
+            currentShip.transform.parent = playerShip.transform;
+        }
+
+        else if (Settings.p_ship_level == 4)
+        {
+            var currentShip = Instantiate(playerShip4, playerShip.transform.position, Quaternion.Euler(-90f, 0.0f, 180f)) as GameObject;
             currentShip.transform.parent = playerShip.transform;
         }
 

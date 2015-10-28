@@ -58,7 +58,7 @@ public class Colisions : MonoBehaviour
 
     }
 
-    void checkLife()
+    public void checkLife()
     {
         if (gameObject.GetComponent<Soul>().health <= 0)
         {

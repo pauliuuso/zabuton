@@ -2468,7 +2468,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 1627975441}
   - 223: {fileID: 1627975444}
-  - 114: {fileID: 1627975443}
   - 114: {fileID: 1627975442}
   m_Layer: 5
   m_Name: Healthbar
@@ -2512,27 +2511,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1627975443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1627975440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
 --- !u!223 &1627975444
 Canvas:
   m_ObjectHideFlags: 0
@@ -2587,7 +2565,8 @@ MonoBehaviour:
   player: {fileID: 180562, guid: 835da4ce693c7af4f860b8c13f0f99ce, type: 2}
   playerShip1: {fileID: 191454, guid: 4215dc8936c7fc64b94896bf48aa6bac, type: 2}
   playerShip2: {fileID: 199822, guid: f4eed1e88c6467742abd693c5eb87074, type: 2}
-  playerShip3: {fileID: 187276, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
+  playerShip3: {fileID: 165162, guid: ea2dbde717bde584ca4db904d728addd, type: 2}
+  playerShip4: {fileID: 187276, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
   mainCanvas: {fileID: 860922538}
   shop: {fileID: 1482260943}
   goldText: {fileID: 1052592000}
@@ -2759,8 +2738,8 @@ MonoBehaviour:
   ships:
   - {fileID: 191454, guid: 4215dc8936c7fc64b94896bf48aa6bac, type: 2}
   - {fileID: 199822, guid: f4eed1e88c6467742abd693c5eb87074, type: 2}
+  - {fileID: 165162, guid: ea2dbde717bde584ca4db904d728addd, type: 2}
   - {fileID: 187276, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
-  - {fileID: 0}
   - {fileID: 0}
 --- !u!1 &1788351677
 GameObject:

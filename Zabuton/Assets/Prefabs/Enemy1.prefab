@@ -27,10 +27,10 @@ GameObject:
   - 23: {fileID: 2355620}
   - 54: {fileID: 5465120}
   - 114: {fileID: 11495918}
-  - 114: {fileID: 11470604}
   - 114: {fileID: 11495502}
   - 64: {fileID: 6473290}
   - 114: {fileID: 11475394}
+  - 114: {fileID: 11498574}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -149,21 +149,6 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 52dce607981269d42b222c80cd911a0e, type: 3}
---- !u!114 &11470604
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64927854e5b729348971bdb91add2025, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canon1: {fileID: 140396}
-  canon2: {fileID: 190306}
-  bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
-  boltMaterial: {fileID: 2100000, guid: aa8322a3767a344b98d51048b8fe505a, type: 2}
 --- !u!114 &11475394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,15 +190,27 @@ MonoBehaviour:
   tilt: 5
   health: 30
   devast: 25
-  reward: 46
-  resistance:
-  - fire
-  - ice
-  - poison
+  reward: 48
   resistanceStrength: 000000000000000000000000
   explosion: {fileID: 127486, guid: f7132142450831e4ba688f3aa3ed7ca2, type: 2}
   addBoom: 0
   lastHitBy: 
+  name: enemy1
+--- !u!114 &11498574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64927854e5b729348971bdb91add2025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canon1: {fileID: 140396}
+  canon2: {fileID: 190306}
+  bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
+  boltMaterial: {fileID: 2100000, guid: aa8322a3767a344b98d51048b8fe505a, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -260,6 +257,23 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: resistance.Array.data[2]
       value: poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 11424840, guid: a5e9e65055c25dd4197686e870a3676e,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: name
+      value: enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: enemyHealth
+      value: 
+      objectReference: {fileID: 165716, guid: 6b539e417f266564996726ed6c43471b, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

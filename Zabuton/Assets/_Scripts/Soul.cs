@@ -15,6 +15,7 @@ public class Soul : MonoBehaviour
     public bool addBoom = false;
     DamageCounter counter = new DamageCounter(); // Klase i kuria reikia nusiusti damage, damage type, dabartinio objekto resistance ir resitance strenght
     public string lastHitBy;
+    public string ship_name;
 
     // Effects //////
     /*
