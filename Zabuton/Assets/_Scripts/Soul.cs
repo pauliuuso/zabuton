@@ -7,6 +7,7 @@ public class Soul : MonoBehaviour
     public int speed = 5;
     public int tilt = 5;
     public int health = 10;
+    public int max_health;
     public int devast = 12;
     public int reward = 5;
     private string[] resistance = {"fire", "ice", "poison"};
@@ -27,6 +28,11 @@ public class Soul : MonoBehaviour
      * 
      * 
      */
+
+    void Start()
+    {
+        max_health = health;
+    }
 
     public void damage(int damage, string type, List<string> effects = null)
     {

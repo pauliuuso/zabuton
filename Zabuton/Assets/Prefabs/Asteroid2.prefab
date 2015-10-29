@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 147010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.07161546, y: 1.07161546, z: 1.07161546}
+  m_LocalScale: {x: 1.11433518, y: 1.11433518, z: 1.11433518}
   m_Children:
   - {fileID: 468894}
   m_Father: {fileID: 0}
@@ -177,13 +177,14 @@ MonoBehaviour:
   speed: 5
   tilt: 5
   health: 20
+  max_health: 0
   devast: 26
-  reward: 22
+  reward: 20
   resistanceStrength: 000000000000000000000000
   explosion: {fileID: 156802, guid: 147aa013e3b424c4fab17f2212854031, type: 2}
   addBoom: 0
   lastHitBy: 
-  name: 
+  ship_name: 
 --- !u!114 &11482448
 MonoBehaviour:
   m_ObjectHideFlags: 1

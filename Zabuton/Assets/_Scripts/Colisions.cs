@@ -24,6 +24,7 @@ public class Colisions : MonoBehaviour
             {
                 gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); // Asteroidas turi savo klase kurioje yra jo gyvybes ir t.t tai i sita klase siunciama sovinio damage ir atakos tipas
                 gameObject.GetComponent<Soul>().lastHitBy = other.GetComponent<Bullet>().owner;
+                if(gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
                 other.gameObject.GetComponent<Bullet>().addBoom = true;
                 Destroy(other.gameObject); // Sunaikinamas sovinys
                 checkLife();
@@ -50,6 +51,7 @@ public class Colisions : MonoBehaviour
             Instantiate(stageText, other.transform.position, Quaternion.Euler(90, 0, 0));
 
             gameObject.GetComponent<Soul>().damage(Settings.p_health, "none"); //Nuimama objektui tiek kiek zaidejas turi gyvybiu
+            if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
             Settings.p_health -= gameObject.GetComponent<Soul>().devast; // Zaidejui nuimama tiek kiek gali nuimt objektas kai susiduria
             checkLife();
             other.GetComponent<PlayerShip>().checkLife(); // Sita funkcija yra playership scripte ir tikrina kiek gyvybiu liko zaidejui

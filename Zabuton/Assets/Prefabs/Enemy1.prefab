@@ -31,6 +31,7 @@ GameObject:
   - 64: {fileID: 6473290}
   - 114: {fileID: 11475394}
   - 114: {fileID: 11498574}
+  - 114: {fileID: 11486314}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -163,6 +164,18 @@ MonoBehaviour:
   poisoned1: 0
   poisoned1Steps: 0
   poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
+--- !u!114 &11486314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6868b2eaef2b731429711642f88cd067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 124940, guid: d728c3e85c7720743882898e7207a6e2, type: 2}
 --- !u!114 &11495502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,13 +202,14 @@ MonoBehaviour:
   speed: 7
   tilt: 5
   health: 30
+  max_health: 0
   devast: 25
-  reward: 48
+  reward: 40
   resistanceStrength: 000000000000000000000000
   explosion: {fileID: 127486, guid: f7132142450831e4ba688f3aa3ed7ca2, type: 2}
   addBoom: 0
   lastHitBy: 
-  name: enemy1
+  ship_name: enemy1
 --- !u!114 &11498574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -261,7 +275,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 11424840, guid: a5e9e65055c25dd4197686e870a3676e,
+      objectReference: {fileID: 11487728, guid: d728c3e85c7720743882898e7207a6e2,
         type: 2}
     - target: {fileID: 0}
       propertyPath: name
@@ -270,10 +284,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: enemyHealth
       value: 
-      objectReference: {fileID: 165716, guid: 6b539e417f266564996726ed6c43471b, type: 2}
+      objectReference: {fileID: 124940, guid: d728c3e85c7720743882898e7207a6e2, type: 2}
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ship_name
+      value: enemy1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

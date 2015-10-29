@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 6868b2eaef2b731429711642f88cd067
-timeCreated: 1446056073
+timeCreated: 1446149557
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemyHealth: {fileID: 124940, guid: d728c3e85c7720743882898e7207a6e2, type: 2}
+  - healthBar: {fileID: 11487728, guid: d728c3e85c7720743882898e7207a6e2, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

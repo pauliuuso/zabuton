@@ -54,6 +54,7 @@ public class Effects : MonoBehaviour
         {
             gameObject.GetComponent<Soul>().health -= 5;
             gameObject.GetComponent<Colisions>().checkLife();
+            if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
             if (poisoned1Steps < currentStep) poisoned1 = false;
         }
     }
