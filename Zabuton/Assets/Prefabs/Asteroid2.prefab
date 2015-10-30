@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 147010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.11433518, y: 1.11433518, z: 1.11433518}
+  m_LocalScale: {x: 1.01405501, y: 1.01405501, z: 1.01405501}
   m_Children:
   - {fileID: 468894}
   m_Father: {fileID: 0}
@@ -221,8 +221,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poisoned1: 0
+  frozen1: 0
   poisoned1Steps: 0
+  frozen1Steps: 0
   poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
+  frozenEffect1: {fileID: 0}
 --- !u!135 &13565526
 SphereCollider:
   m_ObjectHideFlags: 1

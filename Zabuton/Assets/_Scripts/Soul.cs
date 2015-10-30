@@ -44,6 +44,10 @@ public class Soul : MonoBehaviour
                 {
                     if (Random.Range(0f, 1f) > 0.5f) gameObject.GetComponent<Effects>().poisoned1 = true;
                 }
+                if (effects[a] == "Frozen1")
+                {
+                    if (Random.Range(0f, 1f) > 0.6f) gameObject.GetComponent<Effects>().frozen1 = true;
+                }
             }
         }
 

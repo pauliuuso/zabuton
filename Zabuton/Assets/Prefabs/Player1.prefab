@@ -354,26 +354,28 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
   - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
   - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
   - {fileID: 0}
   boltIce:
   - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
   - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
   - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
   - {fileID: 0}
   boltPoison:
   - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
   - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
   - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
+  - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
+  audioPlayer: {fileID: 139662, guid: 3585942def6adda4f91e7e767104f53e, type: 2}
   audio: {fileID: 0}
   fireShots:
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   iceShots:
+  - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
@@ -395,12 +397,14 @@ MonoBehaviour:
   speed: 5
   tilt: 5
   health: 10
+  max_health: 0
   devast: 12
   reward: 5
   resistanceStrength: 000000000000000000000000
   explosion: {fileID: 116600, guid: 4db53c1df410d84438f9cae1f0b7a8e5, type: 2}
   addBoom: 0
   lastHitBy: 
+  ship_name: 
 --- !u!114 &11497420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4710,6 +4714,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: iceShots.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: poisonShots.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -4765,6 +4773,22 @@ Prefab:
       propertyPath: explosion
       value: 
       objectReference: {fileID: 116600, guid: 4db53c1df410d84438f9cae1f0b7a8e5, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltIce.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltFire.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltPoison.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
+    - target: {fileID: 0}
+      propertyPath: audioPlayer
+      value: 
+      objectReference: {fileID: 139662, guid: 3585942def6adda4f91e7e767104f53e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 180562}

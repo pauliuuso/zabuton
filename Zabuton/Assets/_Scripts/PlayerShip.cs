@@ -50,6 +50,12 @@ public class PlayerShip : MonoBehaviour
                     Bolt.transform.localScale = new Vector3(2f, 2f, 2f);
                     fireCount = 2;
                 }
+                else if (Settings.p_ice_level == 3)
+                {
+                    Bolt.transform.localScale = new Vector3(3f, 3f, 3f);
+                    Bolt.GetComponent<Bullet>().effects.Add("Frozen1");
+                    fireCount = 2;
+                }
 
             }
             else if (Input.GetButton("Fire3"))

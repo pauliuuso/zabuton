@@ -4,19 +4,25 @@ using System.Collections;
 public class Effects : MonoBehaviour 
 {
     public bool poisoned1 = false;
+    public bool frozen1 = false;
 
     public int poisoned1Steps;
+    public int frozen1Steps;
 
     public GameObject poisonedEffect1;
+    public GameObject frozenEffect1;
 
     private Transform childEffect;
     private GameObject currentEffect;
     private int currentStep = 0;
     private float timePassed;
 
+    private int previousSpeed;
+
+
     void Start()
     {
-
+        previousSpeed = gameObject.GetComponent<Soul>().speed;
     }
 
     void Update()
@@ -35,17 +41,29 @@ public class Effects : MonoBehaviour
             childEffect = gameObject.transform.Find("Poisoned1(Clone)"); 
             if(childEffect == null)
             {
-                currentEffect = Instantiate(poisonedEffect1, gameObject.transform.position, poisonedEffect1.transform.rotation) as GameObject;
-                currentEffect.transform.parent = gameObject.transform;
-                poisoned1Steps = currentStep + 5;
+                poisonedEffect1 = Instantiate(poisonedEffect1, gameObject.transform.position, poisonedEffect1.transform.rotation) as GameObject;
+                poisonedEffect1.transform.parent = gameObject.transform;
+                poisoned1Steps = currentStep + 4;
             }
 
+        }
 
-        }
-        else
+
+        if (frozen1)
         {
-            if (childEffect != null) Destroy(gameObject.transform.Find("Poisoned1(Clone)").gameObject);
+            childEffect = gameObject.transform.Find("Frozen1(Clone)");
+            if (childEffect == null)
+            {
+                frozenEffect1 = Instantiate(frozenEffect1, gameObject.transform.position, frozenEffect1.transform.rotation) as GameObject;
+                frozenEffect1.transform.parent = gameObject.transform;
+                frozen1Steps = currentStep + 6;
+            }
         }
+
+
+
+
+
     }
 
     void applyEffects()
@@ -55,8 +73,23 @@ public class Effects : MonoBehaviour
             gameObject.GetComponent<Soul>().health -= 5;
             gameObject.GetComponent<Colisions>().checkLife();
             if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
-            if (poisoned1Steps < currentStep) poisoned1 = false;
+            if (poisoned1Steps < currentStep)
+            {
+                poisoned1 = false;
+                Destroy(poisonedEffect1);
+            }
+        }
+        if (frozen1)
+        {
+            if(gameObject.GetComponent<Soul>().speed > 2) gameObject.GetComponent<Soul>().speed -= 1;
+            if (frozen1Steps < currentStep)
+            {
+                gameObject.GetComponent<Soul>().speed = previousSpeed;
+                frozen1 = false;
+                Destroy(frozenEffect1);
+            }
         }
     }
+
 
 }

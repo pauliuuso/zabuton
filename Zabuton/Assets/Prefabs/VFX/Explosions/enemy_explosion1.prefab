@@ -28,6 +28,7 @@ GameObject:
   - 198: {fileID: 19842928}
   - 199: {fileID: 19960260}
   - 82: {fileID: 8232844}
+  - 114: {fileID: 11492020}
   m_Layer: 0
   m_Name: enemy_explosion1
   m_TagString: Untagged
@@ -130,6 +131,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &11492020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 048ebfefeab923541b933d8c4e13e4fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTimer: 1.5
 --- !u!198 &19842928
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -2319,6 +2332,10 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 3dc7455402dfa462b89a4bbd513955e9, type: 3}
+    - target: {fileID: 0}
+      propertyPath: destroyTimer
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 127486}

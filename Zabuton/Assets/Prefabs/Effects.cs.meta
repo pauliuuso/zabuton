@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 148f1722a7cb4394c9181f0e6ff555dd
-timeCreated: 1445786729
+timeCreated: 1446235430
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
+  - frozenEffect1: {fileID: 157010, guid: 8778594d989ddae4086731da3a0933c4, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -44,7 +44,6 @@ public class Enemy1 : MonoBehaviour
 
 	void Start () 
     {
-        speed = gameObject.GetComponent<Soul>().speed;
         tilt = gameObject.GetComponent<Soul>().tilt;
         setPosition();
         fightingTime = Random.Range(10, 30);
@@ -65,7 +64,7 @@ public class Enemy1 : MonoBehaviour
         rightRay = new Ray(gameObject.transform.position, Vector3.right * sightRight);
         
         Vector3 movement = new Vector3(horizontalMovement, 0.0f, verticalMovement); // Vector3(x, y, z); Nustatoma kuria kryptimi juda
-        GetComponent<Rigidbody>().velocity = movement * speed; // Cia vyksta pats judejimas
+        GetComponent<Rigidbody>().velocity = movement * gameObject.GetComponent<Soul>().speed; // Cia vyksta pats judejimas
 
         if(currentTime > fightingTime)
         {
