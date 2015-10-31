@@ -154,7 +154,7 @@ public class Enemy1 : MonoBehaviour
         else if (movingSideways < 0 && horizontalMovement == 0) movingSideways++;
         else if (movingSideways > 0 && horizontalMovement == 0) movingSideways--;
 
-        GetComponent<Rigidbody>().rotation = Quaternion.Euler(270f + movingSideways * tilt, 90f, gameObject.transform.rotation.z); // Cia kai juda i sonus, kad pasisuktu laivas i sona
+        GetComponent<Rigidbody>().rotation = Quaternion.Euler(270f + movingSideways * tilt, gameObject.transform.rotation.z + 90f, gameObject.transform.rotation.z); // Cia kai juda i sonus, kad pasisuktu laivas i sona
 
 
         if (initialized && !dodging)
@@ -317,14 +317,19 @@ public class Enemy1 : MonoBehaviour
 
     void fire()
     {
-        bolt.GetComponent<BulletMover>().speed = -10f;
         bolt.GetComponent<Bullet>().effects.Clear(); // pirma isvalom effektu lista
-        bolt.GetComponent<Bullet>().devast = 20;
+
+        bolt.GetComponent<BulletMover>().speed = gameObject.GetComponent<Soul>().bullet_speed;
+        bolt.GetComponent<Bullet>().devast = gameObject.GetComponent<Soul>().bullet_devast;
         bolt.GetComponent<Bullet>().owner = "enemy";
-        bolt.GetComponent<Bullet>().type = "fire";
-        bolt.GetComponent<Bullet>().fireLevel = 2;
+        bolt.GetComponent<Bullet>().type = gameObject.GetComponent<Soul>().bullet_type;
+        bolt.GetComponent<Bullet>().fireLevel = gameObject.GetComponent<Soul>().fire_level;
+        bolt.GetComponent<Bullet>().iceLevel = gameObject.GetComponent<Soul>().ice_level;
+        bolt.GetComponent<Bullet>().poisonLevel = gameObject.GetComponent<Soul>().poison_level;
+        bolt.GetComponent<Bullet>().effects.Add(GetComponent<Soul>().effect);
         bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltMaterial;
-        bolt.transform.localScale = new Vector3(3f, 2f, 2f);
+
+        bolt.transform.localScale = new Vector3(gameObject.GetComponent<Soul>().bullet_size[0], gameObject.GetComponent<Soul>().bullet_size[1], gameObject.GetComponent<Soul>().bullet_size[2]);
 
         if (Random.Range(0f, 1f) > 0.5f)
         {

@@ -10,6 +10,14 @@ public class Soul : MonoBehaviour
     public int max_health;
     public int devast = 12;
     public int reward = 5;
+    public float bullet_speed = 10f;
+    public int bullet_devast = 20;
+    public string bullet_type = "fire";
+    public int fire_level = 1;
+    public int ice_level = 1;
+    public int poison_level = 1;
+    public string effect;
+    public float[] bullet_size = { 2f, 2f, 2f };
     private string[] resistance = {"fire", "ice", "poison"};
     public int[] resistanceStrength = {0, 0, 0};
     public GameObject explosion;

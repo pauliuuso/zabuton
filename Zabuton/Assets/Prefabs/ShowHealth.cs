@@ -18,8 +18,10 @@ public class ShowHealth : MonoBehaviour
 
 	void FixedUpdate () 
     {
-        health.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 1.5f);
-	}
+        if (gameObject.GetComponent<Soul>().ship_name == "enemy1") health.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 1.5f);
+        if (gameObject.GetComponent<Soul>().ship_name == "enemy2") health.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4f);
+
+    }
 
     public void updateHealth()
     {

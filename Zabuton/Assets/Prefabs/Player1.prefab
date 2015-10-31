@@ -335,8 +335,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poisoned1: 0
+  frozen1: 0
   poisoned1Steps: 0
+  frozen1Steps: 0
   poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
+  frozenEffect1: {fileID: 157010, guid: 8778594d989ddae4086731da3a0933c4, type: 2}
 --- !u!114 &11462580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,7 +371,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
   - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
   - {fileID: 0}
-  audioPlayer: {fileID: 139662, guid: 3585942def6adda4f91e7e767104f53e, type: 2}
   audio: {fileID: 0}
   fireShots:
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}

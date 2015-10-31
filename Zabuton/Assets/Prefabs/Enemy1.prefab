@@ -32,8 +32,7 @@ GameObject:
   - 114: {fileID: 11475394}
   - 114: {fileID: 11498574}
   - 114: {fileID: 11486314}
-  - 114: {fileID: 11442842}
-  - 82: {fileID: 8209886}
+  - 65: {fileID: 6564186}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -152,91 +151,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 52dce607981269d42b222c80cd911a0e, type: 3}
---- !u!82 &8209886
-AudioSource:
+--- !u!65 &6564186
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
---- !u!114 &11442842
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 177452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4542244b56c29124392ef37a8a826193, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireShots: []
-  iceShots: []
-  poisonShots: []
-  audio: {fileID: 0}
+  serializedVersion: 2
+  m_Size: {x: 3.11999989, y: 6.4147687, z: 2.69000006}
+  m_Center: {x: -.529999971, y: 6.40539639e-08, z: -.0337754153}
 --- !u!114 &11475394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -292,9 +218,19 @@ MonoBehaviour:
   speed: 7
   tilt: 5
   health: 30
-  max_health: 0
+  max_health: 30
   devast: 25
-  reward: 49
+  reward: 44
+  bullet_speed: -10
+  bullet_devast: 20
+  bullet_type: fire
+  fire_level: 2
+  ice_level: 1
+  poison_level: 1
+  bullet_size:
+  - 3
+  - 2
+  - 2
   resistanceStrength: 000000000000000000000000
   explosion: {fileID: 127486, guid: f7132142450831e4ba688f3aa3ed7ca2, type: 2}
   addBoom: 0
@@ -382,6 +318,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ship_name
       value: enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: max_health
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fire_level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet_size.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet_speed
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

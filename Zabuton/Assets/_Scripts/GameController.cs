@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public GameObject Asteroid1;
     public GameObject Asteroid2;
     public GameObject Enemy1;
+    public GameObject Enemy2;
     public GameObject Saturn;
     public GameObject musicManager;
     public GameObject background;
@@ -57,7 +58,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"en1", "sat", "en1", "en1", "ast1","wait" ,"ast1", "en1", "ast1", "en1", "speed3", "ast1", "ast2", "en1", "ast1", "ast1", "en1", "wait", "wait", "ast1", "endSpeed", "en1", "ast1", "ast1", "ast1", "ast1", "ast1", "en1", "wait", "wait", "ast1", "ast1", "ast1", "en1", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "en1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "end"};
+    private string[] level1 = {"en2", "sat", "en1", "en1", "ast1","wait" ,"ast1", "en1", "ast1", "en1", "speed3", "ast1", "ast2", "en1", "ast1", "ast1", "en2", "wait", "wait", "ast1", "endSpeed", "en1", "ast1", "ast1", "ast1", "ast1", "ast1", "en2", "wait", "wait", "ast1", "ast1", "ast1", "en2", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "en1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "end"};
 
     // Game music
 
@@ -143,6 +144,13 @@ public class GameController : MonoBehaviour
                 Enemy1.GetComponent<Soul>().devast = 25;
                 Enemy1.GetComponent<Soul>().reward = (int)Random.Range(35, 50);
             }
+            else if (currentLevel[i] == "en2")
+            {
+                Instantiate(Enemy2, spawnPosition, Enemy2.transform.rotation);
+
+                Enemy2.GetComponent<Soul>().devast = 60;
+                Enemy2.GetComponent<Soul>().reward = (int)Random.Range(140, 205);
+            }
             else if(currentLevel[i] == "sat")
             {
                 spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), -10, 16);
@@ -183,6 +191,7 @@ public class GameController : MonoBehaviour
         updateScore();
         playerHealth.SetActive(true);
         updateHealth();
+        updateShipSettings();
 
         Instantiate(background, background.transform.position, transform.rotation);
         Instantiate(boundary, new Vector3(0.0f, 0.0f, 0.0f), transform.rotation);
@@ -249,6 +258,7 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(time);
         Application.LoadLevel(Application.loadedLevel);
         reloadPoints();
+        updateShipSettings();
     }
 
     IEnumerator finishLevel(float time)
@@ -257,6 +267,7 @@ public class GameController : MonoBehaviour
         Application.LoadLevel(Application.loadedLevel);
         missionComplete.text = "";
         savePoints();
+        updateShipSettings();
     }
 
     private void reloadPoints()
