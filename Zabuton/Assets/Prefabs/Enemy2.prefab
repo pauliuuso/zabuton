@@ -62,7 +62,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140832}
   m_LocalRotation: {x: .5, y: .5, z: .500000119, w: .49999994}
-  m_LocalPosition: {x: 2, y: 4.5, z: 1}
+  m_LocalPosition: {x: 2, y: 4.5, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children: []
   m_Father: {fileID: 443498}
@@ -88,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164472}
   m_LocalRotation: {x: .5, y: .5, z: .500000119, w: .49999994}
-  m_LocalPosition: {x: 2, y: -4.5, z: 1}
+  m_LocalPosition: {x: 2, y: -4.5, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children: []
   m_Father: {fileID: 443498}
@@ -176,10 +176,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poisoned1: 0
   frozen1: 0
+  fireResisting1: 0
+  iceResisting1: 0
+  poisonResisting1: 0
   poisoned1Steps: 0
   frozen1Steps: 0
+  fireResistance1Steps: 0
+  iceResistance1Steps: 0
+  poisonResistance1Steps: 0
   poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
   frozenEffect1: {fileID: 157010, guid: 8778594d989ddae4086731da3a0933c4, type: 2}
+  fireResistance1: {fileID: 113662, guid: 0b8a735444c11bf409ce959276f3daf3, type: 2}
+  iceResistance1: {fileID: 167616, guid: 469c9f151e3052a4bbc4eb182f50b86a, type: 2}
+  poisonResistance1: {fileID: 197370, guid: 66eb2328594a17643abbb0429cb8c8d7, type: 2}
 --- !u!114 &11449970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,9 +228,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  tilt: 4
-  health: 140
-  max_health: 140
+  tilt: 2
+  health: 210
+  max_health: 210
   devast: 60
   reward: 185
   bullet_speed: -15
@@ -235,7 +244,7 @@ MonoBehaviour:
   - 3
   - 3
   - 3
-  resistanceStrength: 000000000000000000000000
+  resistanceStrength: 000000003200000000000000
   explosion: {fileID: 127486, guid: f7132142450831e4ba688f3aa3ed7ca2, type: 2}
   addBoom: 0
   lastHitBy: 
@@ -281,7 +290,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: tilt
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.y
@@ -293,11 +302,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: health
-      value: 140
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: max_health
-      value: 140
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.x
@@ -321,7 +330,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: bullet_speed
@@ -358,6 +367,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: effect
       value: Frozen1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: resistanceStrength.Array.data[1]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: resistanceStrength.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: resistanceStrength.Array.data[2]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

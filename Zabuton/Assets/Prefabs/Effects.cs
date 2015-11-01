@@ -5,14 +5,26 @@ public class Effects : MonoBehaviour
 {
     public bool poisoned1 = false;
     public bool frozen1 = false;
+    public bool fireResisting1 = false;
+    public bool iceResisting1 = false;
+    public bool poisonResisting1 = false;
 
     public int poisoned1Steps;
     public int frozen1Steps;
+    public int fireResistance1Steps;
+    public int iceResistance1Steps;
+    public int poisonResistance1Steps;
 
     public GameObject poisonedEffect1;
     private GameObject poisonedEffectClone1;
     public GameObject frozenEffect1;
     private GameObject frozenEffectClone1;
+    public GameObject fireResistance1;
+    private GameObject fireResistanceClone1;
+    public GameObject iceResistance1;
+    private GameObject iceResistanceClone1;
+    public GameObject poisonResistance1;
+    private GameObject poisonResistanceClone1;
 
     private Transform childEffect;
     private GameObject currentEffect;
@@ -71,7 +83,38 @@ public class Effects : MonoBehaviour
             }
         }
 
+        if (iceResisting1)
+        {
+            childEffect = gameObject.transform.Find("IceResistance(Clone)");
+            if (childEffect == null)
+            {
+                iceResistanceClone1 = Instantiate(iceResistance1, gameObject.transform.position, iceResistance1.transform.rotation) as GameObject;
+                iceResistanceClone1.transform.parent = gameObject.transform;
+                iceResistance1Steps = currentStep + 1;
+            }
+        }
 
+        if (fireResisting1)
+        {
+            childEffect = gameObject.transform.Find("FireResistance(Clone)");
+            if (childEffect == null)
+            {
+                fireResistanceClone1 = Instantiate(fireResistance1, gameObject.transform.position, fireResistance1.transform.rotation) as GameObject;
+                fireResistanceClone1.transform.parent = gameObject.transform;
+                fireResistance1Steps = currentStep + 1;
+            }
+        }
+
+        if (poisonResisting1)
+        {
+            childEffect = gameObject.transform.Find("PoisonResistance(Clone)");
+            if (childEffect == null)
+            {
+                poisonResistanceClone1 = Instantiate(poisonResistance1, gameObject.transform.position, poisonResistance1.transform.rotation) as GameObject;
+                poisonResistanceClone1.transform.parent = gameObject.transform;
+                poisonResistance1Steps = currentStep + 1;
+            }
+        }
 
 
 
@@ -128,6 +171,37 @@ public class Effects : MonoBehaviour
                 }
             }
         }
+
+        if (iceResisting1)
+        {
+            if (iceResistance1Steps < currentStep)
+            {
+                iceResisting1 = false;
+                Destroy(iceResistanceClone1);
+            }
+
+        }
+
+        if (fireResisting1)
+        {
+            if (fireResistance1Steps < currentStep)
+            {
+                fireResisting1 = false;
+                Destroy(fireResistanceClone1);
+            }
+
+        }
+
+        if (poisonResisting1)
+        {
+            if (poisonResistance1Steps < currentStep)
+            {
+                poisonResisting1 = false;
+                Destroy(poisonResistanceClone1);
+            }
+
+        }
+
     }
 
 

@@ -33,6 +33,9 @@ public class Settings
     public static int p_ship_level = 1;
     public static string[] p_resistance = { "fire", "ice", "poison" };
     public static int[] p_resistanceStrength = { 0, 0, 0 };
+    public static int p_fire_resistance_level = 1;
+    public static int p_ice_resistance_level = 1;
+    public static int p_poison_resistance_level = 1;
 
     public static float xMin = -20f, xMax = 20f, zMin = -14f, zMax = 6f;
 
@@ -47,6 +50,9 @@ public class Settings
     public static int[] iceCosts = new int[] { 150, 510, 1400 };
     public static int[] poisonCosts = new int[] { 100, 360, 1000 };
     public static int[] bulletSpeedCosts = new int[] { 80, 350, 850, 2200, 3400, 5200, 6400, 8000, 10000 };
+    public static int[] fireResistanceCosts = new int[] { 100, 330, 680, 1900, 2400, 3500 };
+    public static int[] iceResistanceCosts = new int[] { 100, 330, 680, 1900, 2400, 3500 };
+    public static int[] poisonResistanceCosts = new int[] { 100, 330, 680, 1900, 2400, 3500 };
 
 
     // upgrade parameters
@@ -57,6 +63,9 @@ public class Settings
     public static int[] shipFireDamages = new int[] { 5, 17, 40 };
     public static int[] shipIceDamages = new int[] { 5, 10, 25 };
     public static int[] shipPoisonDamages = new int[] { 5, 12, 30 };
+    public static int[] shipFireResistance = new int[] { 0, 10, 20, 40, 60, 70};
+    public static int[] shipIceResistance = new int[] { 0, 10, 20, 40, 60, 70 };
+    public static int[] shipPoisonResistance = new int[] { 0, 10, 20, 40, 60, 70 };
 }
 
 // Devast 0-15 alpha-force, 16-25 beta-force, 26-35 ceta-force

@@ -7,6 +7,7 @@ public class Colisions : MonoBehaviour
     public TextMesh stageText;
 
     private GameController gameController;
+    DamageCounter counter = new DamageCounter();
 
     void Start()
     {
@@ -31,7 +32,7 @@ public class Colisions : MonoBehaviour
             }
             else if(gameObject.tag == "Player_ship" && other.GetComponent<Bullet>().owner == "enemy")
             {
-                stageText.text = "-" + other.GetComponent<Bullet>().devast;
+                stageText.text = "-" + counter.countDamage(other.GetComponent<Bullet>().devast, other.GetComponent<Bullet>().type, Settings.p_resistance, Settings.p_resistanceStrength); ;
                 stageText.color = Color.red;
                 Instantiate(stageText, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
                 gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); // Zaidejui nuimama tiek kiek gali nuimt objektas kai susiduria

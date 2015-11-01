@@ -42,7 +42,7 @@ public class Soul : MonoBehaviour
         max_health = health;
     }
 
-    public void damage(int damage, string type, List<string> effects = null)
+    public void damage(int damage, string type, List<string> effects = null, bool returnDamage = false)
     {
         if(effects != null)
         {
@@ -59,9 +59,43 @@ public class Soul : MonoBehaviour
             }
         }
 
+        //resistance
+        if(gameObject.tag != "Player_ship")
+        {
+            if (resistanceStrength[0] > 0 && type == "fire")
+            {
+                gameObject.GetComponent<Effects>().fireResisting1 = true;
+            }
+            if (resistanceStrength[1] > 0 && type == "ice")
+            {
+                gameObject.GetComponent<Effects>().iceResisting1 = true;
+            }
+            if (resistanceStrength[2] > 0 && type == "poison")
+            {
+                gameObject.GetComponent<Effects>().poisonResisting1 = true;
+            }
+        }
+        else
+        {
+            if (Settings.p_resistanceStrength[0] > 0 && type == "fire")
+            {
+                gameObject.GetComponent<Effects>().fireResisting1 = true;
+            }
+            if (Settings.p_resistanceStrength[1] > 0 && type == "ice")
+            {
+                gameObject.GetComponent<Effects>().iceResisting1 = true;
+            }
+            if (Settings.p_resistanceStrength[2] > 0 && type == "poison")
+            {
+                gameObject.GetComponent<Effects>().poisonResisting1 = true;
+            }
+        }
+
 
         if(gameObject.tag != "Player_ship") health -= counter.countDamage(damage, type, resistance, resistanceStrength); // Grazina apskaiciuota damage
         else Settings.p_health -= counter.countDamage(damage, type, Settings.p_resistance, Settings.p_resistanceStrength);
+
+
     }
 
     void OnApplicationQuit()

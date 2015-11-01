@@ -40,6 +40,13 @@ public class GameController : MonoBehaviour
     public Text upgradeIceCost;
     public Button upgradePoisonButton;
     public Text upgradePoisonCost;
+    public Button upgradeFireResistanceButton;
+    public Text upgradeFireResistanceCost;
+    public Button upgradeIceResistanceButton;
+    public Text upgradeIceResistanceCost;
+    public Button upgradePoisonResistanceButton;
+    public Text upgradePoisonResistanceCost;
+
     public Text allStatus;
     public GameObject statusPanel;
     public Image healthBar;
@@ -58,7 +65,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"en2", "sat", "en1", "en1", "ast1","wait" ,"ast1", "en1", "ast1", "en1", "speed3", "ast1", "ast2", "en1", "ast1", "ast1", "en2", "wait", "wait", "ast1", "endSpeed", "en1", "ast1", "ast1", "ast1", "ast1", "ast1", "en2", "wait", "wait", "ast1", "ast1", "ast1", "en2", "ast1", "ast2", "ast1", "ast1", "wait", "ast1", "wait", "en1", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "end"};
+    private string[] level1 = {"ast1", "sat", "ast1", "ast1", "ast1","wait" ,"ast1", "en1", "ast1", "ast2", "speed3", "ast1", "ast2", "en1", "ast1", "ast1", "ast2", "wait", "ast2", "ast1", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast2", "speed3", "en2", "en2", "wait", "en1", "en1", "wait", "ast2", "ast2", "ast2", "endSpeed", "wait", "en2", "en1", "en1", "wait", "en2", "ast2", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "ast1", "ast2", "endSpeed", "end"};
 
     // Game music
 
@@ -75,6 +82,9 @@ public class GameController : MonoBehaviour
         upgradeIceButton.onClick.AddListener(() => { upgradeIce(); });
         upgradePoisonButton.onClick.AddListener(() => { upgradePoison(); });
         upgradeBulletSpeedButton.onClick.AddListener(() => { upgradeBulletSpeed(); });
+        upgradeFireResistanceButton.onClick.AddListener(() => { upgradeFireResistance(); });
+        upgradeIceResistanceButton.onClick.AddListener(() => { upgradeIceResistance(); });
+        upgradePoisonResistanceButton.onClick.AddListener(() => { upgradePoisonResistance(); });
         updateScore();
         updateCosts();
         updateStatus();
@@ -299,6 +309,9 @@ public class GameController : MonoBehaviour
         upgradeIceButton.onClick.RemoveListener(() => { upgradeIce(); });
         upgradePoisonButton.onClick.RemoveListener(() => { upgradePoison(); });
         upgradeBulletSpeedButton.onClick.RemoveListener(() => { upgradeBulletSpeed(); });
+        upgradeFireResistanceButton.onClick.RemoveListener(() => { upgradeFireResistance(); });
+        upgradeIceResistanceButton.onClick.AddListener(() => { upgradeIceResistance(); });
+        upgradePoisonResistanceButton.onClick.AddListener(() => { upgradePoisonResistance(); });
         RemoveUI();
     }
 
@@ -328,13 +341,25 @@ public class GameController : MonoBehaviour
         upgradeBulletSpeedCost.text += " gold";
         if (Settings.p_bullet_speed_level == Settings.shipBulletSpeeds.Length) upgradeBulletSpeedCost.text = "Full";
 
+        upgradeFireResistanceCost.text = Settings.fireResistanceCosts[Settings.p_fire_resistance_level - 1].ToString();
+        upgradeFireResistanceCost.text += " gold";
+        if (Settings.p_fire_resistance_level == Settings.shipFireResistance.Length) upgradeFireResistanceCost.text = "Full";
+
+        upgradeIceResistanceCost.text = Settings.iceResistanceCosts[Settings.p_ice_resistance_level - 1].ToString();
+        upgradeIceResistanceCost.text += " gold";
+        if (Settings.p_ice_resistance_level == Settings.shipIceResistance.Length) upgradeIceResistanceCost.text = "Full";
+
+        upgradePoisonResistanceCost.text = Settings.poisonResistanceCosts[Settings.p_poison_resistance_level - 1].ToString();
+        upgradePoisonResistanceCost.text += " gold";
+        if (Settings.p_poison_resistance_level == Settings.shipPoisonResistance.Length) upgradePoisonResistanceCost.text = "Full";
+
         displayShipGraphic.GetComponent<displayShip>().updateShip();
         updateStatus();
     }
 
     private void updateStatus()
     {
-        allStatus.text = "Ship level (<b><color=#FFDD00>" + Settings.p_ship_level + "</color></b>)\nReload time (<b><color=#FFDD00>" + Settings.p_cooldown + "s</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * Settings.p_bullet_speed * 3 + " km/h</color></b>)\nShip speed (<b><color=#FFDD00>" + Settings.p_speed * Settings.p_speed / 2 + " km/h</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * 15 + " km/h</color></b>)\nShip health (<b><color=#FFDD00>" + Settings.p_health + "</color></b>)\nFire damage (<b><color=#FFDD00>" + Settings.p_fire_devast + "</color></b>)\nIce damage (<b><color=#FFDD00>" + Settings.p_ice_devast + "</color></b>)\nPoison damage (<b><color=#FFDD00>" + Settings.p_poison_devast + "</color></b>)";
+        allStatus.text = "Ship level (<b><color=#FFDD00>" + Settings.p_ship_level + "</color></b>)\nReload time (<b><color=#FFDD00>" + Settings.p_cooldown + "s</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * Settings.p_bullet_speed * 3 + " km/h</color></b>)\nShip speed (<b><color=#FFDD00>" + Settings.p_speed * Settings.p_speed / 2 + " km/h</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * 15 + " km/h</color></b>)\nShip health (<b><color=#FFDD00>" + Settings.p_health + "</color></b>)\nFire damage (<b><color=#FFDD00>" + Settings.p_fire_devast + "</color></b>)\nIce damage (<b><color=#FFDD00>" + Settings.p_ice_devast + "</color></b>)\nPoison damage (<b><color=#FFDD00>" + Settings.p_poison_devast + "</color></b>)\nFire resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[0] + "%</color></b>)\nIce resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[1] + "%</color></b>)\nPoison resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[2] + "%</color></b>)";
     }
 
     private void upgradeShip()
@@ -412,6 +437,42 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void upgradeFireResistance()
+    {
+        if (Settings.p_gold >= Settings.fireResistanceCosts[Settings.p_fire_resistance_level - 1] && Settings.p_fire_resistance_level < Settings.shipFireResistance.Length)
+        {
+            Settings.p_gold -= Settings.fireResistanceCosts[Settings.p_fire_resistance_level - 1];
+            Settings.p_fire_resistance_level++;
+            updateShipSettings();
+            updateCosts();
+            updateScore();
+        }
+    }
+
+    private void upgradeIceResistance()
+    {
+        if (Settings.p_gold >= Settings.iceResistanceCosts[Settings.p_ice_resistance_level - 1] && Settings.p_ice_resistance_level < Settings.shipIceResistance.Length)
+        {
+            Settings.p_gold -= Settings.iceResistanceCosts[Settings.p_ice_resistance_level - 1];
+            Settings.p_ice_resistance_level++;
+            updateShipSettings();
+            updateCosts();
+            updateScore();
+        }
+    }
+
+    private void upgradePoisonResistance()
+    {
+        if (Settings.p_gold >= Settings.poisonResistanceCosts[Settings.p_poison_resistance_level - 1] && Settings.p_poison_resistance_level < Settings.shipPoisonResistance.Length)
+        {
+            Settings.p_gold -= Settings.poisonResistanceCosts[Settings.p_poison_resistance_level - 1];
+            Settings.p_poison_resistance_level++;
+            updateShipSettings();
+            updateCosts();
+            updateScore();
+        }
+    }
+
     public void updateShipSettings()
     {
         Settings.p_bullet_speed = Settings.shipBulletSpeeds[Settings.p_bullet_speed_level - 1];
@@ -422,6 +483,9 @@ public class GameController : MonoBehaviour
         Settings.p_health_max = Settings.shipHps[Settings.p_ship_level - 1];
         Settings.p_health = Settings.shipHps[Settings.p_ship_level - 1];
         Settings.p_speed = Settings.shipSpeeds[Settings.p_ship_level - 1];
+        Settings.p_resistanceStrength[0] = Settings.shipFireResistance[Settings.p_fire_resistance_level - 1];
+        Settings.p_resistanceStrength[1] = Settings.shipIceResistance[Settings.p_ice_resistance_level - 1];
+        Settings.p_resistanceStrength[2] = Settings.shipPoisonResistance[Settings.p_poison_resistance_level - 1];
     }
 
 

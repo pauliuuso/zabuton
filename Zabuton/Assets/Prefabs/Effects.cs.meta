@@ -1,12 +1,15 @@
 fileFormatVersion: 2
 guid: 148f1722a7cb4394c9181f0e6ff555dd
-timeCreated: 1446235430
+timeCreated: 1446384971
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
   - frozenEffect1: {fileID: 157010, guid: 8778594d989ddae4086731da3a0933c4, type: 2}
+  - fireResistance1: {fileID: 113662, guid: 0b8a735444c11bf409ce959276f3daf3, type: 2}
+  - iceResistance1: {fileID: 167616, guid: 469c9f151e3052a4bbc4eb182f50b86a, type: 2}
+  - poisonResistance1: {fileID: 197370, guid: 66eb2328594a17643abbb0429cb8c8d7, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

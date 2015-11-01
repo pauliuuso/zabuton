@@ -176,10 +176,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poisoned1: 0
   frozen1: 0
+  fireResisting1: 0
+  iceResisting1: 0
   poisoned1Steps: 0
   frozen1Steps: 0
+  fireResistance1Steps: 0
+  iceResistance1Steps: 0
   poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
   frozenEffect1: {fileID: 157010, guid: 8778594d989ddae4086731da3a0933c4, type: 2}
+  fireResistance1: {fileID: 113662, guid: 0b8a735444c11bf409ce959276f3daf3, type: 2}
+  iceResistance1: {fileID: 167616, guid: 469c9f151e3052a4bbc4eb182f50b86a, type: 2}
 --- !u!114 &11486314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -220,13 +226,14 @@ MonoBehaviour:
   health: 30
   max_health: 30
   devast: 25
-  reward: 44
+  reward: 48
   bullet_speed: -10
   bullet_devast: 20
   bullet_type: fire
   fire_level: 2
   ice_level: 1
   poison_level: 1
+  effect: 
   bullet_size:
   - 3
   - 2

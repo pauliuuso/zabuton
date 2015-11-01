@@ -103,7 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xRotate: 0
   yRotate: 0
-  zRotate: 50
+  zRotate: 90
+  rotationSpeed: 2
   startRotation: 1
 --- !u!1001 &100100000
 Prefab:
@@ -130,7 +131,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: zRotate
-      value: 50
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: startRotation
@@ -147,6 +148,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rotationSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
