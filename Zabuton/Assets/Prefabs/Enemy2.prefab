@@ -232,7 +232,7 @@ MonoBehaviour:
   health: 210
   max_health: 210
   devast: 60
-  reward: 185
+  reward: 191
   bullet_speed: -15
   bullet_devast: 35
   bullet_type: ice
@@ -378,6 +378,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: resistanceStrength.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: poisonResistance1Steps
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -101,7 +101,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.07999992, y: 1.47000003, z: 10}
+  m_Size: {x: 8.07999992, y: 1.47000003, z: 6}
   m_Center: {x: -.0199999996, y: -1.75999999, z: .469999999}
 --- !u!198 &19832008
 ParticleSystem:
@@ -1253,7 +1253,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Size.z
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
