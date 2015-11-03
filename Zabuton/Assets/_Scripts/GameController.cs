@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public GameObject Enemy2;
     public GameObject Saturn;
     public GameObject musicManager;
+    private GameObject musicManagerClone;
     public GameObject background;
     public GameObject boundary;
     public GameObject player;
@@ -65,7 +66,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"ast1", "sat", "ast1", "ast1", "ast1","wait" ,"ast1", "en1", "ast1", "ast2", "speed3", "ast1", "ast2", "en1", "ast1", "ast1", "ast2", "wait", "ast2", "ast1", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast2", "speed3", "en2", "en2", "wait", "en1", "en1", "wait", "ast2", "ast2", "ast2", "endSpeed", "wait", "en2", "en1", "en1", "wait", "en2", "ast2", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "ast1", "ast2", "endSpeed", "end"};
+    private string[] level1 = {"ast1", "sat", "ast1", "ast2", "ast1","wait" ,"ast1", "en1", "ast1", "ast2", "speed3", "ast1", "ast2", "en1", "ast1", "ast1", "ast2", "wait", "ast2", "ast1", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast2", "incoming attack!", "mus_attack1", "speed4", "en2", "en2", "wait", "en1", "en1", "wait", "ast2", "en1", "en1", "ast2", "ast2", "en1", "en2", "ast2", "ast2", "en1", "en1", "en2", "ast2", "ast2", "en2", "en1", "endSpeed", "wait", "en2", "en1", "en1", "wait", "en2", "ast2", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "ast1", "ast2", "endSpeed", "wait", "ast2", "wait", "wait", "end"};
 
     // Game music
 
@@ -169,9 +170,21 @@ public class GameController : MonoBehaviour
             else if(currentLevel[i] == "wait")
             {
             }
+            else if(currentLevel[i] == "speed1")
+            {
+                nextWait = 0.4f;
+            }
+            else if (currentLevel[i] == "speed2")
+            {
+                nextWait = 0.7f;
+            }
             else if(currentLevel[i] == "speed3")
             {
                 nextWait = 1f;
+            }
+            else if (currentLevel[i] == "speed4")
+            {
+                nextWait = 1.5f;
             }
             else if(currentLevel[i] == "endSpeed")
             {
@@ -181,6 +194,18 @@ public class GameController : MonoBehaviour
             {
                 StartCoroutine(finishLevel(5.0f));
                 missionComplete.text = "Mission complete!";
+            }
+
+            //Music
+            else if(currentLevel[i] == "mus_attack1")
+            {
+                musicManagerClone.GetComponent<MusicManager>().playMusic("attack1", true);
+            }
+
+            else
+            {
+                StartCoroutine(clearWarning(3f));
+                missionComplete.text = currentLevel[i];
             }
 
             yield return new WaitForSeconds(nextWait);
@@ -206,7 +231,7 @@ public class GameController : MonoBehaviour
         Instantiate(background, background.transform.position, transform.rotation);
         Instantiate(boundary, new Vector3(0.0f, 0.0f, 0.0f), transform.rotation);
         GameObject playerShip = Instantiate(player, new Vector3(0.0f, 0.0f, -10f), transform.rotation) as GameObject;
-        Instantiate(musicManager, new Vector3(0.0f, 20f, -3.4f), transform.rotation);
+        musicManagerClone = Instantiate(musicManager, new Vector3(0.0f, 20f, -3.4f), transform.rotation) as GameObject;
         Instantiate(smoke, smoke.transform.position, smoke.transform.rotation);
 
         if (Settings.p_ship_level == 1)
@@ -278,6 +303,12 @@ public class GameController : MonoBehaviour
         missionComplete.text = "";
         savePoints();
         updateShipSettings();
+    }
+
+    IEnumerator clearWarning(float time)
+    {
+        yield return new WaitForSeconds(time);
+        missionComplete.text = "";
     }
 
     private void reloadPoints()

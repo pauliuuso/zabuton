@@ -38,11 +38,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 935e4cdefb6d7924bafbbbe4f09b5528, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .200000003
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -112,15 +112,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   melodies:
   - {fileID: 8300000, guid: 935e4cdefb6d7924bafbbbe4f09b5528, type: 3}
-  - {fileID: 8300000, guid: 935e4cdefb6d7924bafbbbe4f09b5528, type: 3}
-  audio: {fileID: 0}
+  - {fileID: 8300000, guid: 6b867b538ceb0d84699fe97cdc32c1c3, type: 3}
+  audio: {fileID: 8264576}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: melodies.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6b867b538ceb0d84699fe97cdc32c1c3, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Volume
+      value: .200000003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132528}
