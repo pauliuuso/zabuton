@@ -118,9 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0acb3b44be6b14d82fd68a92c618ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  devast: 35
+  devast: 25
   type: ice
-  owner: enemy
+  owner: player
   addBoom: 0
   fireLevel: 1
   iceLevel: 3
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c070cecbbd9846340a8a3f8f8e61e927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -15
+  speed: 17
 --- !u!136 &13662852
 CapsuleCollider:
   m_ObjectHideFlags: 1

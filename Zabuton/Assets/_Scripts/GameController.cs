@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public GameObject Asteroid2;
     public GameObject Enemy1;
     public GameObject Enemy2;
+    public GameObject Enemy3;
     public GameObject Saturn;
     public GameObject musicManager;
     private GameObject musicManagerClone;
@@ -66,7 +67,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"ast1", "sat", "ast1", "ast2", "ast1","wait" ,"ast1", "en1", "ast1", "ast2", "speed3", "ast1", "ast2", "en1", "ast1", "ast1", "ast2", "wait", "ast2", "ast1", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast2", "incoming attack!", "mus_attack1", "speed4", "en2", "en2", "wait", "en1", "en1", "wait", "ast2", "en1", "en1", "ast2", "ast2", "en1", "en2", "ast2", "ast2", "en1", "en1", "en2", "ast2", "ast2", "en2", "en1", "endSpeed", "wait", "en2", "en1", "en1", "wait", "en2", "ast2", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "ast1", "ast2", "endSpeed", "wait", "ast2", "wait", "wait", "end"};
+    private string[] level1 = {"en3", "sat", "ast1", "ast2", "ast1","wait" ,"ast1", "en1", "ast1", "ast2", "speed3", "ast1", "ast2", "en1", "ast1", "ast1", "ast2", "wait", "ast2", "ast1", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast2", "incoming attack!", "mus_attack1", "speed4", "en2", "en2", "wait", "en1", "en1", "wait", "ast2", "en1", "en1", "ast2", "ast2", "en1", "en2", "ast2", "ast2", "en1", "en1", "en2", "ast2", "ast2", "en2", "en1", "endSpeed", "wait", "en2", "en1", "en1", "wait", "en2", "ast2", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "ast1", "ast2", "endSpeed", "wait", "ast2", "wait", "wait", "end"};
 
     // Game music
 
@@ -161,6 +162,11 @@ public class GameController : MonoBehaviour
 
                 Enemy2.GetComponent<Soul>().devast = 60;
                 Enemy2.GetComponent<Soul>().reward = (int)Random.Range(140, 205);
+            }
+            else if (currentLevel[i] == "en3")
+            {
+                Instantiate(Enemy3, spawnPosition, Enemy3.transform.rotation);
+                Enemy2.GetComponent<Soul>().reward = (int)Random.Range(160, 240);
             }
             else if(currentLevel[i] == "sat")
             {

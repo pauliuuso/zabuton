@@ -25,7 +25,7 @@ public class Settings
     public static int p_cooldown_level = 1;
     public static int p_bullet_speed_level = 1;
     public static int current_level = 1; // Sales levelis
-    public static int p_gold = 3000;
+    public static int p_gold = 4000;
     public static int p_score = 0;
     public static int p_previous_gold = 0;
     public static int p_previous_score = 0;

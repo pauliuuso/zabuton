@@ -40,6 +40,7 @@ public class Soul : MonoBehaviour
     void Start()
     {
         max_health = health;
+        if (gameObject.tag == "Player_ship") resistanceStrength = Settings.p_resistanceStrength;
     }
 
     public void damage(int damage, string type, List<string> effects = null, bool returnDamage = false)
@@ -48,11 +49,11 @@ public class Soul : MonoBehaviour
         {
             for (int a = 0; a < effects.Count; a++)
             {
-                if (effects[a] == "Poison1")
+                if (effects[a] == "Poison1" && resistanceStrength[2] < 50)
                 {
                     if (Random.Range(0f, 1f) > 0.5f) gameObject.GetComponent<Effects>().poisoned1 = true;
                 }
-                if (effects[a] == "Frozen1")
+                if (effects[a] == "Frozen1" && resistanceStrength[1] < 50)
                 {
                     if (Random.Range(0f, 1f) > 0.6f) gameObject.GetComponent<Effects>().frozen1 = true;
                 }
