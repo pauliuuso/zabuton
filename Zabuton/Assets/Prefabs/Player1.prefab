@@ -385,12 +385,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
+  - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   iceShots:
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   poisonShots:
+  - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
@@ -4740,8 +4742,12 @@ Prefab:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+      propertyPath: fireShots.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: poisonShots.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Center.z

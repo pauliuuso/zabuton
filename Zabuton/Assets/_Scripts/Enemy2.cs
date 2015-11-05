@@ -22,6 +22,7 @@ public class Enemy2 : MonoBehaviour
     public GameObject canon;
     public GameObject bolt;
     public Material boltMaterial;
+    private float nextFire = 4;
 
     void Start()
     {
@@ -52,6 +53,12 @@ public class Enemy2 : MonoBehaviour
         {
             rayColorDown = Color.green;
             movingDown = true;
+        }
+
+        if(nextFire < currentTime)
+        {
+            nextFire += Random.Range(1, 5);
+            fire();
         }
         
 

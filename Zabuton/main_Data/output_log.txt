@@ -15,23 +15,432 @@ Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.UI.d
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.062 seconds
+- Completed reload, in  0.059 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 14c0 -> priority: 1 
+  Thread -> id: 1374 -> priority: 1 
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+IndexOutOfRangeException: Array index is out of range.
+  at PlayerShip.PlaySound (System.String type) [0x00000] in <filename unknown>:0 
+  at PlayerShip.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Bullet.OnDestroy () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.403028 ms
+UnloadTime: 2.954915 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 796.
-Total: 0.648277 ms (FindLiveObjects: 0.048749 ms CreateObjectMapping: 0.032499 ms MarkObjects: 0.556765 ms  DeleteObjects: 0.009835 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.164846 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 796.
-Total: 0.676928 ms (FindLiveObjects: 0.047038 ms CreateObjectMapping: 0.034637 ms MarkObjects: 0.585416 ms  DeleteObjects: 0.009407 ms)
+Total: 0.647002 ms (FindLiveObjects: 0.049177 ms CreateObjectMapping: 0.033782 ms MarkObjects: 0.553779 ms  DeleteObjects: 0.009835 ms)
 
