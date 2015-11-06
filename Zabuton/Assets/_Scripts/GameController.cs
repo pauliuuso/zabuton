@@ -109,7 +109,7 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < level1.Length; i++)
         {
-            Vector3 spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), 0.0f, 12); //Pozicijos, x lokacija parenkama random
+            Vector3 spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), 0.0f, 13); //Pozicijos, x lokacija parenkama random
             Quaternion spawnRotation = Quaternion.identity; // Rotation bus 0, identity reiskia kad nebus jokios rotacijos
 
             if(currentLevel[i] == "ast1")

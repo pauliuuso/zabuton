@@ -3,18 +3,22 @@ using System.Collections;
 
 public class Effects : MonoBehaviour 
 {
+    public bool fired1 = false;
     public bool poisoned1 = false;
     public bool frozen1 = false;
     public bool fireResisting1 = false;
     public bool iceResisting1 = false;
     public bool poisonResisting1 = false;
 
+    public int fired1Steps;
     public int poisoned1Steps;
     public int frozen1Steps;
     public int fireResistance1Steps;
     public int iceResistance1Steps;
     public int poisonResistance1Steps;
 
+    public GameObject firedEffect1;
+    private GameObject firedEffectClone1;
     public GameObject poisonedEffect1;
     private GameObject poisonedEffectClone1;
     public GameObject frozenEffect1;
@@ -31,6 +35,7 @@ public class Effects : MonoBehaviour
     private int currentStep = 0;
     private float timePassed;
 
+    private bool delayedRemoveFire1 = false;
     private int previousSpeed;
 
     private GameController gameController;
@@ -58,6 +63,18 @@ public class Effects : MonoBehaviour
             applyEffects();
         }
 
+
+        if (fired1)
+        {
+            childEffect = gameObject.transform.Find("Fired1(Clone)");
+            if (childEffect == null)
+            {
+                firedEffectClone1 = Instantiate(firedEffect1, gameObject.transform.position, firedEffect1.transform.rotation) as GameObject;
+                firedEffectClone1.transform.parent = gameObject.transform;
+                fired1Steps = currentStep + 2;
+            }
+
+        }
 
         if(poisoned1)
         {
@@ -175,6 +192,34 @@ public class Effects : MonoBehaviour
                 }
             }
         }
+        if (fired1)
+        {
+            if (gameObject.tag == "Player_ship")
+            {
+
+                if (fired1Steps < currentStep)
+                {
+                    Settings.p_health -= 40;
+                    gameObject.GetComponent<PlayerShip>().checkLife();
+                    gameController.updateHealth();
+                    fired1 = false;
+                    delayedRemoveFire1 = true;
+                    fired1Steps = currentStep + 2;
+                }
+            }
+            else
+            {
+                if (fired1Steps < currentStep)
+                {
+                    gameObject.GetComponent<Soul>().health -= 40;
+                    gameObject.GetComponent<Colisions>().checkLife();
+                    if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
+                    fired1 = false;
+                    delayedRemoveFire1 = true;
+                    fired1Steps = currentStep + 2;
+                }
+            }
+        }
 
         if (iceResisting1)
         {
@@ -204,6 +249,14 @@ public class Effects : MonoBehaviour
                 Destroy(poisonResistanceClone1);
             }
 
+        }
+
+
+
+        if (delayedRemoveFire1 && fired1Steps < currentStep)
+        {
+            Destroy(firedEffectClone1);
+            delayedRemoveFire1 = false;
         }
 
     }

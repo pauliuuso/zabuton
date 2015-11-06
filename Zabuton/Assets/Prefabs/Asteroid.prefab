@@ -49,7 +49,7 @@ Transform:
   m_GameObject: {fileID: 107372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.10584629, y: 1.10584629, z: 1.10584629}
+  m_LocalScale: {x: .965889692, y: .965889692, z: .965889692}
   m_Children:
   - {fileID: 485668}
   m_Father: {fileID: 0}
@@ -233,21 +233,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148f1722a7cb4394c9181f0e6ff555dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fired1: 0
   poisoned1: 0
   frozen1: 0
   fireResisting1: 0
   iceResisting1: 0
   poisonResisting1: 0
+  fired1Steps: 0
   poisoned1Steps: 0
   frozen1Steps: 0
   fireResistance1Steps: 0
   iceResistance1Steps: 0
   poisonResistance1Steps: 0
+  firedEffect1: {fileID: 160654, guid: 09652bfcc2b5d2348b9d3fc4fbcece15, type: 2}
   poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
   frozenEffect1: {fileID: 157010, guid: 8778594d989ddae4086731da3a0933c4, type: 2}
   fireResistance1: {fileID: 113662, guid: 0b8a735444c11bf409ce959276f3daf3, type: 2}
   iceResistance1: {fileID: 167616, guid: 469c9f151e3052a4bbc4eb182f50b86a, type: 2}
-  poisonResistance1: {fileID: 0}
+  poisonResistance1: {fileID: 197370, guid: 66eb2328594a17643abbb0429cb8c8d7, type: 2}
 --- !u!135 &13575338
 SphereCollider:
   m_ObjectHideFlags: 1

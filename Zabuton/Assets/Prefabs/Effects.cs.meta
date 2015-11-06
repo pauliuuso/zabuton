@@ -1,10 +1,11 @@
 fileFormatVersion: 2
 guid: 148f1722a7cb4394c9181f0e6ff555dd
-timeCreated: 1446384971
+timeCreated: 1446838436
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
+  - firedEffect1: {fileID: 160654, guid: 09652bfcc2b5d2348b9d3fc4fbcece15, type: 2}
   - poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
   - frozenEffect1: {fileID: 157010, guid: 8778594d989ddae4086731da3a0933c4, type: 2}
   - fireResistance1: {fileID: 113662, guid: 0b8a735444c11bf409ce959276f3daf3, type: 2}

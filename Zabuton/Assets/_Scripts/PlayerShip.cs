@@ -41,7 +41,7 @@ public class PlayerShip : MonoBehaviour
                 else if (Settings.p_fire_level == 3)
                 {
                     Bolt.transform.localScale = new Vector3(3f, 3f, 3f);
-                    Bolt.GetComponent<Bullet>().effects.Add("Fire1");
+                    Bolt.GetComponent<Bullet>().effects.Add("Fired1");
                 }
             }
             else if (Input.GetButton("Fire2"))

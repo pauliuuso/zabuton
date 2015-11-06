@@ -171,16 +171,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148f1722a7cb4394c9181f0e6ff555dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fired1: 0
   poisoned1: 0
   frozen1: 0
   fireResisting1: 0
   iceResisting1: 0
   poisonResisting1: 0
+  fired1Steps: 0
   poisoned1Steps: 0
   frozen1Steps: 0
   fireResistance1Steps: 0
   iceResistance1Steps: 0
   poisonResistance1Steps: 0
+  firedEffect1: {fileID: 160654, guid: 09652bfcc2b5d2348b9d3fc4fbcece15, type: 2}
   poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
   frozenEffect1: {fileID: 157010, guid: 8778594d989ddae4086731da3a0933c4, type: 2}
   fireResistance1: {fileID: 113662, guid: 0b8a735444c11bf409ce959276f3daf3, type: 2}
@@ -209,7 +212,7 @@ MonoBehaviour:
   fire_level: 1
   ice_level: 1
   poison_level: 2
-  effect: Poison1
+  effect: Poisoned1
   bullet_size:
   - 2
   - 2
@@ -273,6 +276,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: resistanceStrength.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet_type
+      value: poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: effect
+      value: Poisoned1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

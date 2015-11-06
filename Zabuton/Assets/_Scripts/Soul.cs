@@ -49,9 +49,13 @@ public class Soul : MonoBehaviour
         {
             for (int a = 0; a < effects.Count; a++)
             {
+                if (effects[a] == "Fired1" && resistanceStrength[0] < 50)
+                {
+                    if (Random.Range(0f, 1f) > 0.6f) gameObject.GetComponent<Effects>().fired1 = true;
+                }
                 if (effects[a] == "Poison1" && resistanceStrength[2] < 50)
                 {
-                    if (Random.Range(0f, 1f) > 0.5f) gameObject.GetComponent<Effects>().poisoned1 = true;
+                    if (Random.Range(0f, 1f) > 0.6f) gameObject.GetComponent<Effects>().poisoned1 = true;
                 }
                 if (effects[a] == "Frozen1" && resistanceStrength[1] < 50)
                 {

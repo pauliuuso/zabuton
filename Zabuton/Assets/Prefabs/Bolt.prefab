@@ -126,7 +126,7 @@ MonoBehaviour:
   iceLevel: 1
   poisonLevel: 2
   effects:
-  - Poison1
+  - Poisoned1
   fireBooms:
   - {fileID: 105142, guid: ffd1e8608a9d31c4393351d8f6d1a488, type: 2}
   - {fileID: 105142, guid: ffd1e8608a9d31c4393351d8f6d1a488, type: 2}
