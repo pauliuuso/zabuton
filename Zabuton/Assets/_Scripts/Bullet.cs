@@ -15,16 +15,25 @@ public class Bullet : MonoBehaviour
     public GameObject[] fireBooms;
     public GameObject[] iceBooms;
     public GameObject[] poisonBooms;
+    public bool fromEffects = false;
 
     void Start()
     {
-        if(owner == "player")
+        if(owner == "player" && !fromEffects)
         {
             fireLevel = Settings.p_fire_level;
             iceLevel = Settings.p_ice_level;
             poisonLevel = Settings.p_poison_level;
         }
 
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (gameObject.tag == "Untagged")
+        {
+            gameObject.tag = "Bolt";
+        }
     }
 
     void OnDestroy()
