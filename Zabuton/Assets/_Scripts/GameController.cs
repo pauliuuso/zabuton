@@ -25,8 +25,8 @@ public class GameController : MonoBehaviour
     public GameObject shop;
     public Text goldText;
     public Text scoreText;
-    public Image startImage;
-    public Image quitImage;
+    public Button startButton;
+    public Button quitButton;
     public Image title;
     public GameObject displayShip;
     public GameObject displayShipGraphic;
@@ -48,6 +48,8 @@ public class GameController : MonoBehaviour
     public Text upgradeIceResistanceCost;
     public Button upgradePoisonResistanceButton;
     public Text upgradePoisonResistanceCost;
+    public Button upgradeVampiricRegenerationButton;
+    public Text upgradeVampiricRegenerationCost;
 
     public Text allStatus;
     public GameObject statusPanel;
@@ -76,8 +78,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
 
-        startImage.GetComponent<Button>().onClick.AddListener(() => { startMission(); });
-        quitImage.GetComponent<Button>().onClick.AddListener(() => { quitGame(); });
+        startButton.onClick.AddListener(() => { startMission(); });
+        quitButton.onClick.AddListener(() => { quitGame(); });
         upgradeShipButton.onClick.AddListener(() => { upgradeShip(); });
         upgradeReloadButton.onClick.AddListener(() => { upgradeReload(); });
         upgradeFireButton.onClick.AddListener(() => { upgradeFire(); });
@@ -87,6 +89,7 @@ public class GameController : MonoBehaviour
         upgradeFireResistanceButton.onClick.AddListener(() => { upgradeFireResistance(); });
         upgradeIceResistanceButton.onClick.AddListener(() => { upgradeIceResistance(); });
         upgradePoisonResistanceButton.onClick.AddListener(() => { upgradePoisonResistance(); });
+        upgradeVampiricRegenerationButton.onClick.AddListener(() => { upgradeVampiricRegeneration(); });
         updateScore();
         updateCosts();
         updateStatus();
@@ -279,14 +282,16 @@ public class GameController : MonoBehaviour
 
     public void updateHealth()
     {
+        if (Settings.p_health > Settings.p_health_max) Settings.p_health = Settings.p_health_max;
+        if (Settings.p_health < 0) Settings.p_health = 0;
         healthBar.fillAmount = (float)Settings.p_health / (float)Settings.p_health_max;
         healthLeft.text = Settings.p_health + " / " + Settings.p_health_max;
     }
 
     private void RemoveUI()
     {
-        Destroy(startImage);
-        Destroy(quitImage);
+        Destroy(startButton.gameObject);
+        Destroy(quitButton.gameObject);
         Destroy(title);
         Destroy(displayShip);
         Destroy(shop);
@@ -333,13 +338,13 @@ public class GameController : MonoBehaviour
 
     private void quitGame()
     {
-        //Application.Quit();
+        Application.Quit();
     }
 
     private void removeListeners()
     {
-        startImage.GetComponent<Button>().onClick.RemoveListener(() => { startMission(); });
-        quitImage.GetComponent<Button>().onClick.RemoveListener(() => { quitGame(); });
+        startButton.onClick.RemoveListener(() => { startMission(); });
+        quitButton.onClick.RemoveListener(() => { quitGame(); });
         upgradeShipButton.onClick.RemoveListener(() => { upgradeShip(); });
         upgradeReloadButton.onClick.RemoveListener(() => { upgradeReload(); });
         upgradeFireButton.onClick.RemoveListener(() => { upgradeFire(); });
@@ -347,8 +352,9 @@ public class GameController : MonoBehaviour
         upgradePoisonButton.onClick.RemoveListener(() => { upgradePoison(); });
         upgradeBulletSpeedButton.onClick.RemoveListener(() => { upgradeBulletSpeed(); });
         upgradeFireResistanceButton.onClick.RemoveListener(() => { upgradeFireResistance(); });
-        upgradeIceResistanceButton.onClick.AddListener(() => { upgradeIceResistance(); });
-        upgradePoisonResistanceButton.onClick.AddListener(() => { upgradePoisonResistance(); });
+        upgradeIceResistanceButton.onClick.RemoveListener(() => { upgradeIceResistance(); });
+        upgradePoisonResistanceButton.onClick.RemoveListener(() => { upgradePoisonResistance(); });
+        upgradeVampiricRegenerationButton.onClick.RemoveListener(() => { upgradeVampiricRegeneration(); });
         RemoveUI();
     }
 
@@ -357,38 +363,53 @@ public class GameController : MonoBehaviour
         upgradeShipCost.text = Settings.shipCosts[Settings.p_ship_level - 1].ToString();
         upgradeShipCost.text += " gold";
         if (Settings.p_ship_level == Settings.shipHps.Length) upgradeShipCost.text = "Full";
+        if (Settings.p_gold < Settings.shipCosts[Settings.p_ship_level - 1] || upgradeShipCost.text == "Full") upgradeShipButton.interactable = false;
 
         upgradeReloadCost.text = Settings.reloadCosts[Settings.p_cooldown_level - 1].ToString();
         upgradeReloadCost.text += " gold";
         if (Settings.p_cooldown_level == Settings.shipCooldowns.Length) upgradeReloadCost.text = "Full";
+        if (Settings.p_gold < Settings.reloadCosts[Settings.p_cooldown_level - 1] || upgradeReloadCost.text == "Full") upgradeReloadButton.interactable = false;
         
         upgradeFireCost.text = Settings.fireCosts[Settings.p_fire_level - 1].ToString();
         upgradeFireCost.text += " gold";
         if (Settings.p_fire_level == Settings.shipFireDamages.Length) upgradeFireCost.text = "Full";
+        if (Settings.p_gold < Settings.fireCosts[Settings.p_fire_level - 1] || upgradeFireCost.text == "Full") upgradeFireButton.interactable = false;
 
         upgradeIceCost.text = Settings.iceCosts[Settings.p_ice_level - 1].ToString();
         upgradeIceCost.text += " gold";
         if (Settings.p_ice_level == Settings.shipIceDamages.Length) upgradeIceCost.text = "Full";
+        if (Settings.p_gold < Settings.iceCosts[Settings.p_ice_level - 1] || upgradeIceCost.text == "Full") upgradeIceButton.interactable = false;
 
         upgradePoisonCost.text = Settings.poisonCosts[Settings.p_poison_level - 1].ToString();
         upgradePoisonCost.text += " gold";
         if (Settings.p_poison_level == Settings.shipPoisonDamages.Length) upgradePoisonCost.text = "Full";
+        if (Settings.p_gold < Settings.poisonCosts[Settings.p_poison_level - 1] || upgradePoisonCost.text == "Full") upgradePoisonButton.interactable = false;
 
         upgradeBulletSpeedCost.text = Settings.bulletSpeedCosts[Settings.p_bullet_speed_level - 1].ToString();
         upgradeBulletSpeedCost.text += " gold";
         if (Settings.p_bullet_speed_level == Settings.shipBulletSpeeds.Length) upgradeBulletSpeedCost.text = "Full";
+        if (Settings.p_gold < Settings.bulletSpeedCosts[Settings.p_bullet_speed_level - 1] || upgradeBulletSpeedCost.text == "Full") upgradeBulletSpeedButton.interactable = false;
 
         upgradeFireResistanceCost.text = Settings.fireResistanceCosts[Settings.p_fire_resistance_level - 1].ToString();
         upgradeFireResistanceCost.text += " gold";
         if (Settings.p_fire_resistance_level == Settings.shipFireResistance.Length) upgradeFireResistanceCost.text = "Full";
+        if (Settings.p_gold < Settings.fireResistanceCosts[Settings.p_fire_resistance_level - 1] || upgradeFireResistanceCost.text == "Full") upgradeFireResistanceButton.interactable = false;
 
         upgradeIceResistanceCost.text = Settings.iceResistanceCosts[Settings.p_ice_resistance_level - 1].ToString();
         upgradeIceResistanceCost.text += " gold";
         if (Settings.p_ice_resistance_level == Settings.shipIceResistance.Length) upgradeIceResistanceCost.text = "Full";
+        if (Settings.p_gold < Settings.iceResistanceCosts[Settings.p_ice_resistance_level - 1] || upgradeIceResistanceCost.text == "Full") upgradeIceResistanceButton.interactable = false;
 
         upgradePoisonResistanceCost.text = Settings.poisonResistanceCosts[Settings.p_poison_resistance_level - 1].ToString();
         upgradePoisonResistanceCost.text += " gold";
         if (Settings.p_poison_resistance_level == Settings.shipPoisonResistance.Length) upgradePoisonResistanceCost.text = "Full";
+        if (Settings.p_gold < Settings.poisonResistanceCosts[Settings.p_poison_resistance_level - 1] || upgradePoisonResistanceCost.text == "Full") upgradePoisonResistanceButton.interactable = false;
+
+        upgradeVampiricRegenerationCost.text = Settings.vampiricRegenerationCosts[Settings.p_vampiric_regeneration_level - 1].ToString();
+        upgradeVampiricRegenerationCost.text += " gold";
+        if (Settings.p_vampiric_regeneration_level == Settings.shipVampiricRegeneration.Length) upgradeVampiricRegenerationCost.text = "Full";
+        if (Settings.p_gold < Settings.vampiricRegenerationCosts[Settings.p_vampiric_regeneration_level - 1] || upgradeVampiricRegenerationCost.text == "Full") upgradeVampiricRegenerationButton.interactable = false;
+
 
         displayShipGraphic.GetComponent<displayShip>().updateShip();
         updateStatus();
@@ -396,7 +417,7 @@ public class GameController : MonoBehaviour
 
     private void updateStatus()
     {
-        allStatus.text = "Ship level (<b><color=#FFDD00>" + Settings.p_ship_level + "</color></b>)\nReload time (<b><color=#FFDD00>" + Settings.p_cooldown + "s</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * Settings.p_bullet_speed * 3 + " km/h</color></b>)\nShip speed (<b><color=#FFDD00>" + Settings.p_speed * Settings.p_speed / 2 + " km/h</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * 15 + " km/h</color></b>)\nShip health (<b><color=#FFDD00>" + Settings.p_health + "</color></b>)\nFire damage (<b><color=#FFDD00>" + Settings.p_fire_devast + "</color></b>)\nIce damage (<b><color=#FFDD00>" + Settings.p_ice_devast + "</color></b>)\nPoison damage (<b><color=#FFDD00>" + Settings.p_poison_devast + "</color></b>)\nFire resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[0] + "%</color></b>)\nIce resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[1] + "%</color></b>)\nPoison resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[2] + "%</color></b>)";
+        allStatus.text = "Ship level (<b><color=#FFDD00>" + Settings.p_ship_level + "</color></b>)\nReload time (<b><color=#FFDD00>" + Settings.p_cooldown + "s</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * Settings.p_bullet_speed * 3 + " km/h</color></b>)\nShip speed (<b><color=#FFDD00>" + Settings.p_speed * Settings.p_speed / 2 + " km/h</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * 15 + " km/h</color></b>)\nShip health (<b><color=#FFDD00>" + Settings.p_health + "</color></b>)\nFire damage (<b><color=#FFDD00>" + Settings.p_fire_devast + "</color></b>)\nIce damage (<b><color=#FFDD00>" + Settings.p_ice_devast + "</color></b>)\nPoison damage (<b><color=#FFDD00>" + Settings.p_poison_devast + "</color></b>)\nFire resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[0] + "%</color></b>)\nIce resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[1] + "%</color></b>)\nPoison resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[2] + "%</color></b>)\nVampiric regeneration (<b><color=#FFDD00>" + Settings.p_vampiric_regeneration_strength + "%</color></b>)";
     }
 
     private void upgradeShip()
@@ -510,6 +531,18 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void upgradeVampiricRegeneration()
+    {
+        if (Settings.p_gold >= Settings.vampiricRegenerationCosts[Settings.p_vampiric_regeneration_level - 1] && Settings.p_vampiric_regeneration_level < Settings.shipVampiricRegeneration.Length)
+        {
+            Settings.p_gold -= Settings.vampiricRegenerationCosts[Settings.p_vampiric_regeneration_level - 1];
+            Settings.p_vampiric_regeneration_level++;
+            updateShipSettings();
+            updateCosts();
+            updateScore();
+        }
+    }
+
     public void updateShipSettings()
     {
         Settings.p_bullet_speed = Settings.shipBulletSpeeds[Settings.p_bullet_speed_level - 1];
@@ -523,6 +556,7 @@ public class GameController : MonoBehaviour
         Settings.p_resistanceStrength[0] = Settings.shipFireResistance[Settings.p_fire_resistance_level - 1];
         Settings.p_resistanceStrength[1] = Settings.shipIceResistance[Settings.p_ice_resistance_level - 1];
         Settings.p_resistanceStrength[2] = Settings.shipPoisonResistance[Settings.p_poison_resistance_level - 1];
+        Settings.p_vampiric_regeneration_strength = Settings.shipVampiricRegeneration[Settings.p_vampiric_regeneration_level - 1];
     }
 
 

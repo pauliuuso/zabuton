@@ -32,9 +32,7 @@ public class Colisions : MonoBehaviour
             }
             else if(gameObject.tag == "Player_ship" && other.GetComponent<Bullet>().owner == "enemy")
             {
-                stageText.text = "-" + counter.countDamage(other.GetComponent<Bullet>().devast, other.GetComponent<Bullet>().type, Settings.p_resistance, Settings.p_resistanceStrength); ;
-                stageText.color = Color.red;
-                Instantiate(stageText, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+                showDamage("-", counter.countDamage(other.GetComponent<Bullet>().devast, other.GetComponent<Bullet>().type, Settings.p_resistance, Settings.p_resistanceStrength));
                 gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); // Zaidejui nuimama tiek kiek gali nuimt objektas kai susiduria
                 gameObject.GetComponent<PlayerShip>().checkLife(); // Sita funkcija yra playership scripte ir tikrina kiek gyvybiu liko zaidejui
                 gameController.updateHealth();
@@ -46,11 +44,7 @@ public class Colisions : MonoBehaviour
         }
         else if(other.tag == "Player_ship") // jei kitas objektas yra zaidejo laivas
         {
-
-            stageText.text = "-" + gameObject.GetComponent<Soul>().devast;
-            stageText.color = Color.red;
-            Instantiate(stageText, other.transform.position, Quaternion.Euler(90, 0, 0));
-
+            showDamage("-", gameObject.GetComponent<Soul>().devast);
             gameObject.GetComponent<Soul>().damage(Settings.p_health, "none"); //Nuimama objektui tiek kiek zaidejas turi gyvybiu
             if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
             Settings.p_health -= gameObject.GetComponent<Soul>().devast; // Zaidejui nuimama tiek kiek gali nuimt objektas kai susiduria
@@ -81,4 +75,14 @@ public class Colisions : MonoBehaviour
         }
  
     }
+
+    public void showDamage(string prefix, int damage, string color = "red")
+    {
+        stageText.text = prefix + damage;
+        if (color == "red") stageText.color = Color.red;
+        else if (color == "green") stageText.color = Color.green;
+
+        Instantiate(stageText, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+    }
+
 }

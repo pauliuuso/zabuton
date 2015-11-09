@@ -82,6 +82,11 @@ public class PlayerShip : MonoBehaviour
 
             }
 
+            if(Settings.p_vampiric_regeneration_level > 1)
+            {
+                Bolt.GetComponent<Bullet>().effects.Add("Vampiric");
+            }
+
             Bolt.GetComponent<Bullet>().devast = Settings.p_devast; // Soviniui suteikiama damage
             Bolt.GetComponent<Bullet>().type = Settings.p_type; // Sovinio tipas
             Bolt.GetComponent<Bullet>().owner = "player";

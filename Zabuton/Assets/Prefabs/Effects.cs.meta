@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 148f1722a7cb4394c9181f0e6ff555dd
-timeCreated: 1446998406
+timeCreated: 1447102370
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
@@ -14,6 +14,8 @@ MonoImporter:
   - iceResistance1: {fileID: 167616, guid: 469c9f151e3052a4bbc4eb182f50b86a, type: 2}
   - poisonResistance1: {fileID: 197370, guid: 66eb2328594a17643abbb0429cb8c8d7, type: 2}
   - poisonArrow: {fileID: 123064, guid: 01c831cbb386d7544978726925987bb2, type: 2}
+  - vampiricRegeneration: {fileID: 169900, guid: b6411c4b3824cb8469d09c39baae8968,
+      type: 2}
   - emptyMaterial: {fileID: 2100000, guid: 0d32a0ca9c4072542896a696b50b9f6f, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}

@@ -25,6 +25,7 @@ public class Soul : MonoBehaviour
     DamageCounter counter = new DamageCounter(); // Klase i kuria reikia nusiusti damage, damage type, dabartinio objekto resistance ir resitance strenght
     public string lastHitBy;
     public string ship_name;
+    private GameObject playerShip;
 
     // Effects //////
     /*
@@ -41,6 +42,9 @@ public class Soul : MonoBehaviour
     {
         max_health = health;
         if (gameObject.tag == "Player_ship") resistanceStrength = Settings.p_resistanceStrength;
+
+        GameObject playerShipObject = GameObject.FindGameObjectWithTag("Player_ship");
+        if (playerShipObject != null) playerShip = playerShipObject;
     }
 
     public void damage(int damage, string type, List<string> effects = null, bool returnDamage = false)
@@ -64,6 +68,18 @@ public class Soul : MonoBehaviour
                 if (effects[a] == "Frozen1" && resistanceStrength[1] < 50)
                 {
                     if (Random.Range(0f, 1f) < 0.5f) gameObject.GetComponent<Effects>().frozen1 = true;
+                }
+                if (effects[a] == "Vampiric")
+                {
+                    if (Random.Range(0f, 1f) < 0.12f)
+                    {
+                        playerShip.GetComponent<Effects>().vampiricRegenerating = true;
+                        int hpGain = (int)((float)counter.countDamage(damage, type, Settings.p_resistance, Settings.p_resistanceStrength) * ((float)Settings.p_vampiric_regeneration_strength / 100));
+                        Settings.p_health += hpGain;
+                        playerShip.GetComponent<PlayerShip>().checkLife();
+                        playerShip.GetComponent<Effects>().gameController.updateHealth();
+                        playerShip.GetComponent<Colisions>().showDamage("+", hpGain, "green");
+                    }
                 }
             }
         }

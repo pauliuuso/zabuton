@@ -10,6 +10,7 @@ public class Effects : MonoBehaviour
     public bool fireResisting1 = false;
     public bool iceResisting1 = false;
     public bool poisonResisting1 = false;
+    public bool vampiricRegenerating = false;
 
     public int fired1Steps;
     public int poisoned1Steps;
@@ -38,6 +39,8 @@ public class Effects : MonoBehaviour
     private GameObject poisonResistanceClone1;
     public GameObject poisonArrow;
     private GameObject poisonArrowClone;
+    public GameObject vampiricRegeneration;
+    private GameObject vampiricRegenerationClone;
 
     public Material emptyMaterial;
 
@@ -49,7 +52,7 @@ public class Effects : MonoBehaviour
     private bool delayedRemoveFire1 = false;
     private int previousSpeed;
 
-    private GameController gameController;
+    public GameController gameController;
 
 
     void Start()
@@ -157,6 +160,17 @@ public class Effects : MonoBehaviour
                 if (gameObject.tag == "Player_ship" || gameObject.GetComponent<Soul>().ship_name == "enemy1") poisonResistanceClone1.transform.localScale = new Vector3(2f, 2f, 2f);
                 poisonResistanceClone1.transform.parent = gameObject.transform;
                 poisonResistance1Steps = currentStep + 1;
+            }
+        }
+
+        if (vampiricRegenerating)
+        {
+            childEffect = gameObject.transform.Find("VampiricRegeneration(Clone)");
+            if(childEffect == null)
+            {
+                vampiricRegenerationClone = Instantiate(vampiricRegeneration, gameObject.transform.position, vampiricRegeneration.transform.rotation) as GameObject;
+                vampiricRegenerationClone.transform.parent = gameObject.transform;
+                vampiricRegenerating = false;
             }
         }
 
