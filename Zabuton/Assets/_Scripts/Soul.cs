@@ -26,6 +26,7 @@ public class Soul : MonoBehaviour
     public string lastHitBy;
     public string ship_name;
     private GameObject playerShip;
+    private bool criticalReceived = false;
 
     // Effects //////
     /*
@@ -53,6 +54,14 @@ public class Soul : MonoBehaviour
         {
             for (int a = 0; a < effects.Count; a++)
             {
+                if(effects[a] == "Critical")
+                {
+                    if(Random.Range(0f, 1f) < 0.1f)
+                    {
+                        damage = (int)((float)damage * (Settings.p_critical_strike_strength + Random.Range(-0.3f, 0.3f)));
+                        criticalReceived = true;
+                    }
+                }
                 if (effects[a] == "Fired1" && resistanceStrength[0] < 50)
                 {
                     if (Random.Range(0f, 1f) < 0.5f) gameObject.GetComponent<Effects>().fired1 = true;
@@ -71,10 +80,10 @@ public class Soul : MonoBehaviour
                 }
                 if (effects[a] == "Vampiric")
                 {
-                    if (Random.Range(0f, 1f) < 0.12f)
+                    if (Random.Range(0f, 1f) < 0.1f)
                     {
                         playerShip.GetComponent<Effects>().vampiricRegenerating = true;
-                        int hpGain = (int)((float)counter.countDamage(damage, type, Settings.p_resistance, Settings.p_resistanceStrength) * ((float)Settings.p_vampiric_regeneration_strength / 100));
+                        int hpGain = (int)((float)counter.countDamage(damage, type, resistance, resistanceStrength) * ((float)Settings.p_vampiric_regeneration_strength / 100));
                         Settings.p_health += hpGain;
                         playerShip.GetComponent<PlayerShip>().checkLife();
                         playerShip.GetComponent<Effects>().gameController.updateHealth();
@@ -117,7 +126,17 @@ public class Soul : MonoBehaviour
         }
 
 
-        if(gameObject.tag != "Player_ship") health -= counter.countDamage(damage, type, resistance, resistanceStrength); // Grazina apskaiciuota damage
+        if (gameObject.tag != "Player_ship")
+        {
+            int damageDone = counter.countDamage(damage, type, resistance, resistanceStrength); // Grazina apskaiciuota damage
+            health -= damageDone;
+            if(criticalReceived)
+            {
+                gameObject.GetComponent<Colisions>().showDamage("-", damageDone, "red", "!");
+                criticalReceived = false;
+            }
+
+        }
         else Settings.p_health -= counter.countDamage(damage, type, Settings.p_resistance, Settings.p_resistanceStrength);
 
 

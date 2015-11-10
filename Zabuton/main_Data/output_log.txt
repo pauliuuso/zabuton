@@ -1,10 +1,10 @@
 Initialize engine version: 5.2.0f3 (e7947df39b5c)
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 11.0 [level 10.1]
-    Renderer: Intel(R) HD Graphics 3000 (ID=0x116)
-    Vendor:   Intel
-    VRAM:     128 MB
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 525M  (ID=0xdf5)
+    Vendor:   NVIDIA
+    VRAM:     979 MB
 Begin MonoManager ReloadAssembly
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.dll into Unity Child Domain
@@ -15,23 +15,7 @@ Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.UI.d
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.058 seconds
+- Completed reload, in  0.066 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-<RI> Initialized touch support.
-Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.dll (this message is harmless)
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1870 -> priority: 1 
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 6.884339 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 869.
-Total: 1.849906 ms (FindLiveObjects: 0.196707 ms CreateObjectMapping: 0.087235 ms MarkObjects: 1.531326 ms  DeleteObjects: 0.030361 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.490705 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 869.
-Total: 2.063291 ms (FindLiveObjects: 0.142826 ms CreateObjectMapping: 0.067137 ms MarkObjects: 1.803723 ms  DeleteObjects: 0.045755 ms)
-

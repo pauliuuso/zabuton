@@ -76,9 +76,9 @@ public class Colisions : MonoBehaviour
  
     }
 
-    public void showDamage(string prefix, int damage, string color = "red")
+    public void showDamage(string prefix, int damage, string color = "red", string ending = null)
     {
-        stageText.text = prefix + damage;
+        stageText.text = prefix + damage + ending;
         if (color == "red") stageText.color = Color.red;
         else if (color == "green") stageText.color = Color.green;
 

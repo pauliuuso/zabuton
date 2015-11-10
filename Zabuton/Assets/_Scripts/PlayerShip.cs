@@ -86,6 +86,10 @@ public class PlayerShip : MonoBehaviour
             {
                 Bolt.GetComponent<Bullet>().effects.Add("Vampiric");
             }
+            if(Settings.p_critical_strike_level > 1)
+            {
+                Bolt.GetComponent<Bullet>().effects.Add("Critical");
+            }
 
             Bolt.GetComponent<Bullet>().devast = Settings.p_devast; // Soviniui suteikiama damage
             Bolt.GetComponent<Bullet>().type = Settings.p_type; // Sovinio tipas

@@ -50,6 +50,8 @@ public class GameController : MonoBehaviour
     public Text upgradePoisonResistanceCost;
     public Button upgradeVampiricRegenerationButton;
     public Text upgradeVampiricRegenerationCost;
+    public Button upgradeCriticalStrikeButton;
+    public Text upgradeCriticalStrikeCost;
 
     public Text allStatus;
     public GameObject statusPanel;
@@ -90,6 +92,7 @@ public class GameController : MonoBehaviour
         upgradeIceResistanceButton.onClick.AddListener(() => { upgradeIceResistance(); });
         upgradePoisonResistanceButton.onClick.AddListener(() => { upgradePoisonResistance(); });
         upgradeVampiricRegenerationButton.onClick.AddListener(() => { upgradeVampiricRegeneration(); });
+        upgradeCriticalStrikeButton.onClick.AddListener(() => { upgradeCriticalStrike(); });
         updateScore();
         updateCosts();
         updateStatus();
@@ -355,6 +358,7 @@ public class GameController : MonoBehaviour
         upgradeIceResistanceButton.onClick.RemoveListener(() => { upgradeIceResistance(); });
         upgradePoisonResistanceButton.onClick.RemoveListener(() => { upgradePoisonResistance(); });
         upgradeVampiricRegenerationButton.onClick.RemoveListener(() => { upgradeVampiricRegeneration(); });
+        upgradeCriticalStrikeButton.onClick.RemoveListener(() => { upgradeCriticalStrike(); });
         RemoveUI();
     }
 
@@ -410,6 +414,11 @@ public class GameController : MonoBehaviour
         if (Settings.p_vampiric_regeneration_level == Settings.shipVampiricRegeneration.Length) upgradeVampiricRegenerationCost.text = "Full";
         if (Settings.p_gold < Settings.vampiricRegenerationCosts[Settings.p_vampiric_regeneration_level - 1] || upgradeVampiricRegenerationCost.text == "Full") upgradeVampiricRegenerationButton.interactable = false;
 
+        upgradeCriticalStrikeCost.text = Settings.criticalStrikeCosts[Settings.p_critical_strike_level - 1].ToString();
+        upgradeCriticalStrikeCost.text += " gold";
+        if (Settings.p_critical_strike_level == Settings.shipCriticalStrike.Length) upgradeCriticalStrikeCost.text = "Full";
+        if (Settings.p_gold < Settings.criticalStrikeCosts[Settings.p_critical_strike_level - 1] || upgradeCriticalStrikeCost.text == "Full") upgradeCriticalStrikeButton.interactable = false;
+
 
         displayShipGraphic.GetComponent<displayShip>().updateShip();
         updateStatus();
@@ -417,7 +426,7 @@ public class GameController : MonoBehaviour
 
     private void updateStatus()
     {
-        allStatus.text = "Ship level (<b><color=#FFDD00>" + Settings.p_ship_level + "</color></b>)\nReload time (<b><color=#FFDD00>" + Settings.p_cooldown + "s</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * Settings.p_bullet_speed * 3 + " km/h</color></b>)\nShip speed (<b><color=#FFDD00>" + Settings.p_speed * Settings.p_speed / 2 + " km/h</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * 15 + " km/h</color></b>)\nShip health (<b><color=#FFDD00>" + Settings.p_health + "</color></b>)\nFire damage (<b><color=#FFDD00>" + Settings.p_fire_devast + "</color></b>)\nIce damage (<b><color=#FFDD00>" + Settings.p_ice_devast + "</color></b>)\nPoison damage (<b><color=#FFDD00>" + Settings.p_poison_devast + "</color></b>)\nFire resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[0] + "%</color></b>)\nIce resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[1] + "%</color></b>)\nPoison resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[2] + "%</color></b>)\nVampiric regeneration (<b><color=#FFDD00>" + Settings.p_vampiric_regeneration_strength + "%</color></b>)";
+        allStatus.text = "Ship level (<b><color=#FFDD00>" + Settings.p_ship_level + "</color></b>)\nReload time (<b><color=#FFDD00>" + Settings.p_cooldown + "s</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * Settings.p_bullet_speed * 3 + " km/h</color></b>)\nShip speed (<b><color=#FFDD00>" + Settings.p_speed * Settings.p_speed / 2 + " km/h</color></b>)\nBullet speed (<b><color=#FFDD00>" + Settings.p_bullet_speed * 15 + " km/h</color></b>)\nShip health (<b><color=#FFDD00>" + Settings.p_health + "</color></b>)\nFire damage (<b><color=#FFDD00>" + Settings.p_fire_devast + "</color></b>)\nIce damage (<b><color=#FFDD00>" + Settings.p_ice_devast + "</color></b>)\nPoison damage (<b><color=#FFDD00>" + Settings.p_poison_devast + "</color></b>)\nFire resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[0] + "%</color></b>)\nIce resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[1] + "%</color></b>)\nPoison resistance (<b><color=#FFDD00>" + Settings.p_resistanceStrength[2] + "%</color></b>)\nVampiric regeneration (<b><color=#FFDD00>" + Settings.p_vampiric_regeneration_strength + "%</color></b>)\nCritical strike (<b><color=#FFDD00>~" + Settings.p_critical_strike_strength + "x</color></b>)";
     }
 
     private void upgradeShip()
@@ -543,6 +552,18 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void upgradeCriticalStrike()
+    {
+        if (Settings.p_gold >= Settings.criticalStrikeCosts[Settings.p_critical_strike_level - 1] && Settings.p_critical_strike_level < Settings.shipCriticalStrike.Length)
+        {
+            Settings.p_gold -= Settings.criticalStrikeCosts[Settings.p_critical_strike_level - 1];
+            Settings.p_critical_strike_level++;
+            updateShipSettings();
+            updateCosts();
+            updateScore();
+        }
+    }
+
     public void updateShipSettings()
     {
         Settings.p_bullet_speed = Settings.shipBulletSpeeds[Settings.p_bullet_speed_level - 1];
@@ -557,6 +578,7 @@ public class GameController : MonoBehaviour
         Settings.p_resistanceStrength[1] = Settings.shipIceResistance[Settings.p_ice_resistance_level - 1];
         Settings.p_resistanceStrength[2] = Settings.shipPoisonResistance[Settings.p_poison_resistance_level - 1];
         Settings.p_vampiric_regeneration_strength = Settings.shipVampiricRegeneration[Settings.p_vampiric_regeneration_level - 1];
+        Settings.p_critical_strike_strength = Settings.shipCriticalStrike[Settings.p_critical_strike_level - 1];
     }
 
 

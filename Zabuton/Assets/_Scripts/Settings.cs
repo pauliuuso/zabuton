@@ -38,6 +38,8 @@ public class Settings
     public static int p_poison_resistance_level = 1;
     public static int p_vampiric_regeneration_level = 1;
     public static int p_vampiric_regeneration_strength = 0;
+    public static int p_critical_strike_level = 1;
+    public static float p_critical_strike_strength = 0;
 
     public static float xMin = -20f, xMax = 20f, zMin = -14f, zMax = 6f;
 
@@ -55,7 +57,8 @@ public class Settings
     public static int[] fireResistanceCosts = new int[] { 100, 330, 680, 1900, 2400, 3500 };
     public static int[] iceResistanceCosts = new int[] { 100, 330, 680, 1900, 2400, 3500 };
     public static int[] poisonResistanceCosts = new int[] { 100, 330, 680, 1900, 2400, 3500 };
-    public static int[] vampiricRegenerationCosts = new int[] { 220, 550, 1000, 2800, 6000};
+    public static int[] vampiricRegenerationCosts = new int[] { 220, 750, 1500, 3900, 10000};
+    public static int[] criticalStrikeCosts = new int[] { 250, 800, 2100, 4050, 11500 };
 
 
     // upgrade parameters
@@ -70,6 +73,7 @@ public class Settings
     public static int[] shipIceResistance = new int[] { 0, 10, 20, 40, 60, 70};
     public static int[] shipPoisonResistance = new int[] { 0, 10, 20, 40, 60, 70};
     public static int[] shipVampiricRegeneration = new int[] { 0, 15, 30, 50, 80, 100};
+    public static float[] shipCriticalStrike = new float[] { 0, 1.4f, 1.8f, 2.5f, 3f, 3.5f};
 }
 
 // Devast 0-15 alpha-force, 16-25 beta-force, 26-35 ceta-force

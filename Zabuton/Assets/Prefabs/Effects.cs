@@ -19,6 +19,7 @@ public class Effects : MonoBehaviour
     public int fireResistance1Steps;
     public int iceResistance1Steps;
     public int poisonResistance1Steps;
+    public int vampiricRegenerationSteps;
 
     public GameObject bolt;
     private GameObject boltClone;
@@ -170,7 +171,7 @@ public class Effects : MonoBehaviour
             {
                 vampiricRegenerationClone = Instantiate(vampiricRegeneration, gameObject.transform.position, vampiricRegeneration.transform.rotation) as GameObject;
                 vampiricRegenerationClone.transform.parent = gameObject.transform;
-                vampiricRegenerating = false;
+                vampiricRegenerationSteps = currentStep + 3;
             }
         }
 
@@ -289,6 +290,14 @@ public class Effects : MonoBehaviour
                 }
             }
         }
+        if(vampiricRegenerating)
+        {
+            if(vampiricRegenerationSteps < currentStep)
+            {
+                vampiricRegenerating = false;
+                Destroy(vampiricRegenerationClone);
+            }
+        }
 
         if (iceResisting1)
         {
@@ -339,6 +348,7 @@ public class Effects : MonoBehaviour
             poisonArrowClone.transform.parent = boltClone.transform;
             boltClone.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = emptyMaterial;
             boltClone.tag = "Untagged";
+            boltClone.GetComponent<Bullet>().effects.Clear();
             boltClone.GetComponent<Bullet>().fromEffects = true;
             boltClone.GetComponent<Bullet>().devast = 5; // Soviniui suteikiama damage
             boltClone.GetComponent<Bullet>().type = "poison"; // Sovinio tipas
