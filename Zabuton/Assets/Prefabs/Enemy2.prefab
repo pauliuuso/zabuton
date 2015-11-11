@@ -181,6 +181,7 @@ MonoBehaviour:
   fireResisting1: 0
   iceResisting1: 0
   poisonResisting1: 0
+  vampiricRegenerating: 0
   fired1Steps: 0
   poisoned1Steps: 0
   poisoned2Steps: 0
@@ -188,6 +189,7 @@ MonoBehaviour:
   fireResistance1Steps: 0
   iceResistance1Steps: 0
   poisonResistance1Steps: 0
+  vampiricRegenerationSteps: 0
   bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
   firedEffect1: {fileID: 160654, guid: 09652bfcc2b5d2348b9d3fc4fbcece15, type: 2}
   poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
@@ -197,7 +199,9 @@ MonoBehaviour:
   iceResistance1: {fileID: 167616, guid: 469c9f151e3052a4bbc4eb182f50b86a, type: 2}
   poisonResistance1: {fileID: 197370, guid: 66eb2328594a17643abbb0429cb8c8d7, type: 2}
   poisonArrow: {fileID: 123064, guid: 01c831cbb386d7544978726925987bb2, type: 2}
+  vampiricRegeneration: {fileID: 0}
   emptyMaterial: {fileID: 2100000, guid: 0d32a0ca9c4072542896a696b50b9f6f, type: 2}
+  gameController: {fileID: 0}
 --- !u!114 &11449970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,7 +245,7 @@ MonoBehaviour:
   health: 210
   max_health: 210
   devast: 60
-  reward: 165
+  reward: 119
   bullet_speed: -15
   bullet_devast: 35
   bullet_type: ice

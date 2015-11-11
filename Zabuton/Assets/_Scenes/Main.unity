@@ -3556,6 +3556,7 @@ MonoBehaviour:
   Enemy1: {fileID: 177452, guid: fb86905a660f0a94398d45560ee53be0, type: 2}
   Enemy2: {fileID: 169244, guid: 8ceb52c730fd5b543b2d9b117e18a363, type: 2}
   Enemy3: {fileID: 147762, guid: 5a274369a20fa5448a014359c86fb142, type: 2}
+  Enemy4: {fileID: 197568, guid: 5671272cc0594ed4b9f0baef8db192ff, type: 2}
   Saturn: {fileID: 193192, guid: 621278ad74929d8499011980e009e7e9, type: 2}
   musicManager: {fileID: 132528, guid: 1acb22692ba3f6143bdf491d2500c201, type: 2}
   background: {fileID: 180200, guid: ac7eea60fe36dbf4baae41a30452749a, type: 2}
