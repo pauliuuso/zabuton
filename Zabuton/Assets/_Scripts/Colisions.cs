@@ -76,9 +76,10 @@ public class Colisions : MonoBehaviour
  
     }
 
-    public void showDamage(string prefix, int damage, string color = "red", string ending = null)
+    public void showDamage(string prefix, int damage, string color = "red", string ending = null, float time = 1f)
     {
         stageText.text = prefix + damage + ending;
+        stageText.GetComponent<StageTextMover>().showTime = time;
         if (color == "red") stageText.color = Color.red;
         else if (color == "green") stageText.color = Color.green;
 

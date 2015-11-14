@@ -23,10 +23,12 @@ public class Enemy2 : MonoBehaviour
     public GameObject bolt;
     public Material boltMaterial;
     private float nextFire = 4;
+    private float yRotation;
 
     void Start()
     {
         tilt = gameObject.GetComponent<Soul>().tilt;
+        yRotation = gameObject.transform.eulerAngles.y;
     }
 
     void FixedUpdate()
@@ -75,7 +77,8 @@ public class Enemy2 : MonoBehaviour
         else if (movingSideways < 0 && horizontalMovement == 0) movingSideways++;
         else if (movingSideways > 0 && horizontalMovement == 0) movingSideways--;
 
-        GetComponent<Rigidbody>().rotation = Quaternion.Euler(270f + movingSideways * tilt, gameObject.transform.rotation.z + 90f, gameObject.transform.rotation.z); // Cia kai juda i sonus, kad pasisuktu laivas i sona
+        //GetComponent<Rigidbody>().rotation = Quaternion.Euler(270f + movingSideways * tilt, gameObject.transform.rotation.z + 90f, gameObject.transform.rotation.z); // Cia kai juda i sonus, kad pasisuktu laivas i sona
+        gameObject.transform.rotation = Quaternion.Euler(270f + movingSideways * tilt, yRotation, gameObject.transform.rotation.z); // Cia kai juda i sonus, kad pasisuktu laivas i sona
 
 
     }

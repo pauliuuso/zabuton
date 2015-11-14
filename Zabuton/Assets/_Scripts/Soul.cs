@@ -132,7 +132,7 @@ public class Soul : MonoBehaviour
             health -= damageDone;
             if(criticalReceived)
             {
-                gameObject.GetComponent<Colisions>().showDamage("-", damageDone, "red", "!");
+                gameObject.GetComponent<Colisions>().showDamage("-", damageDone, "red", "!", 2f);
                 criticalReceived = false;
             }
 
