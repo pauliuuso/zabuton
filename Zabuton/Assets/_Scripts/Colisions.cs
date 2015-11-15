@@ -53,6 +53,7 @@ public class Colisions : MonoBehaviour
             gameController.updateHealth();
         }
 
+
     }
 
     public void checkLife()

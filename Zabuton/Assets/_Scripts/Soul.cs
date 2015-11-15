@@ -27,6 +27,7 @@ public class Soul : MonoBehaviour
     public string ship_name;
     private GameObject playerShip;
     private bool criticalReceived = false;
+    public bool notMoving = false;
 
     // Effects //////
     /*

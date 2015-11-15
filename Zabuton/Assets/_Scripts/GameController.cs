@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public GameObject Enemy3;
     public GameObject Enemy4;
     public GameObject Enemy5;
+    public GameObject Enemy6;
     public GameObject Saturn;
     public GameObject musicManager;
     private GameObject musicManagerClone;
@@ -73,7 +74,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = { "en5-1", "wait", "wait", "en5-1", "en5-1", "en5-1", "en5-1", "en5-2", "en5-2", "en5-2", "ast2", "ast1", "wait", "en5", "ast1", "en1", "ast1", "ast2", "speed3", "ast1", "ast2", "en1", "ast1", "ast1", "ast2", "wait", "ast2", "ast1", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast2", "incoming attack!", "mus_attack1", "speed3", "en2", "ast2", "wait", "en1", "wait", "wait", "wait", "ast2", "en1", "wait", "ast2", "en1", "en1", "ast2", "ast2", "wait", "wait", "en1", "wait", "ast2", "ast2", "en1", "wait", "wait", "en3", "wait", "wait", "en1", "ast2", "ast2", "ast2", "wait", "wait", "wait", "en2", "en1", "endSpeed", "wait", "ast2", "wait", "en1", "en1", "wait", "ast1", "ast2", "wait", "wait", "en3", "wait", "wait", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "ast1", "ast2", "endSpeed", "wait", "ast2", "wait", "wait", "end" };
+    private string[] level1 = { "en6", "wait", "wait", "en5-1", "en5-1", "en5-1", "en5-1", "en5-2", "en5-2", "en5-2", "ast2", "ast1", "wait", "en5", "ast1", "en1", "ast1", "ast2", "speed3", "ast1", "ast2", "en1", "ast1", "ast1", "ast2", "wait", "ast2", "ast1", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "ast1", "ast1", "ast1", "ast1", "ast2", "incoming attack!", "mus_attack1", "speed3", "en2", "ast2", "wait", "en1", "wait", "wait", "wait", "ast2", "en1", "wait", "ast2", "en1", "en1", "ast2", "ast2", "wait", "wait", "en1", "wait", "ast2", "ast2", "en1", "wait", "wait", "en3", "wait", "wait", "en1", "ast2", "ast2", "ast2", "wait", "wait", "wait", "en2", "en1", "endSpeed", "wait", "ast2", "wait", "en1", "en1", "wait", "ast1", "ast2", "wait", "wait", "en3", "wait", "wait", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "ast1", "ast2", "endSpeed", "wait", "ast2", "wait", "wait", "end" };
 
     // Game music
 
@@ -195,6 +196,11 @@ public class GameController : MonoBehaviour
             {
                 Instantiate(Enemy5, new Vector3(16f, 0.0f, 13), Enemy5.transform.rotation);
                 Enemy5.GetComponent<Soul>().reward = (int)Random.Range(10, 25);
+            }
+            else if (currentLevel[i] == "en6")
+            {
+                Instantiate(Enemy6, spawnPosition, Enemy5.transform.rotation);
+                Enemy6.GetComponent<Soul>().reward = (int)Random.Range(90, 150);
             }
             else if(currentLevel[i] == "sat")
             {
