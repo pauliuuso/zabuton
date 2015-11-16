@@ -17,6 +17,7 @@ GameObject:
   - 54: {fileID: 5414404}
   - 114: {fileID: 11407138}
   - 114: {fileID: 11411474}
+  - 65: {fileID: 6557140}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Enemy
@@ -118,10 +119,22 @@ MeshCollider:
   m_GameObject: {fileID: 147762}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 6ad6fcb54a189454b9bb48236e3ea4a2, type: 3}
+--- !u!65 &6557140
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.03999996, y: 2.51999998, z: 1.69000006}
+  m_Center: {x: .170000002, y: -.00128248043, z: -.0778369606}
 --- !u!114 &11407138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -212,8 +225,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   tilt: 5
-  health: 250
-  max_health: 250
+  health: 300
+  max_health: 300
   devast: 80
   reward: 191
   bullet_speed: -15
@@ -232,6 +245,7 @@ MonoBehaviour:
   addBoom: 0
   lastHitBy: 
   ship_name: enemy3
+  notMoving: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -273,7 +287,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: canon1
@@ -310,6 +324,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SendCollisionMessage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: health
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: max_health
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

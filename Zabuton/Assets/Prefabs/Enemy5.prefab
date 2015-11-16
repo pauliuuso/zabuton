@@ -250,6 +250,7 @@ MonoBehaviour:
   addBoom: 0
   lastHitBy: 
   ship_name: enemy5
+  notMoving: 0
 --- !u!136 &13629958
 CapsuleCollider:
   m_ObjectHideFlags: 1

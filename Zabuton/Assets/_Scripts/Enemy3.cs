@@ -22,11 +22,9 @@ public class Enemy3 : MonoBehaviour
     public GameObject bolt;
     public Material boltMaterial;
     private float nextFire = 0.5f;
-    private float yRotation;
 
     void Start()
     {
-        yRotation = gameObject.transform.eulerAngles.y;
     }
 
     void FixedUpdate()
@@ -35,7 +33,6 @@ public class Enemy3 : MonoBehaviour
 
         currentTime += Time.deltaTime;
 
-        downRay = new Ray(gameObject.transform.position, Vector3.forward * -sightDown);
 
         Vector3 movement = new Vector3(horizontalMovement, 0.0f, verticalMovement); // Vector3(x, y, z); Nustatoma kuria kryptimi juda
         GetComponent<Rigidbody>().velocity = movement * gameObject.GetComponent<Soul>().speed; // Cia vyksta pats judejimas

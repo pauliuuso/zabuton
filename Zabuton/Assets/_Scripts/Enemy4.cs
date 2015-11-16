@@ -46,7 +46,8 @@ public class Enemy4 : MonoBehaviour
     {
         tilt = gameObject.GetComponent<Soul>().tilt;
         setPosition();
-        fightingTime = Random.Range(10, 30);
+        fightingTime = Random.Range(20, 50);
+        fightingTime = 200;
         yRotation = gameObject.transform.eulerAngles.y;
         turretClone = Instantiate(turret, gameObject.transform.position, turret.transform.rotation) as GameObject;
         turretClone.transform.parent = gameObject.transform;
@@ -61,11 +62,6 @@ public class Enemy4 : MonoBehaviour
         Debug.DrawRay(gameObject.transform.position, Vector3.right * sightRight, rayColorRight);
 
         currentTime += Time.deltaTime;
-
-        downRay = new Ray(gameObject.transform.position, Vector3.forward * -sightDown);
-        leftRay = new Ray(gameObject.transform.position, Vector3.left * sightLeft);
-        upRay = new Ray(gameObject.transform.position, Vector3.forward * sightUp);
-        rightRay = new Ray(gameObject.transform.position, Vector3.right * sightRight);
         
         Vector3 movement = new Vector3(horizontalMovement, 0.0f, verticalMovement); // Vector3(x, y, z); Nustatoma kuria kryptimi juda
         GetComponent<Rigidbody>().velocity = movement * gameObject.GetComponent<Soul>().speed; // Cia vyksta pats judejimas

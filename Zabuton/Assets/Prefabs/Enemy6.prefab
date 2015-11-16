@@ -91,7 +91,7 @@ MeshCollider:
   m_GameObject: {fileID: 105972}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 23e086ffa48d84d44878e36392e30a8a, type: 3}
@@ -147,8 +147,8 @@ MonoBehaviour:
   health: 140
   max_health: 140
   devast: 45
-  reward: 149
-  bullet_speed: -15
+  reward: 100
+  bullet_speed: -20
   bullet_devast: 35
   bullet_type: fire
   fire_level: 2
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e2f03da9717ab40902c0b09f7c9cc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turret: {fileID: 151136, guid: 70016ada755445d428853bde82d8e3ca, type: 2}
+  turret: {fileID: 193846, guid: 70016ada755445d428853bde82d8e3ca, type: 2}
 --- !u!114 &11477888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,7 +226,15 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: turret
       value: 
-      objectReference: {fileID: 151136, guid: 70016ada755445d428853bde82d8e3ca, type: 2}
+      objectReference: {fileID: 193846, guid: 70016ada755445d428853bde82d8e3ca, type: 2}
+    - target: {fileID: 0}
+      propertyPath: bullet_speed
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 105972}

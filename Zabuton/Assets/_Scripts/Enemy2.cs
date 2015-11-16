@@ -49,12 +49,16 @@ public class Enemy2 : MonoBehaviour
             {
                 rayColorDown = Color.red;
                 movingDown = false;
+                if (Random.Range(0f, 1f) > 0.5f) movingLeft = true;
+                else movingRight = true;
             }
         }
         else if (!Physics.Raycast(downRay, out hit, sightDown))
         {
             rayColorDown = Color.green;
             movingDown = true;
+            movingLeft = false;
+            movingRight = false;
         }
 
         if(nextFire < currentTime)

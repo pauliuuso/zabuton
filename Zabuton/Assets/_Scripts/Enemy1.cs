@@ -60,10 +60,10 @@ public class Enemy1 : MonoBehaviour
 
         currentTime += Time.deltaTime;
 
-        downRay = new Ray(gameObject.transform.position, Vector3.forward * -sightDown);
+        /*downRay = new Ray(gameObject.transform.position, Vector3.forward * -sightDown);
         leftRay = new Ray(gameObject.transform.position, Vector3.left * sightLeft);
         upRay = new Ray(gameObject.transform.position, Vector3.forward * sightUp);
-        rightRay = new Ray(gameObject.transform.position, Vector3.right * sightRight);
+        rightRay = new Ray(gameObject.transform.position, Vector3.right * sightRight);*/
         
         Vector3 movement = new Vector3(horizontalMovement, 0.0f, verticalMovement); // Vector3(x, y, z); Nustatoma kuria kryptimi juda
         GetComponent<Rigidbody>().velocity = movement * gameObject.GetComponent<Soul>().speed; // Cia vyksta pats judejimas
@@ -81,7 +81,7 @@ public class Enemy1 : MonoBehaviour
             movingDown = false;
         }
 
-        if (Physics.Raycast(downRay, out hit, sightDown))
+        /*if (Physics.Raycast(downRay, out hit, sightDown))
         {
             if(hit.collider.tag != "Untagged")
             {
@@ -141,7 +141,7 @@ public class Enemy1 : MonoBehaviour
         if (!Physics.Raycast(leftRay, out hit, sightLeft) && !Physics.Raycast(rightRay, out hit, sightRight) && !Physics.Raycast(upRay, out hit, sightUp) && !Physics.Raycast(downRay, out hit, sightDown) && dodging)
         {
             dodging = false;
-        }
+        }*/
 
         if (movingLeft && horizontalMovement >= -1f) horizontalMovement -= 0.1f;
         if (movingUp && verticalMovement <= 1f) verticalMovement += 0.1f;
