@@ -52,6 +52,7 @@ public class Enemy4 : MonoBehaviour
         turretClone = Instantiate(turret, gameObject.transform.position, turret.transform.rotation) as GameObject;
         turretClone.transform.parent = gameObject.transform;
         turretClone.transform.position = new Vector3 (gameObject.transform.position.x , 0.66f, gameObject.transform.position.z);
+        turretClone.GetComponent<Turret1>().owner = "enemy";
 	}
 
 	void FixedUpdate () 
@@ -60,6 +61,38 @@ public class Enemy4 : MonoBehaviour
         Debug.DrawRay(gameObject.transform.position, Vector3.left * sightLeft, rayColorLeft);
         Debug.DrawRay(gameObject.transform.position, Vector3.forward * sightUp, rayColorUp);
         Debug.DrawRay(gameObject.transform.position, Vector3.right * sightRight, rayColorRight);
+
+        //leftRay = new Ray(gameObject.transform.position, Vector3.left * sightLeft);
+        //rightRay = new Ray(gameObject.transform.position, Vector3.right * sightRight);
+
+       /* if (Physics.Raycast(leftRay, out hit, sightLeft))
+        {
+            if (hit.collider.tag != "Untagged")
+            {
+                rayColorLeft = Color.red;
+                leftThreat = true;
+                movingLeft = false;
+            }
+        }
+        else if (!Physics.Raycast(leftRay, out hit, sightLeft))
+        {
+            leftThreat = false;
+            rayColorLeft = Color.green;
+        }
+        if (Physics.Raycast(rightRay, out hit, sightRight))
+        {
+            if (hit.collider.tag != "Untagged")
+            {
+                rayColorRight = Color.red;
+                rightThreat = true;
+                movingRight = false;
+            }
+        }
+        else if (!Physics.Raycast(rightRay, out hit, sightRight))
+        {
+            rightThreat = false;
+            rayColorRight = Color.green;
+        }*/
 
         currentTime += Time.deltaTime;
         
@@ -124,6 +157,10 @@ public class Enemy4 : MonoBehaviour
             {
                 setPosition();
                 nextMove = Time.time + randomas + 5;
+            }
+            if (gameObject.GetComponent<Soul>().collidingWithSame)
+            {
+                nextMove = Time.time + 1f;
             }
         }
         else if(initialized && (dodging || retreating))

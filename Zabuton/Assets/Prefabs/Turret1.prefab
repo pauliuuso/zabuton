@@ -100,11 +100,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fde2523a61ab7d4ab5a4f22ba13de4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasRadar: 0
   bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
-  boltMaterial: {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+  boltMaterial:
+  - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+  - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
+  - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
   canon: {fileID: 132510}
-  turretShot: {fileID: 109672, guid: aa63cdfb8f734834bab15b998b5d55af, type: 2}
+  turretShot:
+  - {fileID: 109672, guid: aa63cdfb8f734834bab15b998b5d55af, type: 2}
+  - {fileID: 109672, guid: 92f28325ba8524c44b872095a23fcc0c, type: 2}
+  - {fileID: 109672, guid: 4e6f26ce3f471f24dbc8c71bebe9e42f, type: 2}
+  bullet_speed: -20
+  bullet_devast: 35
+  owner: enemy
+  bullet_type: random
+  fire_level: 2
+  ice_level: 2
+  poison_level: 2
+  effect: 
+  bullet_size:
+  - 2
+  - 2
+  - 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -112,6 +129,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: turretShot.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet_size.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boltMaterial.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: canon
       value: 
@@ -132,6 +161,70 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: .707106709
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet_speed
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet_devast
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: owner
+      value: enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet_type
+      value: random
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fire_level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ice_level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: poison_level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet_size.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet_size.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet_size.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boltMaterial.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltMaterial.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltMaterial.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
+    - target: {fileID: 0}
+      propertyPath: turretShot.Array.data[0]
+      value: 
+      objectReference: {fileID: 109672, guid: aa63cdfb8f734834bab15b998b5d55af, type: 2}
+    - target: {fileID: 0}
+      propertyPath: turretShot.Array.data[1]
+      value: 
+      objectReference: {fileID: 109672, guid: 92f28325ba8524c44b872095a23fcc0c, type: 2}
+    - target: {fileID: 0}
+      propertyPath: turretShot.Array.data[2]
+      value: 
+      objectReference: {fileID: 109672, guid: 4e6f26ce3f471f24dbc8c71bebe9e42f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 193846}

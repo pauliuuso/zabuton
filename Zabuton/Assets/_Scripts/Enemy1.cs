@@ -60,10 +60,10 @@ public class Enemy1 : MonoBehaviour
 
         currentTime += Time.deltaTime;
 
-        /*downRay = new Ray(gameObject.transform.position, Vector3.forward * -sightDown);
-        leftRay = new Ray(gameObject.transform.position, Vector3.left * sightLeft);
-        upRay = new Ray(gameObject.transform.position, Vector3.forward * sightUp);
-        rightRay = new Ray(gameObject.transform.position, Vector3.right * sightRight);*/
+        //downRay = new Ray(gameObject.transform.position, Vector3.forward * -sightDown);
+        //leftRay = new Ray(gameObject.transform.position, Vector3.left * sightLeft);
+        //upRay = new Ray(gameObject.transform.position, Vector3.forward * sightUp);
+        //rightRay = new Ray(gameObject.transform.position, Vector3.right * sightRight);
         
         Vector3 movement = new Vector3(horizontalMovement, 0.0f, verticalMovement); // Vector3(x, y, z); Nustatoma kuria kryptimi juda
         GetComponent<Rigidbody>().velocity = movement * gameObject.GetComponent<Soul>().speed; // Cia vyksta pats judejimas
@@ -81,6 +81,36 @@ public class Enemy1 : MonoBehaviour
             movingDown = false;
         }
 
+        /*if (Physics.Raycast(leftRay, out hit, sightLeft))
+        {
+            if (hit.collider.tag != "Untagged")
+            {
+                rayColorLeft = Color.red;
+                leftThreat = true;
+                movingLeft = false;
+            }
+        }
+        else if (!Physics.Raycast(leftRay, out hit, sightLeft))
+        {
+            leftThreat = false;
+            rayColorLeft = Color.green;
+        }
+        if (Physics.Raycast(rightRay, out hit, sightRight))
+        {
+            if (hit.collider.tag != "Untagged")
+            {
+                rayColorRight = Color.red;
+                rightThreat = true;
+                movingRight = false;
+            }
+        }
+        else if (!Physics.Raycast(rightRay, out hit, sightRight))
+        {
+            rightThreat = false;
+            rayColorRight = Color.green;
+        }*/
+
+
         /*if (Physics.Raycast(downRay, out hit, sightDown))
         {
             if(hit.collider.tag != "Untagged")
@@ -95,20 +125,6 @@ public class Enemy1 : MonoBehaviour
             downThreat = false;
             rayColorDown = Color.green;
         }
-        if (Physics.Raycast(leftRay, out hit, sightLeft))
-        {
-            if(hit.collider.tag != "Untagged")
-            {
-                rayColorLeft = Color.red;
-                dodging = true;
-                leftThreat = true;
-            }
-        }
-        else if (!Physics.Raycast(leftRay, out hit, sightLeft))
-        {
-            leftThreat = false;
-            rayColorLeft = Color.green;
-        }
         if (Physics.Raycast(upRay, out hit, sightUp))
         {
             if (hit.collider.tag != "Untagged")
@@ -122,20 +138,6 @@ public class Enemy1 : MonoBehaviour
         {
             upThreat = false;
             rayColorUp = Color.green;
-        }
-        if (Physics.Raycast(rightRay, out hit, sightRight))
-        {
-            if (hit.collider.tag != "Untagged")
-            {
-                rayColorRight = Color.red;
-                dodging = true;
-                rightThreat = true;
-            }
-        }
-        else if (!Physics.Raycast(rightRay, out hit, sightRight))
-        {
-            rightThreat = false;
-            rayColorRight = Color.green;
         }
 
         if (!Physics.Raycast(leftRay, out hit, sightLeft) && !Physics.Raycast(rightRay, out hit, sightRight) && !Physics.Raycast(upRay, out hit, sightUp) && !Physics.Raycast(downRay, out hit, sightDown) && dodging)
@@ -185,6 +187,10 @@ public class Enemy1 : MonoBehaviour
                 setPosition();
                 nextMove = Time.time + randomas;
                 fire();
+            }
+            if(gameObject.GetComponent<Soul>().collidingWithSame)
+            {
+                nextMove = Time.time + 1f;
             }
         }
         else if(initialized && (dodging || retreating))

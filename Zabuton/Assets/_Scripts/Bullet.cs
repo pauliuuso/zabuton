@@ -19,12 +19,12 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        if(owner == "player" && !fromEffects)
+        /*if(owner == "player" && !fromEffects)
         {
             fireLevel = Settings.p_fire_level;
             iceLevel = Settings.p_ice_level;
             poisonLevel = Settings.p_poison_level;
-        }
+        }*/
 
     }
 

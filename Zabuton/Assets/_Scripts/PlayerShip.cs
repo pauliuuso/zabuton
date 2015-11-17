@@ -20,6 +20,7 @@ public class PlayerShip : MonoBehaviour
     public AudioClip[] iceShots;
     public AudioClip[] poisonShots;
 
+
     void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -91,6 +92,9 @@ public class PlayerShip : MonoBehaviour
                 Bolt.GetComponent<Bullet>().effects.Add("Critical");
             }
 
+            Bolt.GetComponent<Bullet>().fireLevel = Settings.p_fire_level;
+            Bolt.GetComponent<Bullet>().iceLevel = Settings.p_ice_level;
+            Bolt.GetComponent<Bullet>().poisonLevel = Settings.p_poison_level;
             Bolt.GetComponent<Bullet>().devast = Settings.p_devast; // Soviniui suteikiama damage
             Bolt.GetComponent<Bullet>().type = Settings.p_type; // Sovinio tipas
             Bolt.GetComponent<Bullet>().owner = "player";

@@ -349,6 +349,7 @@ MonoBehaviour:
   fireResistance1Steps: 0
   iceResistance1Steps: 0
   poisonResistance1Steps: 0
+  vampiricRegenerationSteps: 0
   bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
   firedEffect1: {fileID: 160654, guid: 09652bfcc2b5d2348b9d3fc4fbcece15, type: 2}
   poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
@@ -360,6 +361,7 @@ MonoBehaviour:
   poisonArrow: {fileID: 123064, guid: 01c831cbb386d7544978726925987bb2, type: 2}
   vampiricRegeneration: {fileID: 169900, guid: b6411c4b3824cb8469d09c39baae8968, type: 2}
   emptyMaterial: {fileID: 2100000, guid: 0d32a0ca9c4072542896a696b50b9f6f, type: 2}
+  gameController: {fileID: 0}
 --- !u!114 &11462580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -407,6 +409,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
+  turret: {fileID: 193846, guid: 70016ada755445d428853bde82d8e3ca, type: 2}
 --- !u!114 &11493002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,6 +443,8 @@ MonoBehaviour:
   addBoom: 0
   lastHitBy: 
   ship_name: zabuton
+  notMoving: 0
+  collidingWithSame: 0
 --- !u!114 &11497420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4832,6 +4837,10 @@ Prefab:
       propertyPath: ship_name
       value: zabuton
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: turret
+      value: 
+      objectReference: {fileID: 193846, guid: 70016ada755445d428853bde82d8e3ca, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 180562}

@@ -24,6 +24,7 @@ public class Enemy2 : MonoBehaviour
     public Material boltMaterial;
     private float nextFire = 4;
     private float yRotation;
+    private bool readyToChange = true;
 
     void Start()
     {
@@ -45,15 +46,16 @@ public class Enemy2 : MonoBehaviour
 
         if (Physics.Raycast(downRay, out hit, sightDown))
         {
-            if (hit.collider.tag != "Untagged")
+            if (hit.collider.tag == "Player_ship")
             {
                 rayColorDown = Color.red;
                 movingDown = false;
                 if (Random.Range(0f, 1f) > 0.5f) movingLeft = true;
                 else movingRight = true;
+                readyToChange = false;
             }
         }
-        else if (!Physics.Raycast(downRay, out hit, sightDown))
+        else if (!Physics.Raycast(downRay, out hit, sightDown) && readyToChange)
         {
             rayColorDown = Color.green;
             movingDown = true;
@@ -63,6 +65,7 @@ public class Enemy2 : MonoBehaviour
 
         if(nextFire < currentTime)
         {
+            readyToChange = true;
             nextFire += Random.Range(1, 5);
             fire();
         }

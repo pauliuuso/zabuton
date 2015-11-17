@@ -28,6 +28,7 @@ public class Soul : MonoBehaviour
     private GameObject playerShip;
     private bool criticalReceived = false;
     public bool notMoving = false;
+    public bool collidingWithSame = false;
 
     // Effects //////
     /*

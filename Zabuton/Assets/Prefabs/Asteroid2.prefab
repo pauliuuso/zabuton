@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 147010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .966759264, y: .966759264, z: .966759264}
+  m_LocalScale: {x: 1.15885794, y: 1.15885794, z: 1.15885794}
   m_Children:
   - {fileID: 468894}
   m_Father: {fileID: 0}
@@ -179,7 +179,7 @@ MonoBehaviour:
   health: 20
   max_health: 0
   devast: 26
-  reward: 25
+  reward: 20
   bullet_speed: 10
   bullet_devast: 20
   bullet_type: fire
@@ -197,6 +197,7 @@ MonoBehaviour:
   lastHitBy: 
   ship_name: 
   notMoving: 0
+  collidingWithSame: 0
 --- !u!114 &11482448
 MonoBehaviour:
   m_ObjectHideFlags: 1

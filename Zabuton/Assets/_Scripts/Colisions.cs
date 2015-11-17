@@ -52,8 +52,22 @@ public class Colisions : MonoBehaviour
             other.GetComponent<PlayerShip>().checkLife(); // Sita funkcija yra playership scripte ir tikrina kiek gyvybiu liko zaidejui
             gameController.updateHealth();
         }
+        if(other.tag == "Enemy" && gameObject.tag == "Enemy")
+        {
+            gameObject.GetComponent<Soul>().collidingWithSame = true;
+            other.GetComponent<Soul>().collidingWithSame = true;
+        }
 
 
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Enemy" && gameObject.tag == "Enemy")
+        {
+            gameObject.GetComponent<Soul>().collidingWithSame = false;
+            other.GetComponent<Soul>().collidingWithSame = false;
+        }
     }
 
     public void checkLife()
