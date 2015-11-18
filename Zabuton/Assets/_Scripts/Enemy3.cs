@@ -9,7 +9,7 @@ public class Enemy3 : MonoBehaviour
     private bool movingUp = false;
     private bool movingRight = false;
     private bool movingDown = true;
-    private int speed;
+    private float speed;
     private float currentTime;
 
 
@@ -17,16 +17,17 @@ public class Enemy3 : MonoBehaviour
     void Start()
     {
         movingDown = true;
+        speed = gameObject.GetComponent<Soul>().speed;
     }
 
     void FixedUpdate()
     {
-
+        speed += 0.2f;
         currentTime += Time.deltaTime;
 
 
         Vector3 movement = new Vector3(horizontalMovement, 0.0f, verticalMovement); // Vector3(x, y, z); Nustatoma kuria kryptimi juda
-        GetComponent<Rigidbody>().velocity = movement * gameObject.GetComponent<Soul>().speed; // Cia vyksta pats judejimas
+        GetComponent<Rigidbody>().velocity = movement * speed; // Cia vyksta pats judejimas
 
 
         if (movingLeft && horizontalMovement >= -1f) horizontalMovement -= 0.1f;

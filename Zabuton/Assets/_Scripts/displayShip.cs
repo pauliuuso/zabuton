@@ -25,6 +25,12 @@ public class displayShip : MonoBehaviour
         GameObject currentShip = Instantiate(ships[Settings.p_ship_level - 1], gameObject.transform.position, Quaternion.Euler(330f, 12f, 40f)) as GameObject;
         currentShip.transform.localScale = new Vector3(2f, 2f, 2f);
         currentShip.transform.parent = gameObject.transform;
+        if (Settings.p_ship_level == 5 || Settings.p_ship_level == 6)
+        {
+            currentShip.transform.rotation = Quaternion.Euler(320f, 4f, 320f);
+            currentShip.transform.localScale = new Vector3(4f, 4f, 4f);
+        }
+
         if(transform.childCount > 1) Destroy(transform.GetChild(0).gameObject);
     }
 }

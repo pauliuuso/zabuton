@@ -44,6 +44,7 @@ public class Colisions : MonoBehaviour
         }
         else if(other.tag == "Player_ship") // jei kitas objektas yra zaidejo laivas
         {
+            gameObject.GetComponent<Soul>().lastHitBy = "player";
             showDamage("-", gameObject.GetComponent<Soul>().devast);
             gameObject.GetComponent<Soul>().damage(Settings.p_health, "none"); //Nuimama objektui tiek kiek zaidejas turi gyvybiu
             if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
@@ -74,7 +75,7 @@ public class Colisions : MonoBehaviour
     {
         if (gameObject.GetComponent<Soul>().health <= 0)
         {
-            if (gameObject.GetComponent<Soul>().lastHitBy == "player")
+            if (gameObject.GetComponent<Soul>().lastHitBy == "player" && gameObject.GetComponent<Soul>().reward > 0)
             {
                 stageText.text = "+" + gameObject.GetComponent<Soul>().reward + " gold";
                 stageText.color = new Color(1.0f, 0.8f, 0.0f);

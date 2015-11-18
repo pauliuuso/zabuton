@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour
     public GameObject playerShip2;
     public GameObject playerShip3;
     public GameObject playerShip4;
+    public GameObject playerShip5;
+    public GameObject playerShip6;
     public Canvas mainCanvas;
     public GameObject shop;
     public Text goldText;
@@ -74,7 +76,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"sat", "en6", "ast2", "rock1", "ast1", "en4", "ast1", "en1", "ast2", "ast2", "ast2", "ast2", "ast1", "en2", "wait", "ast1", "en1", "wait", "ast1", "ast2", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "ast2", "wait", "wait", "en6", "wait", "ast2", "ast1", "wait", "wait", "wait", "en6", "wait", "ast2", "en1", "wait", "ast1", "ast2", "wait", "wait", "en6", "ast2", "ast2", "en2", "ast1", "wait", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "wait", "ast2", "wait", "en1", "en1", "en6", "ast1", "ast1", "ast1", "ast1", "ast2", "incoming attack!", "mus_attack1", "speed3", "en2", "ast2", "wait", "en1", "wait", "wait", "wait", "ast2", "en1", "wait", "ast2", "en1", "en1", "ast2", "ast2", "wait", "wait", "en1", "wait", "ast2", "ast2", "en1", "wait", "wait", "en3", "wait", "wait", "en1", "ast2", "ast2", "ast2", "wait", "wait", "wait", "en2", "en1", "endSpeed", "wait", "ast2", "wait", "en6", "en6", "wait", "en6", "en6", "wait", "wait", "ast2", "ast1", "en3", "wait", "ast2", "wait", "ast1", "en6", "wait", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "ast1", "ast2", "endSpeed", "wait", "ast2", "wait", "wait", "end" };
+    private string[] level1 = {"sat", "en6", "ast2", "ast2", "ast1", "en4", "ast1", "en1", "ast2", "ast2", "ast2", "ast2", "ast1", "en2", "wait", "ast1", "en1", "wait", "ast1", "ast2", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "rock1", "ast2", "wait", "wait", "en6", "wait", "ast2", "ast1", "wait", "wait", "rock1", "wait", "en6", "wait", "ast2", "en1", "wait", "ast1", "ast2", "wait", "wait", "en6", "ast2", "ast2", "en2", "ast1", "wait", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "wait", "ast2", "wait", "en1", "en1", "en6", "ast1", "ast1", "ast1", "ast1", "ast2", "incoming attack!", "mus_attack1", "speed3", "rock1", "rock1", "rock1", "rock1", "rock1", "ast2", "en2", "ast2", "wait", "en1", "wait", "wait", "wait", "ast2", "en1", "wait", "ast2", "en1", "en1", "ast2", "rock1", "rock1", "ast2", "wait", "wait", "en1", "wait", "ast2", "ast2", "en1", "wait", "wait", "en3", "wait", "wait", "en1", "ast2", "ast2", "ast2", "wait", "wait", "wait", "en2", "en1", "endSpeed", "wait", "ast2", "wait", "en6", "en6", "wait", "en6", "en6", "wait", "wait", "ast2", "ast1", "en3", "wait", "ast2", "wait", "rock1", "ast1", "en6", "wait", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "rock1", "ast1", "ast2", "endSpeed", "wait", "ast2", "wait", "rock1", "wait", "end" };
 
     // Game music
 
@@ -190,7 +192,7 @@ public class GameController : MonoBehaviour
             else if (currentLevel[i] == "rock1")
             {
                 Instantiate(EnemyRocket1, spawnPosition, EnemyRocket1.transform.rotation);
-                EnemyRocket1.GetComponent<Soul>().reward = (int)Random.Range(90, 150);
+                EnemyRocket1.GetComponent<Soul>().reward = (int)Random.Range(0, 0);
             }
             else if(currentLevel[i] == "sat")
             {
@@ -285,6 +287,18 @@ public class GameController : MonoBehaviour
         else if (Settings.p_ship_level == 4)
         {
             var currentShip = Instantiate(playerShip4, playerShip.transform.position, Quaternion.Euler(-90f, 0.0f, 180f)) as GameObject;
+            currentShip.transform.parent = playerShip.transform;
+        }
+
+        else if (Settings.p_ship_level == 5)
+        {
+            var currentShip = Instantiate(playerShip5, playerShip.transform.position, Quaternion.Euler( -90f, -90f, 180f)) as GameObject;
+            currentShip.transform.parent = playerShip.transform;
+        }
+
+        else if (Settings.p_ship_level == 6)
+        {
+            var currentShip = Instantiate(playerShip6, playerShip.transform.position, Quaternion.Euler(-90f, -90f, 180f)) as GameObject;
             currentShip.transform.parent = playerShip.transform;
         }
 

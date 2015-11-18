@@ -3558,7 +3558,7 @@ MonoBehaviour:
   Enemy3: {fileID: 147762, guid: 5a274369a20fa5448a014359c86fb142, type: 2}
   Enemy4: {fileID: 197568, guid: 5671272cc0594ed4b9f0baef8db192ff, type: 2}
   Enemy6: {fileID: 105972, guid: 5d83a80b3f35f064087a83bfec633110, type: 2}
-  EnemyRocket1: {fileID: 174952, guid: 295432c7e9f4f854594404f419b06813, type: 2}
+  EnemyRocket1: {fileID: 166318, guid: 295432c7e9f4f854594404f419b06813, type: 2}
   Saturn: {fileID: 193192, guid: 621278ad74929d8499011980e009e7e9, type: 2}
   musicManager: {fileID: 132528, guid: 1acb22692ba3f6143bdf491d2500c201, type: 2}
   background: {fileID: 180200, guid: ac7eea60fe36dbf4baae41a30452749a, type: 2}
@@ -3568,6 +3568,8 @@ MonoBehaviour:
   playerShip2: {fileID: 199822, guid: f4eed1e88c6467742abd693c5eb87074, type: 2}
   playerShip3: {fileID: 165162, guid: ea2dbde717bde584ca4db904d728addd, type: 2}
   playerShip4: {fileID: 187276, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
+  playerShip5: {fileID: 154164, guid: cadb6824c1b06f44eb9e041e54751b4f, type: 2}
+  playerShip6: {fileID: 194946, guid: 6ab420f7b3120754da53946ae03054ad, type: 2}
   mainCanvas: {fileID: 860922538}
   shop: {fileID: 1482260943}
   goldText: {fileID: 1052592000}
@@ -3823,7 +3825,8 @@ MonoBehaviour:
   - {fileID: 199822, guid: f4eed1e88c6467742abd693c5eb87074, type: 2}
   - {fileID: 165162, guid: ea2dbde717bde584ca4db904d728addd, type: 2}
   - {fileID: 187276, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
-  - {fileID: 0}
+  - {fileID: 154164, guid: cadb6824c1b06f44eb9e041e54751b4f, type: 2}
+  - {fileID: 194946, guid: 6ab420f7b3120754da53946ae03054ad, type: 2}
 --- !u!1 &1788351677
 GameObject:
   m_ObjectHideFlags: 0

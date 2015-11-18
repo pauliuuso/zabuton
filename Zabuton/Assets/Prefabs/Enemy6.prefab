@@ -105,7 +105,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.54999995, y: -2.53999996, z: 4.94999981}
+  m_Size: {x: 4.88000011, y: -2.53999996, z: 3.05999994}
   m_Center: {x: .000218153, y: .213037506, z: .000930666924}
 --- !u!114 &11448778
 MonoBehaviour:
@@ -147,7 +147,7 @@ MonoBehaviour:
   health: 140
   max_health: 140
   devast: 45
-  reward: 137
+  reward: 112
   bullet_speed: -20
   bullet_devast: 35
   bullet_type: fire
@@ -251,6 +251,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 4.88000011
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.z
+      value: 3.05999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -25,7 +25,7 @@ public class Settings
     public static int p_cooldown_level = 1;
     public static int p_bullet_speed_level = 1;
     public static int current_level = 1; // Sales levelis
-    public static int p_gold = 4000;
+    public static int p_gold = 9000;
     public static int p_score = 0;
     public static int p_previous_gold = 0;
     public static int p_previous_score = 0;
@@ -48,7 +48,7 @@ public class Settings
 
 
     // upgrade costs
-    public static int[] shipCosts = new int[] {150, 450, 1150, 2350};
+    public static int[] shipCosts = new int[] {150, 450, 1150, 2350, 4250, 6780};
     public static int[] reloadCosts = new int[] { 100, 500, 1500, 3250, 6750, 10450, 14500 };
     public static int[] fireCosts = new int[] { 140, 540, 1200 };
     public static int[] iceCosts = new int[] { 200, 610, 1400 };
@@ -62,8 +62,8 @@ public class Settings
 
 
     // upgrade parameters
-    public static int[] shipHps = new int[] { 30, 45, 70, 100};
-    public static int[] shipSpeeds = new int[] { 12, 13, 15, 17, 19};
+    public static int[] shipHps = new int[] { 30, 45, 70, 100, 150, 220};
+    public static int[] shipSpeeds = new int[] { 12, 13, 15, 17, 19, 20, 21};
     public static float[] shipCooldowns = new float[] { 1, 0.8f, 0.6f, 0.4f, 0.2f, 0.1f, 0.05f};
     public static int[] shipBulletSpeeds = new int[] { 15, 17, 20, 23, 26, 30, 33, 36, 40};
     public static int[] shipFireDamages = new int[] { 5, 17, 40};
