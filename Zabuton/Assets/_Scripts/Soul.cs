@@ -29,6 +29,7 @@ public class Soul : MonoBehaviour
     private bool criticalReceived = false;
     public bool notMoving = false;
     public bool collidingWithSame = false;
+    public bool particle_bolt = false;
 
     // Effects //////
     /*

@@ -27,22 +27,40 @@ public class Colisions : MonoBehaviour
                 gameObject.GetComponent<Soul>().lastHitBy = other.GetComponent<Bullet>().owner;
                 if(gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
                 other.gameObject.GetComponent<Bullet>().addBoom = true;
-                Destroy(other.gameObject); // Sunaikinamas sovinys
+                if (!other.GetComponent<Bullet>().particleBolt)
+                {
+                    other.gameObject.GetComponent<Bullet>().addBoom = true;
+                    Destroy(other.gameObject); // Sunaikinamas sovinys
+                }
+                else
+                {
+                    other.GetComponent<Bullet>().particleBoltHit(gameObject.transform.position);
+                    other.GetComponent<CapsuleCollider>().enabled = false;
+                }
                 checkLife();
             }
             else if(gameObject.tag == "Player_ship" && other.GetComponent<Bullet>().owner == "enemy")
             {
                 showDamage("-", counter.countDamage(other.GetComponent<Bullet>().devast, other.GetComponent<Bullet>().type, Settings.p_resistance, Settings.p_resistanceStrength));
-                gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); // Zaidejui nuimama tiek kiek gali nuimt objektas kai susiduria
+                gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); 
                 gameObject.GetComponent<PlayerShip>().checkLife(); // Sita funkcija yra playership scripte ir tikrina kiek gyvybiu liko zaidejui
                 gameController.updateHealth();
-                other.gameObject.GetComponent<Bullet>().addBoom = true;
-                Destroy(other.gameObject); // Sunaikinamas sovinys
+
+                if (!other.GetComponent<Bullet>().particleBolt)
+                {
+                    other.gameObject.GetComponent<Bullet>().addBoom = true;
+                    Destroy(other.gameObject); // Sunaikinamas sovinys
+                }
+                else
+                {
+                    other.GetComponent<Bullet>().particleBoltHit(gameObject.transform.position);
+                    other.GetComponent<CapsuleCollider>().enabled = false;
+                }
             }
 
 
         }
-        else if(other.tag == "Player_ship") // jei kitas objektas yra zaidejo laivas
+        else if(other.tag == "Player_ship" && gameObject.tag != "Bolt") // jei kitas objektas yra zaidejo laivas
         {
             gameObject.GetComponent<Soul>().lastHitBy = "player";
             showDamage("-", gameObject.GetComponent<Soul>().devast);

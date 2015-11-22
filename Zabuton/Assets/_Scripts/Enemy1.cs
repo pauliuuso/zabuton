@@ -158,7 +158,11 @@ public class Enemy1 : MonoBehaviour
         else if (movingSideways < 0 && horizontalMovement == 0) movingSideways++;
         else if (movingSideways > 0 && horizontalMovement == 0) movingSideways--;
 
-        gameObject.transform.rotation = Quaternion.Euler(270f + movingSideways * tilt, yRotation, gameObject.transform.rotation.z); // Cia kai juda i sonus, kad pasisuktu laivas i sona
+        if(gameObject.GetComponent<Soul>().ship_name != "enemy7") gameObject.transform.rotation = Quaternion.Euler(270f + movingSideways * tilt, yRotation, gameObject.transform.rotation.z); // Cia kai juda i sonus, kad pasisuktu laivas i sona
+        else if (gameObject.GetComponent<Soul>().ship_name == "enemy7")
+        {
+            gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.localEulerAngles.x, yRotation, 90f + movingSideways * tilt); 
+        }
 
         if (initialized && !dodging)
         {
@@ -324,29 +328,48 @@ public class Enemy1 : MonoBehaviour
 
     void fire()
     {
-        bolt.GetComponent<Bullet>().effects.Clear(); // pirma isvalom effektu lista
-
-        bolt.GetComponent<BulletMover>().speed = gameObject.GetComponent<Soul>().bullet_speed;
-        bolt.GetComponent<Bullet>().devast = gameObject.GetComponent<Soul>().bullet_devast;
-        bolt.GetComponent<Bullet>().owner = "enemy";
-        bolt.GetComponent<Bullet>().type = gameObject.GetComponent<Soul>().bullet_type;
-        bolt.GetComponent<Bullet>().fireLevel = gameObject.GetComponent<Soul>().fire_level;
-        bolt.GetComponent<Bullet>().iceLevel = gameObject.GetComponent<Soul>().ice_level;
-        bolt.GetComponent<Bullet>().poisonLevel = gameObject.GetComponent<Soul>().poison_level;
-        bolt.GetComponent<Bullet>().effects.Add(GetComponent<Soul>().effect);
-        bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltMaterial;
-
-        bolt.transform.localScale = new Vector3(gameObject.GetComponent<Soul>().bullet_size[0], gameObject.GetComponent<Soul>().bullet_size[1], gameObject.GetComponent<Soul>().bullet_size[2]);
-
-        if (Random.Range(0f, 1f) > 0.5f)
+        if(!gameObject.GetComponent<Soul>().particle_bolt)
         {
+            bolt.GetComponent<Bullet>().effects.Clear(); // pirma isvalom effektu lista
 
-            Instantiate(bolt, canon1.transform.position, Quaternion.Euler(0f, 0f, 0f));
+            bolt.GetComponent<BulletMover>().speed = gameObject.GetComponent<Soul>().bullet_speed;
+            bolt.GetComponent<Bullet>().devast = gameObject.GetComponent<Soul>().bullet_devast;
+            bolt.GetComponent<Bullet>().owner = "enemy";
+            bolt.GetComponent<Bullet>().type = gameObject.GetComponent<Soul>().bullet_type;
+            bolt.GetComponent<Bullet>().fireLevel = gameObject.GetComponent<Soul>().fire_level;
+            bolt.GetComponent<Bullet>().iceLevel = gameObject.GetComponent<Soul>().ice_level;
+            bolt.GetComponent<Bullet>().poisonLevel = gameObject.GetComponent<Soul>().poison_level;
+            bolt.GetComponent<Bullet>().effects.Add(GetComponent<Soul>().effect);
+            bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltMaterial;
+
+            bolt.transform.localScale = new Vector3(gameObject.GetComponent<Soul>().bullet_size[0], gameObject.GetComponent<Soul>().bullet_size[1], gameObject.GetComponent<Soul>().bullet_size[2]);
+
+            if (Random.Range(0f, 1f) > 0.5f)
+            {
+
+                Instantiate(bolt, canon1.transform.position, Quaternion.Euler(0f, 0f, 0f));
+            }
+            else
+            {
+                Instantiate(bolt, canon2.transform.position, Quaternion.Euler(0f, 0f, 0f));
+            }
         }
         else
         {
-            Instantiate(bolt, canon2.transform.position, Quaternion.Euler(0f, 0f, 0f));
+            bolt.GetComponent<Bullet>().effects.Clear(); // pirma isvalom effektu lista
+
+            bolt.GetComponent<Bullet>().particleBolt = true;
+            bolt.GetComponent<Bullet>().devast = gameObject.GetComponent<Soul>().bullet_devast;
+            bolt.GetComponent<Bullet>().owner = "enemy";
+            bolt.GetComponent<Bullet>().type = gameObject.GetComponent<Soul>().bullet_type;
+            bolt.GetComponent<Bullet>().fireLevel = gameObject.GetComponent<Soul>().fire_level;
+            bolt.GetComponent<Bullet>().iceLevel = gameObject.GetComponent<Soul>().ice_level;
+            bolt.GetComponent<Bullet>().poisonLevel = gameObject.GetComponent<Soul>().poison_level;
+            bolt.GetComponent<Bullet>().effects.Add(GetComponent<Soul>().effect);
+            GameObject boltClone = (GameObject)Instantiate(bolt, new Vector3(canon1.transform.position.x, canon1.transform.position.y, canon1.transform.position.z - 15) , bolt.transform.rotation);
+            boltClone.transform.parent = gameObject.transform;
         }
+
 
     }
 

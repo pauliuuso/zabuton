@@ -147,7 +147,7 @@ MonoBehaviour:
   health: 140
   max_health: 140
   devast: 45
-  reward: 112
+  reward: 103
   bullet_speed: -20
   bullet_devast: 35
   bullet_type: fire

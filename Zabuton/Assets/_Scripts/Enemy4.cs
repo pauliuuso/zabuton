@@ -127,7 +127,7 @@ public class Enemy4 : MonoBehaviour
         else if (movingSideways < 0 && horizontalMovement == 0) movingSideways++;
         else if (movingSideways > 0 && horizontalMovement == 0) movingSideways--;
 
-        gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x + movingSideways * tilt, yRotation, gameObject.transform.rotation.z); // Cia kai juda i sonus, kad pasisuktu laivas i sona
+        gameObject.transform.rotation = Quaternion.Euler(gameObject.transform.rotation.x, yRotation, gameObject.transform.rotation.z + movingSideways * tilt); // Cia kai juda i sonus, kad pasisuktu laivas i sona
 
         if (initialized && !dodging)
         {

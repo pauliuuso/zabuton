@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
     public GameObject[] iceBooms;
     public GameObject[] poisonBooms;
     public bool fromEffects = false;
+    public bool particleBolt = false;
 
     void Start()
     {
@@ -44,6 +45,14 @@ public class Bullet : MonoBehaviour
             else if (type == "ice") Instantiate(iceBooms[iceLevel], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 5, gameObject.transform.position.z + 0.2f), iceBooms[iceLevel].transform.rotation);
             else if (type == "poison") Instantiate(poisonBooms[poisonLevel], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 5, gameObject.transform.position.z + 0.2f), poisonBooms[poisonLevel].transform.rotation);
         }
+    }
+
+    public void particleBoltHit(Vector3 location)
+    {
+        print(location);
+        if (type == "fire") Instantiate(fireBooms[fireLevel], location, fireBooms[fireLevel].transform.rotation);
+        else if (type == "ice") Instantiate(iceBooms[iceLevel], location, iceBooms[iceLevel].transform.rotation);
+        else if (type == "poison") Instantiate(poisonBooms[poisonLevel], location, poisonBooms[poisonLevel].transform.rotation);
     }
 
     void OnApplicationQuit()

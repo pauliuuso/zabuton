@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public GameObject Enemy3;
     public GameObject Enemy4;
     public GameObject Enemy6;
+    public GameObject Enemy7;
     public GameObject EnemyRocket1;
     public GameObject Saturn;
     public GameObject musicManager;
@@ -58,6 +59,10 @@ public class GameController : MonoBehaviour
     public Button upgradeCriticalStrikeButton;
     public Text upgradeCriticalStrikeCost;
 
+
+    public Button muteMusicButton;
+    public Text muteMusicText;
+
     public Text allStatus;
     public GameObject statusPanel;
     public Image healthBar;
@@ -76,7 +81,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"sat", "en6", "ast2", "ast2", "ast1", "en4", "ast1", "en1", "ast2", "ast2", "ast2", "ast2", "ast1", "en2", "wait", "ast1", "en1", "wait", "ast1", "ast2", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "rock1", "ast2", "wait", "wait", "en6", "wait", "ast2", "ast1", "wait", "wait", "rock1", "wait", "en6", "wait", "ast2", "en1", "wait", "ast1", "ast2", "wait", "wait", "en6", "ast2", "ast2", "en2", "ast1", "wait", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "wait", "ast2", "wait", "en1", "en1", "en6", "ast1", "ast1", "ast1", "ast1", "ast2", "incoming attack!", "mus_attack1", "speed3", "rock1", "rock1", "rock1", "rock1", "rock1", "ast2", "en2", "ast2", "wait", "en1", "wait", "wait", "wait", "ast2", "en1", "wait", "ast2", "en1", "en1", "ast2", "rock1", "rock1", "ast2", "wait", "wait", "en1", "wait", "ast2", "ast2", "en1", "wait", "wait", "en3", "wait", "wait", "en1", "ast2", "ast2", "ast2", "wait", "wait", "wait", "en2", "en1", "endSpeed", "wait", "ast2", "wait", "en6", "en6", "wait", "en6", "en6", "wait", "wait", "ast2", "ast1", "en3", "wait", "ast2", "wait", "rock1", "ast1", "en6", "wait", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "rock1", "ast1", "ast2", "endSpeed", "wait", "ast2", "wait", "rock1", "wait", "end" };
+    private string[] level1 = {"en7", "sat", "en6", "ast2", "ast2", "ast1", "en4", "ast1", "en1", "ast2", "ast2", "ast2", "ast2", "ast1", "en2", "wait", "ast1", "en1", "wait", "ast1", "ast2", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "rock1", "ast2", "wait", "wait", "en6", "wait", "ast2", "ast1", "wait", "wait", "rock1", "wait", "en6", "wait", "ast2", "en1", "wait", "ast1", "ast2", "wait", "wait", "en6", "ast2", "ast2", "en2", "ast1", "wait", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "wait", "ast2", "wait", "en1", "en1", "en6", "ast1", "ast1", "ast1", "ast1", "ast2", "incoming attack!", "mus_attack1", "speed3", "rock1", "rock1", "rock1", "rock1", "rock1", "ast2", "en2", "ast2", "wait", "en1", "wait", "wait", "wait", "ast2", "en1", "wait", "ast2", "en1", "en1", "ast2", "rock1", "rock1", "ast2", "wait", "wait", "en1", "wait", "ast2", "ast2", "en1", "wait", "wait", "en3", "wait", "wait", "en1", "ast2", "ast2", "ast2", "wait", "wait", "wait", "en2", "en1", "endSpeed", "wait", "ast2", "wait", "en6", "en6", "wait", "en6", "en6", "wait", "wait", "ast2", "ast1", "en3", "wait", "ast2", "wait", "rock1", "ast1", "en6", "wait", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "rock1", "ast1", "ast2", "endSpeed", "wait", "ast2", "wait", "rock1", "wait", "end" };
 
     // Game music
 
@@ -98,9 +103,11 @@ public class GameController : MonoBehaviour
         upgradePoisonResistanceButton.onClick.AddListener(() => { upgradePoisonResistance(); });
         upgradeVampiricRegenerationButton.onClick.AddListener(() => { upgradeVampiricRegeneration(); });
         upgradeCriticalStrikeButton.onClick.AddListener(() => { upgradeCriticalStrike(); });
+        muteMusicButton.onClick.AddListener(() => { muteMusic(false); });
         updateScore();
         updateCosts();
         updateStatus();
+        muteMusic(true);
         playerHealth.SetActive(false);
     }
 
@@ -188,6 +195,11 @@ public class GameController : MonoBehaviour
             {
                 Instantiate(Enemy6, spawnPosition, Enemy6.transform.rotation);
                 Enemy6.GetComponent<Soul>().reward = (int)Random.Range(90, 150);
+            }
+            else if (currentLevel[i] == "en7")
+            {
+                Instantiate(Enemy7, spawnPosition, Enemy7.transform.rotation);
+                Enemy7.GetComponent<Soul>().reward = (int)Random.Range(250, 350);
             }
             else if (currentLevel[i] == "rock1")
             {
@@ -331,6 +343,7 @@ public class GameController : MonoBehaviour
         Destroy(displayShip);
         Destroy(shop);
         Destroy(statusPanel);
+        Destroy(muteMusicButton.gameObject);
         BuildLevel();
     }
 
@@ -391,6 +404,7 @@ public class GameController : MonoBehaviour
         upgradePoisonResistanceButton.onClick.RemoveListener(() => { upgradePoisonResistance(); });
         upgradeVampiricRegenerationButton.onClick.RemoveListener(() => { upgradeVampiricRegeneration(); });
         upgradeCriticalStrikeButton.onClick.RemoveListener(() => { upgradeCriticalStrike(); });
+        muteMusicButton.onClick.RemoveListener(() => { muteMusic(false); });
         RemoveUI();
     }
 
@@ -594,6 +608,34 @@ public class GameController : MonoBehaviour
             updateCosts();
             updateScore();
         }
+    }
+
+    private void muteMusic(bool onlyUpdating = false)
+    {
+        if(Settings.music_volume > 0 && !onlyUpdating)
+        {
+            Settings.music_volume = 0;
+            muteMusicText.text = "Muted";
+            muteMusicButton.image.color = Color.gray;
+        }
+        else if (Settings.music_volume == 0 && !onlyUpdating)
+        {
+            Settings.music_volume = 0.1f;
+            muteMusicText.text = "Mute music";
+            muteMusicButton.image.color = Color.green;
+        }
+
+        if(onlyUpdating && Settings.music_volume == 0)
+        {
+            muteMusicText.text = "Muted";
+            muteMusicButton.image.color = Color.gray;
+        }
+        else if(onlyUpdating && Settings.music_volume > 0)
+        {
+            Settings.music_volume = 0.1f;
+            muteMusicText.text = "Mute music";
+        }
+
     }
 
     public void updateShipSettings()
