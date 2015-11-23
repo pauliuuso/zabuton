@@ -23,39 +23,47 @@ public class Colisions : MonoBehaviour
         {
             if (gameObject.tag != "Player_ship" && !(gameObject.tag == "Enemy" && other.GetComponent<Bullet>().owner == "enemy"))
             {
-                gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); // Asteroidas turi savo klase kurioje yra jo gyvybes ir t.t tai i sita klase siunciama sovinio damage ir atakos tipas
-                gameObject.GetComponent<Soul>().lastHitBy = other.GetComponent<Bullet>().owner;
-                if(gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
-                other.gameObject.GetComponent<Bullet>().addBoom = true;
+                
                 if (!other.GetComponent<Bullet>().particleBolt)
                 {
+                    gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); // Asteroidas turi savo klase kurioje yra jo gyvybes ir t.t tai i sita klase siunciama sovinio damage ir atakos tipas
                     other.gameObject.GetComponent<Bullet>().addBoom = true;
                     Destroy(other.gameObject); // Sunaikinamas sovinys
                 }
-                else
+                else if (!other.GetComponent<Bullet>().damageDone)
                 {
+                    gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); // Asteroidas turi savo klase kurioje yra jo gyvybes ir t.t tai i sita klase siunciama sovinio damage ir atakos tipas
                     other.GetComponent<Bullet>().particleBoltHit(gameObject.transform.position);
+                    other.GetComponent<Bullet>().damageDone = true;
                     other.GetComponent<CapsuleCollider>().enabled = false;
                 }
+
+                gameObject.GetComponent<Soul>().lastHitBy = other.GetComponent<Bullet>().owner;
+                if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
+                other.gameObject.GetComponent<Bullet>().addBoom = true;
                 checkLife();
             }
             else if(gameObject.tag == "Player_ship" && other.GetComponent<Bullet>().owner == "enemy")
             {
                 showDamage("-", counter.countDamage(other.GetComponent<Bullet>().devast, other.GetComponent<Bullet>().type, Settings.p_resistance, Settings.p_resistanceStrength));
-                gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); 
-                gameObject.GetComponent<PlayerShip>().checkLife(); // Sita funkcija yra playership scripte ir tikrina kiek gyvybiu liko zaidejui
-                gameController.updateHealth();
 
                 if (!other.GetComponent<Bullet>().particleBolt)
                 {
+                    gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); 
                     other.gameObject.GetComponent<Bullet>().addBoom = true;
                     Destroy(other.gameObject); // Sunaikinamas sovinys
                 }
-                else
+                else if(!other.GetComponent<Bullet>().damageDone)
                 {
+                    gameObject.GetComponent<Soul>().damage(other.gameObject.GetComponent<Bullet>().devast, other.gameObject.GetComponent<Bullet>().type, other.gameObject.GetComponent<Bullet>().effects); 
                     other.GetComponent<Bullet>().particleBoltHit(gameObject.transform.position);
+                    other.GetComponent<Bullet>().damageDone = true;
                     other.GetComponent<CapsuleCollider>().enabled = false;
                 }
+
+                gameObject.GetComponent<PlayerShip>().checkLife(); // Sita funkcija yra playership scripte ir tikrina kiek gyvybiu liko zaidejui
+                gameController.updateHealth();
+
             }
 
 

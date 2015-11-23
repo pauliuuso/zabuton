@@ -160,7 +160,7 @@ public class Enemy4 : MonoBehaviour
             }
             if (gameObject.GetComponent<Soul>().collidingWithSame)
             {
-                nextMove = Time.time + 1f;
+                setPosition();
             }
         }
         else if(initialized && (dodging || retreating))

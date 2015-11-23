@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 481286}
   - 198: {fileID: 19845004}
   - 199: {fileID: 19978522}
+  - 82: {fileID: 8257494}
   m_Layer: 0
   m_Name: atom_core
   m_TagString: Untagged
@@ -32,8 +33,8 @@ GameObject:
   - 114: {fileID: 11442118}
   - 54: {fileID: 5477754}
   - 114: {fileID: 11437376}
-  - 114: {fileID: 11458876}
   - 65: {fileID: 6591724}
+  - 114: {fileID: 11404744}
   m_Layer: 0
   m_Name: Enemy7
   m_TagString: Enemy
@@ -214,6 +215,92 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.03999996, y: 9.18999958, z: 7.4000001}
   m_Center: {x: .800000012, y: -6.62177493e-15, z: -.100000001}
+--- !u!82 &8257494
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136422}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dbea9f1352eedbf448f82a66753ed2f9, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: .5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!114 &11404744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dcbeb9cbbf0fd44ab7d5628c8fa56c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canon1: {fileID: 175252}
+  canon2: {fileID: 175252}
+  bolt: {fileID: 121460, guid: 6fbfbb10e61c84d44be2fc5e0abcb77a, type: 2}
+  boltMaterial: {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
+  atom_particles: {fileID: 136422}
 --- !u!114 &11412182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,21 +380,6 @@ MonoBehaviour:
   vampiricRegeneration: {fileID: 0}
   emptyMaterial: {fileID: 2100000, guid: 0d32a0ca9c4072542896a696b50b9f6f, type: 2}
   gameController: {fileID: 0}
---- !u!114 &11458876
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64927854e5b729348971bdb91add2025, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canon1: {fileID: 175252}
-  canon2: {fileID: 175252}
-  bolt: {fileID: 121460, guid: 6fbfbb10e61c84d44be2fc5e0abcb77a, type: 2}
-  boltMaterial: {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
 --- !u!114 &11485482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,7 +396,7 @@ MonoBehaviour:
   health: 350
   max_health: 350
   devast: 150
-  reward: 306
+  reward: 318
   bullet_speed: -15
   bullet_devast: 100
   bullet_type: ice
@@ -355,7 +427,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 1
   moveWithTransform: 1
   InitialModule:
@@ -1442,7 +1514,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: prewarm
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: effect
@@ -1475,6 +1547,30 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ice_level
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: atom_particles
+      value: 
+      objectReference: {fileID: 136422}
+    - target: {fileID: 0}
+      propertyPath: canon1
+      value: 
+      objectReference: {fileID: 175252}
+    - target: {fileID: 0}
+      propertyPath: canon2
+      value: 
+      objectReference: {fileID: 175252}
+    - target: {fileID: 0}
+      propertyPath: boltMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: dbea9f1352eedbf448f82a66753ed2f9, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Volume
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

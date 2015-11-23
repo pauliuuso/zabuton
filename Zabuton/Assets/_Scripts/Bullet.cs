@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
     public GameObject[] poisonBooms;
     public bool fromEffects = false;
     public bool particleBolt = false;
+    public bool damageDone = false;
 
     void Start()
     {
@@ -49,7 +50,6 @@ public class Bullet : MonoBehaviour
 
     public void particleBoltHit(Vector3 location)
     {
-        print(location);
         if (type == "fire") Instantiate(fireBooms[fireLevel], location, fireBooms[fireLevel].transform.rotation);
         else if (type == "ice") Instantiate(iceBooms[iceLevel], location, iceBooms[iceLevel].transform.rotation);
         else if (type == "poison") Instantiate(poisonBooms[poisonLevel], location, poisonBooms[poisonLevel].transform.rotation);

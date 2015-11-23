@@ -186,6 +186,8 @@ public class Enemy1 : MonoBehaviour
             if (newPosition.z < gameObject.transform.position.z - 0.5) movingDown = true;
             else movingDown = false;
 
+
+
             if(Time.time > nextMove)
             {
                 setPosition();
@@ -194,7 +196,7 @@ public class Enemy1 : MonoBehaviour
             }
             if(gameObject.GetComponent<Soul>().collidingWithSame)
             {
-                nextMove = Time.time + 1f;
+                setPosition();
             }
         }
         else if(initialized && (dodging || retreating))
