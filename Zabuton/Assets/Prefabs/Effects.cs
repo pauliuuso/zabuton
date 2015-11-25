@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Effects : MonoBehaviour 
 {
+    public GameObject effectsLink;
+
     public bool fired1 = false;
     public bool poisoned1 = false;
     public bool poisoned2 = false;
@@ -58,6 +60,9 @@ public class Effects : MonoBehaviour
 
     void Start()
     {
+        firedEffect1 = effectsLink.GetComponent<EffectsLink>().firedEffect1;
+
+
         previousSpeed = gameObject.GetComponent<Soul>().speed;
         if (gameObject.tag == "Player_ship") previousSpeed = Settings.p_speed;
 

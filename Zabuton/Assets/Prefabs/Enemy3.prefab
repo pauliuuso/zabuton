@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148f1722a7cb4394c9181f0e6ff555dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectsLink: {fileID: 171482, guid: 58fd83f602b88524bb9c54c7b1f66352, type: 2}
   fired1: 0
   poisoned1: 0
   poisoned2: 0
@@ -201,7 +202,7 @@ MonoBehaviour:
   poisonResistance1Steps: 0
   vampiricRegenerationSteps: 0
   bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
-  firedEffect1: {fileID: 160654, guid: 09652bfcc2b5d2348b9d3fc4fbcece15, type: 2}
+  firedEffect1: {fileID: 0}
   poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
   poisonedEffect2: {fileID: 101238, guid: 6ca3603c794f86f4bb9d0844832de0f6, type: 2}
   frozenEffect1: {fileID: 157010, guid: 8778594d989ddae4086731da3a0933c4, type: 2}
@@ -209,7 +210,7 @@ MonoBehaviour:
   iceResistance1: {fileID: 167616, guid: 469c9f151e3052a4bbc4eb182f50b86a, type: 2}
   poisonResistance1: {fileID: 197370, guid: 66eb2328594a17643abbb0429cb8c8d7, type: 2}
   poisonArrow: {fileID: 123064, guid: 01c831cbb386d7544978726925987bb2, type: 2}
-  vampiricRegeneration: {fileID: 0}
+  vampiricRegeneration: {fileID: 169900, guid: b6411c4b3824cb8469d09c39baae8968, type: 2}
   emptyMaterial: {fileID: 2100000, guid: 0d32a0ca9c4072542896a696b50b9f6f, type: 2}
   gameController: {fileID: 0}
 --- !u!114 &11487300
@@ -247,6 +248,7 @@ MonoBehaviour:
   ship_name: enemy3
   notMoving: 0
   collidingWithSame: 0
+  particle_bolt: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
