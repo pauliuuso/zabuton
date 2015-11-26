@@ -3745,7 +3745,9 @@ MonoBehaviour:
   Enemy6: {fileID: 105972, guid: 5d83a80b3f35f064087a83bfec633110, type: 2}
   Enemy7: {fileID: 148434, guid: 319f02ceb8e8153459e2585367cb0860, type: 2}
   EnemyRocket1: {fileID: 166318, guid: 295432c7e9f4f854594404f419b06813, type: 2}
+  Boss1: {fileID: 175928, guid: 6bd6345e23f8d494ba64da808adcbcea, type: 2}
   Saturn: {fileID: 193192, guid: 621278ad74929d8499011980e009e7e9, type: 2}
+  Moon: {fileID: 160270, guid: fa28d249b392b824692f1d47e271eb9f, type: 2}
   musicManager: {fileID: 132528, guid: 1acb22692ba3f6143bdf491d2500c201, type: 2}
   background: {fileID: 180200, guid: ac7eea60fe36dbf4baae41a30452749a, type: 2}
   boundary: {fileID: 196422, guid: a5126b30b4181ee4aae11d815e4f484c, type: 2}

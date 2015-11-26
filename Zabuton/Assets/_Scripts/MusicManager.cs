@@ -20,10 +20,17 @@ public class MusicManager : MonoBehaviour
         if(title == "level1")
         {
             audio.clip = melodies[0];
+            audio.volume = Settings.music_volume;
         }
         else if(title == "attack1")
         {
             audio.clip = melodies[1];
+            audio.volume = Settings.music_volume;
+        }
+        else if (title == "boss1")
+        {
+            audio.clip = melodies[2];
+            if (Settings.music_volume > 0) audio.volume = 0.2f;
         }
         
         if(looping)
@@ -35,7 +42,6 @@ public class MusicManager : MonoBehaviour
             audio.loop = false;
         }
 
-        audio.volume = Settings.music_volume;
         audio.Play();
 
     }

@@ -26,23 +26,23 @@ public class Effects : MonoBehaviour
     public GameObject bolt;
     private GameObject boltClone;
 
-    public GameObject firedEffect1;
+    private GameObject firedEffect1;
     private GameObject firedEffectClone1;
-    public GameObject poisonedEffect1;
+    private GameObject poisonedEffect1;
     private GameObject poisonedEffectClone1;
-    public GameObject poisonedEffect2;
+    private GameObject poisonedEffect2;
     private GameObject poisonedEffectClone2;
-    public GameObject frozenEffect1;
+    private GameObject frozenEffect1;
     private GameObject frozenEffectClone1;
-    public GameObject fireResistance1;
+    private GameObject fireResistance1;
     private GameObject fireResistanceClone1;
-    public GameObject iceResistance1;
+    private GameObject iceResistance1;
     private GameObject iceResistanceClone1;
-    public GameObject poisonResistance1;
+    private GameObject poisonResistance1;
     private GameObject poisonResistanceClone1;
-    public GameObject poisonArrow;
+    private GameObject poisonArrow;
     private GameObject poisonArrowClone;
-    public GameObject vampiricRegeneration;
+    private GameObject vampiricRegeneration;
     private GameObject vampiricRegenerationClone;
 
     public Material emptyMaterial;
@@ -61,6 +61,14 @@ public class Effects : MonoBehaviour
     void Start()
     {
         firedEffect1 = effectsLink.GetComponent<EffectsLink>().firedEffect1;
+        poisonedEffect1 = effectsLink.GetComponent<EffectsLink>().poisonedEffect1;
+        poisonedEffect2 = effectsLink.GetComponent<EffectsLink>().poisonedEffect2;
+        frozenEffect1 = effectsLink.GetComponent<EffectsLink>().frozenEffect1;
+        fireResistance1 = effectsLink.GetComponent<EffectsLink>().fireResistance1;
+        iceResistance1 = effectsLink.GetComponent<EffectsLink>().iceResistance1;
+        poisonResistance1 = effectsLink.GetComponent<EffectsLink>().poisonResistance1;
+        poisonArrow = effectsLink.GetComponent<EffectsLink>().poisonArrow;
+        vampiricRegeneration = effectsLink.GetComponent<EffectsLink>().vampiricRegeneration;
 
 
         previousSpeed = gameObject.GetComponent<Soul>().speed;

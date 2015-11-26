@@ -49,7 +49,7 @@ Transform:
   m_GameObject: {fileID: 107372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .605310977, y: .605310977, z: .605310977}
+  m_LocalScale: {x: 1.12770414, y: 1.12770414, z: 1.12770414}
   m_Children:
   - {fileID: 485668}
   m_Father: {fileID: 0}
@@ -190,10 +190,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   tilt: 5
-  health: 5
+  health: 10
   max_health: 0
-  devast: 6
-  reward: 5
+  devast: 12
+  reward: 10
   bullet_speed: 10
   bullet_devast: 20
   bullet_type: fire
@@ -254,15 +254,6 @@ MonoBehaviour:
   poisonResistance1Steps: 0
   vampiricRegenerationSteps: 0
   bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
-  firedEffect1: {fileID: 0}
-  poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
-  poisonedEffect2: {fileID: 101238, guid: 6ca3603c794f86f4bb9d0844832de0f6, type: 2}
-  frozenEffect1: {fileID: 157010, guid: 8778594d989ddae4086731da3a0933c4, type: 2}
-  fireResistance1: {fileID: 113662, guid: 0b8a735444c11bf409ce959276f3daf3, type: 2}
-  iceResistance1: {fileID: 167616, guid: 469c9f151e3052a4bbc4eb182f50b86a, type: 2}
-  poisonResistance1: {fileID: 197370, guid: 66eb2328594a17643abbb0429cb8c8d7, type: 2}
-  poisonArrow: {fileID: 123064, guid: 01c831cbb386d7544978726925987bb2, type: 2}
-  vampiricRegeneration: {fileID: 169900, guid: b6411c4b3824cb8469d09c39baae8968, type: 2}
   emptyMaterial: {fileID: 2100000, guid: 0d32a0ca9c4072542896a696b50b9f6f, type: 2}
   gameController: {fileID: 0}
 --- !u!135 &13575338
