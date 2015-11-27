@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f0bdddbb5f47334faa7a1a5454685f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedSpeed: -2
+  fixedSpeed: -1
 --- !u!114 &11464338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,7 +247,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: fixedSpeed
-      value: -2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.x
