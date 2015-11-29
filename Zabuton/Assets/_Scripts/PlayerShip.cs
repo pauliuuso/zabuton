@@ -32,6 +32,16 @@ public class PlayerShip : MonoBehaviour
         {
             fireCount = 1; // jei bus issaunama daugiau nei vienas sovinys
             Bolt.GetComponent<Bullet>().effects.Clear(); // pirma isvalom effektu lista
+
+            if (Settings.p_critical_strike_level > 1)
+            {
+                Bolt.GetComponent<Bullet>().effects.Add("Critical");
+            }
+            if (Settings.p_vampiric_regeneration_level > 1)
+            {
+                Bolt.GetComponent<Bullet>().effects.Add("Vampiric");
+            }
+
             if(Input.GetButton("Fire1"))
             {
                 Settings.p_devast = Settings.p_fire_devast;
@@ -83,14 +93,6 @@ public class PlayerShip : MonoBehaviour
 
             }
 
-            if(Settings.p_vampiric_regeneration_level > 1)
-            {
-                Bolt.GetComponent<Bullet>().effects.Add("Vampiric");
-            }
-            if(Settings.p_critical_strike_level > 1)
-            {
-                Bolt.GetComponent<Bullet>().effects.Add("Critical");
-            }
 
             Bolt.GetComponent<Bullet>().fireLevel = Settings.p_fire_level;
             Bolt.GetComponent<Bullet>().iceLevel = Settings.p_ice_level;

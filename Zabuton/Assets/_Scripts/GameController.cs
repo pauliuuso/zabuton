@@ -83,7 +83,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"Assault 1", "ast2", "sat", "en6", "ast2", "ast2", "ast1", "en4", "ast1", "en1", "ast2", "ast2", "ast2", "ast2", "ast1", "en2", "wait", "ast1", "en1", "wait", "ast1", "ast2", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "rock1", "ast2", "wait", "wait", "en6", "wait", "ast2", "ast1", "wait", "wait", "rock1", "wait", "en6", "wait", "en7", "wait", "wait", "ast2", "en1", "wait", "ast1", "ast2", "wait", "wait", "en6", "ast2", "ast2", "en2", "ast1", "wait", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "wait", "ast2", "wait", "en1", "en1", "en6", "ast1", "ast1", "ast1", "ast1", "ast2", "Incoming attack!", "mus_attack1", "speed3", "rock1", "rock1", "rock1", "rock1", "en7", "wait", "wait", "ast1", "ast2", "rock1", "ast2", "en2", "ast2", "wait", "en1", "wait", "wait", "wait", "ast2", "en1", "wait", "ast2", "en2", "en1", "en1", "ast2", "rock1", "rock1", "ast2", "wait", "wait", "en1", "moon", "wait", "ast2", "ast2", "en1", "rock1", "rock1", "rock1", "wait", "wait", "rock1", "en3", "wait", "wait", "en1", "ast2", "ast2", "ast2", "wait", "wait", "wait", "en2", "en1", "endSpeed", "wait", "ast2", "wait", "en6", "en6", "wait", "en6", "en6", "wait", "wait", "ast2", "ast1", "en3", "ast2", "ast2", "ast2", "wait", "ast2", "en7", "wait", "ast2", "wait", "rock1", "ast1", "en6", "wait", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "rock1", "ast1", "ast2", "endSpeed", "wait", "ast2", "wait", "rock1", "mus_boss1", "Here comes the boss!", "boss1", "wait", "wait", "wait", "wait", "end" };
+    private string[] level1 = {"Assault 1", "ast2", "sat", "en6", "ast2", "ast2", "ast1", "en4", "ast1", "en1", "ast2", "ast2", "ast2", "ast2", "ast1", "en2", "wait", "ast1", "en1", "wait", "ast1", "ast2", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "rock1", "ast2", "wait", "wait", "en6", "wait", "ast2", "ast1", "wait", "wait", "rock1", "wait", "en6", "wait", "en7", "wait", "wait", "ast2", "en1", "wait", "ast1", "ast2", "wait", "wait", "en6", "ast2", "ast2", "en2", "ast1", "wait", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "wait", "ast2", "wait", "en1", "en1", "en6", "ast1", "ast1", "ast1", "ast1", "ast2", "Incoming attack!", "mus_attack1", "speed3", "rock1", "rock1", "rock1", "rock1", "en7", "wait", "wait", "ast1", "ast2", "rock1", "ast2", "en2", "ast2", "wait", "en1", "wait", "wait", "wait", "ast2", "en1", "wait", "ast2", "en2", "en1", "en1", "ast2", "rock1", "rock1", "ast2", "wait", "wait", "en1", "moon", "wait", "ast2", "ast2", "en1", "rock1", "rock1", "rock1", "wait", "wait", "rock1", "en3", "wait", "wait", "en1", "ast2", "ast2", "ast2", "wait", "wait", "wait", "en2", "en1", "endSpeed", "wait", "ast2", "wait", "en6", "en6", "wait", "en6", "en6", "wait", "wait", "ast2", "ast1", "en3", "ast2", "ast2", "ast2", "wait", "ast2", "en7", "wait", "ast2", "wait", "rock1", "ast1", "en6", "wait", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "rock1", "ast1", "ast2", "endSpeed", "wait", "ast2", "wait", "rock1", "mus_boss1", "Here comes the boss!", "boss1", "wait", "wait", "wait", "wait"};
 
     // Game music
 
@@ -264,7 +264,7 @@ public class GameController : MonoBehaviour
 
             else
             {
-                StartCoroutine(clearWarning(3f));
+                StartCoroutine(clearWarning(3f)); // Jei yra arrayjuje koks nors neatpazintas tekstas tai ji parodo ekrane ir uz 3 s panaikina
                 missionComplete.text = currentLevel[i];
             }
 
@@ -363,6 +363,12 @@ public class GameController : MonoBehaviour
         BuildLevel();
     }
 
+    public void bossDestroyed()
+    {
+        missionComplete.text = "Mission complete!";
+        StartCoroutine(finishLevel(5f));
+    }
+
     IEnumerator reloadLevel(float time)
     {
         yield return new WaitForSeconds(time);
@@ -371,7 +377,7 @@ public class GameController : MonoBehaviour
         updateShipSettings();
     }
 
-    IEnumerator finishLevel(float time)
+    public IEnumerator finishLevel(float time)
     {
         yield return new WaitForSeconds(time);
         Application.LoadLevel(Application.loadedLevel);

@@ -15,17 +15,17 @@ Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.UI.d
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.130 seconds
+- Completed reload, in  0.089 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1360 -> priority: 1 
+  Thread -> id: c68 -> priority: 1 
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 13.347844 ms
+UnloadTime: 2.711144 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1074.
-Total: 0.905706 ms (FindLiveObjects: 0.099208 ms CreateObjectMapping: 0.041051 ms MarkObjects: 0.753045 ms  DeleteObjects: 0.011118 ms)
+Total: 0.848408 ms (FindLiveObjects: 0.070558 ms CreateObjectMapping: 0.038913 ms MarkObjects: 0.727818 ms  DeleteObjects: 0.010263 ms)
 

@@ -30,6 +30,8 @@ public class Soul : MonoBehaviour
     public bool notMoving = false;
     public bool collidingWithSame = false;
     public bool particle_bolt = false;
+    public bool boss = false;
+    private GameObject gameController;
 
     // Effects //////
     /*
@@ -49,10 +51,14 @@ public class Soul : MonoBehaviour
 
         GameObject playerShipObject = GameObject.FindGameObjectWithTag("Player_ship");
         if (playerShipObject != null) playerShip = playerShipObject;
+
+        gameController = GameObject.FindGameObjectWithTag("GameController");
+        if (gameController == null) print("Soul can't find game controller");
     }
 
     public void damage(int damage, string type, List<string> effects = null, bool returnDamage = false)
     {
+
         if(effects != null)
         {
             for (int a = 0; a < effects.Count; a++)
@@ -65,23 +71,23 @@ public class Soul : MonoBehaviour
                         criticalReceived = true;
                     }
                 }
-                if (effects[a] == "Fired1" && resistanceStrength[0] < 50)
+                else if (effects[a] == "Fired1" && resistanceStrength[0] < 50)
                 {
                     if (Random.Range(0f, 1f) < 0.5f) gameObject.GetComponent<Effects>().fired1 = true;
                 }
-                if (effects[a] == "Poison1" && resistanceStrength[2] < 50)
+                else if (effects[a] == "Poison1" && resistanceStrength[2] < 50)
                 {
                     if (Random.Range(0f, 1f) < 0.5f) gameObject.GetComponent<Effects>().poisoned1 = true;
                 }
-                if (effects[a] == "Poison2" && resistanceStrength[2] < 50)
+                else if (effects[a] == "Poison2" && resistanceStrength[2] < 50)
                 {
                     if (Random.Range(0f, 1f) < 0.7f) gameObject.GetComponent<Effects>().poisoned2 = true;
                 }
-                if (effects[a] == "Frozen1" && resistanceStrength[1] < 50)
+                else if (effects[a] == "Frozen1" && resistanceStrength[1] < 50)
                 {
                     if (Random.Range(0f, 1f) < 0.5f) gameObject.GetComponent<Effects>().frozen1 = true;
                 }
-                if (effects[a] == "Vampiric")
+                else if (effects[a] == "Vampiric")
                 {
                     if (Random.Range(0f, 1f) < 0.1f)
                     {
@@ -135,7 +141,7 @@ public class Soul : MonoBehaviour
             health -= damageDone;
             if(criticalReceived)
             {
-                gameObject.GetComponent<Colisions>().showDamage("-", damageDone, "red", "!", 2f);
+                gameObject.GetComponent<Colisions>().showDamage("-", damageDone, "red", "!", 3f);
                 criticalReceived = false;
             }
 
@@ -155,6 +161,10 @@ public class Soul : MonoBehaviour
         if(addBoom)
         {
             Instantiate(explosion, gameObject.transform.position, explosion.transform.rotation);
+        }
+        if(boss)
+        {
+            gameController.GetComponent<GameController>().bossDestroyed();
         }
     }
 

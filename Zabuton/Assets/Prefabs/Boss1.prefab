@@ -178,7 +178,7 @@ MonoBehaviour:
   health: 150
   max_health: 150
   devast: 50
-  reward: 111
+  reward: 109
   bullet_speed: 10
   bullet_devast: 20
   bullet_type: fire
@@ -198,6 +198,7 @@ MonoBehaviour:
   notMoving: 0
   collidingWithSame: 0
   particle_bolt: 0
+  boss: 1
 --- !u!135 &13578018
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -280,6 +281,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boss
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

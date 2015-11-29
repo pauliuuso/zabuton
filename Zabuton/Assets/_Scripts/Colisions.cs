@@ -103,9 +103,9 @@ public class Colisions : MonoBehaviour
         {
             if (gameObject.GetComponent<Soul>().lastHitBy == "player" && gameObject.GetComponent<Soul>().reward > 0)
             {
-                stageText.text = "+" + gameObject.GetComponent<Soul>().reward + " gold";
-                stageText.color = new Color(1.0f, 0.8f, 0.0f);
-                Instantiate(stageText, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+                //stageText.text = "+" + gameObject.GetComponent<Soul>().reward + " gold";
+                //stageText.color = new Color(1.0f, 0.8f, 0.0f);
+                showDamage("+", gameObject.GetComponent<Soul>().reward, "yellow", " gold", 2f);
                 Settings.p_gold += gameObject.GetComponent<Soul>().reward;
                 Settings.p_score += gameObject.GetComponent<Soul>().reward * 2;
                 gameController.updateScore();
@@ -124,7 +124,7 @@ public class Colisions : MonoBehaviour
         stageText.GetComponent<StageTextMover>().showTime = time;
         if (color == "red") stageText.color = Color.red;
         else if (color == "green") stageText.color = Color.green;
-
+        else if (color == "yellow") stageText.color = Color.yellow;
         Instantiate(stageText, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
     }
 
