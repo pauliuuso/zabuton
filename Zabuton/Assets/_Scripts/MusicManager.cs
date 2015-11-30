@@ -32,6 +32,11 @@ public class MusicManager : MonoBehaviour
             audio.clip = melodies[2];
             if (Settings.music_volume > 0) audio.volume = 0.3f;
         }
+        else if (title == "boss2")
+        {
+            audio.clip = melodies[3];
+            if (Settings.music_volume > 0) audio.volume = 0.3f;
+        }
         
         if(looping)
         {

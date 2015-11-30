@@ -114,6 +114,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 935e4cdefb6d7924bafbbbe4f09b5528, type: 3}
   - {fileID: 8300000, guid: 6b867b538ceb0d84699fe97cdc32c1c3, type: 3}
   - {fileID: 8300000, guid: a7ea9680cae085b42b830a84619d29ba, type: 3}
+  - {fileID: 8300000, guid: 5d517d2d651c463439c307fe4a865277, type: 3}
   audio: {fileID: 8264576}
 --- !u!1001 &100100000
 Prefab:
@@ -124,7 +125,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: melodies.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_PlayOnAwake
@@ -142,6 +143,10 @@ Prefab:
       propertyPath: melodies.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: a7ea9680cae085b42b830a84619d29ba, type: 3}
+    - target: {fileID: 0}
+      propertyPath: melodies.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5d517d2d651c463439c307fe4a865277, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132528}

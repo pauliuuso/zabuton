@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     public GameObject Enemy7;
     public GameObject EnemyRocket1;
     public GameObject Boss1;
+    public GameObject Boss2;
     public GameObject Saturn;
     public GameObject Moon;
     public GameObject musicManager;
@@ -72,6 +73,9 @@ public class GameController : MonoBehaviour
     public Text healthLeft;
     public Text missionComplete;
     public GameObject smoke;
+    private GameObject smokeClone;
+    public GameObject fastSmoke;
+    private GameObject fastSmokeClone;
 
 
 
@@ -83,10 +87,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = {"Assault 1", "ast2", "sat", "en6", "ast2", "ast2", "ast1", "en4", "ast1", "en1", "ast2", "ast2", "ast2", "ast2", "ast1", "en2", "wait", "ast1", "en1", "wait", "ast1", "ast2", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "rock1", "ast2", "wait", "wait", "en6", "wait", "ast2", "ast1", "wait", "wait", "rock1", "wait", "en6", "wait", "en7", "wait", "wait", "ast2", "en1", "wait", "ast1", "ast2", "wait", "wait", "en6", "ast2", "ast2", "en2", "ast1", "wait", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "wait", "ast2", "wait", "en1", "en1", "en6", "ast1", "ast1", "ast1", "ast1", "ast2", "Incoming attack!", "mus_attack1", "speed3", "rock1", "rock1", "rock1", "rock1", "en7", "wait", "wait", "ast1", "ast2", "rock1", "ast2", "en2", "ast2", "wait", "en1", "wait", "wait", "wait", "ast2", "en1", "wait", "ast2", "en2", "en1", "en1", "ast2", "rock1", "rock1", "ast2", "wait", "wait", "en1", "moon", "wait", "ast2", "ast2", "en1", "rock1", "rock1", "rock1", "wait", "wait", "rock1", "en3", "wait", "wait", "en1", "ast2", "ast2", "ast2", "wait", "wait", "wait", "en2", "en1", "endSpeed", "wait", "ast2", "wait", "en6", "en6", "wait", "en6", "en6", "wait", "wait", "ast2", "ast1", "en3", "ast2", "ast2", "ast2", "wait", "ast2", "en7", "wait", "ast2", "wait", "rock1", "ast1", "en6", "wait", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "rock1", "ast1", "ast2", "endSpeed", "wait", "ast2", "wait", "rock1", "mus_boss1", "Here comes the boss!", "boss1", "wait", "wait", "wait", "wait"};
-
-    // Game music
-
+    private string[] level1 = { "Assault 1", "ast2", "sat", "wait", "ast2", "en6", "ast2", "ast2", "ast1", "en4", "ast1", "en1", "ast2", "ast2", "ast2", "ast2", "ast1", "en2", "wait", "ast1", "en1", "wait", "ast1", "ast2", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "rock1", "ast2", "wait", "wait", "en6", "wait", "ast2", "ast1", "wait", "wait", "rock1", "wait", "en6", "wait", "en7", "wait", "wait", "ast2", "en1", "wait", "ast1", "ast2", "wait", "wait", "en6", "ast2", "ast2", "en2", "ast1", "wait", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "wait", "ast2", "wait", "en1", "en1", "en6", "ast1", "ast1", "ast1", "ast1", "ast2", "Incoming attack!", "mus_attack1", "speed3", "rock1", "rock1", "rock1", "rock1", "en7", "wait", "wait", "ast1", "ast2", "rock1", "ast2", "en2", "ast2", "wait", "en1", "wait", "wait", "wait", "ast2", "en1", "wait", "ast2", "en2", "en1", "en1", "ast2", "rock1", "rock1", "ast2", "wait", "wait", "en1", "moon", "wait", "ast2", "ast2", "en1", "rock1", "rock1", "rock1", "wait", "wait", "rock1", "en3", "wait", "wait", "en1", "ast2", "ast2", "ast2", "wait", "wait", "wait", "en2", "en1", "endSpeed", "wait", "ast2", "wait", "en6", "en6", "wait", "en6", "en6", "wait", "wait", "ast2", "ast1", "en3", "ast2", "ast2", "ast2", "wait", "ast2", "en7", "wait", "ast2", "wait", "rock1", "ast1", "en6", "wait", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "rock1", "ast1", "ast2", "endSpeed", "wait", "rock1", "mus_boss2", "Here comes the boss!", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "add_fast_smoke", "rock1", "del_slow_smoke", "boss2", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1" };
 
 
     void Start()
@@ -213,6 +214,11 @@ public class GameController : MonoBehaviour
                 Instantiate(Boss1, spawnPosition, Boss1.transform.rotation);
                 Boss1.GetComponent<Soul>().reward = (int)Random.Range(100, 120);
             }
+            else if (currentLevel[i] == "boss2")
+            {
+                Instantiate(Boss2, spawnPosition, Boss2.transform.rotation);
+                Boss2.GetComponent<Soul>().reward = (int)Random.Range(250, 330);
+            }
             else if(currentLevel[i] == "sat")
             {
                 spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), -13, 16);
@@ -261,6 +267,21 @@ public class GameController : MonoBehaviour
             {
                 musicManagerClone.GetComponent<MusicManager>().playMusic("boss1", true);
             }
+            else if (currentLevel[i] == "mus_boss2")
+            {
+                musicManagerClone.GetComponent<MusicManager>().playMusic("boss2", true);
+            }
+
+
+            //Efektai
+            else if (currentLevel[i] == "add_fast_smoke")
+            {
+                fastSmokeClone = (GameObject)Instantiate(fastSmoke, fastSmoke.transform.position, fastSmoke.transform.rotation);
+            }
+            else if (currentLevel[i] == "del_slow_smoke")
+            {
+                Destroy(smokeClone);
+            }
 
             else
             {
@@ -292,7 +313,8 @@ public class GameController : MonoBehaviour
         Instantiate(boundary, new Vector3(0.0f, 0.0f, 0.0f), transform.rotation);
         GameObject playerShip = Instantiate(player, new Vector3(0.0f, 0.0f, -10f), transform.rotation) as GameObject;
         musicManagerClone = Instantiate(musicManager, new Vector3(0.0f, 20f, -3.4f), transform.rotation) as GameObject;
-        Instantiate(smoke, smoke.transform.position, smoke.transform.rotation);
+        smokeClone = (GameObject)Instantiate(smoke, smoke.transform.position, smoke.transform.rotation);
+        smokeClone.active = true;
 
         if (Settings.p_ship_level == 1)
         {
