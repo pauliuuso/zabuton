@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject Enemy4;
     public GameObject Enemy6;
     public GameObject Enemy7;
+    public GameObject Enemy8;
     public GameObject EnemyRocket1;
     public GameObject Boss1;
     public GameObject Boss2;
@@ -87,7 +88,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = { "Assault 1", "ast2", "sat", "wait", "ast2", "en6", "ast2", "ast2", "ast1", "en4", "ast1", "en1", "ast2", "ast2", "ast2", "ast2", "ast1", "en2", "wait", "ast1", "en1", "wait", "ast1", "ast2", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "rock1", "ast2", "wait", "wait", "en6", "wait", "ast2", "ast1", "wait", "wait", "rock1", "wait", "en6", "wait", "en7", "wait", "wait", "ast2", "en1", "wait", "ast1", "ast2", "wait", "wait", "en6", "ast2", "ast2", "en2", "ast1", "wait", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "wait", "ast2", "wait", "en1", "en1", "en6", "ast1", "ast1", "ast1", "ast1", "ast2", "Incoming attack!", "mus_attack1", "speed3", "rock1", "rock1", "rock1", "rock1", "en7", "wait", "wait", "ast1", "ast2", "rock1", "ast2", "en2", "ast2", "wait", "en1", "wait", "wait", "wait", "ast2", "en1", "wait", "ast2", "en2", "en1", "en1", "ast2", "rock1", "rock1", "ast2", "wait", "wait", "en1", "moon", "wait", "ast2", "ast2", "en1", "rock1", "rock1", "rock1", "wait", "wait", "rock1", "en3", "wait", "wait", "en1", "ast2", "ast2", "ast2", "wait", "wait", "wait", "en2", "en1", "endSpeed", "wait", "ast2", "wait", "en6", "en6", "wait", "en6", "en6", "wait", "wait", "ast2", "ast1", "en3", "ast2", "ast2", "ast2", "wait", "ast2", "en7", "wait", "ast2", "wait", "rock1", "ast1", "en6", "wait", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "rock1", "ast1", "ast2", "endSpeed", "wait", "rock1", "mus_boss2", "Here comes the boss!", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "add_fast_smoke", "rock1", "del_slow_smoke", "boss2", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1" };
+    private string[] level1 = { "Assault 1", "ast2", "sat", "en8", "wait", "ast2", "en6", "ast2", "ast2", "ast1", "en4", "ast1", "en1", "ast2", "ast2", "ast2", "ast2", "ast1", "en2", "wait", "ast1", "en1", "wait", "ast1", "ast2", "speed3", "ast1", "ast2", "ast1", "ast1", "ast1", "rock1", "ast2", "wait", "wait", "en6", "wait", "ast2", "ast1", "wait", "wait", "rock1", "wait", "en6", "wait", "en7", "wait", "wait", "ast2", "en1", "wait", "ast1", "ast2", "wait", "wait", "en6", "ast2", "ast2", "en2", "ast1", "wait", "endSpeed", "en1", "en1", "en1", "wait", "wait", "ast1", "en2", "wait", "en2", "ast1", "ast1", "ast1", "ast2", "ast1", "ast2", "ast2", "ast1", "wait", "ast1", "wait", "wait", "wait", "ast2", "wait", "en1", "en1", "en6", "ast1", "ast1", "ast1", "ast1", "ast2", "Incoming attack!", "mus_attack1", "speed3", "rock1", "rock1", "rock1", "rock1", "en7", "wait", "wait", "ast1", "ast2", "rock1", "ast2", "en2", "ast2", "wait", "en1", "wait", "wait", "wait", "ast2", "en1", "wait", "ast2", "en2", "en1", "en1", "ast2", "rock1", "rock1", "ast2", "wait", "wait", "en1", "moon", "wait", "ast2", "ast2", "en1", "rock1", "rock1", "rock1", "wait", "wait", "rock1", "en3", "wait", "wait", "en1", "ast2", "ast2", "ast2", "wait", "wait", "wait", "en2", "en1", "endSpeed", "wait", "ast2", "wait", "en6", "en6", "wait", "en6", "en6", "wait", "wait", "ast2", "ast1", "en3", "ast2", "ast2", "ast2", "wait", "ast2", "en7", "wait", "ast2", "wait", "rock1", "ast1", "en6", "wait", "en2", "wait", "speed3", "ast1", "ast1", "ast2", "ast2", "rock1", "ast1", "ast2", "endSpeed", "wait", "rock1", "mus_boss2", "Here comes the boss!", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "add_fast_smoke", "rock1", "del_slow_smoke", "boss2", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1" };
 
 
     void Start()
@@ -203,6 +204,11 @@ public class GameController : MonoBehaviour
             {
                 Instantiate(Enemy7, spawnPosition, Enemy7.transform.rotation);
                 Enemy7.GetComponent<Soul>().reward = (int)Random.Range(250, 350);
+            }
+            else if (currentLevel[i] == "en8")
+            {
+                Instantiate(Enemy8, new Vector3(spawnPosition.x, Enemy8.transform.position.y, 20f), Enemy8.transform.rotation);
+                Enemy8.GetComponent<Soul>().reward = (int)Random.Range(300, 400);
             }
             else if (currentLevel[i] == "rock1")
             {

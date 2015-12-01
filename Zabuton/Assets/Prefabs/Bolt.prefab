@@ -118,13 +118,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0acb3b44be6b14d82fd68a92c618ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  devast: 20
+  devast: 35
   type: fire
   owner: enemy
   addBoom: 0
   fireLevel: 2
-  iceLevel: 1
-  poisonLevel: 1
+  iceLevel: 2
+  poisonLevel: 2
   effects:
   - 
   fireBooms:

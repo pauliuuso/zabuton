@@ -69,7 +69,7 @@ public class Turret1 : MonoBehaviour
         }
 
 
-        if (Mathf.Round(gameObject.transform.localEulerAngles.y + 10) < nextAngle || Mathf.Round(gameObject.transform.localEulerAngles.y - 10) > nextAngle)
+        if (Mathf.Round(gameObject.transform.eulerAngles.y + 10) < nextAngle || Mathf.Round(gameObject.transform.eulerAngles.y - 10) > nextAngle)
         {
             gameObject.transform.Rotate(Vector3.forward * (int)(Time.deltaTime * turnSpeed));
         }
@@ -123,7 +123,7 @@ public class Turret1 : MonoBehaviour
 
         bolt.transform.localScale = new Vector3(bullet_size[0], bullet_size[1], bullet_size[2]);
 
-        Instantiate(bolt, canon.transform.position, Quaternion.Euler(0f, gameObject.transform.localEulerAngles.y + angleFix, 0f));
+        Instantiate(bolt, new Vector3 (canon.transform.position.x, 0f, canon.transform.position.z), Quaternion.Euler(0f, gameObject.transform.eulerAngles.y + angleFix, 0f));
         Instantiate(turretShot[materialNumber], canon.transform.position, Quaternion.Euler(0f, gameObject.transform.localEulerAngles.y + angleFix, 0f));
 
     }
