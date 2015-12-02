@@ -81,7 +81,7 @@ public class Boss2 : MonoBehaviour
 
         if (reloadTime < Time.time)
         {
-            if (Random.Range(0f, 1f) < 0.5) readyToFire = true;
+            if (Random.Range(0f, 1f) < 0.65) readyToFire = true;
             else rocketsReady = true;
             reloadTime = Time.time + 6f;
             shooting = Time.time + 3f;

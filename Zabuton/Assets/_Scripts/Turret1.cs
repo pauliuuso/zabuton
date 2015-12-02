@@ -5,7 +5,7 @@ public class Turret1 : MonoBehaviour
 {
     private int nextAngle;
     private float currentTime;
-    private float nextFire = 4;
+    private float nextFire = Random.Range(2, 6);
     private bool readyToFire = false;
     public GameObject bolt;
     public Material[] boltMaterial;
@@ -25,6 +25,7 @@ public class Turret1 : MonoBehaviour
     public string effect;
     public float[] bullet_size;
     private int angleFix;
+    private bool retreating = false;
 
 
     void Start()
@@ -60,9 +61,11 @@ public class Turret1 : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (gameObject.transform.position.z < -10) retreating = true;
+
         currentTime += Time.deltaTime;
 
-        if(currentTime > nextFire)
+        if(currentTime > nextFire && !retreating)
         {
             readyToFire = true;
             nextFire += 0.2f;
