@@ -4836,7 +4836,11 @@ Prefab:
       objectReference: {fileID: 193846, guid: 70016ada755445d428853bde82d8e3ca, type: 2}
     - target: {fileID: 0}
       propertyPath: partCount
-      value: 1000
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11425926}
   - 114: {fileID: 11419116}
   - 65: {fileID: 6591306}
+  - 114: {fileID: 11450246}
   m_Layer: 0
   m_Name: Part3
   m_TagString: Untagged
@@ -131,6 +132,18 @@ MonoBehaviour:
   randomSpeed1: 5
   randomSpeed2: 20
   fixedSpeed: 0
+--- !u!114 &11450246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 048ebfefeab923541b933d8c4e13e4fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTimer: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

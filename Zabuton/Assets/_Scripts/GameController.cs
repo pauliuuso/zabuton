@@ -239,7 +239,7 @@ public class GameController : MonoBehaviour
             }
             else if (currentLevel[i] == "ship_swarm1")
             {
-                spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), -12, 25f);
+                spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), -12, 45f);
                 Instantiate(ShipSwarm1, spawnPosition, ShipSwarm1.transform.rotation);
             }
             else if(currentLevel[i] == "wait")

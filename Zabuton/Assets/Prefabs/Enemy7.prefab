@@ -401,13 +401,14 @@ MonoBehaviour:
   - 3
   - 3
   resistanceStrength: 000000000000000000000000
-  explosion: {fileID: 127486, guid: f7132142450831e4ba688f3aa3ed7ca2, type: 2}
+  explosion: {fileID: 109498, guid: ef6b930d9f9aaad4c922b21e7fdba68f, type: 2}
   addBoom: 0
   lastHitBy: 
   ship_name: enemy7
   notMoving: 0
   collidingWithSame: 0
   particle_bolt: 1
+  boss: 0
 --- !u!198 &19845004
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1572,6 +1573,10 @@ Prefab:
       propertyPath: max_health
       value: 450
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 109498, guid: ef6b930d9f9aaad4c922b21e7fdba68f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 148434}
