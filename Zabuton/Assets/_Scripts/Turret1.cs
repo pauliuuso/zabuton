@@ -5,7 +5,7 @@ public class Turret1 : MonoBehaviour
 {
     private int nextAngle;
     private float currentTime;
-    private float nextFire = Random.Range(2, 6);
+    private float nextFire;
     private bool readyToFire = false;
     public GameObject bolt;
     public Material[] boltMaterial;
@@ -30,6 +30,7 @@ public class Turret1 : MonoBehaviour
 
     void Start()
     {
+        nextFire = Random.Range(2, 6);
         randomas = Random.Range(0f, 1f);
         updateAngle();
         if(bullet_type == "random")

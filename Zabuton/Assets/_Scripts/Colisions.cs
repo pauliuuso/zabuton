@@ -125,7 +125,7 @@ public class Colisions : MonoBehaviour
         if (color == "red") stageText.color = Color.red;
         else if (color == "green") stageText.color = Color.green;
         else if (color == "yellow") stageText.color = Color.yellow;
-        Instantiate(stageText, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+        if(damage != 0) Instantiate(stageText, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
     }
 
 }

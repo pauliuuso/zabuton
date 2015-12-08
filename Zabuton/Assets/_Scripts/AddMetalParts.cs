@@ -21,7 +21,7 @@ public class AddMetalParts : MonoBehaviour
 
 	    for (int a = 0; a < partCount; a++)
         {
-            GameObject currentPart = (GameObject)Instantiate(PartList[Random.Range(0,3)], gameObject.transform.position, gameObject.transform.rotation);
+            GameObject currentPart = (GameObject)Instantiate(PartList[Random.Range(0,3)], new Vector3 (gameObject.transform.position.x, 0f, gameObject.transform.position.z), gameObject.transform.rotation);
         }
 	}
 

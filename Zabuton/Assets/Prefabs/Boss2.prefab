@@ -191,8 +191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   tilt: -3
-  health: 450
-  max_health: 450
+  health: 1500
+  max_health: 1500
   devast: 50
   reward: 290
   bullet_speed: -20
@@ -207,7 +207,7 @@ MonoBehaviour:
   - 2
   - 2
   resistanceStrength: 000000000000000000000000
-  explosion: {fileID: 127486, guid: f7132142450831e4ba688f3aa3ed7ca2, type: 2}
+  explosion: {fileID: 109498, guid: ef6b930d9f9aaad4c922b21e7fdba68f, type: 2}
   addBoom: 0
   lastHitBy: 
   ship_name: boss2
@@ -304,12 +304,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: health
-      value: 450
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: max_health
-      value: 450
+      value: 1500
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 109498, guid: ef6b930d9f9aaad4c922b21e7fdba68f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 109544}

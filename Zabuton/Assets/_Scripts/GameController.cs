@@ -229,12 +229,12 @@ public class GameController : MonoBehaviour
             }
             else if(currentLevel[i] == "sat")
             {
-                spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), -13, 16);
+                spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), -22, 16);
                 Instantiate(Saturn, spawnPosition, Saturn.transform.rotation);
             }
             else if (currentLevel[i] == "moon")
             {
-                spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), -10, 16);
+                spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), -20, 16);
                 Instantiate(Moon, spawnPosition, Moon.transform.rotation);
             }
             else if (currentLevel[i] == "ship_swarm1")

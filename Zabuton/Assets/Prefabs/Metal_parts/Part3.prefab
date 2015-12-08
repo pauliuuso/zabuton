@@ -14,8 +14,11 @@ GameObject:
   - 114: {fileID: 11428040}
   - 114: {fileID: 11425926}
   - 114: {fileID: 11419116}
-  - 65: {fileID: 6591306}
   - 114: {fileID: 11450246}
+  - 114: {fileID: 11402336}
+  - 114: {fileID: 11409530}
+  - 135: {fileID: 13559730}
+  - 114: {fileID: 11489746}
   m_Layer: 0
   m_Name: Part3
   m_TagString: Untagged
@@ -81,18 +84,55 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6591306
-BoxCollider:
+--- !u!114 &11402336
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197324}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.04923892, y: 2.85162187, z: 2.75177455}
-  m_Center: {x: -.228901505, y: -.0365344957, z: -.0633760244}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e39abf7b96a0b459d0d0b0ddf4bebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  tilt: 5
+  health: 1
+  max_health: 1
+  devast: 3
+  reward: 0
+  bullet_speed: 10
+  bullet_devast: 20
+  bullet_type: fire
+  fire_level: 1
+  ice_level: 1
+  poison_level: 1
+  effect: 
+  bullet_size:
+  - 2
+  - 2
+  - 2
+  resistanceStrength: 000000000000000000000000
+  explosion: {fileID: 146054, guid: 9f2968a9d87fd1345936abd317d3c902, type: 2}
+  addBoom: 0
+  lastHitBy: 
+  ship_name: 
+  notMoving: 0
+  collidingWithSame: 0
+  particle_bolt: 0
+  boss: 0
+--- !u!114 &11409530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433e3f3a959d8c34d9be4be34ac676af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageText: {fileID: 10220098, guid: 147a4559a4538f84bae1a332864af7e3, type: 2}
 --- !u!114 &11419116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,7 +183,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048ebfefeab923541b933d8c4e13e4fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTimer: 5
+  destroyTimer: 8
+--- !u!114 &11489746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148f1722a7cb4394c9181f0e6ff555dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectsLink: {fileID: 171482, guid: 58fd83f602b88524bb9c54c7b1f66352, type: 2}
+  fired1: 0
+  poisoned1: 0
+  poisoned2: 0
+  frozen1: 0
+  fireResisting1: 0
+  iceResisting1: 0
+  poisonResisting1: 0
+  vampiricRegenerating: 0
+  fired1Steps: 0
+  poisoned1Steps: 0
+  poisoned2Steps: 0
+  frozen1Steps: 0
+  fireResistance1Steps: 0
+  iceResistance1Steps: 0
+  poisonResistance1Steps: 0
+  vampiricRegenerationSteps: 0
+  bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
+  emptyMaterial: {fileID: 2100000, guid: 0d32a0ca9c4072542896a696b50b9f6f, type: 2}
+  gameController: {fileID: 0}
+--- !u!135 &13559730
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.44000006
+  m_Center: {x: -.121871471, y: -.0659719855, z: -.276849568}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -155,6 +238,14 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: destroyTimer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 146054, guid: 9f2968a9d87fd1345936abd317d3c902, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 197324}
