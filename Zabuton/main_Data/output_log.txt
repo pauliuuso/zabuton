@@ -15,31 +15,19 @@ Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.UI.d
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.139 seconds
+- Completed reload, in  0.052 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1aac -> priority: 1 
+  Thread -> id: 1b48 -> priority: 1 
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.558087 ms
+UnloadTime: 2.756923 ms
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1470.
-Total: 0.912564 ms (FindLiveObjects: 0.080394 ms CreateObjectMapping: 0.062861 ms MarkObjects: 0.754340 ms  DeleteObjects: 0.014111 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.127234 ms
-
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1470.
-Total: 1.191379 ms (FindLiveObjects: 0.073124 ms CreateObjectMapping: 0.065427 ms MarkObjects: 1.031873 ms  DeleteObjects: 0.019671 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.787695 ms
-
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1470.
-Total: 0.969866 ms (FindLiveObjects: 0.070131 ms CreateObjectMapping: 0.062861 ms MarkObjects: 0.821906 ms  DeleteObjects: 0.014539 ms)
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1471.
+Total: 0.948908 ms (FindLiveObjects: 0.079966 ms CreateObjectMapping: 0.063716 ms MarkObjects: 0.788975 ms  DeleteObjects: 0.015394 ms)
 
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
 NullReferenceException
@@ -49,8 +37,8 @@ NullReferenceException
  
 (Filename:  Line: -1)
 
-UnloadTime: 15.464411 ms
+UnloadTime: 14.585140 ms
 
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1470.
-Total: 1.505687 ms (FindLiveObjects: 0.162072 ms CreateObjectMapping: 0.096216 ms MarkObjects: 1.225589 ms  DeleteObjects: 0.020098 ms)
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 1471.
+Total: 1.315814 ms (FindLiveObjects: 0.150525 ms CreateObjectMapping: 0.076117 ms MarkObjects: 1.063085 ms  DeleteObjects: 0.023947 ms)
 

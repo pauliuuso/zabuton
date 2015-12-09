@@ -76,7 +76,7 @@ public class Colisions : MonoBehaviour
             if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
             Settings.p_health -= gameObject.GetComponent<Soul>().devast; // Zaidejui nuimama tiek kiek gali nuimt objektas kai susiduria
             checkLife();
-            other.GetComponent<PlayerShip>().checkLife(); // Sita funkcija yra playership scripte ir tikrina kiek gyvybiu liko zaidejui
+            if(other.GetComponent<PlayerShip>()) other.GetComponent<PlayerShip>().checkLife(); // Sita funkcija yra playership scripte ir tikrina kiek gyvybiu liko zaidejui
             gameController.updateHealth();
         }
         if(other.tag == "Enemy" && gameObject.tag == "Enemy")
