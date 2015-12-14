@@ -21,7 +21,7 @@ public class ShowHealth : MonoBehaviour
         if (gameObject.GetComponent<Soul>().ship_name == "enemy1") health.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 1.5f);
         else if (gameObject.GetComponent<Soul>().ship_name == "boss1" || gameObject.GetComponent<Soul>().ship_name == "enemy2" || gameObject.GetComponent<Soul>().ship_name == "enemy3" || gameObject.GetComponent<Soul>().ship_name == "enemy4" || gameObject.GetComponent<Soul>().ship_name == "enemy5" || gameObject.GetComponent<Soul>().ship_name == "enemy6") health.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 4f);
         else if (gameObject.GetComponent<Soul>().ship_name == "enemy7") health.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 6f);
-        else health.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 6f);
+        else health.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 8f);
     }
 
     public void updateHealth()
