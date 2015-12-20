@@ -32,6 +32,7 @@ public class Soul : MonoBehaviour
     public bool particle_bolt = false;
     public bool boss = false;
     private GameObject gameController;
+    public int resistanceSize = 1;
 
     // Effects //////
     /*

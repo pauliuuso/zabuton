@@ -373,8 +373,8 @@ public class Boss3 : MonoBehaviour
 
             bolt.transform.localScale = new Vector3(gameObject.GetComponent<Soul>().bullet_size[0], gameObject.GetComponent<Soul>().bullet_size[1], gameObject.GetComponent<Soul>().bullet_size[2]);
 
-            if(Random.Range(0f, 1f) < 0.5f) Instantiate(bolt, canon1.transform.position, Quaternion.Euler(0f, 0f, 0f));
-            else Instantiate(bolt, canon2.transform.position, Quaternion.Euler(0f, 0f, 0f));
+            if(Random.Range(0f, 1f) < 0.5f) Instantiate(bolt, new Vector3 (canon1.transform.position.x, 0f, canon1.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
+            else Instantiate(bolt, new Vector3(canon2.transform.position.x, 0f, canon2.transform.position.z), Quaternion.Euler(0f, 0f, 0f));
 
         }
         else

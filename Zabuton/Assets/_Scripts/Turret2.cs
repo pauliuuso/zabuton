@@ -53,9 +53,7 @@ public class Turret2 : MonoBehaviour
             nextFire += 0.2f;
         }
 
-        print(gameObject.transform.eulerAngles.z + " next angle: " + nextAngle);
-
-        if (Mathf.Round(gameObject.transform.eulerAngles.z + 10) < nextAngle || Mathf.Round(gameObject.transform.eulerAngles.z - 10) > nextAngle)
+        if (Mathf.Round(gameObject.transform.localEulerAngles.z + 10) < nextAngle || Mathf.Round(gameObject.transform.localEulerAngles.z - 10) > nextAngle)
         {
             gameObject.transform.Rotate(Vector3.forward * (int)(Time.deltaTime * turnSpeed));
         }
@@ -82,11 +80,11 @@ public class Turret2 : MonoBehaviour
     {
         if(owner == "enemy")
         {
-            nextAngle = (int)Random.Range(0, 80);
-            if (Random.Range(0f, 1f) > 0.5f)
+            if(Random.RandomRange(0f, 1f) < 0.5f) nextAngle = (int)Random.Range(270, 360);
+            else
             {
+                nextAngle = (int)Random.Range(0, 90);
                 turnSpeed *= -1;
-                nextAngle = (int)Random.Range(260, 360);
             }
         }
         else if (owner == "player")
@@ -99,7 +97,6 @@ public class Turret2 : MonoBehaviour
 
     void fire()
     {
-        print("turret fire");
 
         bolt.GetComponent<Bullet>().effects.Clear(); // pirma isvalom effektu lista
 
@@ -115,8 +112,8 @@ public class Turret2 : MonoBehaviour
 
         bolt.transform.localScale = new Vector3(bullet_size[0], bullet_size[1], bullet_size[2]);
 
-        Instantiate(bolt, new Vector3 (canon.transform.position.x, 0f, canon.transform.position.z), Quaternion.Euler(0f, gameObject.transform.eulerAngles.z + angleFix, 0f));
-        Instantiate(turretShot, canon.transform.position, Quaternion.Euler(0f, gameObject.transform.eulerAngles.z + angleFix, 0f));
+        Instantiate(bolt, new Vector3 (canon.transform.position.x, 0f, canon.transform.position.z), Quaternion.Euler(0f, gameObject.transform.localEulerAngles.z + angleFix, 0f));
+        Instantiate(turretShot, canon.transform.position, Quaternion.Euler(0f, gameObject.transform.localEulerAngles.z + angleFix, 0f));
 
     }
 

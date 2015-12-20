@@ -146,7 +146,7 @@ public class Effects : MonoBehaviour
             if (childEffect == null)
             {
                 iceResistanceClone1 = Instantiate(iceResistance1, gameObject.transform.position, iceResistance1.transform.rotation) as GameObject;
-                if (gameObject.tag == "Player_ship" || gameObject.GetComponent<Soul>().ship_name == "enemy1") iceResistanceClone1.transform.localScale = new Vector3(2f, 2f, 2f);
+                iceResistanceClone1.transform.localScale = new Vector3(gameObject.GetComponent<Soul>().resistanceSize, gameObject.GetComponent<Soul>().resistanceSize, gameObject.GetComponent<Soul>().resistanceSize);
                 iceResistanceClone1.transform.parent = gameObject.transform;
                 iceResistance1Steps = currentStep + 1;
             }
@@ -158,7 +158,7 @@ public class Effects : MonoBehaviour
             if (childEffect == null)
             {
                 fireResistanceClone1 = Instantiate(fireResistance1, gameObject.transform.position, fireResistance1.transform.rotation) as GameObject;
-                if (gameObject.tag == "Player_ship" || gameObject.GetComponent<Soul>().ship_name == "enemy1") fireResistanceClone1.transform.localScale = new Vector3(2f, 2f, 2f);
+                fireResistanceClone1.transform.localScale = new Vector3(gameObject.GetComponent<Soul>().resistanceSize, gameObject.GetComponent<Soul>().resistanceSize, gameObject.GetComponent<Soul>().resistanceSize);
                 fireResistanceClone1.transform.parent = gameObject.transform;
                 fireResistance1Steps = currentStep + 1;
                 
@@ -171,7 +171,7 @@ public class Effects : MonoBehaviour
             if (childEffect == null)
             {
                 poisonResistanceClone1 = Instantiate(poisonResistance1, gameObject.transform.position, poisonResistance1.transform.rotation) as GameObject;
-                if (gameObject.tag == "Player_ship" || gameObject.GetComponent<Soul>().ship_name == "enemy1") poisonResistanceClone1.transform.localScale = new Vector3(2f, 2f, 2f);
+                poisonResistanceClone1.transform.localScale = new Vector3(gameObject.GetComponent<Soul>().resistanceSize, gameObject.GetComponent<Soul>().resistanceSize, gameObject.GetComponent<Soul>().resistanceSize);
                 poisonResistanceClone1.transform.parent = gameObject.transform;
                 poisonResistance1Steps = currentStep + 1;
             }

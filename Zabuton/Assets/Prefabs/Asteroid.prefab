@@ -49,7 +49,7 @@ Transform:
   m_GameObject: {fileID: 107372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .701784968, y: .701784968, z: .701784968}
+  m_LocalScale: {x: .768634558, y: .768634558, z: .768634558}
   m_Children:
   - {fileID: 485668}
   m_Father: {fileID: 0}
@@ -193,7 +193,7 @@ MonoBehaviour:
   health: 5
   max_health: 0
   devast: 6
-  reward: 2
+  reward: 3
   bullet_speed: 10
   bullet_devast: 20
   bullet_type: fire
@@ -214,6 +214,7 @@ MonoBehaviour:
   collidingWithSame: 0
   particle_bolt: 0
   boss: 0
+  resistanceSize: 1
 --- !u!114 &11483758
 MonoBehaviour:
   m_ObjectHideFlags: 1
