@@ -15,17 +15,29 @@ Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.UI.d
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.051 seconds
+- Completed reload, in  0.175 seconds
 desktop: 1440x900 75Hz; virtual: 1440x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 584 -> priority: 1 
+  Thread -> id: 1200 -> priority: 1 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.540525 ms
+UnloadTime: 5.437211 ms
 
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 1518.
-Total: 0.996794 ms (FindLiveObjects: 0.112893 ms CreateObjectMapping: 0.066281 ms MarkObjects: 0.734232 ms  DeleteObjects: 0.082104 ms)
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 1526.
+Total: 0.964287 ms (FindLiveObjects: 0.123155 ms CreateObjectMapping: 0.065426 ms MarkObjects: 0.708141 ms  DeleteObjects: 0.066281 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.389343 ms
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1527.
+Total: 0.963859 ms (FindLiveObjects: 0.153516 ms CreateObjectMapping: 0.069702 ms MarkObjects: 0.711135 ms  DeleteObjects: 0.027367 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.892874 ms
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1527.
+Total: 0.938629 ms (FindLiveObjects: 0.151805 ms CreateObjectMapping: 0.060722 ms MarkObjects: 0.705148 ms  DeleteObjects: 0.019670 ms)
 

@@ -18,6 +18,8 @@ public class Bullet : MonoBehaviour
     public bool fromEffects = false;
     public bool particleBolt = false;
     public bool damageDone = false;
+    public GameObject[] particles;
+    private GameObject particleClone;
 
     void Start()
     {
@@ -27,6 +29,8 @@ public class Bullet : MonoBehaviour
             iceLevel = Settings.p_ice_level;
             poisonLevel = Settings.p_poison_level;
         }*/
+
+        if (fireLevel == 4 && type == "fire") addEffect(0);
 
     }
 
@@ -53,6 +57,12 @@ public class Bullet : MonoBehaviour
         if (type == "fire") Instantiate(fireBooms[fireLevel], location, fireBooms[fireLevel].transform.rotation);
         else if (type == "ice") Instantiate(iceBooms[iceLevel], location, iceBooms[iceLevel].transform.rotation);
         else if (type == "poison") Instantiate(poisonBooms[poisonLevel], location, poisonBooms[poisonLevel].transform.rotation);
+    }
+
+    public void addEffect(int number)
+    {
+        particleClone = Instantiate(particles[number], gameObject.transform.position, particles[number].transform.rotation) as GameObject;
+        particleClone.transform.parent = gameObject.transform;
     }
 
     void OnApplicationQuit()

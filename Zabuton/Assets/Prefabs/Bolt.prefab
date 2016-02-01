@@ -71,7 +71,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+  - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -118,21 +118,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0acb3b44be6b14d82fd68a92c618ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  devast: 40
-  type: fire
-  owner: enemy
+  devast: 25
+  type: ice
+  owner: player
   addBoom: 0
-  fireLevel: 3
-  iceLevel: 1
+  fireLevel: 4
+  iceLevel: 3
   poisonLevel: 1
   effects:
-  - Fired1
+  - Frozen1
   fireBooms:
   - {fileID: 105142, guid: ffd1e8608a9d31c4393351d8f6d1a488, type: 2}
   - {fileID: 105142, guid: ffd1e8608a9d31c4393351d8f6d1a488, type: 2}
   - {fileID: 105142, guid: a2256f237399957419d896a7435f25fb, type: 2}
   - {fileID: 186910, guid: 96959e39387adb94c81d4d121e0ba23f, type: 2}
-  - {fileID: 0}
+  - {fileID: 186910, guid: 96959e39387adb94c81d4d121e0ba23f, type: 2}
   iceBooms:
   - {fileID: 105142, guid: f3e3afd3a76ccb44aac7ba5d282d0d94, type: 2}
   - {fileID: 105142, guid: f3e3afd3a76ccb44aac7ba5d282d0d94, type: 2}
@@ -148,6 +148,8 @@ MonoBehaviour:
   fromEffects: 0
   particleBolt: 0
   damageDone: 0
+  particles:
+  - {fileID: 127462, guid: a01bc4f4d31a49d4891e672f6183ba77, type: 2}
 --- !u!114 &11468606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c070cecbbd9846340a8a3f8f8e61e927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -15
+  speed: 20
 --- !u!136 &13662852
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -187,6 +189,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: fireBooms.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: particles.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: poisonBooms.Array.size
@@ -292,6 +298,14 @@ Prefab:
       propertyPath: poisonBooms.Array.data[3]
       value: 
       objectReference: {fileID: 128130, guid: d6a62a0a38ca73346a7bab3aa0f22350, type: 2}
+    - target: {fileID: 0}
+      propertyPath: fireBooms.Array.data[4]
+      value: 
+      objectReference: {fileID: 186910, guid: 96959e39387adb94c81d4d121e0ba23f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: particles.Array.data[0]
+      value: 
+      objectReference: {fileID: 127462, guid: a01bc4f4d31a49d4891e672f6183ba77, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 181274}

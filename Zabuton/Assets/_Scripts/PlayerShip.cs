@@ -10,6 +10,7 @@ public class PlayerShip : MonoBehaviour
 
     public Transform BulletSpawn; // reference i bulletspawn objekta, pagal jo koordinates ikelsim bullet
     public GameObject Bolt; // reference i bullet objekta
+    private GameObject boltClone;
     public Material[] boltFire;
     public Material[] boltIce;
     public Material[] boltPoison;
@@ -52,6 +53,11 @@ public class PlayerShip : MonoBehaviour
                 else if (Settings.p_fire_level == 3)
                 {
                     Bolt.transform.localScale = new Vector3(3f, 3f, 3f);
+                    Bolt.GetComponent<Bullet>().effects.Add("Fired1");
+                }
+                else if (Settings.p_fire_level == 4)
+                {
+                    Bolt.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     Bolt.GetComponent<Bullet>().effects.Add("Fired1");
                 }
             }
@@ -105,12 +111,12 @@ public class PlayerShip : MonoBehaviour
 
             if (fireCount == 1)
             {
-                Instantiate(Bolt, BulletSpawn.position, BulletSpawn.rotation); // Instantiate ikelia objekta, antras parametras pozicija, trecias rotation
+                boltClone = Instantiate(Bolt, BulletSpawn.position, BulletSpawn.rotation) as GameObject; // Instantiate ikelia objekta, antras parametras pozicija, trecias rotation
             }
             else if (fireCount == 2)
             {
-                Instantiate(Bolt, BulletSpawn.position, Quaternion.Euler(0f, 15f, 0f)); // Instantiate ikelia objekta, antras parametras pozicija, trecias rotation
-                Instantiate(Bolt, BulletSpawn.position, Quaternion.Euler(0f, -15f, 0f));
+                boltClone = Instantiate(Bolt, BulletSpawn.position, Quaternion.Euler(0f, 15f, 0f)) as GameObject; // Instantiate ikelia objekta, antras parametras pozicija, trecias rotation
+                boltClone = Instantiate(Bolt, BulletSpawn.position, Quaternion.Euler(0f, -15f, 0f)) as GameObject;
             }
 
             PlaySound(Settings.p_type);

@@ -372,7 +372,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
   - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
   - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: bf94015c1b0cb7c498581580017a971e, type: 2}
   boltIce:
   - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
   - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
@@ -387,6 +387,7 @@ MonoBehaviour:
   - {fileID: 0}
   audio: {fileID: 0}
   fireShots:
+  - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
@@ -4753,7 +4754,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: fireShots.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: poisonShots.Array.size
@@ -4847,6 +4848,10 @@ Prefab:
       propertyPath: resistanceSize
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boltFire.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf94015c1b0cb7c498581580017a971e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 180562}
