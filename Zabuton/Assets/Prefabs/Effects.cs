@@ -215,7 +215,7 @@ public class Effects : MonoBehaviour
         {
             if(gameObject.tag == "Player_ship")
             {
-                Settings.p_health -= 5;
+                Settings.p_health -= 6;
                 gameObject.GetComponent<PlayerShip>().checkLife();
                 gameController.updateHealth();
                 if (poisoned1Steps < currentStep)
@@ -226,7 +226,7 @@ public class Effects : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<Soul>().health -= 5;
+                gameObject.GetComponent<Soul>().health -= 6;
                 gameObject.GetComponent<Colisions>().checkLife();
                 if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
                 if (poisoned1Steps < currentStep)
@@ -242,7 +242,7 @@ public class Effects : MonoBehaviour
         {
             if (gameObject.tag == "Player_ship")
             {
-                Settings.p_health -= 8;
+                Settings.p_health -= 12;
                 gameObject.GetComponent<PlayerShip>().checkLife();
                 gameController.updateHealth();
                 if (poisoned2Steps < currentStep)
@@ -253,7 +253,7 @@ public class Effects : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<Soul>().health -= 8;
+                gameObject.GetComponent<Soul>().health -= 12;
                 gameObject.GetComponent<Colisions>().checkLife();
                 if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
                 if (poisoned2Steps < currentStep)

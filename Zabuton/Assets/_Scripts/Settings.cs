@@ -68,7 +68,7 @@ public class Settings
     public static int[] shipBulletSpeeds = new int[] { 15, 17, 20, 23, 26, 30, 33, 36, 40};
     public static int[] shipFireDamages = new int[] { 5, 17, 40, 75};
     public static int[] shipIceDamages = new int[] { 5, 10, 25, 30};
-    public static int[] shipPoisonDamages = new int[] { 5, 12, 30};
+    public static int[] shipPoisonDamages = new int[] { 5, 14, 35};
     public static int[] shipFireResistance = new int[] { 0, 10, 20, 40, 60, 70};
     public static int[] shipIceResistance = new int[] { 0, 10, 20, 40, 60, 70};
     public static int[] shipPoisonResistance = new int[] { 0, 10, 20, 40, 60, 70};
