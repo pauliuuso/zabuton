@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 181274}
   m_LocalRotation: {x: .5, y: .5, z: -.500000119, w: .49999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 425408}
   m_Father: {fileID: 0}
@@ -71,7 +71,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
+  - {fileID: 2100000, guid: bf94015c1b0cb7c498581580017a971e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -118,15 +118,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0acb3b44be6b14d82fd68a92c618ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  devast: 25
-  type: ice
+  devast: 75
+  type: fire
   owner: player
   addBoom: 0
   fireLevel: 4
-  iceLevel: 3
-  poisonLevel: 1
+  iceLevel: 2
+  poisonLevel: 2
   effects:
-  - Frozen1
+  - Vampiric
+  - Fired2
   fireBooms:
   - {fileID: 105142, guid: ffd1e8608a9d31c4393351d8f6d1a488, type: 2}
   - {fileID: 105142, guid: ffd1e8608a9d31c4393351d8f6d1a488, type: 2}
@@ -138,13 +139,13 @@ MonoBehaviour:
   - {fileID: 105142, guid: f3e3afd3a76ccb44aac7ba5d282d0d94, type: 2}
   - {fileID: 163726, guid: dea27dddc476721459d6ef4b4d7e1287, type: 2}
   - {fileID: 128532, guid: 9810b51b2192f63429868a2610f11852, type: 2}
-  - {fileID: 0}
+  - {fileID: 128532, guid: 9810b51b2192f63429868a2610f11852, type: 2}
   poisonBooms:
   - {fileID: 105142, guid: 27d4ad46b1c0d3a40977d1cd6a1669ce, type: 2}
   - {fileID: 105142, guid: 27d4ad46b1c0d3a40977d1cd6a1669ce, type: 2}
   - {fileID: 184844, guid: f94e59313d1e93a4da70694267ba11f2, type: 2}
   - {fileID: 128130, guid: d6a62a0a38ca73346a7bab3aa0f22350, type: 2}
-  - {fileID: 0}
+  - {fileID: 128130, guid: d6a62a0a38ca73346a7bab3aa0f22350, type: 2}
   fromEffects: 0
   particleBolt: 0
   damageDone: 0
@@ -306,6 +307,14 @@ Prefab:
       propertyPath: particles.Array.data[0]
       value: 
       objectReference: {fileID: 127462, guid: a01bc4f4d31a49d4891e672f6183ba77, type: 2}
+    - target: {fileID: 0}
+      propertyPath: iceBooms.Array.data[4]
+      value: 
+      objectReference: {fileID: 128532, guid: 9810b51b2192f63429868a2610f11852, type: 2}
+    - target: {fileID: 0}
+      propertyPath: poisonBooms.Array.data[4]
+      value: 
+      objectReference: {fileID: 128130, guid: d6a62a0a38ca73346a7bab3aa0f22350, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 181274}

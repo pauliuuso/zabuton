@@ -58,7 +58,7 @@ public class PlayerShip : MonoBehaviour
                 else if (Settings.p_fire_level == 4)
                 {
                     Bolt.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                    Bolt.GetComponent<Bullet>().effects.Add("Fired1");
+                    Bolt.GetComponent<Bullet>().effects.Add("Fired2");
                 }
             }
             else if (Input.GetButton("Fire2"))
@@ -77,6 +77,12 @@ public class PlayerShip : MonoBehaviour
                     Bolt.transform.localScale = new Vector3(3f, 3f, 3f);
                     Bolt.GetComponent<Bullet>().effects.Add("Frozen1");
                     fireCount = 2;
+                }
+                else if (Settings.p_ice_level == 4)
+                {
+                    Bolt.transform.localScale = new Vector3(3.2f, 3.2f, 3.2f);
+                    Bolt.GetComponent<Bullet>().effects.Add("Frozen1");
+                    fireCount = 3;
                 }
 
             }
@@ -116,6 +122,12 @@ public class PlayerShip : MonoBehaviour
             else if (fireCount == 2)
             {
                 boltClone = Instantiate(Bolt, BulletSpawn.position, Quaternion.Euler(0f, 15f, 0f)) as GameObject; // Instantiate ikelia objekta, antras parametras pozicija, trecias rotation
+                boltClone = Instantiate(Bolt, BulletSpawn.position, Quaternion.Euler(0f, -15f, 0f)) as GameObject;
+            }
+            else if (fireCount == 3)
+            {
+                boltClone = Instantiate(Bolt, BulletSpawn.position, Quaternion.Euler(0f, 15f, 0f)) as GameObject; // Instantiate ikelia objekta, antras parametras pozicija, trecias rotation
+                boltClone = Instantiate(Bolt, BulletSpawn.position, BulletSpawn.rotation) as GameObject;
                 boltClone = Instantiate(Bolt, BulletSpawn.position, Quaternion.Euler(0f, -15f, 0f)) as GameObject;
             }
 

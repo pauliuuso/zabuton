@@ -6,6 +6,7 @@ public class Effects : MonoBehaviour
     public GameObject effectsLink;
 
     public bool fired1 = false;
+    public bool fired2 = false;
     public bool poisoned1 = false;
     public bool poisoned2 = false;
     public bool frozen1 = false;
@@ -15,6 +16,7 @@ public class Effects : MonoBehaviour
     public bool vampiricRegenerating = false;
 
     public int fired1Steps;
+    public int fired2Steps;
     public int poisoned1Steps;
     public int poisoned2Steps;
     public int frozen1Steps;
@@ -28,6 +30,8 @@ public class Effects : MonoBehaviour
 
     private GameObject firedEffect1;
     private GameObject firedEffectClone1;
+    private GameObject firedEffect2;
+    private GameObject firedEffectClone2;
     private GameObject poisonedEffect1;
     private GameObject poisonedEffectClone1;
     private GameObject poisonedEffect2;
@@ -61,6 +65,7 @@ public class Effects : MonoBehaviour
     void Start()
     {
         firedEffect1 = effectsLink.GetComponent<EffectsLink>().firedEffect1;
+        firedEffect2 = effectsLink.GetComponent<EffectsLink>().firedEffect2;
         poisonedEffect1 = effectsLink.GetComponent<EffectsLink>().poisonedEffect1;
         poisonedEffect2 = effectsLink.GetComponent<EffectsLink>().poisonedEffect2;
         frozenEffect1 = effectsLink.GetComponent<EffectsLink>().frozenEffect1;
@@ -100,6 +105,18 @@ public class Effects : MonoBehaviour
                 firedEffectClone1 = Instantiate(firedEffect1, gameObject.transform.position, firedEffect1.transform.rotation) as GameObject;
                 firedEffectClone1.transform.parent = gameObject.transform;
                 fired1Steps = currentStep + 2;
+            }
+
+        }
+
+        if (fired2)
+        {
+            childEffect = gameObject.transform.Find("Fired2(Clone)");
+            if (childEffect == null)
+            {
+                firedEffectClone2 = Instantiate(firedEffect2, gameObject.transform.position, firedEffect2.transform.rotation) as GameObject;
+                firedEffectClone2.transform.parent = gameObject.transform;
+                fired2Steps = currentStep;
             }
 
         }
@@ -300,6 +317,29 @@ public class Effects : MonoBehaviour
                     fired1 = false;
                     delayedRemoveFire1 = true;
                     fired1Steps = currentStep + 2;
+                }
+            }
+        }
+        if (fired2)
+        {
+            if (gameObject.tag == "Player_ship")
+            {
+                if(gameObject)
+                {
+                    fired2 = false;
+                    Settings.p_health -= 80;
+                    gameObject.GetComponent<PlayerShip>().checkLife();
+                    gameController.updateHealth();
+                }
+            }
+            else
+            {
+                if (gameObject)
+                {
+                    fired2 = false;
+                    gameObject.GetComponent<Soul>().health -= 80;
+                    gameObject.GetComponent<Colisions>().checkLife();
+                    if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
                 }
             }
         }

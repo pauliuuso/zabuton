@@ -50,8 +50,8 @@ public class Settings
     // upgrade costs
     public static int[] shipCosts = new int[] {150, 450, 1150, 2350, 4250, 6780};
     public static int[] reloadCosts = new int[] { 100, 500, 1500, 3250, 6750, 10450, 14500 };
-    public static int[] fireCosts = new int[] { 140, 540, 1500, 3250};
-    public static int[] iceCosts = new int[] { 200, 610, 1400 };
+    public static int[] fireCosts = new int[] { 140, 540, 1600, 3250};
+    public static int[] iceCosts = new int[] { 200, 610, 1800, 3550};
     public static int[] poisonCosts = new int[] { 130, 500, 1000 };
     public static int[] bulletSpeedCosts = new int[] { 80, 350, 850, 2200, 3400, 5200, 6400, 8000, 10000 };
     public static int[] fireResistanceCosts = new int[] { 100, 330, 680, 1900, 2400, 3500 };
@@ -67,7 +67,7 @@ public class Settings
     public static float[] shipCooldowns = new float[] { 1, 0.8f, 0.6f, 0.4f, 0.2f, 0.1f, 0.05f};
     public static int[] shipBulletSpeeds = new int[] { 15, 17, 20, 23, 26, 30, 33, 36, 40};
     public static int[] shipFireDamages = new int[] { 5, 17, 40, 75};
-    public static int[] shipIceDamages = new int[] { 5, 10, 25};
+    public static int[] shipIceDamages = new int[] { 5, 10, 25, 30};
     public static int[] shipPoisonDamages = new int[] { 5, 12, 30};
     public static int[] shipFireResistance = new int[] { 0, 10, 20, 40, 60, 70};
     public static int[] shipIceResistance = new int[] { 0, 10, 20, 40, 60, 70};
