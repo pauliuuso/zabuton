@@ -9,7 +9,9 @@ public class Effects : MonoBehaviour
     public bool fired2 = false;
     public bool poisoned1 = false;
     public bool poisoned2 = false;
+    public bool poisoned3 = false;
     public bool frozen1 = false;
+    public bool frozen2 = false;
     public bool fireResisting1 = false;
     public bool iceResisting1 = false;
     public bool poisonResisting1 = false;
@@ -19,7 +21,9 @@ public class Effects : MonoBehaviour
     public int fired2Steps;
     public int poisoned1Steps;
     public int poisoned2Steps;
+    public int poisoned3Steps;
     public int frozen1Steps;
+    public int frozen2Steps;
     public int fireResistance1Steps;
     public int iceResistance1Steps;
     public int poisonResistance1Steps;
@@ -36,8 +40,12 @@ public class Effects : MonoBehaviour
     private GameObject poisonedEffectClone1;
     private GameObject poisonedEffect2;
     private GameObject poisonedEffectClone2;
+    private GameObject poisonedEffect3;
+    private GameObject poisonedEffectClone3;
     private GameObject frozenEffect1;
     private GameObject frozenEffectClone1;
+    private GameObject frozenEffect2;
+    private GameObject frozenEffectClone2;
     private GameObject fireResistance1;
     private GameObject fireResistanceClone1;
     private GameObject iceResistance1;
@@ -68,7 +76,9 @@ public class Effects : MonoBehaviour
         firedEffect2 = effectsLink.GetComponent<EffectsLink>().firedEffect2;
         poisonedEffect1 = effectsLink.GetComponent<EffectsLink>().poisonedEffect1;
         poisonedEffect2 = effectsLink.GetComponent<EffectsLink>().poisonedEffect2;
+        poisonedEffect3 = effectsLink.GetComponent<EffectsLink>().poisonedEffect3;
         frozenEffect1 = effectsLink.GetComponent<EffectsLink>().frozenEffect1;
+        frozenEffect2 = effectsLink.GetComponent<EffectsLink>().frozenEffect2;
         fireResistance1 = effectsLink.GetComponent<EffectsLink>().fireResistance1;
         iceResistance1 = effectsLink.GetComponent<EffectsLink>().iceResistance1;
         poisonResistance1 = effectsLink.GetComponent<EffectsLink>().poisonResistance1;
@@ -145,6 +155,17 @@ public class Effects : MonoBehaviour
 
         }
 
+        if (poisoned3)
+        {
+            childEffect = gameObject.transform.Find("Poisoned3(Clone)");
+            if (childEffect == null)
+            {
+                poisonedEffectClone3 = Instantiate(poisonedEffect3, gameObject.transform.position, poisonedEffect3.transform.rotation) as GameObject;
+                poisonedEffectClone3.transform.parent = gameObject.transform;
+                poisoned3Steps = currentStep + 1;
+            }
+
+        }
 
         if (frozen1)
         {
@@ -154,6 +175,17 @@ public class Effects : MonoBehaviour
                 frozenEffectClone1 = Instantiate(frozenEffect1, gameObject.transform.position, frozenEffect1.transform.rotation) as GameObject;
                 frozenEffectClone1.transform.parent = gameObject.transform;
                 frozen1Steps = currentStep + 6;
+            }
+        }
+
+        if (frozen2)
+        {
+            childEffect = gameObject.transform.Find("Frozen2(Clone)");
+            if (childEffect == null)
+            {
+                frozenEffectClone2 = Instantiate(frozenEffect2, gameObject.transform.position, frozenEffect2.transform.rotation) as GameObject;
+                frozenEffectClone2.transform.parent = gameObject.transform;
+                frozen2Steps = currentStep + 10;
             }
         }
 
@@ -269,6 +301,36 @@ public class Effects : MonoBehaviour
 
         }
 
+        if (poisoned3)
+        {
+            if (gameObject.tag == "Player_ship")
+            {
+                Settings.p_health -= 20;
+                gameObject.GetComponent<PlayerShip>().checkLife();
+                gameController.updateHealth();
+                if (poisoned3Steps < currentStep)
+                {
+                    poisoned3 = false;
+                    Destroy(poisonedEffectClone3);
+                }
+            }
+            else
+            {
+                gameObject.GetComponent<Soul>().health -= 20;
+                gameObject.GetComponent<Colisions>().checkLife();
+                if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
+                if (poisoned3Steps < currentStep)
+                {
+                    poisoned3 = false;
+                    Destroy(poisonedEffectClone3);
+                }
+
+                for (int a = 0; a < 15; a++) fire("poisonArrow");
+
+            }
+
+        }
+
         if (frozen1)
         {
             if (gameObject.tag == "Player_ship")
@@ -292,6 +354,31 @@ public class Effects : MonoBehaviour
                 }
             }
         }
+
+        if (frozen2)
+        {
+            if (gameObject.tag == "Player_ship")
+            {
+                if (Settings.p_speed > 1) Settings.p_speed -= 2;
+                if (frozen2Steps < currentStep)
+                {
+                    Settings.p_speed = previousSpeed;
+                    frozen2 = false;
+                    Destroy(frozenEffectClone2);
+                }
+            }
+            else
+            {
+                if (gameObject.GetComponent<Soul>().speed > 1) gameObject.GetComponent<Soul>().speed -= 2;
+                if (frozen2Steps < currentStep)
+                {
+                    gameObject.GetComponent<Soul>().speed = previousSpeed;
+                    frozen2 = false;
+                    Destroy(frozenEffectClone2);
+                }
+            }
+        }
+
         if (fired1)
         {
             if (gameObject.tag == "Player_ship")
@@ -396,7 +483,7 @@ public class Effects : MonoBehaviour
     {
         if(type == "poisonArrow")
         {
-            boltClone = Instantiate(bolt, gameObject.transform.position, Quaternion.Euler(0f, Random.Range(-90f, 90f), 0f)) as GameObject;
+            boltClone = Instantiate(bolt, gameObject.transform.position, Quaternion.Euler(0f, Random.Range(-120f, 120f), 0f)) as GameObject;
             poisonArrowClone = Instantiate(poisonArrow, boltClone.transform.position, poisonArrow.transform.rotation) as GameObject;
             poisonArrowClone.transform.parent = boltClone.transform;
             boltClone.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = emptyMaterial;

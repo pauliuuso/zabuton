@@ -381,6 +381,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
   - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
   - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
+  - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
   boltPoison:
   - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
   - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
@@ -395,6 +396,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   iceShots:
+  - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
@@ -4753,8 +4755,12 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: boltIce.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: iceShots.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: fireShots.Array.size

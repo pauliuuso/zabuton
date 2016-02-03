@@ -43,7 +43,9 @@ MonoBehaviour:
   firedEffect2: {fileID: 196460, guid: ebdf9f708580b424f863ae720c3bbe7d, type: 2}
   poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
   poisonedEffect2: {fileID: 101238, guid: 6ca3603c794f86f4bb9d0844832de0f6, type: 2}
+  poisonedEffect3: {fileID: 155230, guid: b62adb4867ce7464397069c2444918dc, type: 2}
   frozenEffect1: {fileID: 157010, guid: 8778594d989ddae4086731da3a0933c4, type: 2}
+  frozenEffect2: {fileID: 185120, guid: a4c87577ca2ed664fac63699d2f6deed, type: 2}
   fireResistance1: {fileID: 113662, guid: 0b8a735444c11bf409ce959276f3daf3, type: 2}
   iceResistance1: {fileID: 167616, guid: 469c9f151e3052a4bbc4eb182f50b86a, type: 2}
   poisonResistance1: {fileID: 197370, guid: 66eb2328594a17643abbb0429cb8c8d7, type: 2}
@@ -60,6 +62,14 @@ Prefab:
       propertyPath: firedEffect2
       value: 
       objectReference: {fileID: 196460, guid: ebdf9f708580b424f863ae720c3bbe7d, type: 2}
+    - target: {fileID: 0}
+      propertyPath: frozenEffect2
+      value: 
+      objectReference: {fileID: 185120, guid: a4c87577ca2ed664fac63699d2f6deed, type: 2}
+    - target: {fileID: 0}
+      propertyPath: poisonedEffect3
+      value: 
+      objectReference: {fileID: 155230, guid: b62adb4867ce7464397069c2444918dc, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171482}

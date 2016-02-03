@@ -31,6 +31,7 @@ public class Bullet : MonoBehaviour
         }*/
 
         if (fireLevel == 4 && type == "fire") addEffect(0);
+        else if (iceLevel == 5 && type == "ice") addEffect(1);
 
     }
 

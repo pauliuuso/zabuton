@@ -88,9 +88,21 @@ public class Soul : MonoBehaviour
                 {
                     if (Random.Range(0f, 1f) < 0.7f) gameObject.GetComponent<Effects>().poisoned2 = true;
                 }
+                else if (effects[a] == "Poison3" && resistanceStrength[2] < 60)
+                {
+                    if (Random.Range(0f, 1f) < 0.7f)
+                    {
+                        gameObject.GetComponent<Effects>().poisoned2 = true;
+                        gameObject.GetComponent<Effects>().poisoned3 = true;
+                    }
+                }
                 else if (effects[a] == "Frozen1" && resistanceStrength[1] < 50)
                 {
                     if (Random.Range(0f, 1f) < 0.5f) gameObject.GetComponent<Effects>().frozen1 = true;
+                }
+                else if (effects[a] == "Frozen2" && resistanceStrength[1] < 50)
+                {
+                    if (Random.Range(0f, 1f) < 0.5f) gameObject.GetComponent<Effects>().frozen2 = true;
                 }
                 else if (effects[a] == "Vampiric")
                 {
@@ -163,11 +175,11 @@ public class Soul : MonoBehaviour
 
     void OnDestroy()
     {
-        if(addBoom)
+        if (addBoom && (bool)gameObject)
         {
             Instantiate(explosion, gameObject.transform.position, explosion.transform.rotation);
         }
-        if(boss)
+        if (boss && (bool)gameObject && addBoom)
         {
             gameController.GetComponent<GameController>().bossDestroyed();
         }
