@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2adc259491da98241878ad537624d5f7
-timeCreated: 1444845885
+timeCreated: 1454509890
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -9,7 +9,8 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube
+    4300000: spaceship3
+    4300002: spaceship33
     7400000: Default Take
     9500000: //RootNode
   materials:

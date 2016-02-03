@@ -3786,7 +3786,7 @@ MonoBehaviour:
   playerShip1: {fileID: 191454, guid: 4215dc8936c7fc64b94896bf48aa6bac, type: 2}
   playerShip2: {fileID: 199822, guid: f4eed1e88c6467742abd693c5eb87074, type: 2}
   playerShip3: {fileID: 165162, guid: ea2dbde717bde584ca4db904d728addd, type: 2}
-  playerShip4: {fileID: 187276, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
+  playerShip4: {fileID: 154016, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
   playerShip5: {fileID: 154164, guid: cadb6824c1b06f44eb9e041e54751b4f, type: 2}
   playerShip6: {fileID: 194946, guid: 6ab420f7b3120754da53946ae03054ad, type: 2}
   mainCanvas: {fileID: 860922538}
@@ -4046,7 +4046,7 @@ MonoBehaviour:
   - {fileID: 191454, guid: 4215dc8936c7fc64b94896bf48aa6bac, type: 2}
   - {fileID: 199822, guid: f4eed1e88c6467742abd693c5eb87074, type: 2}
   - {fileID: 165162, guid: ea2dbde717bde584ca4db904d728addd, type: 2}
-  - {fileID: 187276, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
+  - {fileID: 154016, guid: 5d6f8ce07c9063a4784ded594c3370ab, type: 2}
   - {fileID: 154164, guid: cadb6824c1b06f44eb9e041e54751b4f, type: 2}
   - {fileID: 194946, guid: 6ab420f7b3120754da53946ae03054ad, type: 2}
 --- !u!1 &1788351677
