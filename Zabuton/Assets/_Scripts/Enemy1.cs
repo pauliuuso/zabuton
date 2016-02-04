@@ -17,7 +17,7 @@ public class Enemy1 : MonoBehaviour
     float randomas = 2;
     float nextMove = 2;
     float currentTime;
-    float fightingTime;
+    public float fightingTime = 0;
     Ray downRay;
     Ray leftRay;
     Ray upRay;
@@ -47,7 +47,7 @@ public class Enemy1 : MonoBehaviour
     {
         tilt = gameObject.GetComponent<Soul>().tilt;
         setPosition();
-        fightingTime = Random.Range(10, 30);
+        if(fightingTime == 0) fightingTime = Random.Range(10, 30);
         yRotation = gameObject.transform.eulerAngles.y;
 	}
 
@@ -317,7 +317,8 @@ public class Enemy1 : MonoBehaviour
     {
         if(!retreating) newPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), 0.0f, Random.Range(0, Settings.zMax));
         else newPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), 0.0f, Random.Range(-30f, -31f));
-        randomas = Random.Range(1f, 4f);
+        if (gameObject.GetComponent<Soul>().ship_name == "enemy10") randomas = Random.Range(0.5f, 1f);
+        else randomas = Random.Range(1f, 4f);
     }
 
     void notMoving()
@@ -348,12 +349,13 @@ public class Enemy1 : MonoBehaviour
 
             if (Random.Range(0f, 1f) > 0.5f)
             {
-
-                Instantiate(bolt, canon1.transform.position, Quaternion.Euler(0f, 0f, 0f));
+                if (gameObject.GetComponent<Soul>().ship_name == "enemy10") Instantiate(bolt, canon1.transform.position, Quaternion.Euler(0f, canon1.transform.localEulerAngles.z, 0f));
+                else Instantiate(bolt, canon1.transform.position, Quaternion.Euler(0f, 0f, 0f));
             }
             else
             {
-                Instantiate(bolt, canon2.transform.position, Quaternion.Euler(0f, 0f, 0f));
+                if (gameObject.GetComponent<Soul>().ship_name == "enemy10") Instantiate(bolt, canon2.transform.position, Quaternion.Euler(0f, canon2.transform.localEulerAngles.z, 0f));
+                else Instantiate(bolt, canon2.transform.position, Quaternion.Euler(0f, 0f, 0f));
             }
         }
         else

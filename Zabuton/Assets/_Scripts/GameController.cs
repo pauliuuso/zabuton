@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
     public GameObject Enemy6;
     public GameObject Enemy7;
     public GameObject Enemy8;
+    public GameObject Enemy9;
+    public GameObject Enemy10;
     public GameObject EnemyRocket1;
     public GameObject Boss1;
     public GameObject Boss2;
@@ -90,7 +92,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = { "Assault 1", "ast2", "ship_swarm1", "wait", "ast2", "en1", "ast2", "en1", "en2", "ast2", "wait", "ast1", "rock1", "moon", "en6", "wait", "wait", "ast1", "ast2", "speed3", "wait", "wait", "en1", "ast2", "wait", "ast1", "en6", "wait", "ast2", "wait", "en3", "ast2", "ast1", "wait", "ast2", "ast2", "wait", "en4", "en1", "ast1", "wait", "rock1", "ast1", "en7", "endSpeed", "wait", "ast2", "ast2", "ast2", "en8", "wait", "wait", "ast2", "mus_boss2", "Here comes the boss!", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "add_fast_smoke", "rock1", "del_slow_smoke", "boss3", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1" };
+    private string[] level1 = { "Assault 1", "ast2", "ship_swarm1", "wait", "ast2", "en1", "ast2", "wait", "en10", "wait", "wait", "ast2", "en9", "wait", "en1", "en2", "ast2", "wait", "ast1", "rock1", "moon", "en6", "wait", "wait", "ast1", "ast2", "speed3", "wait", "wait", "en1", "ast2", "wait", "ast1", "en6", "wait", "en10", "wait", "ast2", "wait", "en3", "ast2", "ast1", "wait", "en9", "ast2", "ast2", "wait", "en4", "en1", "ast1", "wait", "rock1", "ast1", "en7", "endSpeed", "wait", "ast2", "ast2", "ast2", "en8", "wait", "wait", "ast2", "mus_boss2", "Here comes the boss!", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "add_fast_smoke", "rock1", "del_slow_smoke", "boss3", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1" };
 
 
     void Start()
@@ -212,6 +214,16 @@ public class GameController : MonoBehaviour
             {
                 Instantiate(Enemy8, new Vector3(spawnPosition.x, Enemy8.transform.position.y, 20f), Enemy8.transform.rotation);
                 Enemy8.GetComponent<Soul>().reward = (int)Random.Range(300, 400);
+            }
+            else if (currentLevel[i] == "en9")
+            {
+                Instantiate(Enemy9, new Vector3(spawnPosition.x, Enemy9.transform.position.y, 20f), Enemy9.transform.rotation);
+                Enemy9.GetComponent<Soul>().reward = (int)Random.Range(240, 310);
+            }
+            else if (currentLevel[i] == "en10")
+            {
+                Instantiate(Enemy10, new Vector3(spawnPosition.x, Enemy10.transform.position.y, 20f), Enemy10.transform.rotation);
+                Enemy10.GetComponent<Soul>().reward = (int)Random.Range(350, 450);
             }
             else if (currentLevel[i] == "rock1")
             {

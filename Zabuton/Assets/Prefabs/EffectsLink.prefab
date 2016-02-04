@@ -41,6 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firedEffect1: {fileID: 160654, guid: 09652bfcc2b5d2348b9d3fc4fbcece15, type: 2}
   firedEffect2: {fileID: 196460, guid: ebdf9f708580b424f863ae720c3bbe7d, type: 2}
+  firedEffect3: {fileID: 188018, guid: 82ac36a34bf9bbf4db6beecafee1c7d6, type: 2}
   poisonedEffect1: {fileID: 146830, guid: f17c8a1dc95f7ef4480612cadad1fa18, type: 2}
   poisonedEffect2: {fileID: 101238, guid: 6ca3603c794f86f4bb9d0844832de0f6, type: 2}
   poisonedEffect3: {fileID: 155230, guid: b62adb4867ce7464397069c2444918dc, type: 2}
@@ -70,6 +71,10 @@ Prefab:
       propertyPath: poisonedEffect3
       value: 
       objectReference: {fileID: 155230, guid: b62adb4867ce7464397069c2444918dc, type: 2}
+    - target: {fileID: 0}
+      propertyPath: firedEffect3
+      value: 
+      objectReference: {fileID: 188018, guid: 82ac36a34bf9bbf4db6beecafee1c7d6, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171482}

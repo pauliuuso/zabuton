@@ -3772,6 +3772,8 @@ MonoBehaviour:
   Enemy6: {fileID: 105972, guid: 5d83a80b3f35f064087a83bfec633110, type: 2}
   Enemy7: {fileID: 148434, guid: 319f02ceb8e8153459e2585367cb0860, type: 2}
   Enemy8: {fileID: 114952, guid: ada93e9d7a10b1145bf21bc2211d43fa, type: 2}
+  Enemy9: {fileID: 175824, guid: 803494190d1e5ca4492e350a7aeba60b, type: 2}
+  Enemy10: {fileID: 112706, guid: e014dbd00999dd94e9a26bcb8149714a, type: 2}
   EnemyRocket1: {fileID: 166318, guid: 295432c7e9f4f854594404f419b06813, type: 2}
   Boss1: {fileID: 175928, guid: 6bd6345e23f8d494ba64da808adcbcea, type: 2}
   Boss2: {fileID: 109544, guid: 077ffc32ee10fc04abf109b472a693c5, type: 2}

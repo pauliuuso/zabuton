@@ -7,9 +7,11 @@ public class Effects : MonoBehaviour
 
     public bool fired1 = false;
     public bool fired2 = false;
+    public bool fired3 = false;
     public bool poisoned1 = false;
     public bool poisoned2 = false;
     public bool poisoned3 = false;
+    public bool poisoned4 = false;
     public bool frozen1 = false;
     public bool frozen2 = false;
     public bool fireResisting1 = false;
@@ -19,9 +21,11 @@ public class Effects : MonoBehaviour
 
     public int fired1Steps;
     public int fired2Steps;
+    public int fired3Steps;
     public int poisoned1Steps;
     public int poisoned2Steps;
     public int poisoned3Steps;
+    public int poisoned4Steps;
     public int frozen1Steps;
     public int frozen2Steps;
     public int fireResistance1Steps;
@@ -36,6 +40,8 @@ public class Effects : MonoBehaviour
     private GameObject firedEffectClone1;
     private GameObject firedEffect2;
     private GameObject firedEffectClone2;
+    private GameObject firedEffect3;
+    private GameObject firedEffectClone3;
     private GameObject poisonedEffect1;
     private GameObject poisonedEffectClone1;
     private GameObject poisonedEffect2;
@@ -74,6 +80,7 @@ public class Effects : MonoBehaviour
     {
         firedEffect1 = effectsLink.GetComponent<EffectsLink>().firedEffect1;
         firedEffect2 = effectsLink.GetComponent<EffectsLink>().firedEffect2;
+        firedEffect3 = effectsLink.GetComponent<EffectsLink>().firedEffect3;
         poisonedEffect1 = effectsLink.GetComponent<EffectsLink>().poisonedEffect1;
         poisonedEffect2 = effectsLink.GetComponent<EffectsLink>().poisonedEffect2;
         poisonedEffect3 = effectsLink.GetComponent<EffectsLink>().poisonedEffect3;
@@ -131,6 +138,18 @@ public class Effects : MonoBehaviour
 
         }
 
+        if (fired3)
+        {
+            childEffect = gameObject.transform.Find("Fired3(Clone)");
+            if (childEffect == null)
+            {
+                firedEffectClone3 = Instantiate(firedEffect3, gameObject.transform.position, firedEffect3.transform.rotation) as GameObject;
+                firedEffectClone3.transform.parent = gameObject.transform;
+                fired3Steps = currentStep;
+            }
+
+        }
+
         if(poisoned1)
         {
             childEffect = gameObject.transform.Find("Poisoned1(Clone)"); 
@@ -163,6 +182,18 @@ public class Effects : MonoBehaviour
                 poisonedEffectClone3 = Instantiate(poisonedEffect3, gameObject.transform.position, poisonedEffect3.transform.rotation) as GameObject;
                 poisonedEffectClone3.transform.parent = gameObject.transform;
                 poisoned3Steps = currentStep + 1;
+            }
+
+        }
+
+        if (poisoned4)
+        {
+            childEffect = gameObject.transform.Find("Poisoned3(Clone)");
+            if (childEffect == null)
+            {
+                poisonedEffectClone3 = Instantiate(poisonedEffect3, gameObject.transform.position, poisonedEffect3.transform.rotation) as GameObject;
+                poisonedEffectClone3.transform.parent = gameObject.transform;
+                poisoned4Steps = currentStep + 1;
             }
 
         }
@@ -331,6 +362,36 @@ public class Effects : MonoBehaviour
 
         }
 
+        if (poisoned4)
+        {
+            if (gameObject.tag == "Player_ship")
+            {
+                Settings.p_health -= 25;
+                gameObject.GetComponent<PlayerShip>().checkLife();
+                gameController.updateHealth();
+                if (poisoned4Steps < currentStep)
+                {
+                    poisoned4 = false;
+                    Destroy(poisonedEffectClone3);
+                }
+            }
+            else
+            {
+                gameObject.GetComponent<Soul>().health -= 25;
+                gameObject.GetComponent<Colisions>().checkLife();
+                if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
+                if (poisoned4Steps < currentStep)
+                {
+                    poisoned4 = false;
+                    Destroy(poisonedEffectClone3);
+                }
+
+                for (int a = 0; a < 20; a++) fire("poisonArrow2");
+
+            }
+
+        }
+
         if (frozen1)
         {
             if (gameObject.tag == "Player_ship")
@@ -430,6 +491,29 @@ public class Effects : MonoBehaviour
                 }
             }
         }
+        if (fired3)
+        {
+            if (gameObject.tag == "Player_ship")
+            {
+                if (gameObject)
+                {
+                    fired3 = false;
+                    Settings.p_health -= 150;
+                    gameObject.GetComponent<PlayerShip>().checkLife();
+                    gameController.updateHealth();
+                }
+            }
+            else
+            {
+                if (gameObject)
+                {
+                    fired3 = false;
+                    gameObject.GetComponent<Soul>().health -= 150;
+                    gameObject.GetComponent<Colisions>().checkLife();
+                    if (gameObject.GetComponent<ShowHealth>()) gameObject.GetComponent<ShowHealth>().updateHealth();
+                }
+            }
+        }
         if(vampiricRegenerating)
         {
             if(vampiricRegenerationSteps < currentStep)
@@ -486,19 +570,32 @@ public class Effects : MonoBehaviour
             boltClone = Instantiate(bolt, gameObject.transform.position, Quaternion.Euler(0f, Random.Range(-120f, 120f), 0f)) as GameObject;
             poisonArrowClone = Instantiate(poisonArrow, boltClone.transform.position, poisonArrow.transform.rotation) as GameObject;
             poisonArrowClone.transform.parent = boltClone.transform;
-            boltClone.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = emptyMaterial;
-            boltClone.tag = "Untagged";
             boltClone.GetComponent<Bullet>().effects.Clear();
-            boltClone.GetComponent<Bullet>().fromEffects = true;
             boltClone.GetComponent<Bullet>().devast = 5; // Soviniui suteikiama damage
-            boltClone.GetComponent<Bullet>().type = "poison"; // Sovinio tipas
-            boltClone.GetComponent<Bullet>().owner = "player";
-            boltClone.GetComponent<Bullet>().poisonLevel = 2;
-            boltClone.GetComponent<Bullet>().effects.Clear();
             boltClone.GetComponent<Bullet>().effects.Add("Poison1");
             boltClone.GetComponent<BulletMover>().speed = 10;
-            boltClone.transform.localScale = new Vector3(1f, 1f, 1f);
         }
+        else if (type == "poisonArrow2")
+        {
+            boltClone = Instantiate(bolt, gameObject.transform.position, Quaternion.Euler(0f, Random.Range(-120f, 120f), 0f)) as GameObject;
+            poisonArrowClone = Instantiate(poisonArrow, boltClone.transform.position, poisonArrow.transform.rotation) as GameObject;
+            poisonArrowClone.transform.parent = boltClone.transform;
+            boltClone.GetComponent<Bullet>().effects.Clear();
+            boltClone.GetComponent<Bullet>().devast = 20; // Soviniui suteikiama damage
+            boltClone.GetComponent<Bullet>().effects.Add("Poison2");
+            boltClone.GetComponent<BulletMover>().speed = 14;
+        }
+
+        boltClone.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = emptyMaterial;
+        boltClone.tag = "Untagged";
+        boltClone.GetComponent<Bullet>().fromEffects = true;
+        boltClone.GetComponent<Bullet>().type = "poison"; // Sovinio tipas
+        boltClone.GetComponent<Bullet>().owner = "player";
+        boltClone.GetComponent<Bullet>().poisonLevel = 3;
+        boltClone.GetComponent<Bullet>().effects.Clear();
+        boltClone.transform.localScale = new Vector3(1f, 1f, 1f);
+
+
     }
 
 

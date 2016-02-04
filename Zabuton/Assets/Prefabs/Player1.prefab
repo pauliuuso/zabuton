@@ -339,7 +339,10 @@ MonoBehaviour:
   fired2: 0
   poisoned1: 0
   poisoned2: 0
+  poisoned3: 0
+  poisoned4: 0
   frozen1: 0
+  frozen2: 0
   fireResisting1: 0
   iceResisting1: 0
   poisonResisting1: 0
@@ -348,7 +351,10 @@ MonoBehaviour:
   fired2Steps: 0
   poisoned1Steps: 0
   poisoned2Steps: 0
+  poisoned3Steps: 0
+  poisoned4Steps: 0
   frozen1Steps: 0
+  frozen2Steps: 0
   fireResistance1Steps: 0
   iceResistance1Steps: 0
   poisonResistance1Steps: 0
@@ -375,6 +381,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
   - {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
   - {fileID: 2100000, guid: bf94015c1b0cb7c498581580017a971e, type: 2}
+  - {fileID: 2100000, guid: 344ba1a8926cb44498dc7829beca0f18, type: 2}
   boltIce:
   - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
   - {fileID: 2100000, guid: ab0813569cf91d34ab6fbebeadeef5af, type: 2}
@@ -388,8 +395,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
   - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
   - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
+  - {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
   audio: {fileID: 0}
   fireShots:
+  - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
   - {fileID: 8300000, guid: d5c8ccd88dd63904e89b5be8d5b76d78, type: 3}
@@ -403,6 +412,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   - {fileID: 8300000, guid: 72a5506fef36fb14b8584e90f91a6896, type: 3}
   poisonShots:
+  - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
   - {fileID: 8300000, guid: 90a58dad8ad0fc745b175a3a5627e116, type: 3}
@@ -4763,12 +4773,20 @@ Prefab:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
+      propertyPath: boltFire.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: fireShots.Array.size
-      value: 5
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boltPoison.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: poisonShots.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Center.z
@@ -4870,6 +4888,10 @@ Prefab:
       propertyPath: boltPoison.Array.data[4]
       value: 
       objectReference: {fileID: 2100000, guid: 90f0927ea3d37d64da88bdbecda8e137, type: 2}
+    - target: {fileID: 0}
+      propertyPath: boltFire.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: 344ba1a8926cb44498dc7829beca0f18, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 180562}

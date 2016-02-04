@@ -60,6 +60,11 @@ public class PlayerShip : MonoBehaviour
                     Bolt.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     Bolt.GetComponent<Bullet>().effects.Add("Fired2");
                 }
+                else if (Settings.p_fire_level == 5)
+                {
+                    Bolt.transform.localScale = new Vector3(3f, 5f, 3f);
+                    Bolt.GetComponent<Bullet>().effects.Add("Fired3");
+                }
             }
             else if (Input.GetButton("Fire2"))
             {
@@ -112,6 +117,11 @@ public class PlayerShip : MonoBehaviour
                 {
                     Bolt.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
                     Bolt.GetComponent<Bullet>().effects.Add("Poison3");
+                }
+                else if (Settings.p_poison_level == 5)
+                {
+                    Bolt.transform.localScale = new Vector3(3.5f, 3.5f, 3.5f);
+                    Bolt.GetComponent<Bullet>().effects.Add("Poison4");
                 }
 
             }

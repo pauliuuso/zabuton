@@ -6,6 +6,7 @@ public class EffectsLink : MonoBehaviour
 
     public GameObject firedEffect1;
     public GameObject firedEffect2;
+    public GameObject firedEffect3;
     public GameObject poisonedEffect1;
     public GameObject poisonedEffect2;
     public GameObject poisonedEffect3;
