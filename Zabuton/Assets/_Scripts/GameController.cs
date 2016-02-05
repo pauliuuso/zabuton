@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     public GameObject Enemy8;
     public GameObject Enemy9;
     public GameObject Enemy10;
+    public GameObject Enemy11;
     public GameObject EnemyRocket1;
     public GameObject Boss1;
     public GameObject Boss2;
@@ -24,6 +25,7 @@ public class GameController : MonoBehaviour
     public GameObject Saturn;
     public GameObject ShipSwarm1;
     public GameObject Moon;
+    public GameObject Island1;
     public GameObject musicManager;
     private GameObject musicManagerClone;
     public GameObject background;
@@ -92,7 +94,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = { "Assault 1", "ast2", "ship_swarm1", "wait", "ast2", "en1", "ast2", "wait", "en10", "wait", "wait", "ast2", "en9", "wait", "en1", "en2", "ast2", "wait", "ast1", "rock1", "moon", "en6", "wait", "wait", "ast1", "ast2", "speed3", "wait", "wait", "en1", "ast2", "wait", "ast1", "en6", "wait", "en10", "wait", "ast2", "wait", "en3", "ast2", "ast1", "wait", "en9", "ast2", "ast2", "wait", "en4", "en1", "ast1", "wait", "rock1", "ast1", "en7", "endSpeed", "wait", "ast2", "ast2", "ast2", "en8", "wait", "wait", "ast2", "mus_boss2", "Here comes the boss!", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "add_fast_smoke", "rock1", "del_slow_smoke", "boss3", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1" };
+    private string[] level1 = { "Assault 1", "en11", "ast2", "ast2", "ship_swarm1", "wait", "ast2", "en1", "ast2", "wait", "en11", "isl1", "wait", "en10", "wait", "wait", "ast2", "en9", "wait", "en1", "en2", "ast2", "wait", "ast1", "rock1", "en4", "en6", "wait", "wait", "ast1", "ast2", "speed3", "wait", "wait", "en1", "ast2", "moon", "wait", "ast1", "en6", "wait", "en10", "wait", "ast2", "ast1", "en11", "en11", "wait", "en3", "ast2", "ast1", "wait", "en9", "ast2", "ast2", "wait", "en4", "en1", "ast1", "wait", "rock1", "ast1", "en7", "endSpeed", "wait", "ast2", "ast2", "ast2", "en8", "wait", "wait", "ast2", "mus_boss2", "Here comes the boss!", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "add_fast_smoke", "rock1", "del_slow_smoke", "boss3", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1" };
 
 
     void Start()
@@ -225,6 +227,11 @@ public class GameController : MonoBehaviour
                 Instantiate(Enemy10, new Vector3(spawnPosition.x, Enemy10.transform.position.y, 20f), Enemy10.transform.rotation);
                 Enemy10.GetComponent<Soul>().reward = (int)Random.Range(350, 450);
             }
+            else if (currentLevel[i] == "en11")
+            {
+                Instantiate(Enemy11, new Vector3(spawnPosition.x, Enemy11.transform.position.y, 20f), Enemy11.transform.rotation);
+                Enemy11.GetComponent<Soul>().reward = (int)Random.Range(80, 130);
+            }
             else if (currentLevel[i] == "rock1")
             {
                 Instantiate(EnemyRocket1, spawnPosition, EnemyRocket1.transform.rotation);
@@ -254,6 +261,11 @@ public class GameController : MonoBehaviour
             {
                 spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), -20, 16);
                 Instantiate(Moon, spawnPosition, Moon.transform.rotation);
+            }
+            else if (currentLevel[i] == "isl1")
+            {
+                spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), -20, 45f);
+                Instantiate(Island1, spawnPosition, Island1.transform.rotation);
             }
             else if (currentLevel[i] == "ship_swarm1")
             {
