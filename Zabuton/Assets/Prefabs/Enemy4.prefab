@@ -148,17 +148,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectsLink: {fileID: 171482, guid: 58fd83f602b88524bb9c54c7b1f66352, type: 2}
   fired1: 0
+  fired2: 0
+  fired3: 0
   poisoned1: 0
   poisoned2: 0
+  poisoned3: 0
+  poisoned4: 0
   frozen1: 0
+  frozen2: 0
   fireResisting1: 0
   iceResisting1: 0
   poisonResisting1: 0
   vampiricRegenerating: 0
   fired1Steps: 0
+  fired2Steps: 0
+  fired3Steps: 0
   poisoned1Steps: 0
   poisoned2Steps: 0
+  poisoned3Steps: 0
+  poisoned4Steps: 0
   frozen1Steps: 0
+  frozen2Steps: 0
   fireResistance1Steps: 0
   iceResistance1Steps: 0
   poisonResistance1Steps: 0
@@ -189,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64927854e5b729348971bdb91add2025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fightingTime: 0
   canon1: {fileID: 173914}
   canon2: {fileID: 173914}
   bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
@@ -223,7 +234,7 @@ MonoBehaviour:
   devast: 50
   reward: 125
   bullet_speed: -15
-  bullet_devast: 40
+  bullet_devast: 35
   bullet_type: fire
   fire_level: 3
   ice_level: 1
@@ -325,6 +336,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: resistanceSize
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet_devast
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

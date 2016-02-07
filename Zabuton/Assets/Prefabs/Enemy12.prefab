@@ -1,0 +1,266 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &170378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 483180}
+  - 33: {fileID: 3356136}
+  - 23: {fileID: 2349744}
+  - 54: {fileID: 5482780}
+  - 65: {fileID: 6584764}
+  - 114: {fileID: 11471530}
+  - 114: {fileID: 11429842}
+  - 114: {fileID: 11491840}
+  - 114: {fileID: 11488514}
+  - 114: {fileID: 11477156}
+  m_Layer: 0
+  m_Name: Enemy12
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &196632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 469676}
+  - 33: {fileID: 3339808}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &469676
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.06999993, y: 0, z: 0}
+  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_Children: []
+  m_Father: {fileID: 483180}
+  m_RootOrder: 0
+--- !u!4 &483180
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170378}
+  m_LocalRotation: {x: -.5, y: .5, z: .500000119, w: .49999994}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 469676}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!23 &2349744
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170378}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 2d2a80142716cd247ae5a117ec74ae86, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3339808
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196632}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &3356136
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170378}
+  m_Mesh: {fileID: 4300000, guid: 347b0401571eae64caee5a78589e5baf, type: 3}
+--- !u!54 &5482780
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170378}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &6584764
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170378}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6099999, y: 5.63000011, z: 3.49000001}
+  m_Center: {x: .730000019, y: -1.46699239e-08, z: .227468997}
+--- !u!114 &11429842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6868b2eaef2b731429711642f88cd067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 124940, guid: d728c3e85c7720743882898e7207a6e2, type: 2}
+--- !u!114 &11471530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e39abf7b96a0b459d0d0b0ddf4bebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 12
+  tilt: 4
+  health: 680
+  max_health: 680
+  devast: 140
+  reward: 310
+  bullet_speed: -20
+  bullet_devast: 50
+  bullet_type: fire
+  fire_level: 4
+  ice_level: 1
+  poison_level: 1
+  effect: Fired1
+  bullet_size:
+  - 3.20000005
+  - 3
+  - 3
+  resistanceStrength: 500000000000000000000000
+  explosion: {fileID: 127486, guid: f7132142450831e4ba688f3aa3ed7ca2, type: 2}
+  addBoom: 0
+  lastHitBy: 
+  ship_name: enemy4
+  notMoving: 0
+  collidingWithSame: 0
+  particle_bolt: 0
+  boss: 0
+  resistanceSize: 3
+--- !u!114 &11477156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433e3f3a959d8c34d9be4be34ac676af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageText: {fileID: 10220098, guid: 147a4559a4538f84bae1a332864af7e3, type: 2}
+--- !u!114 &11488514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148f1722a7cb4394c9181f0e6ff555dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectsLink: {fileID: 171482, guid: 58fd83f602b88524bb9c54c7b1f66352, type: 2}
+  fired1: 0
+  fired2: 0
+  fired3: 0
+  poisoned1: 0
+  poisoned2: 0
+  poisoned3: 0
+  poisoned4: 0
+  frozen1: 0
+  frozen2: 0
+  fireResisting1: 0
+  iceResisting1: 0
+  poisonResisting1: 0
+  vampiricRegenerating: 0
+  fired1Steps: 0
+  fired2Steps: 0
+  fired3Steps: 0
+  poisoned1Steps: 0
+  poisoned2Steps: 0
+  poisoned3Steps: 0
+  poisoned4Steps: 0
+  frozen1Steps: 0
+  frozen2Steps: 0
+  fireResistance1Steps: 0
+  iceResistance1Steps: 0
+  poisonResistance1Steps: 0
+  vampiricRegenerationSteps: 0
+  bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
+  emptyMaterial: {fileID: 2100000, guid: 0d32a0ca9c4072542896a696b50b9f6f, type: 2}
+  gameController: {fileID: 0}
+--- !u!114 &11491840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64927854e5b729348971bdb91add2025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fightingTime: 80
+  canon1: {fileID: 196632}
+  canon2: {fileID: 196632}
+  bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
+  boltMaterial: {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: effect
+      value: Fired1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 170378}
+  m_IsPrefabParent: 1
