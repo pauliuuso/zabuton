@@ -317,7 +317,7 @@ public class Enemy1 : MonoBehaviour
     {
         if(!retreating) newPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), 0.0f, Random.Range(0, Settings.zMax));
         else newPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), 0.0f, Random.Range(-30f, -31f));
-        if (gameObject.GetComponent<Soul>().ship_name == "enemy10") randomas = Random.Range(0.5f, 1f);
+        if (gameObject.GetComponent<Soul>().ship_name == "enemy10" || gameObject.GetComponent<Soul>().ship_name == "enemy12") randomas = Random.Range(0.5f, 1f);
         else randomas = Random.Range(1f, 4f);
     }
 

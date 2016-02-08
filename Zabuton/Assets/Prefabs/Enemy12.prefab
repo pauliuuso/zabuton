@@ -174,7 +174,7 @@ MonoBehaviour:
   explosion: {fileID: 127486, guid: f7132142450831e4ba688f3aa3ed7ca2, type: 2}
   addBoom: 0
   lastHitBy: 
-  ship_name: enemy4
+  ship_name: enemy12
   notMoving: 0
   collidingWithSame: 0
   particle_bolt: 0
@@ -259,6 +259,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: effect
       value: Fired1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ship_name
+      value: enemy12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
