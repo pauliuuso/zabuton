@@ -148,6 +148,7 @@ MonoBehaviour:
   - {fileID: 128130, guid: d6a62a0a38ca73346a7bab3aa0f22350, type: 2}
   - {fileID: 128130, guid: d6a62a0a38ca73346a7bab3aa0f22350, type: 2}
   - {fileID: 165346, guid: a21dfed3bfe95e742b11a89a6e004db0, type: 2}
+  electricBoom: {fileID: 0}
   fromEffects: 0
   particleBolt: 0
   damageDone: 0

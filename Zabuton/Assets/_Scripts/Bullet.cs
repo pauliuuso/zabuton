@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
     public GameObject[] fireBooms;
     public GameObject[] iceBooms;
     public GameObject[] poisonBooms;
+    public GameObject electricBoom;
     public bool fromEffects = false;
     public bool particleBolt = false;
     public bool damageDone = false;
@@ -34,6 +35,7 @@ public class Bullet : MonoBehaviour
         else if (fireLevel == 5 && type == "fire") addEffect(3);
         else if (iceLevel == 5 && type == "ice") addEffect(1);
         else if (poisonLevel == 5 && type == "poison") addEffect(2);
+        else if (type == "electric") addEffect(1);
 
     }
 
@@ -52,6 +54,7 @@ public class Bullet : MonoBehaviour
             if (type == "fire") Instantiate(fireBooms[fireLevel], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 5, gameObject.transform.position.z + 0.2f), fireBooms[fireLevel].transform.rotation);
             else if (type == "ice") Instantiate(iceBooms[iceLevel], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 5, gameObject.transform.position.z + 0.2f), iceBooms[iceLevel].transform.rotation);
             else if (type == "poison") Instantiate(poisonBooms[poisonLevel], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 5, gameObject.transform.position.z + 0.2f), poisonBooms[poisonLevel].transform.rotation);
+            else if (type == "electric") Instantiate(electricBoom, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 5, gameObject.transform.position.z + 0.2f), electricBoom.transform.rotation);
         }
     }
 

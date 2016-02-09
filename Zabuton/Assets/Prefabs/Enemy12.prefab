@@ -158,7 +158,7 @@ MonoBehaviour:
   health: 680
   max_health: 680
   devast: 140
-  reward: 310
+  reward: 318
   bullet_speed: -20
   bullet_devast: 50
   bullet_type: fire
@@ -248,7 +248,7 @@ MonoBehaviour:
   canon1: {fileID: 196632}
   canon2: {fileID: 196632}
   bolt: {fileID: 181274, guid: d22577353a3632447ab4db77eeb97930, type: 2}
-  boltMaterial: {fileID: 2100000, guid: 0ee4c4e1c54e48b41b268a133d1e3959, type: 2}
+  boltMaterial: {fileID: 2100000, guid: 344ba1a8926cb44498dc7829beca0f18, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -264,6 +264,10 @@ Prefab:
       propertyPath: ship_name
       value: enemy12
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boltMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 344ba1a8926cb44498dc7829beca0f18, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 170378}

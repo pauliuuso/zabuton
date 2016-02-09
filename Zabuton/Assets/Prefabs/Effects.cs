@@ -259,7 +259,7 @@ public class Effects : MonoBehaviour
 
         if (vampiricRegenerating)
         {
-            childEffect = gameObject.transform.Find("VampiricRegeneration(Clone)");
+            childEffect = gameObject.transform.Find("VampiricRegeneration2(Clone)");
             if(childEffect == null)
             {
                 vampiricRegenerationClone = Instantiate(vampiricRegeneration, gameObject.transform.position, vampiricRegeneration.transform.rotation) as GameObject;

@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
     public GameObject Boss1;
     public GameObject Boss2;
     public GameObject Boss3;
+    public GameObject Boss4;
     public GameObject Saturn;
     public GameObject ShipSwarm1;
     public GameObject Moon;
@@ -95,7 +96,7 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = { "Assault 1", "en11", "ast2", "ast2", "ship_swarm1", "wait", "ast2", "en12", "ast1", "wait", "en1", "ast2", "wait", "en11", "isl1", "wait", "en10", "wait", "wait", "ast2", "en9", "wait", "en1", "en2", "ast2", "wait", "ast1", "rock1", "en4", "en6", "wait", "wait", "ast1", "en12", "wait", "ast2", "speed3", "wait", "wait", "en1", "ast2", "moon", "wait", "ast1", "en6", "wait", "en10", "wait", "ast2", "ast1", "en11", "en11", "wait", "en3", "ast2", "ast1", "wait", "en9", "ast2", "ast2", "wait", "en4", "en1", "ast1", "wait", "rock1", "ast1", "en7", "endSpeed", "wait", "ast2", "ast2", "ast2", "en8", "wait", "wait", "ast2", "mus_boss2", "Here comes the boss!", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "add_fast_smoke", "rock1", "del_slow_smoke", "boss3", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1" };
+    private string[] level1 = { "Assault 1", "en11", "ast2", "ast2", "ship_swarm1", "wait", "ast2", "en12", "ast1", "wait", "en1", "ast2", "wait", "en11", "isl1", "wait", "en10", "wait", "wait", "ast2", "en9", "wait", "en1", "en2", "ast2", "wait", "ast1", "rock1", "en4", "en6", "wait", "wait", "ast1", "en12", "wait", "ast2", "speed3", "wait", "wait", "en1", "ast2", "moon", "wait", "ast1", "en6", "wait", "en10", "wait", "ast2", "ast1", "en11", "en11", "wait", "en3", "ast2", "ast1", "wait", "en9", "ast2", "ast2", "wait", "en4", "en1", "ast1", "wait", "rock1", "ast1", "en7", "endSpeed", "wait", "ast2", "ast2", "ast2", "en8", "wait", "wait", "ast2", "mus_boss1", "Here comes the boss!", "rock1", "add_fast_smoke", "rock1", "del_slow_smoke", "boss4", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1" };
 
 
     void Start()
@@ -257,6 +258,11 @@ public class GameController : MonoBehaviour
             {
                 Instantiate(Boss3, new Vector3(spawnPosition.x, Boss3.transform.position.y, spawnPosition.z), Boss3.transform.rotation);
                 Boss3.GetComponent<Soul>().reward = (int)Random.Range(350, 550);
+            }
+            else if (currentLevel[i] == "boss4")
+            {
+                Instantiate(Boss4, new Vector3(spawnPosition.x, Boss4.transform.position.y, spawnPosition.z), Boss4.transform.rotation);
+                Boss4.GetComponent<Soul>().reward = (int)Random.Range(450, 650);
             }
             else if(currentLevel[i] == "sat")
             {

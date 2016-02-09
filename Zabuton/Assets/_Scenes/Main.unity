@@ -3780,6 +3780,7 @@ MonoBehaviour:
   Boss1: {fileID: 175928, guid: 6bd6345e23f8d494ba64da808adcbcea, type: 2}
   Boss2: {fileID: 109544, guid: 077ffc32ee10fc04abf109b472a693c5, type: 2}
   Boss3: {fileID: 192498, guid: 6bd57711f239ade43aed628d64445a8e, type: 2}
+  Boss4: {fileID: 175196, guid: 138f477521a923e449b030a757fec6d8, type: 2}
   Saturn: {fileID: 193192, guid: 621278ad74929d8499011980e009e7e9, type: 2}
   ShipSwarm1: {fileID: 179124, guid: 14b5793ba83148d449711b94734c771e, type: 2}
   Moon: {fileID: 160270, guid: fa28d249b392b824692f1d47e271eb9f, type: 2}

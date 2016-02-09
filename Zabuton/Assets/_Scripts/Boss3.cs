@@ -369,7 +369,7 @@ public class Boss3 : MonoBehaviour
             bolt.GetComponent<Bullet>().iceLevel = gameObject.GetComponent<Soul>().ice_level;
             bolt.GetComponent<Bullet>().poisonLevel = gameObject.GetComponent<Soul>().poison_level;
             bolt.GetComponent<Bullet>().effects.Add(GetComponent<Soul>().effect);
-            bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltMaterial;
+            if(boltMaterial) bolt.transform.GetChild(0).GetComponent<Renderer>().sharedMaterial = boltMaterial;
 
             bolt.transform.localScale = new Vector3(gameObject.GetComponent<Soul>().bullet_size[0], gameObject.GetComponent<Soul>().bullet_size[1], gameObject.GetComponent<Soul>().bullet_size[2]);
 
