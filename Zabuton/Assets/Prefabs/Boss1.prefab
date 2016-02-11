@@ -108,17 +108,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectsLink: {fileID: 171482, guid: 58fd83f602b88524bb9c54c7b1f66352, type: 2}
   fired1: 0
+  fired2: 0
+  fired3: 0
   poisoned1: 0
   poisoned2: 0
+  poisoned3: 0
+  poisoned4: 0
   frozen1: 0
+  frozen2: 0
   fireResisting1: 0
   iceResisting1: 0
   poisonResisting1: 0
   vampiricRegenerating: 0
   fired1Steps: 0
+  fired2Steps: 0
+  fired3Steps: 0
   poisoned1Steps: 0
   poisoned2Steps: 0
+  poisoned3Steps: 0
+  poisoned4Steps: 0
   frozen1Steps: 0
+  frozen2Steps: 0
   fireResistance1Steps: 0
   iceResistance1Steps: 0
   poisonResistance1Steps: 0
@@ -175,10 +185,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   tilt: 5
-  health: 150
-  max_health: 150
+  health: 220
+  max_health: 220
   devast: 50
-  reward: 109
+  reward: 110
   bullet_speed: 10
   bullet_devast: 20
   bullet_type: fire
@@ -199,6 +209,7 @@ MonoBehaviour:
   collidingWithSame: 0
   particle_bolt: 0
   boss: 1
+  resistanceSize: 2
 --- !u!135 &13578018
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -236,11 +247,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: health
-      value: 150
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: max_health
-      value: 150
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: devast

@@ -96,12 +96,15 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private string[] level1 = { "Assault 1", "en11", "ast2", "ast2", "ship_swarm1", "wait", "ast2", "en12", "ast1", "wait", "en1", "ast2", "wait", "en11", "isl1", "wait", "en10", "wait", "wait", "ast2", "en9", "wait", "en1", "en2", "ast2", "wait", "ast1", "rock1", "en4", "en6", "wait", "wait", "ast1", "en12", "wait", "ast2", "speed3", "wait", "wait", "en1", "ast2", "moon", "wait", "ast1", "en6", "wait", "en10", "wait", "ast2", "ast1", "en11", "en11", "wait", "en3", "ast2", "ast1", "wait", "en9", "ast2", "ast2", "wait", "en4", "en1", "ast1", "wait", "rock1", "ast1", "en7", "endSpeed", "wait", "ast2", "ast2", "ast2", "en8", "wait", "wait", "ast2", "mus_boss1", "Here comes the boss!", "rock1", "add_fast_smoke", "rock1", "del_slow_smoke", "boss4", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1", "wait", "ast1", "ast2", "wait", "ast2", "ast2", "wait", "ast1" };
-
+    private static string[] level1 = { "Assault 1", "ast1", "ast1", "ast2", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "wait", "ast1", "ast2", "ast1", "ast2", "ast1", "ast1", "wait", "ast2", "endSpeed", "ast2", "ast1", "ast1", "ast1", "ast2", "ast1", "wait", "ast2", "ast1", "ast1", "end"};
+    private static string[] level2 = { "Assault 2", "moon", "ast2", "ast2", "ast1", "wait", "speed1", "ast1", "ast1", "ast1", "ast1", "ast1", "speed3", "ast1", "ast1", "ast1", "ast1", "ast2", "ast2", "ast1", "ast2", "ast1", "wait", "ast2", "ast2", "ast2", "ast1", "endSpeed", "ast2", "ast1", "ast1", "ast2", "ast1", "en1", "ast1", "ast2", "ast1", "ast2", "ast1", "wait", "ast2", "end" };
+    private static string[] level3 = { "Assault 3", "sat", "en1", "en1", "ast1", "wait", "wait", "ast1", "ast2", "ast2", "wait", "speed1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "endSpeed", "en1", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "wait", "en1", "ast2", "ast2", "endSpeed", "ast1", "wait", "ast2", "ast1", "ast1", "ast2", "ast1", "wait", "ast2", "Here comes the boss!", "wait", "boss1", "wait", "wait", "wait", "wait", "wait" };
+    private static string[] level4 = { "Assault 4", "ast2", "ast1", "ast2", "wait", "speed1", "ast1", "ast1", "ast2", "speed3", "ast1", "wait", "en1", "ast1", "wait", "ast2", "ast1", "en1", "en1", "endSpeed", "ast2", "ast1", "wait", "ast1", "wait", "en2", "wait", "wait", "ast2", "ast1", "ast1", "ast2", "wait", "ast2", "ast1", "en1", "ast1", "wait", "speed0", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "endSpeed", "wait", "ast2", "ast2", "ast1", "end" };
+    private static string[] level5 = { "Assault 5", "ast1", "ast1", "ast1", "wait", "ast2", "ast1", "en1", "ast1", "wait", "en2", "ast1", "wait", "en1", "ast1", "ast1", "wait", "ast2", "wait", "speed0", "en1", "en1", "en1", "wait", "ast1", "endSpeed", "ast1", "ast2", "wait", "ast2", "speed3", "ast2", "ast1", "ast1", "en2", "ast1", "ast2", "wait", "ast1", "en1", "endSpeed", "ast1", "ast2", "wait", "en1", "ast1", "ast2", "ast1", "speed0", "ast1", "ast1", "ast2", "ast2", "ast1", "ast1", "endSpeed", "wait", "ast2", "end" };
+    private string[][] allLevels = new string[][] { level1, level2, level3, level4, level5 };
 
     void Start()
     {
-
         startButton.onClick.AddListener(() => { startMission(); });
         quitButton.onClick.AddListener(() => { quitGame(); });
         upgradeShipButton.onClick.AddListener(() => { upgradeShip(); });
@@ -137,7 +140,7 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(startWait);
 
-        for (int i = 0; i < level1.Length; i++)
+        for (int i = 0; i < currentLevel.Length; i++)
         {
             Vector3 spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), 0.0f, 13); //Pozicijos, x lokacija parenkama random
             Quaternion spawnRotation = Quaternion.identity; // Rotation bus 0, identity reiskia kad nebus jokios rotacijos
@@ -287,13 +290,17 @@ public class GameController : MonoBehaviour
             else if(currentLevel[i] == "wait")
             {
             }
+            else if (currentLevel[i] == "speed0")
+            {
+                nextWait = 0.1f;
+            }
             else if(currentLevel[i] == "speed1")
             {
-                nextWait = 0.4f;
+                nextWait = 0.3f;
             }
             else if (currentLevel[i] == "speed2")
             {
-                nextWait = 0.7f;
+                nextWait = 0.6f;
             }
             else if(currentLevel[i] == "speed3")
             {
@@ -357,7 +364,7 @@ public class GameController : MonoBehaviour
     {
         savePoints();
         StartCoroutine(spawnEnemies());
-        if (Settings.current_level == 1) currentLevel = level1;
+        currentLevel = allLevels[Settings.current_level];
         randomScale();
         updateScore();
         playerHealth.SetActive(true);
@@ -459,6 +466,7 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(time);
         Application.LoadLevel(Application.loadedLevel);
         missionComplete.text = "";
+        Settings.current_level++;
         savePoints();
         updateShipSettings();
     }

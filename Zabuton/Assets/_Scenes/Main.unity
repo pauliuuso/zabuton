@@ -96,6 +96,7 @@ GameObject:
   - 222: {fileID: 106539906}
   - 114: {fileID: 106539905}
   - 114: {fileID: 106539904}
+  - 114: {fileID: 106539907}
   m_Layer: 5
   m_Name: Upgrade poison resistance
   m_TagString: Untagged
@@ -196,6 +197,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 106539902}
+--- !u!114 &106539907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 106539902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fa8c68672f93341a054a2cb5efd2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFromLevel: 4
 --- !u!1 &114727793
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +442,7 @@ GameObject:
   - 222: {fileID: 193151799}
   - 114: {fileID: 193151798}
   - 114: {fileID: 193151797}
+  - 114: {fileID: 193151800}
   m_Layer: 5
   m_Name: Upgrade poison
   m_TagString: Untagged
@@ -529,6 +543,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 193151795}
+--- !u!114 &193151800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 193151795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fa8c68672f93341a054a2cb5efd2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFromLevel: 0
 --- !u!1 &233919288
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +996,7 @@ GameObject:
   - 222: {fileID: 437185625}
   - 114: {fileID: 437185624}
   - 114: {fileID: 437185623}
+  - 114: {fileID: 437185626}
   m_Layer: 5
   m_Name: Upgrade vampiric regeneration
   m_TagString: Untagged
@@ -1070,6 +1097,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 437185621}
+--- !u!114 &437185626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 437185621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fa8c68672f93341a054a2cb5efd2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFromLevel: 6
 --- !u!1 &439170990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1194,7 @@ GameObject:
   - 222: {fileID: 465689345}
   - 114: {fileID: 465689344}
   - 114: {fileID: 465689343}
+  - 114: {fileID: 465689346}
   m_Layer: 5
   m_Name: Upgrade ice resistance
   m_TagString: Untagged
@@ -1255,6 +1295,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 465689341}
+--- !u!114 &465689346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 465689341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fa8c68672f93341a054a2cb5efd2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFromLevel: 4
 --- !u!1 &470130322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2430,6 +2482,7 @@ GameObject:
   - 222: {fileID: 1059199006}
   - 114: {fileID: 1059199005}
   - 114: {fileID: 1059199004}
+  - 114: {fileID: 1059199007}
   m_Layer: 5
   m_Name: Upgrade fire resistance
   m_TagString: Untagged
@@ -2530,6 +2583,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1059199002}
+--- !u!114 &1059199007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1059199002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fa8c68672f93341a054a2cb5efd2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFromLevel: 4
 --- !u!1 &1064016530
 GameObject:
   m_ObjectHideFlags: 0
@@ -3114,6 +3179,7 @@ GameObject:
   - 222: {fileID: 1273102295}
   - 114: {fileID: 1273102294}
   - 114: {fileID: 1273102293}
+  - 114: {fileID: 1273102296}
   m_Layer: 5
   m_Name: Upgrade critical aura
   m_TagString: Untagged
@@ -3214,6 +3280,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1273102291}
+--- !u!114 &1273102296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1273102291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fa8c68672f93341a054a2cb5efd2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFromLevel: 8
 --- !u!1 &1482260943
 GameObject:
   m_ObjectHideFlags: 0
@@ -4066,6 +4144,7 @@ GameObject:
   - 222: {fileID: 1788351681}
   - 114: {fileID: 1788351680}
   - 114: {fileID: 1788351679}
+  - 114: {fileID: 1788351682}
   m_Layer: 5
   m_Name: Upgrade ice
   m_TagString: Untagged
@@ -4166,6 +4245,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1788351677}
+--- !u!114 &1788351682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1788351677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fa8c68672f93341a054a2cb5efd2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showFromLevel: 0
 --- !u!1 &1828015976
 GameObject:
   m_ObjectHideFlags: 0

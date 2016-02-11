@@ -15,7 +15,72 @@ Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.UI.d
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.110 seconds
+- Completed reload, in  0.087 seconds
 desktop: 1440x900 75Hz; virtual: 1440x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Ursa\Desktop\zabuton\Zabuton\main_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 13dc -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.715036 ms
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 1751.
+Total: 1.098578 ms (FindLiveObjects: 0.073124 ms CreateObjectMapping: 0.074835 ms MarkObjects: 0.892033 ms  DeleteObjects: 0.057729 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.086605 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1752.
+Total: 1.112262 ms (FindLiveObjects: 0.141545 ms CreateObjectMapping: 0.067565 ms MarkObjects: 0.882198 ms  DeleteObjects: 0.020098 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.816771 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1752.
+Total: 1.030158 ms (FindLiveObjects: 0.060723 ms CreateObjectMapping: 0.070986 ms MarkObjects: 0.877494 ms  DeleteObjects: 0.020098 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.800093 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1752.
+Total: 1.190518 ms (FindLiveObjects: 0.199275 ms CreateObjectMapping: 0.071841 ms MarkObjects: 0.904862 ms  DeleteObjects: 0.012401 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.808646 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1752.
+Total: 1.123381 ms (FindLiveObjects: 0.141972 ms CreateObjectMapping: 0.066710 ms MarkObjects: 0.894172 ms  DeleteObjects: 0.019243 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.785126 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 1752.
+Total: 1.136210 ms (FindLiveObjects: 0.140689 ms CreateObjectMapping: 0.072269 ms MarkObjects: 0.909566 ms  DeleteObjects: 0.012401 ms)
+
+IndexOutOfRangeException: Array index is out of range.
+  at GameController.BuildLevel () [0x00000] in <filename unknown>:0 
+  at GameController.RemoveUI () [0x00000] in <filename unknown>:0 
+  at GameController.removeListeners () [0x00000] in <filename unknown>:0 
+  at GameController.startMission () [0x00000] in <filename unknown>:0 
+  at GameController.<Start>m__0 () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent.Invoke () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.Press () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.Debug:Internal_LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
