@@ -70,7 +70,18 @@ public class GameController : MonoBehaviour
     public Text upgradeVampiricRegenerationCost;
     public Button upgradeCriticalStrikeButton;
     public Text upgradeCriticalStrikeCost;
-
+    public Text yourScore;
+    public Button submitButton;
+    public InputField userInput;
+    public Text enterName;
+    public Text topPlayers;
+    public GameObject finished;
+    public Button topPlayersButton;
+    public GameObject topPlayersScreen;
+    public Text topPlayersText;
+    public Button restartButton;
+    public GameObject Controls;
+    public GameObject KongregateAPI;
 
     public Button muteMusicButton;
     public Text muteMusicText;
@@ -78,7 +89,6 @@ public class GameController : MonoBehaviour
     public Text allStatus;
     public GameObject statusPanel;
     public Image healthBar;
-    public GameObject playerHealth;
     public Text healthLeft;
     public Text missionComplete;
     public GameObject smoke;
@@ -86,7 +96,7 @@ public class GameController : MonoBehaviour
     public GameObject fastSmoke;
     private GameObject fastSmokeClone;
 
-
+    private bool gamePlaying = false;
 
     private float startWait = 3f;
     private float nextWait = 2f;
@@ -96,39 +106,72 @@ public class GameController : MonoBehaviour
 
 
     private string[] currentLevel;
-    private static string[] level1 = { "Assault 1", "ast1", "ast1", "ast2", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "wait", "ast1", "ast2", "ast1", "ast2", "ast1", "ast1", "wait", "ast2", "endSpeed", "ast2", "ast1", "ast1", "ast1", "ast2", "ast1", "wait", "ast2", "ast1", "ast1", "end"};
-    private static string[] level2 = { "Assault 2", "moon", "ast2", "ast2", "ast1", "wait", "speed1", "ast1", "ast1", "ast1", "ast1", "ast1", "speed3", "ast1", "ast1", "ast1", "ast1", "ast2", "ast2", "ast1", "ast2", "ast1", "wait", "ast2", "ast2", "ast2", "ast1", "endSpeed", "ast2", "ast1", "ast1", "ast2", "ast1", "en1", "ast1", "ast2", "ast1", "ast2", "ast1", "wait", "ast2", "end" };
-    private static string[] level3 = { "Assault 3", "sat", "en1", "en1", "ast1", "wait", "wait", "ast1", "ast2", "ast2", "wait", "speed1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "endSpeed", "en1", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "wait", "en1", "ast2", "ast2", "endSpeed", "ast1", "wait", "ast2", "ast1", "ast1", "ast2", "ast1", "wait", "ast2", "Here comes the boss!", "wait", "boss1", "wait", "wait", "wait", "wait", "wait" };
-    private static string[] level4 = { "Assault 4", "ast2", "ast1", "ast2", "wait", "speed1", "ast1", "ast1", "ast2", "speed3", "ast1", "wait", "en1", "ast1", "wait", "ast2", "ast1", "en1", "en1", "endSpeed", "ast2", "ast1", "wait", "ast1", "wait", "en2", "wait", "wait", "ast2", "ast1", "ast1", "ast2", "wait", "ast2", "ast1", "en1", "ast1", "wait", "speed0", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "endSpeed", "wait", "ast2", "ast2", "ast1", "end" };
-    private static string[] level5 = { "Assault 5", "ast1", "ast1", "ast1", "wait", "ast2", "ast1", "en1", "ast1", "wait", "en2", "ast1", "wait", "en1", "ast1", "ast1", "wait", "ast2", "wait", "speed0", "en1", "en1", "en1", "wait", "ast1", "endSpeed", "ast1", "ast2", "wait", "ast2", "speed3", "ast2", "ast1", "ast1", "en2", "ast1", "ast2", "wait", "ast1", "en1", "endSpeed", "ast1", "ast2", "wait", "en1", "ast1", "ast2", "ast1", "speed0", "ast1", "ast1", "ast2", "ast2", "ast1", "ast1", "endSpeed", "wait", "ast2", "end" };
-    private string[][] allLevels = new string[][] { level1, level2, level3, level4, level5 };
+    private static string[] level1 = { "Assault 1/13", "ast1", "ast1", "ast2", "ast1", "ast1", "speed2", "ast1", "ast2", "ast1", "wait", "ast1", "ast2", "ast1", "ast2", "ast1", "ast1", "wait", "ast2", "endSpeed", "ast2", "ast1", "ast1", "ast1", "ast2", "ast1", "wait", "ast2", "ast1", "ast1", "end"};
+    private static string[] level2 = { "Assault 2/13", "moon", "ast2", "ast2", "ast1", "wait", "speed1", "ast1", "ast1", "ast1", "ast1", "ast1", "speed3", "ast1", "ast1", "ast1", "ast1", "ast2", "ast2", "ast1", "ast2", "ast1", "wait", "ast2", "ast2", "ast2", "ast1", "endSpeed", "ast2", "ast1", "ast1", "ast2", "ast1", "en1", "ast1", "ast2", "ast1", "ast2", "ast1", "wait", "ast2", "end" };
+    private static string[] level3 = { "Assault 3/13", "sat", "en1", "en1", "ast1", "wait", "wait", "ast1", "ast2", "ast2", "wait", "speed1", "ast1", "ast1", "ast1", "ast1", "ast1", "ast2", "endSpeed", "en1", "ast1", "ast1", "speed3", "ast1", "ast2", "ast1", "wait", "en1", "ast2", "ast2", "endSpeed", "ast1", "wait", "ast2", "ast1", "ast1", "ast2", "ast1", "wait", "ast2", "mus_boss", "Here comes the boss!", "wait", "boss1", "wait", "wait", "wait", "wait", "wait" };
+    private static string[] level4 = { "Assault 4/13", "ast2", "ast1", "ast2", "wait", "speed1", "ast1", "ast1", "ast2", "speed3", "ast1", "wait", "en1", "ast1", "wait", "ast2", "ast1", "en1", "en1", "endSpeed", "ast2", "ast1", "wait", "ast1", "wait", "en2", "wait", "wait", "ast2", "ast1", "ast1", "ast2", "wait", "ast2", "ast1", "en1", "ast1", "wait", "speed0", "ast1", "ast1", "ast1", "ast1", "ast2", "ast1", "ast1", "endSpeed", "wait", "ast2", "ast2", "ast1", "end" };
+    private static string[] level5 = { "Assault 5/13", "moon", "ast1", "ast1", "ast1", "wait", "ast2", "ast1", "en1", "ast1", "wait", "en2", "ast1", "wait", "en1", "ast1", "ast1", "wait", "ast2", "wait", "speed0", "en1", "en1", "en1", "wait", "ast1", "endSpeed", "ast1", "ast2", "wait", "ast2", "speed3", "ast2", "ast1", "en3", "ast1", "en2", "ast1", "ast2", "wait", "ast1", "en1", "endSpeed", "ast1", "ast2", "wait", "en1", "ast1", "ast2", "ast1", "speed0", "ast1", "ast1", "ast2", "ast2", "ast1", "ast1", "endSpeed", "wait", "ast2", "end" };
+    private static string[] level6 = { "Assault 6/13", "isl1", "en1", "en1", "ast1", "speed3", "ast2", "ast2", "en1", "wait", "ast2", "en4", "wait", "wait", "ast2", "ast1", "ast1", "wait", "en2", "isl1", "speed3", "en1", "en1", "en1", "en1", "wait", "ast1", "wait", "ast1", "wait", "en1", "en4", "ast2", "ast2", "ast1", "en1", "wait", "speed0", "ast2", "ast1", "ast1", "ast1", "ast2", "ast1", "speed3", "wait", "ast1", "en3", "ast2", "wait", "wait", "en4", "wait", "ast1", "ast2", "ast2", "wait", "isl1", "wait", "en1", "en1", "en1", "endSpeed", "ast1", "en2", "wait", "ast2", "ast2", "rock1", "wait", "ast2", "ast1", "en2", "en1", "ast1", "ast2", "rock1", "ast1", "en4", "wait", "ast2", "ast2", "ast1", "ast1", "wait", "en1", "rock1", "ast1", "ast2", "ast2", "wait", "ast2", "wait", "end" };
+    private static string[] level7 = { "Assault 7/13", "sat", "en6", "ast2", "ast2", "speed3", "en6", "ast1", "en6", "wait", "ast1", "wait", "en1", "ast1", "ast2", "en2", "ast2", "ast2", "wait", "en6", "ast2", "wait", "wait", "wait", "en4", "ast1", "ast1", "en3", "ast2", "en1", "wait", "speed0", "ast1", "ast2", "ast2", "ast1", "ast2", "ast1", "ast2", "speed3", "ast1", "wait", "ast2", "en2", "ast1", "wait", "en1", "ast1", "ast1", "wait", "ast2", "en6", "ast2", "wait", "wait", "en4", "ast1", "ast2", "wait", "wait", "en2", "wait", "ast2", "rock1", "rock1", "rock1", "ast1", "en1", "ast2", "ast2", "en3", "rock1", "wait", "ast2", "ast1", "ast1", "wait", "endSpeed", "mus_boss", "add_fast_smoke", "Here comes the boss!", "del_slow_smoke", "boss2", "ast1", "ast2", "ast2", "ast1", "ast2", "ast1", "wait", "wait", "wait", "ast2"};
+    private static string[] level8 = { "Assault 8/13", "ship_swarm1", "ast1", "ast2", "speed3", "en2", "ast1", "wait", "ast2", "en1", "ast2", "ast1", "ast1", "en7", "ast1", "wait", "wait", "ast2", "ast2", "wait", "en4", "ast1", "wait", "wait", "en1", "en1", "ast2", "ast1", "en6", "wait", "en6", "speed0", "ast1", "ast2", "ast2", "ast1", "ast2", "en1", "moon", "ast2", "speed3", "wait", "en2", "ast1", "wait", "ast1", "ast1", "ast1", "en1", "en4", "ast1", "wait", "ast1", "wait", "en7", "wait", "wait", "en3", "ast1", "ast2", "ast2", "en1", "wait", "rock1", "rock1", "wait", "en1", "ast1", "ast2", "ast2", "en2", "wait", "ast1", "wait", "en1", "ast2", "en7", "wait", "wait", "ast2", "ast2", "wait", "en2", "wait", "wait", "ast2", "rock1", "ast2", "ast1", "ast1", "end" };
+    private static string[] level9 = { "Assault 9/13", "moon", "ast2", "ast1", "speed3", "en1", "en1", "en1", "en1", "en1", "ast1", "wait", "ast2", "wait", "en4", "wait", "ast2", "wait", "ast2", "en8", "wait", "wait", "ast1", "ast2", "ast1", "ast1", "moon", "wait", "en1", "en3", "wait", "ast2", "wait", "en7", "wait", "ast2", "ast2", "ast2", "wait", "en2", "wait", "en6", "ast2", "ast2", "wait", "ast2", "en1", "wait", "en8", "ast2", "ast1", "ast2", "ast2", "wait", "wait", "ast2", "en4", "en1", "en1", "wait", "ast1", "ast2", "ast2", "wait", "speed0", "ast1", "ast2", "ast2", "ast1", "ast2", "ast1", "rock1", "rock1", "speed3", "ast1", "ast2", "wait", "ast2", "wait", "ast2", "wait", "en2", "ast2", "rock1", "ast2", "rock1", "en1", "wait", "ast2", "mus_boss", "add_fast_smoke", "Here comes the boss!", "del_slow_smoke", "boss3", "wait", "wait", "ast2", "ast1", "ast1", "wait", "wait", "ast2", "wait", "wait", "ast1", "ast1", "ast1", "wait", "ast2", "wait", "ast1", "wait", "ast2" };
+    private static string[] level10 = { "Assault 10/13", "ship_swarm1", "ast2", "speed3", "wait", "en9", "wait", "ast2", "wait", "ast1", "ast2", "en1", "en11", "en1", "ast2", "ast1", "wait", "wait", "ast2", "ast1", "en6", "ast2", "ast2", "en2", "wait", "ast2", "moon", "ast2", "en1", "en6", "wait", "ast2", "ast2", "en11", "en11", "wait", "ast2", "en7", "rock1", "rock1", "rock1", "ast2", "ast1", "ast2", "ast1", "wait", "en9", "ast1", "ast2", "rock1", "rock1", "en9", "wait", "speed0", "ast2", "ast1", "ast1", "ast1", "ast2", "speed3", "wait", "wait", "ast2", "wait", "en6", "en6", "en6", "wait", "ast2", "ast1", "rock1", "rock1", "en11", "ast1", "ast2", "wait", "wait", "en7", "ast2", "ast1", "wait", "en1", "en1", "wait", "ast2", "rock1", "rock1", "en3", "ast2", "wait", "ast2", "ast2", "wait", "en1", "ast2", "wait", "wait", "ast2", "end" };
+    private static string[] level11 = { "Assault 11/13", "isl1", "ast2", "ast2", "speed4", "en10", "ast1", "ast1", "ast2", "wait", "en11", "en6", "en2", "ast2", "ast2", "ship_swarm1", "ast1", "ast2", "wait", "en1", "wait", "en7", "ast2", "en3", "ast2", "ast2", "wait", "ast1", "rock1", "en4", "ast2", "speed0", "ast1", "ast2", "ast1", "ast2", "ast1", "ast1", "speed3", "wait", "en6", "en6", "wait", "ast2", "rock1", "rock1", "rock1", "ast2", "en8", "wait", "wait", "ast2", "ast1", "en4", "ast2", "en9", "ast2", "wait", "wait", "en1", "en11", "wait", "rock1", "rock1", "ast2", "ast2", "ast1", "en1", "ast2", "ast1", "ast1", "wait", "en10", "ast2", "wait", "ast1", "ast1", "wait", "en2", "wait", "wait", "en6", "ast2", "ast2", "en7", "ast2", "ast2", "wait", "wait", "rock1", "rock1", "wait", "ast2", "ast2", "wait", "ast1", "end" };
+    private static string[] level12 = { "Assault 12/13", "ship_swarm1", "ast2", "ast2", "en12", "ast1", "wait", "speed3", "en1", "en11", "ast2", "ast2", "wait", "wait", "speed0", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "rock1", "speed3", "en7", "ast2", "ast1", "wait", "wait", "en6", "en6", "en6", "wait", "ast2", "ast1", "ast2", "en2", "wait", "ast2", "ast1", "en4", "ast2", "en3", "ast2", "ast2", "wait", "wait", "en2", "rock1", "rock1", "ast2", "en1", "wait", "wait", "en9", "ast2", "ast2", "wait", "ast1", "rock1", "ast2", "en10", "wait", "en2", "ast2", "ast2", "wait", "ast1", "ast1", "en12", "ast2", "en1", "en1", "ast2", "wait", "wait", "rock1", "rock1", "ast2", "en4", "wait", "wait", "ast1", "ast2", "en6", "en6", "ast2", "en7", "ast2", "wait", "rock1", "wait", "ast2", "en11", "en11", "wait", "ast2", "ast2", "ast2", "en8", "wait", "wait", "wait", "en1", "ast1", "wait", "en12", "ast2", "ast2", "wait", "ast2", "ast1", "wait", "rock1", "ast2", "ast2", "wait", "end" };
+    private static string[] level13 = { "Final assault!", "ship_swarm1", "ast2", "ast2", "wait", "en7", "wait", "en6", "ast2", "ast2", "speed3", "wait", "ast1", "en11", "en11", "en11", "ast2", "ast2", "ast1", "wait", "en6", "en6", "en6", "en6", "wait", "ast2", "ast2", "ast2", "ast2", "rock1", "rock1", "wait", "speed0", "en1", "en1", "en1", "en1", "en1", "en1", "speed3", "en2", "ast2", "ast1", "ast2", "wait", "ast1", "ast2", "en2", "ast1", "ast2", "wait", "en3", "wait", "ast2", "en4", "en4", "en4", "rock1", "rock1", "ast2", "wait", "ast2", "wait", "en7", "en7", "ast2", "rock1", "rock1", "rock1", "ast2", "wait", "ast2", "wait", "en8", "ast2", "ast1", "ast2", "ast2", "en9", "ast2", "wait", "rock1", "ast2", "rock1", "ast2", "wait", "en10", "en2", "wait", "rock1" , "en10", "wait", "ast2", "ast1", "wait", "en1", "ast2", "ast2", "wait", "en11", "ast2", "wait", "en11", "rock1", "rock1", "wait", "ast2", "ast1", "ast1", "en12", "en12", "ast2", "ast2", "wait", "ast2", "rock1", "rock1", "ast2", "ast1", "ast2", "ast1", "wait", "ast2", "ast2", "ast2", "rock1", "rock1", "rock1", "rock1", "rock1", "wait", "mus_boss", "add_fast_smoke", "Here comes the boss!", "del_slow_smoke", "boss4", "wait", "wait", "ast2", "ast1", "ast1", "wait", "wait", "ast2", "wait", "wait", "ast1", "ast1", "ast1", "wait", "ast2", "wait", "ast1", "wait", "ast2" };
+    private string[][] allLevels = new string[][] { level1, level1, level2, level3, level4, level5, level6, level7, level8, level9, level10, level11, level12, level13 };
 
     void Start()
     {
-        startButton.onClick.AddListener(() => { startMission(); });
-        quitButton.onClick.AddListener(() => { quitGame(); });
-        upgradeShipButton.onClick.AddListener(() => { upgradeShip(); });
-        upgradeReloadButton.onClick.AddListener(() => { upgradeReload(); });
-        upgradeFireButton.onClick.AddListener(() => { upgradeFire(); });
-        upgradeIceButton.onClick.AddListener(() => { upgradeIce(); });
-        upgradePoisonButton.onClick.AddListener(() => { upgradePoison(); });
-        upgradeBulletSpeedButton.onClick.AddListener(() => { upgradeBulletSpeed(); });
-        upgradeFireResistanceButton.onClick.AddListener(() => { upgradeFireResistance(); });
-        upgradeIceResistanceButton.onClick.AddListener(() => { upgradeIceResistance(); });
-        upgradePoisonResistanceButton.onClick.AddListener(() => { upgradePoisonResistance(); });
-        upgradeVampiricRegenerationButton.onClick.AddListener(() => { upgradeVampiricRegeneration(); });
-        upgradeCriticalStrikeButton.onClick.AddListener(() => { upgradeCriticalStrike(); });
-        muteMusicButton.onClick.AddListener(() => { muteMusic(false); });
+        if(Settings.current_level <= 13)
+        {
+            startButton.onClick.AddListener(() => { startMission(); });
+            quitButton.onClick.AddListener(() => { quitGame(); });
+            upgradeShipButton.onClick.AddListener(() => { upgradeShip(); });
+            upgradeReloadButton.onClick.AddListener(() => { upgradeReload(); });
+            upgradeFireButton.onClick.AddListener(() => { upgradeFire(); });
+            upgradeIceButton.onClick.AddListener(() => { upgradeIce(); });
+            upgradePoisonButton.onClick.AddListener(() => { upgradePoison(); });
+            upgradeBulletSpeedButton.onClick.AddListener(() => { upgradeBulletSpeed(); });
+            upgradeFireResistanceButton.onClick.AddListener(() => { upgradeFireResistance(); });
+            upgradeIceResistanceButton.onClick.AddListener(() => { upgradeIceResistance(); });
+            upgradePoisonResistanceButton.onClick.AddListener(() => { upgradePoisonResistance(); });
+            upgradeVampiricRegenerationButton.onClick.AddListener(() => { upgradeVampiricRegeneration(); });
+            upgradeCriticalStrikeButton.onClick.AddListener(() => { upgradeCriticalStrike(); });
+            topPlayersButton.onClick.AddListener(() => { showTopPlayers(); });
+            muteMusicButton.onClick.AddListener(() => { muteMusic(false); });
+            if(!Settings.opened)
+            {
+                Settings.opened = true;
+                sendViewInfo();
+            }
+        }
+        else
+        {
+            finished.SetActive(true);
+            yourScore.text = "Your score: " + Settings.p_score;
+            submitButton.onClick.AddListener(() => { submitScore(); });
+            restartButton.onClick.AddListener(() => { restartGame(); });
+            getPlayers();
+            KongregateAPI.GetComponent<KongregateAPI>().submitScore(Settings.p_score);
+        }
+
         updateScore();
         updateCosts();
         updateStatus();
         muteMusic(true);
-        playerHealth.SetActive(false);
+        healthBar.gameObject.SetActive(false);
+        gamePlaying = false;
     }
 
 
     void Update()
     {
+        if (Input.GetKeyDown("f"))
+        {
+            Screen.fullScreen = !Screen.fullScreen;
+            updateHealth();
+        }
         if (!Settings.p_alive)
         {
             StartCoroutine(reloadLevel(2.0f));
@@ -153,13 +196,13 @@ public class GameController : MonoBehaviour
                 {
                     Asteroid1.GetComponent<Soul>().health = 5;
                     Asteroid1.GetComponent<Soul>().devast = 6;
-                    Asteroid1.GetComponent<Soul>().reward = (int)Random.Range(2,6);
+                    Asteroid1.GetComponent<Soul>().reward = (int)Random.Range(12,20);
                 }
                 else
                 {
                     Asteroid1.GetComponent<Soul>().health = 10;
                     Asteroid1.GetComponent<Soul>().devast = 12;
-                    Asteroid1.GetComponent<Soul>().reward = (int)Random.Range(8, 12);
+                    Asteroid1.GetComponent<Soul>().reward = (int)Random.Range(20, 30);
                 }
                 randomScale();
             }
@@ -171,13 +214,13 @@ public class GameController : MonoBehaviour
                 {
                     Asteroid2.GetComponent<Soul>().health = 10;
                     Asteroid2.GetComponent<Soul>().devast = 15;
-                    Asteroid2.GetComponent<Soul>().reward = (int)Random.Range(10, 15);
+                    Asteroid2.GetComponent<Soul>().reward = (int)Random.Range(25, 35);
                 }
                 else
                 {
                     Asteroid2.GetComponent<Soul>().health = 20;
                     Asteroid2.GetComponent<Soul>().devast = 26;
-                    Asteroid2.GetComponent<Soul>().reward = (int)Random.Range(20, 26);
+                    Asteroid2.GetComponent<Soul>().reward = (int)Random.Range(25, 55);
                 }
                 randomScale();
             }
@@ -187,60 +230,60 @@ public class GameController : MonoBehaviour
 
                 Enemy1.GetComponent<Soul>().health = 30;
                 Enemy1.GetComponent<Soul>().devast = 25;
-                Enemy1.GetComponent<Soul>().reward = (int)Random.Range(35, 50);
+                Enemy1.GetComponent<Soul>().reward = (int)Random.Range(70, 95);
             }
             else if (currentLevel[i] == "en2")
             {
                 Instantiate(Enemy2, spawnPosition, Enemy2.transform.rotation);
 
                 Enemy2.GetComponent<Soul>().devast = 60;
-                Enemy2.GetComponent<Soul>().reward = (int)Random.Range(100, 125);
+                Enemy2.GetComponent<Soul>().reward = (int)Random.Range(150, 200);
             }
             else if (currentLevel[i] == "en3")
             {
                 Instantiate(Enemy3, spawnPosition, Enemy3.transform.rotation);
-                Enemy2.GetComponent<Soul>().reward = (int)Random.Range(110, 145);
+                Enemy2.GetComponent<Soul>().reward = (int)Random.Range(190, 250);
             }
             else if (currentLevel[i] == "en4")
             {
                 Instantiate(Enemy4, spawnPosition, Enemy4.transform.rotation);
-                Enemy4.GetComponent<Soul>().reward = (int)Random.Range(110, 130);
+                Enemy4.GetComponent<Soul>().reward = (int)Random.Range(200, 300);
             }
             else if (currentLevel[i] == "en6")
             {
                 Instantiate(Enemy6, spawnPosition, Enemy6.transform.rotation);
-                Enemy6.GetComponent<Soul>().reward = (int)Random.Range(90, 150);
+                Enemy6.GetComponent<Soul>().reward = (int)Random.Range(200, 300);
             }
             else if (currentLevel[i] == "en7")
             {
                 spawnPosition = new Vector3(Random.Range(Settings.xMin, Settings.xMax), Enemy7.transform.position.y, 20f);
                 Instantiate(Enemy7, spawnPosition, Enemy7.transform.rotation);
-                Enemy7.GetComponent<Soul>().reward = (int)Random.Range(250, 350);
+                Enemy7.GetComponent<Soul>().reward = (int)Random.Range(350, 450);
             }
             else if (currentLevel[i] == "en8")
             {
                 Instantiate(Enemy8, new Vector3(spawnPosition.x, Enemy8.transform.position.y, 20f), Enemy8.transform.rotation);
-                Enemy8.GetComponent<Soul>().reward = (int)Random.Range(300, 400);
+                Enemy8.GetComponent<Soul>().reward = (int)Random.Range(450, 600);
             }
             else if (currentLevel[i] == "en9")
             {
                 Instantiate(Enemy9, new Vector3(spawnPosition.x, Enemy9.transform.position.y, 20f), Enemy9.transform.rotation);
-                Enemy9.GetComponent<Soul>().reward = (int)Random.Range(240, 310);
+                Enemy9.GetComponent<Soul>().reward = (int)Random.Range(240, 360);
             }
             else if (currentLevel[i] == "en10")
             {
                 Instantiate(Enemy10, new Vector3(spawnPosition.x, Enemy10.transform.position.y, 20f), Enemy10.transform.rotation);
-                Enemy10.GetComponent<Soul>().reward = (int)Random.Range(350, 450);
+                Enemy10.GetComponent<Soul>().reward = (int)Random.Range(400, 600);
             }
             else if (currentLevel[i] == "en11")
             {
                 Instantiate(Enemy11, new Vector3(spawnPosition.x, Enemy11.transform.position.y, 20f), Enemy11.transform.rotation);
-                Enemy11.GetComponent<Soul>().reward = (int)Random.Range(80, 130);
+                Enemy11.GetComponent<Soul>().reward = (int)Random.Range(160, 240);
             }
             else if (currentLevel[i] == "en12")
             {
                 Instantiate(Enemy12, new Vector3(spawnPosition.x, Enemy12.transform.position.y, 20f), Enemy12.transform.rotation);
-                Enemy12.GetComponent<Soul>().reward = (int)Random.Range(290, 320);
+                Enemy12.GetComponent<Soul>().reward = (int)Random.Range(400, 550);
             }
             else if (currentLevel[i] == "rock1")
             {
@@ -250,22 +293,22 @@ public class GameController : MonoBehaviour
             else if (currentLevel[i] == "boss1")
             {
                 Instantiate(Boss1, spawnPosition, Boss1.transform.rotation);
-                Boss1.GetComponent<Soul>().reward = (int)Random.Range(100, 120);
+                Boss1.GetComponent<Soul>().reward = (int)Random.Range(300, 350);
             }
             else if (currentLevel[i] == "boss2")
             {
                 Instantiate(Boss2, spawnPosition, Boss2.transform.rotation);
-                Boss2.GetComponent<Soul>().reward = (int)Random.Range(250, 330);
+                Boss2.GetComponent<Soul>().reward = (int)Random.Range(500, 700);
             }
             else if (currentLevel[i] == "boss3")
             {
                 Instantiate(Boss3, new Vector3(spawnPosition.x, Boss3.transform.position.y, spawnPosition.z), Boss3.transform.rotation);
-                Boss3.GetComponent<Soul>().reward = (int)Random.Range(350, 550);
+                Boss3.GetComponent<Soul>().reward = (int)Random.Range(700, 900);
             }
             else if (currentLevel[i] == "boss4")
             {
                 Instantiate(Boss4, new Vector3(spawnPosition.x, Boss4.transform.position.y, spawnPosition.z), Boss4.transform.rotation);
-                Boss4.GetComponent<Soul>().reward = (int)Random.Range(450, 650);
+                Boss4.GetComponent<Soul>().reward = (int)Random.Range(1000, 1200);
             }
             else if(currentLevel[i] == "sat")
             {
@@ -321,9 +364,9 @@ public class GameController : MonoBehaviour
             }
 
             //Music
-            else if(currentLevel[i] == "mus_attack1")
+            else if(currentLevel[i] == "mus_boss")
             {
-                musicManagerClone.GetComponent<MusicManager>().playMusic("attack1", true);
+                musicManagerClone.GetComponent<MusicManager>().playMusic("boss", true);
             }
             else if(currentLevel[i] == "mus_boss1")
             {
@@ -367,7 +410,7 @@ public class GameController : MonoBehaviour
         currentLevel = allLevels[Settings.current_level];
         randomScale();
         updateScore();
-        playerHealth.SetActive(true);
+        healthBar.gameObject.SetActive(true);
         updateHealth();
         updateShipSettings();
 
@@ -376,7 +419,7 @@ public class GameController : MonoBehaviour
         GameObject playerShip = Instantiate(player, new Vector3(0.0f, 0.0f, -10f), transform.rotation) as GameObject;
         musicManagerClone = Instantiate(musicManager, new Vector3(0.0f, 20f, -3.4f), transform.rotation) as GameObject;
         smokeClone = (GameObject)Instantiate(smoke, smoke.transform.position, smoke.transform.rotation);
-        smokeClone.active = true;
+        smokeClone.SetActive(true);
 
         if (Settings.p_ship_level == 1)
         {
@@ -418,6 +461,7 @@ public class GameController : MonoBehaviour
 
     private void startMission()
     {
+        gamePlaying = true;
         removeListeners();
     }
 
@@ -431,13 +475,132 @@ public class GameController : MonoBehaviour
     {
         if (Settings.p_health > Settings.p_health_max) Settings.p_health = Settings.p_health_max;
         if (Settings.p_health < 0) Settings.p_health = 0;
-        healthBar.fillAmount = (float)Settings.p_health / (float)Settings.p_health_max;
+        healthBar.transform.FindChild("Health").GetComponent<Image>().fillAmount = (float)Settings.p_health / (float)Settings.p_health_max;
         healthLeft.text = Settings.p_health + " / " + Settings.p_health_max;
+    }
+
+    private void restartGame()
+    {
+        Settings.current_level = 1;
+        Settings.p_gold = 500;
+        Settings.p_score = 0;
+        Settings.p_fire_level = 1;
+        Settings.p_ice_level = 1;
+        Settings.p_poison_level = 1;
+        Settings.p_cooldown_level = 1;
+        Settings.p_bullet_speed_level = 1;
+        Settings.p_previous_gold = 500;
+        Settings.p_previous_score = 0;
+        Settings.p_ship_level = 1;
+        Settings.p_fire_resistance_level = 1;
+        Settings.p_ice_resistance_level = 1;
+        Settings.p_poison_resistance_level = 1;
+        Settings.p_vampiric_regeneration_level = 1;
+        Settings.p_critical_strike_level = 1;
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
+    private void submitScore()
+    {
+        submitButton.enabled = false;
+        string username = userInput.text;
+        string url = "http://games.teroute.com/zabuton/submitScore.php";
+        WWWForm form = new WWWForm();
+        form.AddField("username", username);
+        form.AddField("score", Settings.p_score);
+        WWW www = new WWW(url, form);
+        StartCoroutine(sendScore(www));
+    }
+
+    private void getPlayers()
+    {
+        string url = "http://games.teroute.com/zabuton/getPlayers.php";
+        WWW www = new WWW(url);
+        StartCoroutine(getPlayers(www));
+    }
+
+    private void sendViewInfo()
+    {
+        string url = "http://games.teroute.com/zabuton/setView.php";
+        print(Application.absoluteURL);
+        WWWForm form = new WWWForm();
+        form.AddField("url", Application.absoluteURL);
+        WWW www = new WWW(url, form);
+        StartCoroutine(setView(www));
+    }
+
+    private void showTopPlayers()
+    {
+        topPlayersScreen.SetActive(true);
+        string url = "http://games.teroute.com/zabuton/getPlayers.php";
+        WWW www = new WWW(url);
+        StartCoroutine(getTopPlayers(www));
+    }
+
+    IEnumerator setView(WWW www)
+    {
+        yield return www;
+        if(www.error == null)
+        {
+            print("View sent!");
+        }
+        else
+        {
+            print("Failed to send view " + www.error);
+        }
+    }
+
+    IEnumerator sendScore(WWW www)
+    {
+        yield return www;
+        if(www.error == null)
+        {
+            print("success!");
+            Destroy(userInput.gameObject);
+            Destroy(submitButton.gameObject);
+            Destroy(enterName.gameObject);
+            getPlayers();
+        }
+        else
+        {
+            print("fail: " + www.error);
+            submitButton.enabled = true;
+        }
+    }
+
+    IEnumerator getPlayers(WWW www)
+    {
+        yield return www;
+        if(www.error == null)
+        {
+            topPlayers.text = www.text;
+        }
+        else
+        {
+            topPlayers.text = "Failed to connect to server, try again!";
+            print("Couldn't connect to server " + www.error);
+        }
+    }
+
+    IEnumerator getTopPlayers(WWW www)
+    {
+        yield return www;
+        if (www.error == null)
+        {
+            topPlayersText.text = www.text;
+        }
+        else
+        {
+            topPlayersText.text = "Failed to connect to server, try again!";
+            print("Couldn't connect to server " + www.error);
+        }
     }
 
     private void RemoveUI()
     {
+        Destroy(Controls);
         Destroy(startButton.gameObject);
+        Destroy(topPlayersButton.gameObject);
         Destroy(quitButton.gameObject);
         Destroy(title);
         Destroy(displayShip);
@@ -469,6 +632,10 @@ public class GameController : MonoBehaviour
         Settings.current_level++;
         savePoints();
         updateShipSettings();
+        if(Settings.current_level == 7)
+        {
+            KongregateAPI.GetComponent<KongregateAPI>().bossDefeated();
+        }
     }
 
     IEnumerator clearWarning(float time)
@@ -727,7 +894,7 @@ public class GameController : MonoBehaviour
         }
         else if (Settings.music_volume == 0 && !onlyUpdating)
         {
-            Settings.music_volume = 0.1f;
+            Settings.music_volume = 0.3f;
             muteMusicText.text = "Mute music";
             muteMusicButton.image.color = Color.green;
         }
@@ -739,7 +906,7 @@ public class GameController : MonoBehaviour
         }
         else if(onlyUpdating && Settings.music_volume > 0)
         {
-            Settings.music_volume = 0.1f;
+            Settings.music_volume = 0.3f;
             muteMusicText.text = "Mute music";
         }
 

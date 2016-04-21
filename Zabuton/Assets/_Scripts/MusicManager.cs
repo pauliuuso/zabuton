@@ -9,28 +9,28 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
- 
-        if (Settings.current_level == 1) playMusic("level1", true);
+        if (Settings.current_level < 8) playMusic("main", true);
+        else playMusic("main2", true);
     }
 
-    public void playMusic(string title = "level1", bool looping = true)
+    public void playMusic(string title = "main", bool looping = true)
     {
         gameObject.SetActive(true);
         audio = GetComponent<AudioSource>();
-        if(title == "level1")
+        if(title == "main")
         {
             audio.clip = melodies[0];
             audio.volume = Settings.music_volume;
         }
-        else if(title == "attack1")
+        else if(title == "main2")
         {
             audio.clip = melodies[1];
             audio.volume = Settings.music_volume;
         }
-        else if (title == "boss1")
+        else if (title == "boss")
         {
             audio.clip = melodies[2];
-            if (Settings.music_volume > 0) audio.volume = 0.3f;
+            audio.volume = Settings.music_volume;
         }
         else if (title == "boss2")
         {

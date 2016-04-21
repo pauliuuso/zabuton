@@ -40,7 +40,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 935e4cdefb6d7924bafbbbe4f09b5528, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .150000006
+  m_Volume: .400000006
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -111,10 +111,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   melodies:
-  - {fileID: 8300000, guid: 935e4cdefb6d7924bafbbbe4f09b5528, type: 3}
-  - {fileID: 8300000, guid: 6b867b538ceb0d84699fe97cdc32c1c3, type: 3}
-  - {fileID: 8300000, guid: a7ea9680cae085b42b830a84619d29ba, type: 3}
-  - {fileID: 8300000, guid: 5d517d2d651c463439c307fe4a865277, type: 3}
+  - {fileID: 8300000, guid: b34b368fab68ddf478235a2676db19af, type: 3}
+  - {fileID: 8300000, guid: 59703a36d8a741a4c97d1095175ffd93, type: 3}
+  - {fileID: 8300000, guid: 31a3651382c651e4886521ed5b4ed73f, type: 3}
+  - {fileID: 0}
   audio: {fileID: 8264576}
 --- !u!1001 &100100000
 Prefab:
@@ -134,19 +134,23 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: melodies.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 6b867b538ceb0d84699fe97cdc32c1c3, type: 3}
+      objectReference: {fileID: 8300000, guid: 59703a36d8a741a4c97d1095175ffd93, type: 3}
     - target: {fileID: 0}
       propertyPath: m_Volume
-      value: .150000006
+      value: .400000006
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: melodies.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: a7ea9680cae085b42b830a84619d29ba, type: 3}
+      objectReference: {fileID: 8300000, guid: 31a3651382c651e4886521ed5b4ed73f, type: 3}
     - target: {fileID: 0}
       propertyPath: melodies.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: 5d517d2d651c463439c307fe4a865277, type: 3}
+    - target: {fileID: 0}
+      propertyPath: melodies.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: b34b368fab68ddf478235a2676db19af, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132528}

@@ -187,13 +187,13 @@ public class Soul : MonoBehaviour
 
     void OnDestroy()
     {
+        if (boss && (bool)gameObject)
+        {
+            gameController.GetComponent<GameController>().bossDestroyed();
+        }
         if (addBoom && (bool)gameObject)
         {
             Instantiate(explosion, gameObject.transform.position, explosion.transform.rotation);
-        }
-        if (boss && (bool)gameObject && addBoom)
-        {
-            gameController.GetComponent<GameController>().bossDestroyed();
         }
     }
 
